@@ -1,15 +1,15 @@
 import { useState } from "react";
 import { Plus, Minus, Clock } from "lucide-react";
 import "./faculty-panels.css";
-const colors = ["#398982", "#d9698c", "#496d99", "#b28552", "#7167a4"];
+const colors = ["#ffffff", "#ffffff", "#ffffff", "#ffffff", "#ffffff"];
 
 function FacultyRow({ members, offset }) {
-  const [active, setActive] = useState(0);
+  const [active, setActive] = useState(null);
   return (
     <div
       className="faculty-panel-row"
       onPointerLeave={(event) => {
-        if (event.pointerType === "mouse") setActive(0);
+        if (event.pointerType === "mouse") setActive(null);
       }}
     >
       {members.map((member, index) => {
@@ -84,13 +84,7 @@ export default function FacultyPanels({ members }) {
         Meet your mentors <span aria-hidden="true">/</span> Select + to explore
         each profile
       </p>
-      {[0, 5].map((offset) => (
-        <FacultyRow
-          key={offset}
-          offset={offset}
-          members={members.slice(offset, offset + 5)}
-        />
-      ))}
+      <FacultyRow offset={0} members={members} />
     </div>
   );
 }

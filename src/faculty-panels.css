@@ -20,33 +20,28 @@
 .faculty-panel-row {
     display: flex;
     align-items: start;
-    gap: 16px;
+    gap: 10px;
     padding: 8px 2px 22px;
-    min-height: 505px
-}
-
-.faculty-panel-row+.faculty-panel-row {
-    padding-top: 30px;
-    border-top: 1px solid #dedbd4
+    min-height: 260px
 }
 
 .faculty-panel {
-    flex: 1 1 0;
+    flex: 0 1 108px;
     min-width: 0;
-    will-change: flex-grow;
-    transition: flex-grow .5s ease
+    will-change: flex-basis;
+    transition: flex-basis .5s ease
 }
 
 .faculty-panel.is-expanded {
-    flex-grow: 1.7
+    flex-basis: 170px
 }
 
 .faculty-panel-art {
     position: relative;
     isolation: isolate;
-    height: 310px;
+    height: 220px;
     overflow: hidden;
-    border-radius: 100px 100px 24px 24px;
+    border-radius: 24px;
     background: var(--faculty-color);
     border: 1px solid #ffffffc0;
     box-shadow: 0 0 0 3px #f4f0e9, 0 0 0 4px #c6c1b8;
@@ -58,8 +53,8 @@
 }
 
 .faculty-panel.is-expanded .faculty-panel-art {
-    height: 350px;
-    border-radius: 120px 120px 24px 24px;
+    height: 220px;
+    border-radius: 0;
     box-shadow: 0 0 0 3px #f4f0e9, 0 0 0 4px var(--faculty-color), 0 15px 28px #17233514
 }
 
@@ -192,19 +187,21 @@
     }
 
     .faculty-panel {
-        flex: 0 0 170px
+        flex: 0 0 110px;
+        max-width: none
     }
 
     .faculty-panel.is-expanded {
-        flex: 0 0 240px
+        flex: 0 0 170px;
+        max-width: none
     }
 
     .faculty-panel-art {
-        height: 290px
+        height: 220px
     }
 
     .faculty-panel.is-expanded .faculty-panel-art {
-        height: 330px
+        height: 220px
     }
 }
 
@@ -225,23 +222,23 @@
     }
 
     .faculty-panel-row {
-        min-height: 455px
+        min-height: 280px
     }
 
     .faculty-panel {
-        flex-basis: 165px
+        flex-basis: 100px
     }
 
     .faculty-panel.is-expanded {
-        flex-basis: 220px
+        flex-basis: 155px
     }
 
     .faculty-panel-art {
-        height: 260px
+        height: 220px
     }
 
     .faculty-panel.is-expanded .faculty-panel-art {
-        height: 300px
+        height: 220px
     }
 
     .faculty-panel-caption h4 {
