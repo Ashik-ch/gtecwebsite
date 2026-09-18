@@ -1,0 +1,264 @@
+.faculty-showcase {
+    padding: 30px;
+    border: 1px solid #e6e1d9;
+    border-radius: 22px;
+    background: #f4f0e9
+}
+
+.faculty-showcase-hint {
+    font-size: 11px;
+    letter-spacing: .3px;
+    color: #64645f;
+    margin-bottom: 28px
+}
+
+.faculty-showcase-hint span {
+    margin: 0 12px;
+    color: #a6a093
+}
+
+.faculty-panel-row {
+    display: flex;
+    align-items: start;
+    gap: 16px;
+    padding: 8px 2px 22px;
+    min-height: 505px
+}
+
+.faculty-panel-row+.faculty-panel-row {
+    padding-top: 30px;
+    border-top: 1px solid #dedbd4
+}
+
+.faculty-panel {
+    flex: 1 1 0;
+    min-width: 0;
+    will-change: flex-grow;
+    transition: flex-grow .5s ease
+}
+
+.faculty-panel.is-expanded {
+    flex-grow: 1.7
+}
+
+.faculty-panel-art {
+    position: relative;
+    isolation: isolate;
+    height: 310px;
+    overflow: hidden;
+    border-radius: 100px 100px 24px 24px;
+    background: var(--faculty-color);
+    border: 1px solid #ffffffc0;
+    box-shadow: 0 0 0 3px #f4f0e9, 0 0 0 4px #c6c1b8;
+    transition: height .5s ease, border-radius .5s ease, box-shadow .5s ease
+}
+
+.faculty-panel:nth-child(even) .faculty-panel-art {
+    margin-top: 24px
+}
+
+.faculty-panel.is-expanded .faculty-panel-art {
+    height: 350px;
+    border-radius: 120px 120px 24px 24px;
+    box-shadow: 0 0 0 3px #f4f0e9, 0 0 0 4px var(--faculty-color), 0 15px 28px #17233514
+}
+
+.faculty-panel-art img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 25%;
+    mix-blend-mode: multiply;
+    filter: grayscale(1);
+    opacity: .88;
+    transition: transform .5s ease, filter .5s ease
+}
+
+.faculty-panel.is-expanded img {
+    transform: scale(1.04);
+    filter: grayscale(.3)
+}
+
+.faculty-panel-number {
+    position: absolute;
+    top: 18px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+    color: #fff;
+    font-size: 11px;
+    letter-spacing: 2px
+}
+
+.faculty-panel-art::after {
+    content: "";
+    position: absolute;
+    inset: 45% 0 0;
+    background: linear-gradient(transparent, #1320389c);
+    pointer-events: none
+}
+
+.faculty-panel-photo-note {
+    position: absolute;
+    bottom: 57px;
+    left: 12px;
+    right: 12px;
+    text-align: center;
+    z-index: 2;
+    font-size: 9px;
+    letter-spacing: .2px;
+    color: white
+}
+
+.faculty-panel-toggle {
+    position: absolute;
+    bottom: 13px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 3;
+    display: grid;
+    place-items: center;
+    width: 34px;
+    height: 34px;
+    border: 1px solid #ffffff70;
+    border-radius: 50%;
+    background: #fffffff0;
+    color: #172335;
+    transition: background .2s
+}
+
+.faculty-panel-toggle:hover {
+    background: #fff
+}
+
+.faculty-panel-toggle:focus-visible {
+    outline: 3px solid white;
+    outline-offset: 4px
+}
+
+.faculty-panel-caption {
+    padding: 20px 3px 0
+}
+
+.faculty-panel-role {
+    display: block;
+    font-size: 9px;
+    line-height: 1.5;
+    letter-spacing: .7px;
+    text-transform: uppercase;
+    color: #5e635f;
+    margin-bottom: 6px
+}
+
+.faculty-panel-caption h4 {
+    font-family: 'Manrope', sans-serif;
+    font-size: 17px;
+    line-height: 1.4;
+    letter-spacing: -.5px;
+    overflow-wrap: anywhere;
+    color: var(--ink)
+}
+
+.faculty-panel-details {
+    padding-top: 12px
+}
+
+.faculty-panel-details p {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 10px;
+    line-height: 1.5;
+    color: #46556b
+}
+
+.faculty-panel-details small {
+    display: block;
+    font-size: 9px;
+    color: #656b75;
+    margin-top: 6px
+}
+
+@media(max-width:1000px) {
+    .faculty-showcase {
+        padding: 24px 18px
+    }
+
+    .faculty-panel-row {
+        overflow-x: auto;
+        scrollbar-width: thin;
+        scrollbar-color: #bdb7ae transparent;
+        gap: 18px
+    }
+
+    .faculty-panel {
+        flex: 0 0 170px
+    }
+
+    .faculty-panel.is-expanded {
+        flex: 0 0 240px
+    }
+
+    .faculty-panel-art {
+        height: 290px
+    }
+
+    .faculty-panel.is-expanded .faculty-panel-art {
+        height: 330px
+    }
+}
+
+@media(max-width:600px) {
+    .faculty-showcase {
+        padding: 22px 14px;
+        border-radius: 16px
+    }
+
+    .faculty-showcase-hint {
+        font-size: 10px;
+        line-height: 1.7;
+        max-width: 240px
+    }
+
+    .faculty-showcase-hint span {
+        margin: 0 6px
+    }
+
+    .faculty-panel-row {
+        min-height: 455px
+    }
+
+    .faculty-panel {
+        flex-basis: 165px
+    }
+
+    .faculty-panel.is-expanded {
+        flex-basis: 220px
+    }
+
+    .faculty-panel-art {
+        height: 260px
+    }
+
+    .faculty-panel.is-expanded .faculty-panel-art {
+        height: 300px
+    }
+
+    .faculty-panel-caption h4 {
+        font-size: 16px
+    }
+}
+
+@media(prefers-reduced-motion:reduce) {
+
+    .faculty-panel,
+    .faculty-panel-art,
+    .faculty-panel-art img,
+    .faculty-panel-toggle {
+        transition: none
+    }
+
+    .faculty-panel.is-expanded img {
+        transform: none
+    }
+}

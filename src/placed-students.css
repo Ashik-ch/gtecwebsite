@@ -1,0 +1,24 @@
+.placed-students-section{overflow:hidden;background:linear-gradient(135deg,#f2f6ff,#f9fbff 55%,#eef4ff);border-block:1px solid #e7edf8}
+.placed-students-heading{display:flex;justify-content:space-between;align-items:end;gap:30px;margin-bottom:30px}
+.placed-students-heading p{max-width:520px;margin-top:16px;font-size:13px}
+.placed-scroll-control{flex-shrink:0;gap:10px;background:white}
+.placed-students-viewport{overflow-x:auto;scrollbar-width:thin;scrollbar-color:#c4d4f3 transparent;padding:8px 0 24px;outline-offset:-3px}
+.placed-students-track{display:flex;width:max-content;animation:placed-students-marquee 44s linear infinite;will-change:transform}
+.placed-students-list{display:flex;flex-shrink:0;gap:18px;padding:0 18px 0 0;margin:0;list-style:none}
+.placed-student-card{width:310px;flex-shrink:0;overflow:hidden;padding:21px;border:1px solid #dfe7f5;border-radius:16px;background:#fff;box-shadow:0 5px 16px #17233506;transition:border-color .3s,box-shadow .3s}
+.placed-student-profile{display:flex;align-items:center;gap:16px;min-height:88px}
+.placed-student-photo{width:80px;height:88px;flex-shrink:0;overflow:hidden;border-radius:12px;background:#edf3ff;border:1px solid #e1e8f5}
+.placed-student-photo img{width:100%;height:100%;object-fit:cover;object-position:center 25%;transition:transform .6s cubic-bezier(.2,.7,.2,1)}
+.placed-student-info{min-width:0}
+.placed-card-label{display:block;font-size:8px;font-weight:700;letter-spacing:1.25px;color:var(--blue);margin-bottom:7px}
+.placed-student-info h3{font-size:16px;line-height:1.45;color:var(--ink);letter-spacing:-.35px;overflow-wrap:anywhere}
+.placed-photo-note{display:inline-block;margin-top:7px;color:#657188;font-size:10px;line-height:1.4}
+.placed-student-course{display:flex;align-items:center;gap:11px;padding-top:16px;margin-top:18px;border-top:1px solid #e9edf5}
+.placed-course-icon{display:grid;place-items:center;flex-shrink:0;width:35px;height:35px;border-radius:9px;background:#eef4ff;color:var(--blue)}
+.placed-course-label{display:block;font-size:8px;line-height:1.4;font-weight:600;letter-spacing:1.2px;color:#657188;margin-bottom:3px}
+.placed-student-course p{font-size:12px;font-weight:500;line-height:1.5;color:#354560;overflow-wrap:anywhere}
+.placed-students-viewport:hover .placed-students-track,.placed-students-viewport:focus-within .placed-students-track,.placed-students-viewport[data-paused="true"] .placed-students-track{animation-play-state:paused}
+@keyframes placed-students-marquee{to{transform:translateX(-50%)}}
+@media(hover:hover) and (prefers-reduced-motion:no-preference){.placed-student-card:hover{border-color:#aac2f2;box-shadow:0 9px 24px #1748db10}.placed-student-card:hover img{transform:scale(1.05)}}
+@media(max-width:700px){.placed-students-heading{align-items:start;flex-direction:column;gap:20px}.placed-student-card{width:280px;padding:18px}.placed-students-list{gap:14px;padding-right:14px}.placed-student-profile{gap:13px;min-height:78px}.placed-student-photo{width:70px;height:78px}.placed-student-info h3{font-size:15px}.placed-students-heading p{font-size:12px}.placed-scroll-control{font-size:12px}}
+@media(prefers-reduced-motion:reduce){.placed-students-track{animation:none;transform:none;will-change:auto}.placed-students-copy,.placed-scroll-control{display:none}.placed-student-photo img,.placed-student-card{transition:none}.placed-students-viewport{padding-inline:24px}}

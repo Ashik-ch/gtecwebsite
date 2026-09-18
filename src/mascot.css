@@ -1,0 +1,593 @@
+.gio {
+    display: block;
+    object-fit: contain;
+    aspect-ratio: 1;
+    width: 100%;
+    height: auto;
+    flex-shrink: 0;
+    user-select: none
+}
+
+.gio-welcome {
+    position: relative;
+    width: 94%;
+    z-index: 2
+}
+
+.gio-greet {
+    display: block;
+    background: none;
+    border: 0;
+    padding: 0;
+    width: 100%;
+    border-radius: 45%;
+    transition: transform .3s
+}
+
+.gio-greet:hover {
+    transform: translateY(-6px) rotate(-2deg)
+}
+
+.gio-greet:active {
+    transform: scale(.98)
+}
+
+.gio-greet .gio {
+    filter: drop-shadow(0 24px 22px #1748db16);
+    animation: gio-arrive .8s ease-out both
+}
+
+.gio-greeting {
+    position: absolute;
+    left: 0;
+    bottom: 8%;
+    padding: 18px 20px;
+    background: white;
+    border: 1px solid #d2dffc;
+    box-shadow: 0 10px 35px #17356214;
+    border-radius: 12px;
+    max-width: 265px;
+    animation: gio-arrive .25s ease-out both
+}
+
+.gio-greeting strong {
+    font-size: 13px;
+    display: block
+}
+
+.gio-greeting span {
+    display: block;
+    font-size: 11px;
+    color: #58677e;
+    line-height: 1.6;
+    margin-top: 7px
+}
+
+.gio-greeting a {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 11px;
+    color: var(--blue);
+    font-weight: 600;
+    margin-top: 11px
+}
+
+.hero-art .image-label {
+    color: #405579;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+    font-size: 8px
+}
+
+.hero-art .image-label>span {
+    background: var(--blue)
+}
+
+.hero-art:has(.gio-welcome) .badge-skills {
+    top: 64%;
+    left: -5%;
+    pointer-events: none
+}
+
+.hero-art:has(.gio-welcome) .badge-career {
+    bottom: 12%;
+    right: -3%;
+    pointer-events: none
+}
+
+.gio-finder {
+    margin-top: 28px;
+    border: 1px solid #dce5f7;
+    border-radius: 12px;
+    background: #f0f4ff;
+    scroll-margin-top: 110px
+}
+
+.gio-finder-intro {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 18px 24px
+}
+
+.gio-finder-intro>.gio {
+    width: 96px;
+    height: 96px
+}
+
+.gio-finder .eyebrow {
+    font-size: 8px;
+    margin-bottom: 6px
+}
+
+.gio-finder h3 {
+    font-size: 20px
+}
+
+.gio-finder p {
+    font-size: 12px;
+    margin-top: 6px
+}
+
+.gio-finder-intro>.button {
+    margin-left: auto;
+    flex-shrink: 0;
+    white-space: nowrap;
+    background: white;
+    font-size: 11px
+}
+
+.gio-directions {
+    padding: 0 26px 26px
+}
+
+.gio-question {
+    font-weight: 600;
+    color: var(--ink) !important;
+    margin: 0 0 15px !important
+}
+
+.gio-choice-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px
+}
+
+.gio-choice-grid button {
+    background: white;
+    border: 1px solid #bdcce6;
+    border-radius: 8px;
+    padding: 17px 13px;
+    text-align: left;
+    transition: background .2s, border-color .2s
+}
+
+.gio-choice-grid button:hover,
+.gio-choice-grid button[aria-pressed=true] {
+    background: #e2ebff;
+    border-color: var(--blue)
+}
+
+.gio-choice-grid strong {
+    display: block;
+    font-size: 12px
+}
+
+.gio-choice-grid span {
+    display: block;
+    font-size: 10px;
+    color: #536585;
+    margin-top: 7px;
+    line-height: 1.6
+}
+
+.gio-recommendation {
+    padding-top: 21px
+}
+
+.gio-recommendation>strong {
+    font-size: 15px
+}
+
+.gio-recommendation>div {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: 15px
+}
+
+.gio-recommendation .button {
+    font-size: 11px;
+    padding: 12px 15px;
+    min-height: 42px
+}
+
+.empty-state>.gio {
+    width: 150px;
+    height: 150px;
+    margin: 0 auto 15px
+}
+
+.not-found {
+    position: relative;
+    padding-right: 38%
+}
+
+.not-found>.gio {
+    position: absolute;
+    width: 30%;
+    right: 0;
+    top: 45px;
+    max-width: 340px
+}
+
+.cta-section .cta-art {
+    border: 0;
+    width: 150px;
+    min-width: 150px;
+    height: 160px;
+    transform: none;
+    display: grid;
+    place-items: center
+}
+
+.cta-art>.gio {
+    width: 190px;
+    max-width: none;
+    transition: transform .3s
+}
+
+.cta-section:hover .cta-art>.gio {
+    transform: translateY(-5px)
+}
+
+.chat-launcher .gio {
+    width: 48px;
+    height: 48px;
+    margin: -14px -1px -10px -10px;
+    background: #edf3ff;
+    border-radius: 50%
+}
+
+.chat-head .gio {
+    width: 49px;
+    height: 49px;
+    margin: -6px
+}
+
+.chat-head>div {
+    min-width: 0
+}
+
+.chat-head strong {
+    font-size: 12px
+}
+
+.page-gio {
+    position: absolute;
+    right: max(4%, calc((100vw - 1220px)/2));
+    bottom: 15px;
+    width: 200px;
+    pointer-events: none
+}
+
+.page-hero:has(.page-gio) h1 {
+    max-width: calc(100% - 210px)
+}
+
+.course-sidebar .sidebar-gio {
+    float: right;
+    width: 77px;
+    height: 85px;
+    margin: -4px -9px 8px 8px
+}
+
+.course-sidebar>h3 {
+    clear: both
+}
+
+.gio-form-intro {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 5px 0 17px
+}
+
+.gio-form-intro>.gio {
+    width: 76px;
+    height: 76px
+}
+
+.gio-form-intro p {
+    font-size: 12px;
+    line-height: 1.8
+}
+
+.gio-form-intro strong {
+    color: var(--ink)
+}
+
+.career-top .gio {
+    width: 66px;
+    height: 66px;
+    margin: -20px -12px -12px 0
+}
+
+.gio-success {
+    width: 70px;
+    height: 70px
+}
+
+.form-status:has(.gio-success) {
+    align-items: center
+}
+
+@keyframes gio-arrive {
+    from {
+        opacity: 0;
+        transform: translateY(12px)
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0)
+    }
+}
+
+@media(max-width:1100px) {
+    .gio-welcome {
+        width: 100%
+    }
+
+    .gio-finder-intro {
+        gap: 13px;
+        padding: 17px
+    }
+
+    .gio-finder h3 {
+        font-size: 18px
+    }
+
+    .cta-section .cta-art {
+        min-width: 105px;
+        width: 105px
+    }
+
+    .cta-art>.gio {
+        width: 150px
+    }
+
+    .page-gio {
+        width: 160px
+    }
+
+    .page-hero:has(.page-gio) h1 {
+        max-width: calc(100% - 165px)
+    }
+}
+
+@media(max-width:850px) {
+    .hero-art:has(.gio-welcome) .badge-skills {
+        left: -2%;
+        top: 64%
+    }
+
+    .hero-art:has(.gio-welcome) .badge-career {
+        right: -3%;
+        bottom: 10%
+    }
+
+    .gio-finder-intro {
+        flex-wrap: wrap
+    }
+
+    .gio-finder-intro>.gio {
+        width: 80px;
+        height: 80px
+    }
+
+    .gio-finder-intro>div {
+        flex: 1;
+        min-width: 190px
+    }
+
+    .gio-finder-intro>.button {
+        margin-left: 93px
+    }
+
+    .gio-choice-grid {
+        grid-template-columns: repeat(2, 1fr)
+    }
+
+    .page-gio {
+        width: 115px;
+        right: 23px;
+        bottom: 22px
+    }
+
+    .page-hero:has(.page-gio) h1 {
+        max-width: calc(100% - 115px)
+    }
+
+    .page-hero:has(.page-gio) p {
+        max-width: calc(100% - 110px)
+    }
+
+    .cta-section .cta-art {
+        min-width: 75px;
+        width: 75px
+    }
+
+    .cta-art>.gio {
+        width: 115px
+    }
+
+    .not-found {
+        padding-right: 30%
+    }
+
+    .not-found>h1 {
+        font-size: 42px
+    }
+}
+
+@media(max-width:600px) {
+    .hero-art:has(.gio-welcome) {
+        height: 390px
+    }
+
+    .gio-welcome {
+        width: 105%;
+        max-width: 390px
+    }
+
+    .hero-art:has(.gio-welcome) .badge-skills {
+        top: 64%;
+        left: -3%
+    }
+
+    .hero-art:has(.gio-welcome) .badge-career {
+        bottom: 8%;
+        right: -4%
+    }
+
+    .hero-art .image-label {
+        font-size: 6px;
+        bottom: -3px
+    }
+
+    .gio-greeting {
+        left: 0;
+        bottom: 18%;
+        padding: 15px;
+        max-width: 225px
+    }
+
+    .gio-finder-intro {
+        gap: 12px;
+        padding: 18px 14px
+    }
+
+    .gio-finder-intro>.gio {
+        width: 68px;
+        height: 78px
+    }
+
+    .gio-finder-intro>div {
+        min-width: 160px
+    }
+
+    .gio-finder h3 {
+        font-size: 17px;
+        line-height: 1.45
+    }
+
+    .gio-finder p {
+        font-size: 11px
+    }
+
+    .gio-finder-intro>.button {
+        margin-left: 80px;
+        min-height: 42px;
+        font-size: 10px
+    }
+
+    .gio-directions {
+        padding: 0 16px 20px
+    }
+
+    .gio-choice-grid {
+        gap: 8px
+    }
+
+    .gio-choice-grid button {
+        padding: 13px 10px
+    }
+
+    .gio-choice-grid strong {
+        font-size: 11px
+    }
+
+    .gio-choice-grid span {
+        font-size: 9px
+    }
+
+    .cta-section .cta-art {
+        position: absolute;
+        right: 5px;
+        bottom: 8px;
+        width: 103px;
+        min-width: 0;
+        height: 130px;
+        pointer-events: none
+    }
+
+    .cta-art>.gio {
+        width: 125px
+    }
+
+    .cta-section>.button {
+        max-width: calc(100% - 70px);
+        padding-inline: 13px
+    }
+
+    .cta-section h2 {
+        font-size: 29px
+    }
+
+    .cta-section p {
+        max-width: 230px
+    }
+
+    .page-gio {
+        width: 63px;
+        top: 8px;
+        bottom: auto;
+        right: 18px
+    }
+
+    .page-hero:has(.page-gio) h1,
+    .page-hero:has(.page-gio) p {
+        max-width: 100%
+    }
+
+    .page-hero .breadcrumbs {
+        padding-right: 55px
+    }
+
+    .chat-launcher .gio {
+        width: 43px;
+        height: 43px
+    }
+
+    .not-found {
+        padding-right: 0;
+        padding-top: 25px
+    }
+
+    .not-found>.gio {
+        position: static;
+        width: 150px;
+        height: 150px;
+        margin-bottom: 12px
+    }
+
+    .not-found>h1 {
+        font-size: 40px
+    }
+}
+
+@media(prefers-reduced-motion:reduce) {
+
+    .gio,
+    .gio-greet,
+    .cta-art>.gio,
+    .gio-greeting {
+        animation: none !important;
+        transition: none !important;
+        transform: none !important
+    }
+}

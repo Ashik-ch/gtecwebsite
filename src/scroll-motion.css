@@ -1,0 +1,74 @@
+/* Content is visible by default, including the prerendered/no-JS experience. */
+.reveal.visible {
+  animation: none;
+}
+
+.scroll-progress {
+  position: fixed;
+  inset: 0 0 auto;
+  height: 3px;
+  z-index: 55;
+  pointer-events: none;
+}
+
+.scroll-progress>span {
+  display: block;
+  height: 100%;
+  background: linear-gradient(90deg, #1748db, #57e9f5);
+  transform: scaleX(0);
+  transform-origin: left;
+}
+
+.site-header {
+  transition: box-shadow .35s ease, background-color .35s ease;
+}
+
+.site-header.scrolled {
+  box-shadow: 0 5px 24px #17356212;
+  background-color: #fffffff7;
+}
+
+.scroll-art {
+  translate: 0 var(--scroll-drift, 0px);
+}
+
+.gio-welcome.scroll-art,
+.page-gio.scroll-art,
+.cta-art.scroll-art {
+  rotate: var(--scroll-turn, 0deg);
+}
+
+.gallery-photo img.scroll-art,
+.about-image>img.scroll-art {
+  scale: 1.09;
+}
+
+.gallery-photo,
+.about-image {
+  overflow: clip;
+}
+
+/* Preserve the about stamp and caption outside the photo frame. */
+.about-image {
+  overflow: visible;
+}
+
+.about-image>img.scroll-art {
+  clip-path: inset(4.2% round 12px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scroll-progress {
+    display: none;
+  }
+
+  .scroll-art {
+    translate: none !important;
+    rotate: none !important;
+    scale: none !important;
+  }
+
+  .site-header {
+    transition: none;
+  }
+}
