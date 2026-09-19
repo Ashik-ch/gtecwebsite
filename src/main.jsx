@@ -91,17 +91,7 @@ function Enquire({
 function Logo() {
   return (
     <Link to="/" className="logo" aria-label="G-TEC Mahe home">
-      <span className="logo-mark">
-        <GraduationCap size={29} />
-      </span>
-      <span>
-        <strong>
-          G-TEC<span className="logo-dot">.</span>
-        </strong>
-        <small>
-          EDUCATION <span>MAHE</span>
-        </small>
-      </span>
+      <img src="/images/gTec.PNG" alt="G-TEC Education Mahe" />
     </Link>
   );
 }
@@ -437,7 +427,7 @@ function AboutSection() {
         </span>
       </div>
       <div className="about-copy reveal">
-        <span className="eyebrow">WELCOME TO G-TEC MAHE</span>
+        <span className="eyebrow eyebrow-highlight">WELCOME TO G-TEC MAHE</span>
         <h2>
           Where potential
           <br />
@@ -911,24 +901,76 @@ function Footer() {
             One skill. One opportunity. One you.
           </p>
           <div className="footer-socials" aria-label="Social media">
-            <span className="social-link social-placeholder" role="img" aria-label="Instagram — coming soon" title="Instagram — coming soon">
-              <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+            <span
+              className="social-link social-placeholder"
+              role="img"
+              aria-label="Instagram — coming soon"
+              title="Instagram — coming soon"
+            >
+              <svg
+                width="19"
+                height="19"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.8"
+                aria-hidden="true"
+              >
+                <rect x="3" y="3" width="18" height="18" rx="5" />
+                <circle cx="12" cy="12" r="4" />
+                <circle
+                  cx="17.5"
+                  cy="6.5"
+                  r="1"
+                  fill="currentColor"
+                  stroke="none"
+                />
+              </svg>
             </span>
-            <span className="social-link social-placeholder" role="img" aria-label="Facebook — coming soon" title="Facebook — coming soon">
-              <svg width="19" height="19" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M14 22v-9h3l.5-4H14V7c0-1.1.3-2 2-2h2V1.5A25 25 0 0 0 15 1c-3 0-5 1.8-5 5v3H7v4h3v9z"/></svg>
+            <span
+              className="social-link social-placeholder"
+              role="img"
+              aria-label="Facebook — coming soon"
+              title="Facebook — coming soon"
+            >
+              <svg
+                width="19"
+                height="19"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                aria-hidden="true"
+              >
+                <path d="M14 22v-9h3l.5-4H14V7c0-1.1.3-2 2-2h2V1.5A25 25 0 0 0 15 1c-3 0-5 1.8-5 5v3H7v4h3v9z" />
+              </svg>
             </span>
-            <span className="social-link social-placeholder" role="img" aria-label="YouTube — coming soon" title="YouTube — coming soon">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true"><rect x="2" y="5" width="20" height="14" rx="4"/><path d="m10 9 5 3-5 3z" fill="currentColor" stroke="none"/></svg>
+            <span
+              className="social-link social-placeholder"
+              role="img"
+              aria-label="YouTube — coming soon"
+              title="YouTube — coming soon"
+            >
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.8"
+                aria-hidden="true"
+              >
+                <rect x="2" y="5" width="20" height="14" rx="4" />
+                <path d="m10 9 5 3-5 3z" fill="currentColor" stroke="none" />
+              </svg>
             </span>
-          <a
-            className="social-link"
-            href={site.linkedin}
-            target="_blank"
-            rel="noreferrer"
-            aria-label="G-TEC Mahe on LinkedIn"
-          >
-            <Linkedin size={18} />
-          </a>
+            <a
+              className="social-link"
+              href={site.linkedin}
+              target="_blank"
+              rel="noreferrer"
+              aria-label="G-TEC Mahe on LinkedIn"
+            >
+              <Linkedin size={18} />
+            </a>
           </div>
         </div>
         <div>
@@ -1353,7 +1395,7 @@ function PageHero({ eyebrow, title, text, items }) {
     <section className="page-hero">
       <div className="container">
         <Breadcrumbs items={items} />
-        <span className="eyebrow">{eyebrow}</span>
+        <span className="eyebrow eyebrow-highlight">{eyebrow}</span>
         <h1>{title}</h1>
         <p>{text}</p>
       </div>
@@ -1528,7 +1570,7 @@ function CourseDetail() {
           <Breadcrumbs items={[["Courses", "/courses"], [course.name]]} />
           <div className="course-detail-top">
             <div>
-              <span className="eyebrow">{course.tag}</span>
+              <span className="eyebrow eyebrow-highlight">{course.tag}</span>
               <h1>
                 {course.name}
                 <span className="blue">.</span>
@@ -1720,7 +1762,7 @@ function RouteEffects() {
       ["og:description", description, "property"],
       ["og:type", "website", "property"],
       ["og:url", site.url + pathname, "property"],
-      ["og:image", site.url + "/social-card.png", "property"],
+      ["og:image", site.url + "/images/gTec.PNG", "property"],
       ["twitter:card", "summary", "name"],
       ["twitter:title", document.title, "name"],
       ["twitter:description", description, "name"],
