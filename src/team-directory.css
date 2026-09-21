@@ -223,44 +223,6 @@
     letter-spacing: .5px
 }
 
-.faculty-grid {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 22px
-}
-
-.faculty-grid .team-profile {
-    aspect-ratio: 3/4.3;
-    border-radius: 14px
-}
-
-.faculty-grid .team-profile-content {
-    padding: 20px
-}
-
-.faculty-grid h4 {
-    font-size: 18px;
-    letter-spacing: -.4px
-}
-
-.faculty-grid .team-designation {
-    font-size: 11px;
-    letter-spacing: 0
-}
-
-.faculty-grid .team-card-index {
-    top: 15px;
-    right: 15px;
-    width: 28px;
-    height: 28px;
-    font-size: 10px
-}
-
-.faculty-grid .team-photo-note {
-    top: 15px;
-    left: 12px;
-    font-size: 9px;
-    padding: 6px 8px
-}
 
 .team-people-grid {
     display: grid;
@@ -515,12 +477,6 @@
     }
 }
 
-.team-pending {
-    display: block;
-    color: #d9e7ff;
-    font-size: 10px;
-    margin-bottom: 7px
-}
 
 .team-experience {
     display: flex;
@@ -558,9 +514,6 @@
 }
 
 @media(max-width:1000px) {
-    .faculty-grid {
-        grid-template-columns: repeat(3, minmax(0, 1fr))
-    }
 
     .team-intro {
         gap: 30px
@@ -592,10 +545,6 @@
         gap: 20px
     }
 
-    .faculty-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 14px
-    }
 
     .team-navigation {
         margin-bottom: 35px;
@@ -619,47 +568,20 @@
         font-size: 26px
     }
 
-    .faculty-grid .team-profile {
-        aspect-ratio: 3/5
-    }
 
-    .faculty-grid .team-profile-content {
-        padding: 15px
-    }
 
-    .faculty-grid h4 {
-        font-size: 16px
-    }
 
-    .faculty-grid .team-photo-note {
-        font-size: 8px;
-        top: 12px;
-        left: 10px;
-        padding: 5px 6px
-    }
 
-    .faculty-grid .team-card-index {
-        display: none
-    }
 
     .team-experience {
         font-size: 10px;
         align-items: start
     }
 
-    .faculty-grid .team-profile-content::before {
-        margin-bottom: 12px
-    }
 }
 
 @media(max-width:380px) {
-    .faculty-grid {
-        grid-template-columns: 1fr
-    }
 
-    .faculty-grid .team-profile {
-        aspect-ratio: 3/4
-    }
 
     .team-profile h4 {
         font-size: 23px
@@ -675,19 +597,18 @@
     .team-profile-content::before,
     .team-person-card,
     .team-person-card::after,
-    .team-person-ghost,
-    .team-person-avatar {
+    .team-person-ghost {
         transition: none
     }
 }
 
 /* Team section readability safeguards */
-:where(.team-directory p, .team-directory a, .team-directory small, .team-profile p, .team-profile small, .team-profile-badge, .team-profile-role) {
+:where(.team-directory p, .team-directory a, .team-directory small, .team-profile p, .team-profile small) {
     font-size: max(12px, 1em)
 }
 
 @media(max-width:700px) {
-    :where(.team-directory p, .team-directory a, .team-directory small, .team-profile p, .team-profile small, .team-profile-badge, .team-profile-role) {
+    :where(.team-directory p, .team-directory a, .team-directory small, .team-profile p, .team-profile small) {
         font-size: max(13px, 1em)
     }
 }
@@ -1058,3 +979,61 @@
 .cinematic-team-group .team-person-body .team-designation {
     border-color: color-mix(in srgb, var(--group-accent, #fff) 35%, #ffffff2f)
 }
+
+/* Director title visibility safeguards */
+.directors-row-group .team-profile {
+    min-width: 0
+}
+
+.directors-row-group .team-profile-content {
+    min-width: 0;
+    overflow: visible
+}
+
+.directors-row-group .team-profile h4,
+.directors-row-group .team-designation {
+    max-width: 100%;
+    overflow-wrap: anywhere;
+    white-space: normal
+}
+
+.directors-row-group .team-designation {
+    display: inline-flex;
+    line-height: 1.35
+}
+
+@media(max-width:1180px) and (min-width:901px) {
+    .directors-row-group .team-profile {
+        grid-template-columns: minmax(135px, .38fr) 1fr;
+        min-height: 235px
+    }
+
+    .directors-row-group .team-portrait {
+        min-height: 235px
+    }
+
+    .directors-row-group .team-profile-content {
+        padding: 26px 22px
+    }
+
+    .directors-row-group .team-profile h4 {
+        font-size: clamp(21px, 2vw, 28px);
+        letter-spacing: -.7px
+    }
+
+    .directors-row-group .team-designation {
+        font-size: 12px;
+        padding: 7px 12px
+    }
+}
+
+@media(max-width:520px) {
+    .directors-row-group .team-profile h4 {
+        font-size: clamp(24px, 8vw, 32px)
+    }
+
+    .directors-row-group .team-designation {
+        font-size: 13px
+    }
+}
+

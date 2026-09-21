@@ -5,7 +5,7 @@ import { existsSync } from 'node:fs';
 import path from 'node:path';
 
 const slugs = ['digital-marketing','multimedia','interior-designing','accounting','ms-office','sap','software-courses'];
-const routes = ['/', '/about', '/courses', '/placements', ...slugs.map(s => '/courses/' + s)];
+const routes = ['/', '/about', '/courses', '/placements', '/life', '/contact', ...slugs.map(s => '/courses/' + s)];
 const server = spawn(process.execPath, ['node_modules/vite/bin/vite.js','preview','--host','127.0.0.1','--port','4178','--strictPort'], { stdio: 'pipe' });
 const origin = 'http://127.0.0.1:4178';
 let browser;
@@ -38,3 +38,4 @@ try {
   await writeFile('dist/sitemap.xml',`<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${routes.map(r=>`<url><loc>https://gtecmahe.com${r}</loc></url>`).join('')}</urlset>`);
   await writeFile('dist/robots.txt','User-agent: *\nAllow: /\nSitemap: https://gtecmahe.com/sitemap.xml\n');
 } finally { await browser?.close(); server.kill(); }
+

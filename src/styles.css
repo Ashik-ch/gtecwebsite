@@ -3883,9 +3883,6 @@ footer {
     transform: translateY(-3px)
 }
 
-.footer-socials .social-placeholder {
-    cursor: default
-}
 
 @media(prefers-reduced-motion:reduce) {
     .footer-socials .social-link {

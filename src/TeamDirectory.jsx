@@ -27,7 +27,6 @@ const groups = [
     label: "Student support",
     title: "Front office",
     description: "A friendly first point of contact for your next step.",
-    horizontal: true,
     members: [
       {
         name: "Safa Naval",
@@ -46,7 +45,6 @@ const groups = [
     label: "People & opportunities",
     title: "HR department",
     description: "Meet our human resources and recruitment team.",
-    horizontal: true,
     members: [
       {
         name: "Fathima Zahiya",
@@ -65,7 +63,6 @@ const groups = [
     label: "Digital presence",
     title: "Social media team",
     description: "The creative team behind our online community.",
-    horizontal: true,
     members: [
       {
         name: "Name to be added",
@@ -212,7 +209,6 @@ function HorizontalGroup({ members, wide, accentOffset = 0 }) {
 
 function GroupBody({ group }) {
   if (group.faculty) return <FacultyPanels members={group.members} />;
-  if (group.horizontal) return <HorizontalGroup members={group.members} />;
   return (
     <div className="team-profile-grid">
       {group.members.map((member, index) => (
@@ -222,9 +218,6 @@ function GroupBody({ group }) {
             {String(index + 1).padStart(2, "0")}
           </span>
           <div className="team-profile-content">
-            {member.pending && (
-              <span className="team-pending">Name to be added</span>
-            )}
             <h4>{member.name}</h4>
             <p className="team-designation">{member.designation}</p>
           </div>
@@ -317,3 +310,5 @@ export default function TeamDirectory() {
     </section>
   );
 }
+
+
