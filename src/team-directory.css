@@ -680,3 +680,381 @@
         transition: none
     }
 }
+
+/* Team section readability safeguards */
+:where(.team-directory p, .team-directory a, .team-directory small, .team-profile p, .team-profile small, .team-profile-badge, .team-profile-role) {
+    font-size: max(12px, 1em)
+}
+
+@media(max-width:700px) {
+    :where(.team-directory p, .team-directory a, .team-directory small, .team-profile p, .team-profile small, .team-profile-badge, .team-profile-role) {
+        font-size: max(13px, 1em)
+    }
+}
+
+/* Cinematic team cards for leadership, support and operations */
+.cinematic-team-group .team-people-grid {
+    gap: 28px
+}
+
+.cinematic-team-group .team-person-card,
+.team-group-nested .team-person-card {
+    min-height: 360px;
+    border: 0;
+    border-radius: 30px;
+    background: #0a1630;
+    box-shadow: 0 24px 70px #0b17301f;
+    overflow: hidden;
+    transform-style: preserve-3d
+}
+
+.cinematic-team-group .team-person-card::before,
+.team-group-nested .team-person-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    background: linear-gradient(115deg, transparent 0 35%, #ffffff30 44%, transparent 55% 100%);
+    transform: translateX(-130%);
+    transition: transform .8s cubic-bezier(.2, .8, .2, 1);
+    pointer-events: none
+}
+
+.cinematic-team-group .team-person-card::after,
+.team-group-nested .team-person-card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: linear-gradient(180deg, transparent 28%, #08152d66 58%, #071225f2 100%);
+    pointer-events: none
+}
+
+.cinematic-team-group .team-person-media,
+.team-group-nested .team-person-media {
+    position: absolute;
+    inset: 0;
+    flex: none;
+    min-width: 0;
+    background: linear-gradient(150deg, var(--accent), #071225)
+}
+
+.cinematic-team-group .team-person-media img,
+.team-group-nested .team-person-media img {
+    object-position: center 18%;
+    filter: saturate(1.06) contrast(1.04)
+}
+
+.cinematic-team-group .team-person-media::after,
+.team-group-nested .team-person-media::after {
+    background: radial-gradient(circle at 24% 14%, color-mix(in srgb, var(--accent) 50%, transparent), transparent 34%), linear-gradient(90deg, #071225b8 0%, transparent 46%, #0712252b 100%)
+}
+
+.cinematic-team-group .team-person-body,
+.team-group-nested .team-person-body {
+    position: absolute;
+    inset-inline: 20px;
+    bottom: 20px;
+    z-index: 3;
+    display: block;
+    padding: 20px;
+    border: 1px solid #ffffff30;
+    border-radius: 22px;
+    background: #ffffff18;
+    color: #fff;
+    backdrop-filter: blur(14px);
+    box-shadow: 0 20px 45px #07122545
+}
+
+.cinematic-team-group .team-person-body h4,
+.team-group-nested .team-person-body h4 {
+    color: #fff;
+    font-size: clamp(22px, 2.3vw, 24px);
+    letter-spacing: -.8px;
+    text-shadow: 0 8px 22px #07122555
+}
+
+.cinematic-team-group .team-person-body .team-designation,
+.team-group-nested .team-person-body .team-designation {
+    margin-top: 10px;
+    background: #ffffff22;
+    border: 1px solid #ffffff2f;
+    color: #fff;
+    backdrop-filter: blur(8px)
+}
+
+.cinematic-team-group .team-person-ghost,
+.team-group-nested .team-person-ghost {
+    right: 24px;
+    top: 16px;
+    bottom: auto;
+    z-index: 3;
+    color: #fff;
+    opacity: .16;
+    font-size: clamp(70px, 8vw, 118px)
+}
+
+.cinematic-team-group .team-person-badge,
+.team-group-nested .team-person-badge {
+    left: auto;
+    right: 20px;
+    top: 20px;
+    z-index: 4;
+    width: 42px;
+    height: 42px;
+    background: #ffffff22;
+    color: #fff
+}
+
+.cinematic-team-group .team-person-initial,
+.team-group-nested .team-person-initial {
+    background: linear-gradient(150deg, var(--accent), #071225);
+    font-size: 78px
+}
+
+@media(hover:hover) and (prefers-reduced-motion:no-preference) {
+
+    .cinematic-team-group .team-person-card:hover,
+    .team-group-nested .team-person-card:hover {
+        transform: translateY(-10px) rotateX(1.5deg);
+        box-shadow: 0 34px 80px #0b173036
+    }
+
+    .cinematic-team-group .team-person-card:hover::before,
+    .team-group-nested .team-person-card:hover::before {
+        transform: translateX(130%)
+    }
+
+    .cinematic-team-group .team-person-card:hover .team-person-media img,
+    .team-group-nested .team-person-card:hover .team-person-media img {
+        transform: scale(1.08)
+    }
+
+    .cinematic-team-group .team-person-card:hover .team-person-body,
+    .team-group-nested .team-person-card:hover .team-person-body {
+        transform: translateY(-6px)
+    }
+}
+
+@media(min-width:1180px) {
+    .team-group-row .team-person-card {
+        min-height: 320px
+    }
+
+    .team-group-row .team-person-body h4 {
+        font-size: 24px
+    }
+
+    .team-group-row .team-person-body .team-designation {
+        font-size: 12px;
+        padding: 7px 12px
+    }
+}
+
+@media(max-width:700px) {
+
+    .cinematic-team-group .team-person-card,
+    .team-group-nested .team-person-card {
+        min-height: 430px
+    }
+
+    .cinematic-team-group .team-person-body,
+    .team-group-nested .team-person-body {
+        inset-inline: 14px;
+        bottom: 14px;
+        padding: 17px
+    }
+}
+
+@media(max-width:420px) {
+
+    .cinematic-team-group .team-person-card,
+    .team-group-nested .team-person-card {
+        min-height: 380px;
+        flex-direction: row
+    }
+
+    .cinematic-team-group .team-person-media,
+    .team-group-nested .team-person-media {
+        aspect-ratio: auto
+    }
+}
+
+/* Director row layout */
+.directors-row-group .team-profile-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 22px
+}
+
+.directors-row-group .team-profile {
+    min-height: 270px;
+    aspect-ratio: auto;
+    display: grid;
+    grid-template-columns: minmax(170px, .42fr) 1fr;
+    overflow: hidden;
+    border-radius: 24px;
+    background: #fff;
+    border: 1px solid #e2e8f4;
+    box-shadow: 0 18px 50px #17233514
+}
+
+.directors-row-group .team-profile::after {
+    display: none
+}
+
+.directors-row-group .team-portrait {
+    position: relative;
+    inset: auto;
+    min-height: 270px;
+    background: #dfe8f7
+}
+
+.directors-row-group .team-portrait img {
+    object-position: center 18%
+}
+
+.directors-row-group .team-card-index {
+    right: auto;
+    left: 22px;
+    top: 22px;
+    background: #ffffffcc;
+    color: var(--blue);
+    border-color: #ffffff90
+}
+
+.directors-row-group .team-profile-content {
+    position: relative;
+    inset: auto;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 34px;
+    background: linear-gradient(135deg, #fff, #f7f9ff)
+}
+
+.directors-row-group .team-profile-content::before {
+    width: 52px;
+    background: var(--blue)
+}
+
+.directors-row-group .team-profile h4 {
+    color: var(--ink);
+    font-size: clamp(24px, 2.3vw, 34px);
+    letter-spacing: -1.2px
+}
+
+.directors-row-group .team-designation {
+    width: fit-content;
+    margin-top: 16px;
+    padding: 8px 14px;
+    border-radius: 999px;
+    background: #eef2ff;
+    color: var(--blue);
+    font-size: 13px;
+    font-weight: 700
+}
+
+@media(hover:hover) and (prefers-reduced-motion:no-preference) {
+    .directors-row-group .team-profile:hover {
+        box-shadow: 0 28px 70px #17233522
+    }
+
+    .directors-row-group .team-profile:hover .team-portrait img {
+        transform: scale(1.06)
+    }
+}
+
+@media(max-width:760px) {
+    .directors-row-group .team-profile {
+        grid-template-columns: 1fr;
+        min-height: 0
+    }
+
+    .directors-row-group .team-portrait {
+        min-height: 320px
+    }
+
+    .directors-row-group .team-profile-content {
+        padding: 28px 24px
+    }
+}
+
+
+
+
+@media(min-width:960px) {
+    .team-group-row--triple {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 24px
+    }
+
+    .team-group-row--triple .team-group-heading {
+        display: block;
+        margin-bottom: 18px
+    }
+
+    .team-group-row--triple .team-group-heading h3 {
+        font-size: 22px
+    }
+
+    .team-group-row--triple .team-group-heading>p {
+        margin-top: 10px;
+        font-size: 12px
+    }
+
+    .team-group-row--triple .team-people-grid--wide {
+        grid-template-columns: 1fr;
+        gap: 16px
+    }
+
+    .team-group-row--triple .team-person-card {
+        min-height: 300px
+    }
+}
+
+/* Distinct visual identities for the three support teams */
+#hr-department.cinematic-team-group {
+    --group-accent: #0f9b8e;
+    --group-soft: #e7f7f3
+}
+
+#front-office.cinematic-team-group {
+    --group-accent: #1748db;
+    --group-soft: #edf2ff
+}
+
+#social-media.cinematic-team-group {
+    --group-accent: #d1477a;
+    --group-soft: #fff0f6
+}
+
+.cinematic-team-group .team-group-heading {
+    padding: 18px 18px 16px;
+    border: 1px solid color-mix(in srgb, var(--group-accent, var(--blue)) 18%, #e5e8ee);
+    border-radius: 18px;
+    background: linear-gradient(135deg, var(--group-soft, #f7f9ff), #fff);
+    box-shadow: 0 12px 30px #1723350a
+}
+
+.cinematic-team-group .team-group-heading .eyebrow,
+.cinematic-team-group .team-count {
+    color: var(--group-accent, var(--blue))
+}
+
+.cinematic-team-group .team-count {
+    background: color-mix(in srgb, var(--group-accent, var(--blue)) 12%, #fff);
+    border-color: color-mix(in srgb, var(--group-accent, var(--blue)) 24%, #d8e2fb)
+}
+
+.cinematic-team-group .team-person-card {
+    box-shadow: 0 24px 70px color-mix(in srgb, var(--group-accent, #0b1730) 14%, transparent)
+}
+
+.cinematic-team-group .team-person-media::after {
+    background: radial-gradient(circle at 24% 14%, color-mix(in srgb, var(--group-accent, var(--accent)) 50%, transparent), transparent 34%), linear-gradient(90deg, #071225b8 0%, transparent 46%, #0712252b 100%)
+}
+
+.cinematic-team-group .team-person-body .team-designation {
+    border-color: color-mix(in srgb, var(--group-accent, #fff) 35%, #ffffff2f)
+}

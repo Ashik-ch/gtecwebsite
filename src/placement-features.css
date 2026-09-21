@@ -353,3 +353,59 @@
 }
 
 
+
+@media(max-width:760px) {
+    .feedback-card,
+    .review-stack {
+        padding: 24px 18px
+    }
+
+    .student-feedback-form .button {
+        width: 100%;
+        white-space: normal;
+        text-align: center
+    }
+}
+
+@media(max-width:520px) {
+    .feedback-review-section {
+        padding-block: 56px
+    }
+
+    .feedback-card h2,
+    .review-stack h2 {
+        font-size: 22px;
+        line-height: 1.35
+    }
+
+    .student-feedback-form {
+        grid-template-columns: 1fr !important;
+        gap: 12px
+    }
+
+    .student-feedback-form input,
+    .student-feedback-form select,
+    .student-feedback-form textarea {
+        font-size: 12px;
+        min-height: 44px
+    }
+
+    .student-feedback-form textarea {
+        min-height: 104px
+    }
+}
+
+/* Keep placement feature text readable on small screens. */
+:where(.placement-company-card p, .job-card p, .video-testimonial-card p, .review-card p, .student-feedback-form label, .student-feedback-form input, .student-feedback-form select, .student-feedback-form textarea) {
+    font-size: max(12px, 1em)
+}
+
+:where(.placement-company-card small, .job-card small, .video-testimonial-card small, .affiliation-card span, .review-rating) {
+    font-size: max(10px, 1em)
+}
+
+@media(max-width:700px) {
+    :where(.placement-company-card p, .job-card p, .video-testimonial-card p, .review-card p, .student-feedback-form label, .student-feedback-form input, .student-feedback-form select, .student-feedback-form textarea) {
+        font-size: max(13px, 1em)
+    }
+}

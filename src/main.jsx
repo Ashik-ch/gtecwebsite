@@ -116,8 +116,8 @@ function Header() {
             Courses <ChevronDown size={13} />
           </NavLink>
           <NavLink to="/placements">Placements</NavLink>
-          <Link to="/#life">Life at G-TEC</Link>
-          <Link to="/#contact">Contact</Link>
+          <Link to="/life">Life at G-TEC</Link>
+          <Link to="/contact">Contact</Link>
         </nav>
         <Enquire className="button primary nav-enquire" />
         <button
@@ -545,7 +545,7 @@ function PlacementSection({ full = false }) {
       </div>
       <div className="career-visual reveal">
         <div className="career-top">
-          <span className="eyebrow">YOUR GROWTH JOURNEY</span>
+          <span className="eyebrow red-label">YOUR GROWTH JOURNEY</span>
           <Mascot pose="guide" />
         </div>
         <h3>
@@ -827,7 +827,7 @@ function CTA() {
         <Mascot pose="guide" />
       </div>
       <div>
-        <span className="eyebrow">YOUR FUTURE IS CALLING</span>
+        <span className="eyebrow red-label">YOUR FUTURE IS CALLING</span>
         <h2>
           Let’s make your
           <br />
@@ -971,7 +971,7 @@ function Footer() {
           <Link to="/about">About G-TEC Mahe</Link>
           <Link to="/courses">Our courses</Link>
           <Link to="/placements">Career & placements</Link>
-          <Link to="/#life">Life at G-TEC</Link>
+          <Link to="/life">Life at G-TEC</Link>
         </div>
         <div>
           <h3>Find your course</h3>
@@ -996,7 +996,15 @@ function Footer() {
           © {new Date().getFullYear()} G-TEC Mahe. All rights reserved.
         </span>
         <span>
-          Made for your next chapter. <ArrowUpRight size={13} />
+          Website by{" "}
+          <a
+            href="https://www.bytrixhub.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Bytrix Hub
+          </a>{" "}
+          <ArrowUpRight size={13} />
         </span>
       </div>
     </footer>
@@ -1067,7 +1075,7 @@ function Modal({ title, children, onClose, className = "" }) {
     </div>
   );
 }
-function EnquiryForm({ initialCourse = "" }) {
+function EnquiryForm({ initialCourse = "", showEyebrow = true }) {
   const [status, setStatus] = useState("");
   const [busy, setBusy] = useState(false);
   const [draft, setDraft] = useState("");
@@ -1422,7 +1430,6 @@ function Home() {
       <AboutSection />
       <WhyUs />
       <PlacedStudents />
-      <PlacementFeatures variant="companies" />
       <PlacementSection />
       <PlacementFeatures variant="affiliations" />
       <Stories />
@@ -1430,7 +1437,6 @@ function Home() {
       <Team />
       <FAQs />
       <CTA />
-      <Contact />
     </>
   );
 }
@@ -1512,9 +1518,47 @@ function About() {
         </div>
       </section>
       <TeamDirectory />
-      <PlacementFeatures variant="affiliations" />
       <Gallery />
       <CTA />
+    </>
+  );
+}
+function LifeAtGtec() {
+  return (
+    <>
+      <PageHero
+        eyebrow="LIFE AT G-TEC"
+        title={
+          <>
+            A place to learn.
+            <br />
+            <span className="blue">A place to belong.</span>
+          </>
+        }
+        text="Explore the spirit of learning, creativity and community at G-TEC Mahe."
+        items={[["Life at G-TEC"]]}
+      />
+      <Gallery />
+      <Team />
+      <CTA />
+    </>
+  );
+}
+function ContactPage() {
+  return (
+    <>
+      <PageHero
+        eyebrow="CONTACT G-TEC MAHE"
+        title={
+          <>
+            Big plans?
+            <br />
+            <span className="blue">Start a conversation.</span>
+          </>
+        }
+        text="Reach the team, visit the centre or send an enquiry for your preferred course."
+        items={[["Contact"]]}
+      />
       <Contact />
     </>
   );
@@ -1568,7 +1612,6 @@ function Placements() {
       <Stories />
       <FAQs />
       <CTA />
-      <Contact />
     </>
   );
 }
@@ -1763,6 +1806,8 @@ function RouteEffects() {
         "/about": "About Us",
         "/courses": "Explore Our Courses",
         "/placements": "Career & Placement Support",
+        "/life": "Life at G-TEC",
+        "/contact": "Contact",
       }[pathname] ||
       "Page Not Found";
     document.title =
@@ -1872,6 +1917,8 @@ function App() {
             />
             <Route path="/courses/:slug" element={<CourseDetail />} />
             <Route path="/placements" element={<Placements />} />
+            <Route path="/life" element={<LifeAtGtec />} />
+            <Route path="/contact" element={<ContactPage />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </main>
@@ -1891,7 +1938,7 @@ function App() {
                 step.
               </p>
             </div>
-            <EnquiryForm initialCourse={enquiry.course} />
+            <EnquiryForm initialCourse={enquiry.course} showEyebrow={false} />
           </Modal>
         )}
       </EnquiryContext.Provider>
@@ -1903,7 +1950,5 @@ createRoot(document.getElementById("root")).render(
     <App />
   </React.StrictMode>,
 );
-
-
 
 

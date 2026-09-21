@@ -8,10 +8,11 @@ import "./placement-features.css";
 
 const companies = [
   {
-    name: "ByteRoot Labs",
-    field: "Software & digital solutions",
-    detail: "Sample hiring partner for web, office automation and support roles.",
-    logo: "BR",
+    name: "Bytrix Hub",
+    field: "Internship provider",
+    detail: "Explore internship opportunities with Bytrix Hub.",
+    logo: "BH",
+    website: "https://www.bytrixhub.com/",
   },
   {
     name: "NorthStar Accounts",
@@ -75,9 +76,9 @@ function PlacementCompanies() {
   return (
     <section className="section container placement-feature-section">
       <SectionHead
-        eyebrow="PLACEMENT COMPANIES"
+        eyebrow="PLACEMENT & INTERNSHIP PROVIDERS"
         title="Connect your skills with growing teams."
-        text="Sample company profiles shown for layout preview. Replace with verified partner details when available."
+        text="Explore internship opportunities with Bytrix Hub. Other company profiles below are illustrative examples."
       />
       <div className="placement-company-grid">
         {companies.map((company) => (
@@ -85,7 +86,13 @@ function PlacementCompanies() {
             <span className="company-logo">{company.logo}</span>
             <div>
               <small>{company.field}</small>
-              <h3>{company.name}</h3>
+              <h3>
+                {company.website ? (
+                  <a href={company.website} target="_blank" rel="noopener noreferrer">
+                    {company.name}
+                  </a>
+                ) : company.name}
+              </h3>
               <p>{company.detail}</p>
             </div>
             <ArrowUpRight size={18} aria-hidden="true" />

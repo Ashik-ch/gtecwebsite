@@ -180,21 +180,20 @@ h3 {
 .eyebrow {
     display: inline-flex;
     align-items: center;
-    background: var(--red);
-    color: #fff;
-    padding: 6px 13px;
-    border-radius: 16px;
+    color: var(--blue);
+    padding: 0;
     line-height: 1.4
 }
 
-.eyebrow-highlight {
-    display: inline-flex;
-    align-items: center;
+.red-label {
     background: var(--red);
     color: #fff;
     padding: 6px 13px;
-    border-radius: 16px;
-    line-height: 1.4
+    border-radius: 16px
+}
+
+.eyebrow-highlight {
+    color: var(--blue)
 }
 
 .section {
@@ -3897,6 +3896,7 @@ footer {
         transform: none
     }
 }
+
 .whatsapp-launcher {
     position: fixed;
     bottom: 88px;
@@ -3927,5 +3927,110 @@ footer {
         bottom: 80px;
         padding: 10px 15px;
         font-size: 11px
+    }
+}
+
+/* Responsive form safeguards */
+.enquiry-form,
+.enquiry-form *,
+.student-feedback-form,
+.student-feedback-form * {
+    box-sizing: border-box
+}
+
+.enquiry-form,
+.enquiry-draft,
+.feedback-card,
+.review-stack {
+    min-width: 0
+}
+
+.enquiry-form input,
+.enquiry-form select,
+.enquiry-form textarea,
+.student-feedback-form input,
+.student-feedback-form select,
+.student-feedback-form textarea {
+    max-width: 100%
+}
+
+.enquiry-draft textarea {
+    width: 100%;
+    max-width: 100%;
+    resize: vertical
+}
+
+@media(max-width:760px) {
+
+    .enquiry-form>.button,
+    .enquiry-draft .button,
+    .draft-actions .button {
+        width: 100%;
+        justify-content: center;
+        white-space: normal;
+        text-align: center
+    }
+
+    .draft-actions {
+        flex-direction: column;
+        align-items: stretch
+    }
+}
+
+@media(max-width:520px) {
+    .enquiry-form {
+        padding: 22px 16px;
+        border-radius: 10px;
+        gap: 14px
+    }
+
+    .form-row {
+        grid-template-columns: 1fr !important
+    }
+
+    .enquiry-form>h3 {
+        font-size: 20px;
+        line-height: 1.35
+    }
+
+    .enquiry-form input,
+    .enquiry-form select,
+    .enquiry-form textarea {
+        font-size: 12px;
+        padding: 12px;
+        min-height: 44px
+    }
+
+    .enquiry-form textarea {
+        min-height: 96px
+    }
+
+    .enquiry-form .consent {
+        align-items: flex-start;
+        line-height: 1.65
+    }
+}
+
+
+/* Font readability safeguards */
+:where(p, li, summary, blockquote, input, select, textarea, label, button, .button, .inline-link, .text-button) {
+    font-size: max(12px, 1em)
+}
+
+:where(.eyebrow, .course-kicker, .story-label, .source-note, .support-note, .form-note, .faq-num, .detail-badges, .course-foot, .map-placeholder small, .story-person small, .career-step small, .footer-bottom) {
+    font-size: max(10px, 1em)
+}
+
+:where(.hero-eyebrow, .category-pill, .placement-tags>span, .tool-tags span, .detail-badges span, .course-sidebar small, .syllabus-list span) {
+    font-size: max(11px, 1em)
+}
+
+@media(max-width:700px) {
+    :where(p, li, summary, blockquote, input, select, textarea, label, button, .button, .inline-link, .text-button) {
+        font-size: max(13px, 1em)
+    }
+
+    :where(.eyebrow, .source-note, .support-note, .form-note, .faq-num, .story-label, .course-kicker) {
+        font-size: max(11px, 1em)
     }
 }

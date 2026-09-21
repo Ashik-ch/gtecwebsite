@@ -9,7 +9,6 @@ const groups = [
     label: "Leadership",
     title: "Our directors",
     description: "The people behind G-TEC Mahe.",
-    horizontal: true,
     members: [
       {
         name: "Firoz Valliyadath",
@@ -78,7 +77,10 @@ const groups = [
         designation: "Social Media Team",
         photo: "/images/team-placeholder.svg",
       },
-    ].map((member, index) => ({ id: "social-media-" + (index + 1), ...member })),
+    ].map((member, index) => ({
+      id: "social-media-" + (index + 1),
+      ...member,
+    })),
   },
   {
     id: "faculty",
@@ -237,12 +239,7 @@ function GroupHeader({ group }) {
     <header className="team-group-heading reveal">
       <div>
         <span className="eyebrow">{group.label}</span>
-        <h3 id={group.id + "-title"}>
-          {group.title}{" "}
-          <span className="team-count">
-            {String(group.members.length).padStart(2, "0")}
-          </span>
-        </h3>
+        <h3 id={group.id + "-title"}>{group.title} </h3>
       </div>
       <p>{group.description}</p>
     </header>
@@ -274,27 +271,29 @@ export default function TeamDirectory() {
           </p>
         </header>
         <nav className="team-navigation" aria-label="Explore our team">
-          {[directors, hrDepartment, frontOffice, socialMedia, faculty].map((group) => (
-            <a href={"#" + group.id} key={group.id}>
-              {group.title}
-              <ArrowUpRight size={15} aria-hidden="true" />
-            </a>
-          ))}
+          {[directors, hrDepartment, frontOffice, socialMedia, faculty].map(
+            (group) => (
+              <a href={"#" + group.id} key={group.id}>
+                {group.title}
+                <ArrowUpRight size={15} aria-hidden="true" />
+              </a>
+            ),
+          )}
         </nav>
         <section
           id={directors.id}
-          className="team-group"
+          className="team-group directors-row-group"
           aria-labelledby={directors.id + "-title"}
         >
           <GroupHeader group={directors} />
           <GroupBody group={directors} />
         </section>
-        <div className="team-group team-group-row">
-          {[hrDepartment, frontOffice].map((group, groupIndex) => (
+        <div className="team-group team-group-row team-group-row--triple">
+          {[hrDepartment, frontOffice, socialMedia].map((group, groupIndex) => (
             <section
               key={group.id}
               id={group.id}
-              className="team-group-nested"
+              className="team-group-nested cinematic-team-group"
               aria-labelledby={group.id + "-title"}
             >
               <GroupHeader group={group} />
@@ -306,14 +305,6 @@ export default function TeamDirectory() {
             </section>
           ))}
         </div>
-        <section
-          id={socialMedia.id}
-          className="team-group"
-          aria-labelledby={socialMedia.id + "-title"}
-        >
-          <GroupHeader group={socialMedia} />
-          <GroupBody group={socialMedia} />
-        </section>
         <section
           id={faculty.id}
           className="team-group"
