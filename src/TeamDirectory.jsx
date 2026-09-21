@@ -62,6 +62,25 @@ const groups = [
     ],
   },
   {
+    id: "social-media",
+    label: "Digital presence",
+    title: "Social media team",
+    description: "The creative team behind our online community.",
+    horizontal: true,
+    members: [
+      {
+        name: "Name to be added",
+        designation: "Social Media Team",
+        photo: "/images/team-placeholder.svg",
+      },
+      {
+        name: "Name to be added",
+        designation: "Social Media Team",
+        photo: "/images/team-placeholder.svg",
+      },
+    ].map((member, index) => ({ id: "social-media-" + (index + 1), ...member })),
+  },
+  {
     id: "faculty",
     label: "Teaching & learning",
     title: "Our faculty",
@@ -144,7 +163,7 @@ function Portrait({ member }) {
 
 const personAccents = ["#1748db", "#a855f7", "#0f9b8e", "#e0663f", "#d1477a"];
 
-function HorizontalGroup({ members, wide }) {
+function HorizontalGroup({ members, wide, accentOffset = 0 }) {
   return (
     <div
       className={"team-people-grid" + (wide ? " team-people-grid--wide" : "")}
@@ -153,7 +172,10 @@ function HorizontalGroup({ members, wide }) {
         <article
           className="team-person-card reveal"
           key={member.id || member.name}
-          style={{ "--accent": personAccents[index % personAccents.length] }}
+          style={{
+            "--accent":
+              personAccents[(index + accentOffset) % personAccents.length],
+          }}
         >
           <div className="team-person-media">
             {member.photo ? (
@@ -231,6 +253,7 @@ export default function TeamDirectory() {
   const directors = groups.find((group) => group.id === "directors");
   const frontOffice = groups.find((group) => group.id === "front-office");
   const hrDepartment = groups.find((group) => group.id === "hr-department");
+  const socialMedia = groups.find((group) => group.id === "social-media");
   const faculty = groups.find((group) => group.id === "faculty");
 
   return (
@@ -251,7 +274,7 @@ export default function TeamDirectory() {
           </p>
         </header>
         <nav className="team-navigation" aria-label="Explore our team">
-          {groups.map((group) => (
+          {[directors, hrDepartment, frontOffice, socialMedia, faculty].map((group) => (
             <a href={"#" + group.id} key={group.id}>
               {group.title}
               <ArrowUpRight size={15} aria-hidden="true" />
@@ -267,27 +290,30 @@ export default function TeamDirectory() {
           <GroupBody group={directors} />
         </section>
         <div className="team-group team-group-row">
-          <div className="team-group-row-heads">
-            <div
-              id={frontOffice.id}
+          {[hrDepartment, frontOffice].map((group, groupIndex) => (
+            <section
+              key={group.id}
+              id={group.id}
               className="team-group-nested"
-              aria-labelledby={frontOffice.id + "-title"}
+              aria-labelledby={group.id + "-title"}
             >
-              <GroupHeader group={frontOffice} />
-            </div>
-            <div
-              id={hrDepartment.id}
-              className="team-group-nested"
-              aria-labelledby={hrDepartment.id + "-title"}
-            >
-              <GroupHeader group={hrDepartment} />
-            </div>
-          </div>
-          <HorizontalGroup
-            members={[...frontOffice.members, ...hrDepartment.members]}
-            wide
-          />
+              <GroupHeader group={group} />
+              <HorizontalGroup
+                members={group.members}
+                wide
+                accentOffset={groupIndex * 2}
+              />
+            </section>
+          ))}
         </div>
+        <section
+          id={socialMedia.id}
+          className="team-group"
+          aria-labelledby={socialMedia.id + "-title"}
+        >
+          <GroupHeader group={socialMedia} />
+          <GroupBody group={socialMedia} />
+        </section>
         <section
           id={faculty.id}
           className="team-group"

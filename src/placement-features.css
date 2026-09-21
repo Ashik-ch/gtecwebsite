@@ -1,0 +1,355 @@
+.placement-feature-section {
+    padding-block: 82px
+}
+
+.placement-feature-head {
+    display: grid;
+    gap: 12px;
+    margin-bottom: 34px
+}
+
+.placement-feature-head h2 {
+    max-width: 620px
+}
+
+.placement-feature-head p {
+    max-width: 560px;
+    font-size: 12px
+}
+
+.placement-company-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px
+}
+
+.placement-company-card {
+    border: 1px solid #e4e8f0;
+    border-radius: 12px;
+    background: #fff;
+    padding: 23px;
+    min-height: 245px;
+    display: flex;
+    flex-direction: column;
+    transition: transform .25s, box-shadow .25s
+}
+
+.placement-company-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px #14273f10
+}
+
+.company-logo {
+    width: 52px;
+    height: 52px;
+    border-radius: 13px;
+    background: #edf2ff;
+    color: var(--blue);
+    display: grid;
+    place-items: center;
+    font-family: Manrope, sans-serif;
+    font-size: 17px;
+    font-weight: 700;
+    margin-bottom: 26px
+}
+
+.placement-company-card small,
+.job-card small,
+.video-testimonial-card small {
+    font-size: 8px;
+    color: #58677e;
+    letter-spacing: 1.2px;
+    text-transform: uppercase
+}
+
+.placement-company-card h3 {
+    font-size: 18px;
+    margin: 8px 0 10px
+}
+
+.placement-company-card p {
+    font-size: 11px;
+    line-height: 1.75
+}
+
+.placement-company-card>svg {
+    margin-top: auto;
+    color: var(--blue)
+}
+
+.placement-portal-section {
+    background: #f7f9fd
+}
+
+.placement-portal-grid {
+    display: grid;
+    grid-template-columns: .9fr 1.1fr;
+    gap: 70px;
+    align-items: center
+}
+
+.placement-portal-copy p {
+    font-size: 13px;
+    margin-top: 18px;
+    max-width: 430px
+}
+
+.job-list {
+    display: grid;
+    gap: 12px
+}
+
+.job-card {
+    border: 1px solid #e1e7f2;
+    background: #fff;
+    border-radius: 10px;
+    padding: 18px 20px;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: 18px
+}
+
+.job-num {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    background: #eef2ff;
+    color: var(--blue);
+    font-size: 10px;
+    font-weight: 600
+}
+
+.job-card h3 {
+    font-size: 15px
+}
+
+.job-card p {
+    font-size: 10px;
+    margin-top: 5px
+}
+
+.affiliations-section {
+    padding-block: 82px
+}
+
+.affiliation-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 14px
+}
+
+.affiliation-card {
+    border: 1px solid #e5e8f0;
+    background: #fff;
+    border-radius: 10px;
+    min-height: 135px;
+    padding: 18px;
+    display: grid;
+    align-content: center;
+    gap: 12px;
+    text-align: center
+}
+
+.affiliation-card img {
+    height: 54px;
+    width: 100%;
+    object-fit: contain
+}
+
+.affiliation-card span {
+    font-size: 10px;
+    color: #58677e
+}
+
+.video-testimonial-section {
+    background: #f9f8f5
+}
+
+.video-testimonial-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px
+}
+
+.video-testimonial-card {
+    background: #fff;
+    border: 1px solid #e9e7e1;
+    border-radius: 10px;
+    overflow: hidden
+}
+
+.video-placeholder {
+    height: 185px;
+    background: linear-gradient(135deg, #153c7c, #4262a7);
+    display: grid;
+    place-items: center;
+    color: #fff
+}
+
+.video-placeholder span {
+    width: 54px;
+    height: 54px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    background: #ffffff24;
+    border: 1px solid #ffffff55
+}
+
+.video-testimonial-card>div:last-child {
+    padding: 22px
+}
+
+.video-testimonial-card h3 {
+    font-size: 18px;
+    margin-top: 8px
+}
+
+.video-testimonial-card p {
+    font-size: 11px;
+    margin-top: 9px
+}
+
+.feedback-review-section {
+    display: grid;
+    grid-template-columns: 1.05fr .95fr;
+    gap: 28px;
+    align-items: start;
+    padding-block: 90px
+}
+
+.feedback-card,
+.review-stack {
+    border: 1px solid #e5e8f0;
+    border-radius: 12px;
+    background: #fafbfd;
+    padding: 30px
+}
+
+.feedback-card h2,
+.review-stack h2 {
+    font-size: 26px;
+    margin-bottom: 22px
+}
+
+.student-feedback-form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px
+}
+
+.student-feedback-form label {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    font-size: 10px;
+    color: #536174
+}
+
+.student-feedback-form input,
+.student-feedback-form select,
+.student-feedback-form textarea {
+    width: 100%;
+    border: 1px solid #d8deea;
+    border-radius: 6px;
+    padding: 12px;
+    font: inherit;
+    font-size: 12px;
+    background: #fff;
+    color: var(--ink)
+}
+
+.feedback-message,
+.student-feedback-form .button {
+    grid-column: 1/-1
+}
+
+.student-feedback-form .button {
+    justify-content: center;
+    margin-top: 2px
+}
+
+.review-card {
+    display: flex;
+    gap: 15px;
+    padding: 17px 0;
+    border-top: 1px solid #e6eaf1
+}
+
+.review-card:first-of-type {
+    border-top: 0;
+    padding-top: 0
+}
+
+.review-rating {
+    flex: 0 0 auto;
+    height: 34px;
+    min-width: 58px;
+    border-radius: 20px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    background: #eef2ff;
+    color: var(--blue);
+    font-size: 11px;
+    font-weight: 600
+}
+
+.review-card strong {
+    font-size: 12px
+}
+
+.review-card p {
+    font-size: 11px;
+    margin-top: 6px
+}
+
+@media(max-width:1100px) {
+    .placement-company-grid,
+    .affiliation-grid {
+        grid-template-columns: repeat(2, 1fr)
+    }
+
+    .placement-portal-grid,
+    .feedback-review-section {
+        grid-template-columns: 1fr
+    }
+
+    .video-testimonial-grid {
+        grid-template-columns: 1fr 1fr
+    }
+}
+
+@media(max-width:650px) {
+    .placement-feature-head {
+        display: block
+    }
+
+    .placement-feature-head p {
+        margin-top: 14px
+    }
+
+    .placement-company-grid,
+    .affiliation-grid,
+    .video-testimonial-grid {
+        grid-template-columns: 1fr
+    }
+
+    .job-card {
+        grid-template-columns: auto 1fr
+    }
+
+    .job-card small {
+        grid-column: 2
+    }
+
+    .student-feedback-form {
+        grid-template-columns: 1fr
+    }
+}
+
+

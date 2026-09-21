@@ -54,6 +54,7 @@ import { Mascot, GioWelcome, GioFinder } from "./Mascot";
 import ScrollMotion from "./ScrollMotion";
 import TeamDirectory from "./TeamDirectory";
 import PlacedStudents from "./PlacedStudents";
+import PlacementFeatures from "./PlacementFeatures";
 
 const EnquiryContext = createContext();
 const icons = {
@@ -901,11 +902,12 @@ function Footer() {
             One skill. One opportunity. One you.
           </p>
           <div className="footer-socials" aria-label="Social media">
-            <span
-              className="social-link social-placeholder"
-              role="img"
-              aria-label="Instagram — coming soon"
-              title="Instagram — coming soon"
+            <a
+              className="social-link"
+              href={site.instagram}
+              target="_blank"
+              rel="noreferrer"
+              aria-label="G-TEC Mahe on Instagram"
             >
               <svg
                 width="19"
@@ -926,12 +928,13 @@ function Footer() {
                   stroke="none"
                 />
               </svg>
-            </span>
-            <span
-              className="social-link social-placeholder"
-              role="img"
-              aria-label="Facebook — coming soon"
-              title="Facebook — coming soon"
+            </a>
+            <a
+              className="social-link"
+              href={site.facebook}
+              target="_blank"
+              rel="noreferrer"
+              aria-label="G-TEC Mahe on Facebook"
             >
               <svg
                 width="19"
@@ -942,26 +945,16 @@ function Footer() {
               >
                 <path d="M14 22v-9h3l.5-4H14V7c0-1.1.3-2 2-2h2V1.5A25 25 0 0 0 15 1c-3 0-5 1.8-5 5v3H7v4h3v9z" />
               </svg>
-            </span>
-            <span
-              className="social-link social-placeholder"
-              role="img"
-              aria-label="YouTube — coming soon"
-              title="YouTube — coming soon"
+            </a>
+            <a
+              className="social-link"
+              href={site.whatsapp}
+              target="_blank"
+              rel="noreferrer"
+              aria-label="G-TEC Mahe on WhatsApp"
             >
-              <svg
-                width="20"
-                height="20"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="1.8"
-                aria-hidden="true"
-              >
-                <rect x="2" y="5" width="20" height="14" rx="4" />
-                <path d="m10 9 5 3-5 3z" fill="currentColor" stroke="none" />
-              </svg>
-            </span>
+              <MessageCircle size={19} aria-hidden="true" />
+            </a>
             <a
               className="social-link"
               href={site.linkedin}
@@ -1203,7 +1196,7 @@ function EnquiryForm({ initialCourse = "" }) {
             <strong>Your enquiry is ready — it hasn’t been sent.</strong>
             <p>
               {site.whatsapp
-                ? "Open WhatsApp to review and send your message."
+                ? "Open WhatsApp to send your message."
                 : "Copy your message and contact the team through their official LinkedIn page or visit the centre."}
             </p>
             <textarea
@@ -1217,7 +1210,7 @@ function EnquiryForm({ initialCourse = "" }) {
                 className="button primary"
                 target="_blank"
                 rel="noreferrer"
-                href={`https://wa.me/${site.whatsapp}?text=${encodeURIComponent(draft)}`}
+                href={site.whatsapp}
               >
                 Send via WhatsApp <MessageCircle size={17} />
               </a>
@@ -1304,6 +1297,23 @@ function Chat() {
   }
   return (
     <>
+      {!open && (
+        <a
+          className="whatsapp-launcher"
+          href={site.whatsapp}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Chat with G-TEC Mahe on WhatsApp"
+        >
+          <svg viewBox="0 0 32 32" width="22" height="22" aria-hidden="true">
+            <path
+              fill="currentColor"
+              d="M16.04 3C9.4 3 4 8.4 4 15.02c0 2.12.55 4.19 1.6 6.02L4 29l8.13-1.56a12.03 12.03 0 0 0 3.91.65C22.68 28.09 28 22.69 28 16.07 28 9.4 22.68 3 16.04 3Zm0 22.1c-1.25 0-2.47-.34-3.54-.98l-.25-.15-4.83.93.96-4.7-.17-.27a9.9 9.9 0 0 1-1.55-5.3c0-5.48 4.5-9.94 10-9.94s9.97 4.46 9.97 9.94-4.5 10.47-9.99 10.47Zm5.47-7.44c-.3-.15-1.77-.87-2.04-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.27-.47-2.42-1.5-.9-.8-1.5-1.79-1.67-2.09-.17-.3-.02-.46.13-.61.14-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.22 3.08c.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.7.63.71.23 1.36.2 1.87.12.57-.08 1.77-.72 2.02-1.42.25-.7.25-1.29.17-1.42-.07-.12-.27-.2-.57-.35Z"
+            />
+          </svg>
+          <span>Chat with us</span>
+        </a>
+      )}
       <button
         className="chat-launcher"
         onClick={() => setOpen(!open)}
@@ -1412,7 +1422,9 @@ function Home() {
       <AboutSection />
       <WhyUs />
       <PlacedStudents />
+      <PlacementFeatures variant="companies" />
       <PlacementSection />
+      <PlacementFeatures variant="affiliations" />
       <Stories />
       <Gallery />
       <Team />
@@ -1500,6 +1512,7 @@ function About() {
         </div>
       </section>
       <TeamDirectory />
+      <PlacementFeatures variant="affiliations" />
       <Gallery />
       <CTA />
       <Contact />
@@ -1522,6 +1535,7 @@ function Placements() {
         items={[["Placements"]]}
       />
       <PlacementSection full />
+      <PlacementFeatures />
       <section className="container section">
         <SectionTitle
           eyebrow="PLACEMENT HIGHLIGHTS"
@@ -1795,7 +1809,7 @@ function RouteEffects() {
         postalCode: "673311",
         addressCountry: "IN",
       },
-      sameAs: [site.linkedin],
+      sameAs: [site.instagram, site.facebook, site.linkedin, site.whatsapp],
     };
     let el = document.getElementById("structured-data");
     if (!el) {
@@ -1889,3 +1903,7 @@ createRoot(document.getElementById("root")).render(
     <App />
   </React.StrictMode>,
 );
+
+
+
+
