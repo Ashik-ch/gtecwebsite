@@ -190,9 +190,6 @@ function HorizontalGroup({ members, wide, accentOffset = 0 }) {
                 {member.name.charAt(0)}
               </span>
             )}
-            <span className="team-person-badge" aria-hidden="true">
-              {String(index + 1).padStart(2, "0")}
-            </span>
           </div>
           <div className="team-person-body">
             <span className="team-person-ghost" aria-hidden="true">
@@ -214,9 +211,6 @@ function GroupBody({ group }) {
       {group.members.map((member, index) => (
         <article className="team-profile reveal" key={member.id || member.name}>
           <Portrait member={member} />
-          <span className="team-card-index" aria-hidden="true">
-            {String(index + 1).padStart(2, "0")}
-          </span>
           <div className="team-profile-content">
             <h4>{member.name}</h4>
             <p className="team-designation">{member.designation}</p>
@@ -263,16 +257,6 @@ export default function TeamDirectory() {
             help you take your next step with confidence.
           </p>
         </header>
-        <nav className="team-navigation" aria-label="Explore our team">
-          {[directors, hrDepartment, frontOffice, socialMedia, faculty].map(
-            (group) => (
-              <a href={"#" + group.id} key={group.id}>
-                {group.title}
-                <ArrowUpRight size={15} aria-hidden="true" />
-              </a>
-            ),
-          )}
-        </nav>
         <section
           id={directors.id}
           className="team-group directors-row-group"
@@ -310,5 +294,3 @@ export default function TeamDirectory() {
     </section>
   );
 }
-
-

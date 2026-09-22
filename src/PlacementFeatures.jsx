@@ -164,9 +164,9 @@ function Affiliations() {
   );
 }
 
-function FeedbackAndReviews() {
+function FeedbackForm() {
   return (
-    <section className="section container feedback-review-section">
+    <section className="section container feedback-review-section feedback-review-section--form">
       <div className="feedback-card reveal">
         <span className="eyebrow">STUDENT FEEDBACK</span>
         <h2>Share your learning experience.</h2>
@@ -196,6 +196,15 @@ function FeedbackAndReviews() {
           </button>
         </form>
       </div>
+
+    </section>
+  );
+}
+
+
+function GoogleReviews() {
+  return (
+    <section className="section container google-reviews-section">
       <div className="review-stack reveal">
         <span className="eyebrow">GOOGLE BUSINESS REVIEWS</span>
         <h2>What students are saying.</h2>
@@ -219,7 +228,6 @@ function FeedbackAndReviews() {
     </section>
   );
 }
-
 function VideoTestimonials() {
   return (
     <section className="section video-testimonial-section">
@@ -253,16 +261,22 @@ function VideoTestimonials() {
 export default function PlacementFeatures({ variant = "all" }) {
   if (variant === "companies") return <PlacementCompanies />;
   if (variant === "affiliations") return <Affiliations />;
+  if (variant === "reviews") return <GoogleReviews />;
+  if (variant === "feedback") return <FeedbackForm />;
+  if (variant === "videos") return <VideoTestimonials />;
   return (
     <>
       <PlacementCompanies />
       <JobPortal />
       <Affiliations />
-      <VideoTestimonials />
-      <FeedbackAndReviews />
+
+
     </>
   );
 }
+
+
+
 
 
 

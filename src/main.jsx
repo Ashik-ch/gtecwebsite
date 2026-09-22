@@ -1433,6 +1433,7 @@ function Home() {
       <PlacementSection />
       <PlacementFeatures variant="affiliations" />
       <Stories />
+      <PlacementFeatures variant="reviews" />
       <Gallery />
       <Team />
       <FAQs />
@@ -1540,6 +1541,8 @@ function LifeAtGtec() {
       />
       <Gallery />
       <Team />
+      <PlacementFeatures variant="videos" />
+      <PlacementFeatures variant="feedback" />
       <CTA />
     </>
   );
@@ -1950,5 +1953,3 @@ createRoot(document.getElementById("root")).render(
     <App />
   </React.StrictMode>,
 );
-
-

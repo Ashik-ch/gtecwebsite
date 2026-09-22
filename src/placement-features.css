@@ -409,3 +409,13 @@
         font-size: max(13px, 1em)
     }
 }
+
+.feedback-review-section--form {
+    grid-template-columns: minmax(0, 760px);
+    justify-content: center
+}
+
+.google-reviews-section .review-stack {
+    max-width: 860px;
+    margin-inline: auto
+}
