@@ -255,19 +255,29 @@
     }
 
     .team-people-grid--wide .team-person-initial {
-        font-size: 32px .team-people-grid--wide .team-person-body .team-designation {
-            font-size: 9px;
-            padding: 4px 9px
-        }
-
-        .team-people-grid--wide .team-person-ghost {
-            font-size: 52px;
-            bottom: -14px;
-            right: 8px
-        }
+        font-size: 32px
     }
 
-    .team-person-card {
+    .team-people-grid--wide .team-person-badge {
+        width: 28px;
+        height: 28px;
+        font-size: 10px;
+        top: 12px;
+        left: 12px
+    }
+
+    .team-people-grid--wide .team-person-body .team-designation {
+        font-size: 9px;
+        padding: 4px 9px
+    }
+
+    .team-people-grid--wide .team-person-ghost {
+        font-size: 52px;
+        bottom: -14px;
+        right: 8px
+    }
+}
+.team-person-card {
         max-height: 220px;
         position: relative;
         isolation: isolate;
@@ -1179,5 +1189,43 @@
     .team-group-nested .team-person-card {
         height: 360px;
         min-height: 360px
+    }
+}
+
+
+/* Smaller team image areas */
+.directors-row-group .team-profile {
+    grid-template-columns: 130px minmax(0, 1fr)
+}
+
+.directors-row-group .team-portrait img {
+    object-fit: cover;
+    object-position: center 16%
+}
+
+.cinematic-team-group .team-person-card,
+.team-group-nested .team-person-card {
+    height: 260px;
+    min-height: 260px
+}
+
+@media(min-width:960px) {
+    .team-group-row--triple .team-person-card {
+        height: 260px;
+        min-height: 260px
+    }
+}
+
+@media(max-width:700px) {
+    .cinematic-team-group .team-person-card,
+    .team-group-nested .team-person-card {
+        height: 300px;
+        min-height: 300px
+    }
+}
+
+@media(max-width:760px) {
+    .directors-row-group .team-portrait {
+        height: 210px
     }
 }

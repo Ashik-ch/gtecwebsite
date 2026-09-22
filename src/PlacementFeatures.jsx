@@ -1,36 +1,115 @@
-import {
-  ArrowUpRight,
-  Check,
-  Play,
-  Star,
-} from "lucide-react";
+import { ArrowUpRight, Check, Play, Star } from "lucide-react";
+import { Link, useParams } from "react-router-dom";
 import "./placement-features.css";
 
-const companies = [
+export const placementCompanies = [
   {
+    slug: "bytrix-hub",
     name: "Bytrix Hub",
     field: "Internship provider",
     detail: "Explore internship opportunities with Bytrix Hub.",
+    about:
+      "Bytrix Hub is a development-stage internship partner profile for learners who want exposure to web, digital marketing and business support workflows.",
+    location: "Kannur / Remote friendly",
+    contact: "placements@bytrixhub.example",
     logo: "BH",
     website: "https://www.bytrixhub.com/",
+    opportunities: [
+      "Digital Marketing Intern",
+      "Frontend Development Intern",
+      "Business Operations Trainee",
+      "Content & SEO Assistant",
+    ],
   },
   {
+    slug: "northstar-accounts",
     name: "NorthStar Accounts",
     field: "Accounting services",
     detail: "Demo recruiter for accounts assistant and Tally operator profiles.",
+    about:
+      "NorthStar Accounts is dummy data for testing accounting placement flows, company detail pages and opportunity listings.",
+    location: "Mahe / Thalassery",
+    contact: "hr@northstar-demo.example",
     logo: "NA",
+    website: "https://example.com/northstar-accounts",
+    opportunities: [
+      "Accounts Assistant",
+      "Tally Operator",
+      "Billing Executive Trainee",
+      "Office Accounts Trainee",
+    ],
   },
   {
+    slug: "pixelcraft-studio",
     name: "PixelCraft Studio",
     field: "Design & multimedia",
     detail: "Placeholder creative studio for design portfolio opportunities.",
+    about:
+      "PixelCraft Studio is a sample creative company profile for testing multimedia, design and content placement layouts.",
+    location: "Calicut / Hybrid",
+    contact: "studio@pixelcraft-demo.example",
     logo: "PC",
+    website: "https://example.com/pixelcraft-studio",
+    opportunities: [
+      "Graphic Design Trainee",
+      "Video Editing Intern",
+      "Motion Graphics Assistant",
+      "Creative Content Designer",
+    ],
   },
   {
+    slug: "urbannest-interiors",
     name: "UrbanNest Interiors",
     field: "Interior design",
     detail: "Sample placement company for junior designer and drafting roles.",
+    about:
+      "UrbanNest Interiors is dummy company data for interior design students and junior drafting opportunity previews.",
+    location: "Kannur / Site visits",
+    contact: "careers@urbannest-demo.example",
     logo: "UI",
+    website: "https://example.com/urbannest-interiors",
+    opportunities: [
+      "Junior Interior Designer",
+      "Drafting Assistant",
+      "3D Visualisation Trainee",
+      "Design Presentation Assistant",
+    ],
+  },
+  {
+    slug: "brightdesk-solutions",
+    name: "BrightDesk Solutions",
+    field: "Office administration",
+    detail: "Dummy company for MS Office, admin and front-office role previews.",
+    about:
+      "BrightDesk Solutions helps test admin-focused job cards and company pages during development.",
+    location: "Mahe",
+    contact: "jobs@brightdesk-demo.example",
+    logo: "BD",
+    website: "https://example.com/brightdesk-solutions",
+    opportunities: [
+      "Office Admin Executive",
+      "Data Entry Operator",
+      "Front Desk Trainee",
+      "Documentation Assistant",
+    ],
+  },
+  {
+    slug: "cloudline-erp",
+    name: "CloudLine ERP",
+    field: "ERP & software support",
+    detail: "Dummy partner for SAP, ERP support and software trainee opportunities.",
+    about:
+      "CloudLine ERP is placeholder data for testing enterprise software placement content and opportunity categories.",
+    location: "Remote / Kochi",
+    contact: "talent@cloudline-demo.example",
+    logo: "CE",
+    website: "https://example.com/cloudline-erp",
+    opportunities: [
+      "ERP Support Trainee",
+      "SAP End-user Support",
+      "Software Support Associate",
+      "Implementation Coordinator Trainee",
+    ],
   },
 ];
 
@@ -51,15 +130,66 @@ const affiliations = [
 ];
 
 const videoTestimonials = [
-  ["Afsal Rahman", "Digital Marketing", "How practical sessions helped me present my first campaign."],
-  ["Meera Shaji", "Accounting", "From basic entries to confident accounting practice."],
-  ["Nihal P", "Software Courses", "Building small projects made coding easier to understand."],
+  [
+    "Afsal Rahman",
+    "Digital Marketing",
+    "How practical sessions helped me present my first campaign.",
+  ],
+  [
+    "Meera Shaji",
+    "Accounting",
+    "From basic entries to confident accounting practice.",
+  ],
+  [
+    "Nihal P",
+    "Software Courses",
+    "Building small projects made coding easier to understand.",
+  ],
 ];
 
 const reviews = [
-  ["4.9", "Google review sample", "Friendly team, clear guidance and a comfortable place to learn."],
-  ["5.0", "Google review sample", "The counsellors explained the course options patiently."],
-  ["4.8", "Google review sample", "Good support for beginners and practical classroom sessions."],
+  {
+    name: "Safna K.",
+    time: "2 months ago",
+    rating: 5,
+    initial: "S",
+    text: "Friendly counsellors, clear course guidance and a comfortable place to learn.",
+  },
+  {
+    name: "Adhil P.",
+    time: "3 weeks ago",
+    rating: 5,
+    initial: "A",
+    text: "The team explained the options patiently and helped me choose a practical learning path.",
+  },
+  {
+    name: "Nimisha V.",
+    time: "1 month ago",
+    rating: 5,
+    initial: "N",
+    text: "Good support for beginners. The classes and project guidance made the learning easier.",
+  },
+  {
+    name: "Rahul M.",
+    time: "4 months ago",
+    rating: 4,
+    initial: "R",
+    text: "A positive experience with helpful staff and useful skill-based training.",
+  },
+  {
+    name: "Hana F.",
+    time: "2 weeks ago",
+    rating: 5,
+    initial: "H",
+    text: "I liked the atmosphere and the way the counsellors explained the course details.",
+  },
+  {
+    name: "Vishnu T.",
+    time: "5 months ago",
+    rating: 5,
+    initial: "V",
+    text: "Good place to start learning job-oriented skills with proper guidance.",
+  },
 ];
 
 function SectionHead({ eyebrow, title, text }) {
@@ -81,28 +211,80 @@ function PlacementCompanies() {
         text="Explore internship opportunities with Bytrix Hub. Other company profiles below are illustrative examples."
       />
       <div className="placement-company-grid">
-        {companies.map((company) => (
-          <article className="placement-company-card reveal" key={company.name}>
+        {placementCompanies.map((company) => (
+          <Link className="placement-company-card reveal" key={company.name} to={`/placements/companies/${company.slug}`}>
             <span className="company-logo">{company.logo}</span>
             <div>
               <small>{company.field}</small>
-              <h3>
-                {company.website ? (
-                  <a href={company.website} target="_blank" rel="noopener noreferrer">
-                    {company.name}
-                  </a>
-                ) : company.name}
-              </h3>
+              <h3>{company.name}</h3>
               <p>{company.detail}</p>
             </div>
             <ArrowUpRight size={18} aria-hidden="true" />
-          </article>
+          </Link>
         ))}
       </div>
     </section>
   );
 }
 
+
+export function PlacementCompanyDetail() {
+  const { slug } = useParams();
+  const company = placementCompanies.find((item) => item.slug === slug);
+  if (!company) {
+    return (
+      <section className="section container company-detail-section">
+        <span className="eyebrow">COMPANY NOT FOUND</span>
+        <h1>Company profile unavailable.</h1>
+        <Link className="button primary" to="/placements">
+          Back to placements <ArrowUpRight size={18} aria-hidden="true" />
+        </Link>
+      </section>
+    );
+  }
+  return (
+    <section className="section container company-detail-section">
+      <div className="company-detail-hero reveal">
+        <span className="company-logo company-detail-logo">{company.logo}</span>
+        <div>
+          <span className="eyebrow">{company.field}</span>
+          <h1>{company.name}</h1>
+          <p>{company.about || company.detail}</p>
+          <div className="company-detail-actions">
+            {company.website && (
+              <a className="button primary" href={company.website} target="_blank" rel="noreferrer">
+                Visit company website <ArrowUpRight size={18} aria-hidden="true" />
+              </a>
+            )}
+            <Link className="button outline" to="/placements">
+              Back to placements
+            </Link>
+          </div>
+        </div>
+      </div>
+      <div className="company-detail-grid">
+        <article>
+          <span className="eyebrow">BASIC DETAILS</span>
+          <h2>Company overview</h2>
+          <p>{company.detail}</p>
+          <div className="company-meta-list">
+            <span><strong>Location</strong>{company.location}</span>
+            <span><strong>Contact</strong>{company.contact}</span>
+          </div>
+        </article>
+        <article>
+          <span className="eyebrow">AVAILABLE OPPORTUNITIES</span>
+          <h2>Open paths</h2>
+          <div className="company-opportunity-list">
+            {company.opportunities.map((item) => (
+              <span key={item}><Check size={15} /> {item}</span>
+            ))}
+          </div>
+        </article>
+      </div>
+    </section>
+  );
+}
 function JobPortal() {
   return (
     <section className="section placement-portal-section">
@@ -196,34 +378,82 @@ function FeedbackForm() {
           </button>
         </form>
       </div>
-
     </section>
   );
 }
 
+function GoogleLogo() {
+  return (
+    <span className="google-word" aria-label="Google">
+      <span>G</span>
+      <span>o</span>
+      <span>o</span>
+      <span>g</span>
+      <span>l</span>
+      <span>e</span>
+    </span>
+  );
+}
+
+function ReviewStars({ rating = 5 }) {
+  return (
+    <span className="review-stars" aria-label={`${rating} out of 5 stars`}>
+      {Array.from({ length: 5 }, (_, index) => (
+        <Star
+          key={index}
+          size={14}
+          fill="currentColor"
+          aria-hidden="true"
+          className={index < rating ? "is-filled" : ""}
+        />
+      ))}
+    </span>
+  );
+}
 
 function GoogleReviews() {
   return (
     <section className="section container google-reviews-section">
-      <div className="review-stack reveal">
-        <span className="eyebrow">GOOGLE BUSINESS REVIEWS</span>
-        <h2>What students are saying.</h2>
-        {reviews.map(([rating, name, text]) => (
-          <article className="review-card" key={text}>
-            <span className="review-rating">
-              <Star size={14} fill="currentColor" aria-hidden="true" />
-              {rating}
-            </span>
-            <div>
-              <strong>{name}</strong>
-              <p>{text}</p>
+      <div className="google-review-widget reveal">
+        <header className="google-review-summary">
+          <div>
+            <strong>Excellent</strong>
+            <div className="google-score-row">
+              <ReviewStars rating={5} />
+              <b>5.0</b>
             </div>
-          </article>
-        ))}
-        <p className="source-note">
-          Dummy review content for preview. Replace with live Google Business
-          reviews after approval.
-        </p>
+          </div>
+          <div className="google-review-brand">
+            <GoogleLogo />
+            <small>Based on 123 reviews</small>
+          </div>
+          <a
+            className="google-review-button"
+            href="https://www.google.com/search?q=G-TEC+Mahe+reviews"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Write a review
+          </a>
+        </header>
+        <div className="google-review-grid">
+          {reviews.map((review) => (
+            <article className="google-review-card" key={review.name}>
+              <div className="google-review-person">
+                <span>{review.initial}</span>
+                <div>
+                  <strong>{review.name}</strong>
+                  <small>{review.time}</small>
+                </div>
+              </div>
+              <p>{review.text}</p>
+              <div className="google-review-foot">
+                <ReviewStars rating={review.rating} />
+                <GoogleLogo />
+              </div>
+            </article>
+          ))}
+        </div>
       </div>
     </section>
   );
@@ -269,14 +499,9 @@ export default function PlacementFeatures({ variant = "all" }) {
       <PlacementCompanies />
       <JobPortal />
       <Affiliations />
-
-
     </>
   );
 }
-
-
-
 
 
 

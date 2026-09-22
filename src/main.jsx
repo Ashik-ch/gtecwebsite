@@ -54,7 +54,7 @@ import { Mascot, GioWelcome, GioFinder } from "./Mascot";
 import ScrollMotion from "./ScrollMotion";
 import TeamDirectory from "./TeamDirectory";
 import PlacedStudents from "./PlacedStudents";
-import PlacementFeatures from "./PlacementFeatures";
+import PlacementFeatures, { PlacementCompanyDetail, placementCompanies } from "./PlacementFeatures";
 
 const EnquiryContext = createContext();
 const icons = {
@@ -1802,7 +1802,9 @@ function RouteEffects() {
   const { pathname, hash } = useLocation();
   useEffect(() => {
     const c = courses.find((c) => pathname === `/courses/${c.slug}`);
+    const company = placementCompanies.find((item) => pathname === `/placements/companies/${item.slug}`);
     const name =
+      company?.name ||
       c?.name ||
       {
         "/": "Innovating Your Tech Future",
@@ -1920,6 +1922,7 @@ function App() {
             />
             <Route path="/courses/:slug" element={<CourseDetail />} />
             <Route path="/placements" element={<Placements />} />
+            <Route path="/placements/companies/:slug" element={<PlacementCompanyDetail />} />
             <Route path="/life" element={<LifeAtGtec />} />
             <Route path="/contact" element={<ContactPage />} />
             <Route path="*" element={<NotFound />} />
@@ -1953,3 +1956,6 @@ createRoot(document.getElementById("root")).render(
     <App />
   </React.StrictMode>,
 );
+
+
+
