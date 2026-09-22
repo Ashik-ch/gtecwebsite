@@ -1,4 +1,4 @@
-.faculty-showcase {
+﻿.faculty-showcase {
     padding: 30px;
     border: 1px solid #e6e1d9;
     border-radius: 22px;
@@ -267,5 +267,22 @@
 @media(max-width:700px) {
     :where(.faculty-panel p, .faculty-panel small, .faculty-panel button, .faculty-panel-role, .faculty-panel-status, .faculty-panel-hint) {
         font-size: max(13px, 1em)
+    }
+}
+
+/* Fill available desktop width without changing the faculty card pattern */
+@media (min-width: 1001px) {
+    .faculty-panel-row {
+        width: 100%;
+        justify-content: stretch;
+    }
+
+    .faculty-panel {
+        flex: 1 1 0;
+        min-width: 0;
+    }
+
+    .faculty-panel.is-expanded {
+        flex: 1.22 1 0;
     }
 }

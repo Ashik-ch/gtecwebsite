@@ -1,4 +1,4 @@
-import { useState } from "react";
+﻿import { useState } from "react";
 import { Plus, Minus, Clock } from "lucide-react";
 import "./faculty-panels.css";
 const colors = ["#ffffff", "#ffffff", "#ffffff", "#ffffff", "#ffffff"];
