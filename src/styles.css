@@ -4031,3 +4031,894 @@ footer {
         font-size: max(11px, 1em)
     }
 }
+
+/* Modern placements page */
+.placement-modern-hero {
+    position: relative;
+    overflow: hidden;
+    background:
+        radial-gradient(circle at 98% 3%, rgba(82, 125, 255, 0.34), transparent 20rem),
+        radial-gradient(circle at 84% 24%, rgba(29, 229, 221, 0.12), transparent 18rem),
+        #081532;
+    color: #fff;
+    padding: clamp(5rem, 8vw, 8rem) 0 clamp(2.8rem, 5vw, 4.5rem);
+}
+
+.placement-modern-hero::after {
+    content: "";
+    position: absolute;
+    right: -6rem;
+    top: -7rem;
+    width: 24rem;
+    height: 24rem;
+    border: 1px solid rgba(133, 171, 255, 0.24);
+    border-radius: 50%;
+    box-shadow: inset 0 0 0 4rem rgba(255, 255, 255, 0.015), inset 0 0 0 8rem rgba(255, 255, 255, 0.012);
+    pointer-events: none;
+}
+
+.placement-breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 0.55rem;
+    color: rgba(226, 234, 255, 0.66);
+    font-size: 0.82rem;
+    margin-bottom: clamp(1.7rem, 3vw, 2.6rem);
+}
+
+.placement-breadcrumb a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.placement-hero-copy {
+    max-width: 46rem;
+    position: relative;
+    z-index: 1;
+}
+
+.placement-hero-copy .eyebrow,
+.placement-modern-hero .eyebrow {
+    color: #6ea3ff;
+}
+
+.placement-hero-copy h1 {
+    color: #fff;
+    font-size: clamp(2.4rem, 5.4vw, 4.45rem);
+    line-height: 0.98;
+    letter-spacing: -0.065em;
+    margin: 0.65rem 0 1rem;
+}
+
+.placement-hero-copy>p:not(.eyebrow) {
+    color: rgba(229, 236, 255, 0.78);
+    font-size: clamp(1rem, 1.7vw, 1.15rem);
+    line-height: 1.75;
+    max-width: 41rem;
+}
+
+.placement-hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.9rem;
+    margin-top: 1.8rem;
+}
+
+.button.secondary.dark {
+    background: transparent;
+    color: #fff;
+    border-color: rgba(255, 255, 255, 0.24);
+}
+
+.button.secondary.dark:hover {
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.placement-hero-stats {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 1rem;
+    margin-top: clamp(3rem, 6vw, 5rem);
+}
+
+.placement-stat-card {
+    min-height: 10.6rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.045);
+    padding: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 0.5rem;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06);
+}
+
+.placement-stat-icon {
+    display: inline-grid;
+    place-items: center;
+    width: 2.1rem;
+    height: 2.1rem;
+    border-radius: 0.75rem;
+    color: #7fb0ff;
+    background: rgba(51, 99, 235, 0.26);
+}
+
+.placement-stat-card strong {
+    margin-top: 0.35rem;
+    font-size: clamp(1.35rem, 2vw, 1.75rem);
+    line-height: 1;
+    letter-spacing: -0.04em;
+}
+
+.placement-stat-card>span:not(.placement-stat-icon) {
+    color: rgba(226, 234, 255, 0.62);
+    font-size: 0.84rem;
+}
+
+.placement-market-chips,
+.partner-market-panel div {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.38rem;
+}
+
+.placement-market-chips small,
+.partner-market-panel small {
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.14);
+    color: rgba(255, 255, 255, 0.88);
+    padding: 0.25rem 0.5rem;
+    font-size: 0.68rem;
+    font-weight: 800;
+}
+
+.internship-program-section .section-heading,
+.eligibility-section .section-heading,
+.certificate-section .section-heading,
+.partner-exposure-section .section-heading {
+    max-width: 48rem;
+    margin-left: 0;
+    text-align: left;
+}
+
+.internship-reason-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    border: 1px solid rgba(10, 28, 65, 0.1);
+    background: #fff;
+    box-shadow: 0 1.5rem 4rem rgba(8, 21, 50, 0.08);
+}
+
+.internship-reason-card {
+    min-height: 11rem;
+    position: relative;
+    padding: clamp(1.35rem, 2.3vw, 2rem);
+    border-right: 1px solid rgba(10, 28, 65, 0.08);
+    border-bottom: 1px solid rgba(10, 28, 65, 0.08);
+    overflow: hidden;
+}
+
+.internship-reason-card span {
+    position: absolute;
+    right: 1.45rem;
+    top: 0.95rem;
+    color: rgba(35, 83, 214, 0.08);
+    font-size: clamp(2.4rem, 5vw, 4.25rem);
+    font-weight: 900;
+    line-height: 1;
+}
+
+.internship-reason-card h3,
+.eligibility-card h3,
+.certificate-card h3 {
+    position: relative;
+    z-index: 1;
+    margin: 0 0 0.75rem;
+    color: var(--ink);
+    letter-spacing: -0.035em;
+}
+
+.internship-reason-card p,
+.eligibility-card p,
+.certificate-card p,
+.partner-card-details p {
+    position: relative;
+    z-index: 1;
+    color: var(--muted);
+    line-height: 1.65;
+    margin: 0;
+}
+
+.eligibility-grid,
+.certificate-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.5rem;
+}
+
+.eligibility-card {
+    border-radius: 18px;
+    border: 1px solid rgba(10, 28, 65, 0.11);
+    padding: clamp(1.35rem, 3vw, 2.3rem);
+    background: #fff;
+}
+
+.eligibility-card.is-open {
+    border-left: 4px solid #16a765;
+}
+
+.eligibility-card.is-soon {
+    border-color: rgba(225, 166, 39, 0.42);
+    background: #fffaf0;
+}
+
+.eligibility-card>span {
+    display: inline-flex;
+    border-radius: 999px;
+    padding: 0.42rem 0.85rem;
+    font-size: 0.7rem;
+    font-weight: 900;
+    color: #15945c;
+    background: #e9fff5;
+    margin-bottom: 1rem;
+}
+
+.eligibility-card.is-soon>span {
+    color: #ad7510;
+    background: #fff1c7;
+}
+
+.eligibility-card ul {
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0 1.25rem;
+    display: grid;
+    gap: 0.65rem;
+}
+
+.eligibility-card li {
+    color: var(--muted);
+    display: flex;
+    gap: 0.55rem;
+    line-height: 1.5;
+}
+
+.eligibility-card li::before {
+    content: "?";
+    display: inline-grid;
+    place-items: center;
+    width: 1rem;
+    height: 1rem;
+    flex: 0 0 1rem;
+    margin-top: 0.15rem;
+    border-radius: 50%;
+    color: #16a765;
+    background: #e9fff5;
+    font-size: 0.7rem;
+    font-weight: 900;
+}
+
+.button.gold {
+    background: #f2b93b;
+    color: #171100;
+    box-shadow: 0 1rem 2rem rgba(242, 185, 59, 0.22);
+}
+
+.certificate-card {
+    border: 1px dashed rgba(35, 83, 214, 0.32);
+    background: linear-gradient(135deg, #fff, #fbfdff);
+    padding: clamp(1.35rem, 3vw, 2rem);
+    min-height: 13rem;
+    box-shadow: 0 1rem 2.8rem rgba(8, 21, 50, 0.05);
+}
+
+.certificate-card>span,
+.partner-list-label {
+    display: block;
+    color: #2353d6;
+    font-size: 0.72rem;
+    letter-spacing: 0.16em;
+    font-weight: 900;
+    margin-bottom: 1.2rem;
+}
+
+.certificate-card h3 {
+    font-size: clamp(1.12rem, 1.8vw, 1.42rem);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+}
+
+.certificate-card div {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    border-top: 1px solid rgba(10, 28, 65, 0.08);
+    margin-top: 1.2rem;
+    padding-top: 1rem;
+}
+
+.certificate-card small {
+    color: var(--muted);
+}
+
+.internship-quote {
+    margin: 3rem 0 0;
+    border-left: 4px solid #2353d6;
+    border-radius: 0 16px 16px 0;
+    background: #f3f6fc;
+    padding: clamp(1.5rem, 3vw, 2.2rem);
+}
+
+.internship-quote p {
+    margin: 0 0 0.6rem;
+    color: var(--ink);
+    font-size: clamp(1rem, 1.45vw, 1.18rem);
+    font-weight: 700;
+    line-height: 1.35;
+}
+
+.internship-quote cite {
+    color: var(--muted);
+    font-style: normal;
+    font-weight: 700;
+}
+
+.partner-list {
+    display: grid;
+    gap: 1rem;
+}
+
+.partner-card {
+    border: 1px solid rgba(10, 28, 65, 0.1);
+    border-radius: 16px;
+    background: #fff;
+    overflow: hidden;
+    box-shadow: 0 1rem 3rem rgba(8, 21, 50, 0.05);
+}
+
+.partner-card-head {
+    width: 100%;
+    min-height: 4.8rem;
+    border: 0;
+    background: transparent;
+    display: grid;
+    grid-template-columns: auto 1fr auto auto;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 1.35rem;
+    color: var(--ink);
+    cursor: pointer;
+    text-align: left;
+}
+
+.partner-logo {
+    display: inline-grid;
+    place-items: center;
+    width: 2.7rem;
+    height: 2.7rem;
+    border-radius: 0.75rem;
+    background: #eaf0ff;
+    color: #2353d6;
+    font-weight: 900;
+}
+
+.partner-name-block {
+    display: grid;
+    gap: 0.18rem;
+}
+
+.partner-name-block strong {
+    color: var(--ink);
+    font-size: 1rem;
+}
+
+.partner-name-block small,
+.partner-codes {
+    color: var(--muted);
+    font-size: 0.78rem;
+    font-weight: 800;
+}
+
+.partner-codes {
+    color: var(--ink);
+    letter-spacing: 0.04em;
+    white-space: nowrap;
+}
+
+.partner-card.is-open .partner-card-head {
+    border-bottom: 1px solid rgba(10, 28, 65, 0.08);
+}
+
+.partner-card.is-open .partner-card-head svg {
+    transform: rotate(180deg);
+}
+
+.partner-card-details {
+    padding: clamp(1.2rem, 2.4vw, 1.8rem);
+    display: grid;
+    gap: 1.2rem;
+}
+
+.partner-meta-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+}
+
+.partner-meta-grid div {
+    display: grid;
+    gap: 0.35rem;
+}
+
+.partner-meta-grid span,
+.partner-market-panel>span {
+    color: #2353d6;
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+    font-weight: 900;
+}
+
+.partner-market-panel {
+    border-radius: 14px;
+    background: #eaf1ff;
+    padding: 1rem;
+    display: grid;
+    gap: 0.8rem;
+}
+
+.partner-market-panel small {
+    background: #fff;
+    color: #0f234f;
+}
+
+.partner-benefit-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.75rem 1.25rem;
+}
+
+.partner-benefit-grid p {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5rem;
+    font-size: 0.92rem;
+}
+
+.partner-benefit-grid svg {
+    flex: 0 0 auto;
+    color: #2353d6;
+    margin-top: 0.18rem;
+}
+
+.partner-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    border-top: 1px solid rgba(10, 28, 65, 0.08);
+    padding-top: 1rem;
+}
+
+.partner-tags span {
+    border-radius: 999px;
+    background: #f5f7fb;
+    color: var(--ink);
+    font-size: 0.78rem;
+    font-weight: 800;
+    padding: 0.45rem 0.75rem;
+}
+
+.journey-map-card {
+    border: 1px solid rgba(10, 28, 65, 0.1);
+    border-radius: 24px;
+    background: #fff;
+    box-shadow: 0 1.5rem 4rem rgba(8, 21, 50, 0.07);
+    padding: clamp(1.35rem, 3vw, 2.4rem);
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.journey-map-copy h2 {
+    margin: 0.35rem 0 0.4rem;
+    color: var(--ink);
+    font-size: clamp(1.55rem, 3vw, 2.4rem);
+    letter-spacing: -0.05em;
+}
+
+.journey-map-copy p:not(.eyebrow) {
+    margin: 0;
+    color: var(--muted);
+    font-weight: 700;
+}
+
+.journey-steps {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: repeat(8, minmax(0, 1fr));
+    gap: 0.7rem;
+    position: relative;
+    margin-top: 1.4rem;
+}
+
+.journey-steps::before {
+    content: "";
+    position: absolute;
+    left: 4%;
+    right: 4%;
+    top: 2rem;
+    border-top: 2px dashed rgba(35, 83, 214, 0.25);
+}
+
+.journey-steps article {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    justify-items: center;
+    text-align: center;
+    gap: 0.35rem;
+}
+
+.journey-steps article>span {
+    display: inline-grid;
+    place-items: center;
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    background: #fff;
+    border: 1px solid rgba(35, 83, 214, 0.12);
+}
+
+.journey-steps strong {
+    color: #2353d6;
+    font-size: 0.82rem;
+}
+
+.journey-steps p {
+    color: var(--muted);
+    font-size: 0.72rem;
+    line-height: 1.35;
+    margin: 0;
+}
+
+@media (max-width: 980px) {
+
+    .placement-hero-stats,
+    .internship-reason-grid,
+    .journey-steps {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .eligibility-grid,
+    .certificate-grid,
+    .partner-benefit-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .journey-steps::before {
+        display: none;
+    }
+}
+
+@media (max-width: 680px) {
+    .placement-modern-hero {
+        padding-top: 4.4rem;
+    }
+
+    .placement-hero-actions,
+    .placement-hero-actions .button {
+        width: 100%;
+    }
+
+    .placement-hero-stats,
+    .internship-reason-grid,
+    .partner-meta-grid,
+    .journey-steps {
+        grid-template-columns: 1fr;
+    }
+
+    .partner-card-head {
+        grid-template-columns: auto 1fr auto;
+        gap: 0.75rem;
+    }
+
+    .partner-codes {
+        grid-column: 2 / -1;
+        white-space: normal;
+    }
+
+    .journey-map-card {
+        grid-template-columns: 1fr;
+        text-align: center;
+        justify-items: center;
+    }
+}
+
+/* Placement page light-theme alignment */
+.placement-modern-hero {
+    background:
+        radial-gradient(circle at 92% 8%, rgba(205, 218, 253, 0.75), transparent 18rem),
+        radial-gradient(circle at 76% 28%, rgba(37, 193, 185, 0.12), transparent 20rem),
+        linear-gradient(180deg, #f3f6fd 0%, #ffffff 100%);
+    color: var(--ink);
+    padding: clamp(4.8rem, 7vw, 7.2rem) 0 clamp(2.4rem, 4vw, 4rem);
+    border-bottom: 1px solid rgba(16, 32, 69, 0.06);
+}
+
+.placement-modern-hero::after {
+    border-color: rgba(35, 83, 214, 0.12);
+    box-shadow:
+        inset 0 0 0 4rem rgba(35, 83, 214, 0.025),
+        inset 0 0 0 8rem rgba(37, 193, 185, 0.018);
+}
+
+.placement-breadcrumb {
+    color: #8793a8;
+}
+
+.placement-breadcrumb a {
+    color: #607298;
+}
+
+.placement-hero-copy .eyebrow,
+.placement-modern-hero .eyebrow {
+    color: var(--blue);
+}
+
+.placement-hero-copy h1 {
+    color: var(--ink);
+    font-size: clamp(2.35rem, 4.8vw, 4rem);
+    line-height: 1.04;
+}
+
+.placement-hero-copy>p:not(.eyebrow) {
+    color: var(--muted);
+}
+
+.button.secondary.dark {
+    background: #fff;
+    color: var(--ink);
+    border-color: rgba(16, 32, 69, 0.14);
+    box-shadow: 0 1rem 2.4rem rgba(18, 35, 78, 0.07);
+}
+
+.button.secondary.dark:hover {
+    background: #f8fbff;
+    border-color: rgba(35, 83, 214, 0.24);
+}
+
+.placement-stat-card {
+    border-color: rgba(16, 32, 69, 0.09);
+    background: rgba(255, 255, 255, 0.82);
+    box-shadow: 0 1.4rem 3.5rem rgba(18, 35, 78, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(16px);
+}
+
+.placement-stat-icon {
+    color: var(--blue);
+    background: #eaf0ff;
+}
+
+.placement-stat-card strong {
+    color: var(--ink);
+}
+
+.placement-stat-card>span:not(.placement-stat-icon) {
+    color: var(--muted);
+}
+
+.placement-market-chips small {
+    background: #eef3ff;
+    color: #4e6090;
+}
+
+@media (max-width: 680px) {
+    .placement-modern-hero {
+        padding-top: 4rem;
+    }
+}
+
+.country-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.28rem;
+    vertical-align: middle;
+    white-space: nowrap;
+}
+
+.country-flag {
+    width: 1.15rem;
+    height: 0.86rem;
+    border-radius: 0.18rem;
+    object-fit: cover;
+    box-shadow: 0 0 0 1px rgba(15, 35, 79, 0.08);
+    flex: 0 0 auto;
+}
+
+.country-globe {
+    line-height: 1;
+}
+
+.country-separator {
+    color: var(--muted);
+    margin: 0 0.45rem;
+}
+
+.partner-codes {
+    display: inline-flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.partner-market-panel small,
+.placement-market-chips small {
+    display: inline-flex;
+    align-items: center;
+}
+
+.partner-logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+}
+
+/* Student journey mascot responsive polish */
+.journey-main-mascot {
+    display: inline-grid;
+    place-items: center;
+    width: clamp(4.25rem, 7vw, 5.9rem);
+    height: clamp(4.25rem, 7vw, 5.9rem);
+    border-radius: 1.5rem;
+    background: linear-gradient(145deg, #eef5ff, #ffffff);
+    box-shadow: 0 1rem 2.4rem rgba(35, 83, 214, 0.12);
+}
+
+.journey-main-mascot .gio {
+    width: clamp(3rem, 5.2vw, 4.35rem);
+    height: auto;
+}
+
+.journey-step-mascot {
+    transition: transform 260ms ease, box-shadow 260ms ease, border-color 260ms ease;
+    will-change: transform;
+}
+
+.journey-step-mascot .gio {
+    width: 2.45rem;
+    height: auto;
+    transition: transform 260ms ease, filter 260ms ease;
+}
+
+.journey-steps article:hover .journey-step-mascot,
+.journey-steps article:focus-within .journey-step-mascot {
+    transform: translateY(-0.45rem) scale(1.08);
+    border-color: rgba(35, 83, 214, 0.28);
+    box-shadow: 0 0.9rem 2rem rgba(35, 83, 214, 0.12);
+}
+
+.journey-steps article:hover .journey-step-mascot .gio,
+.journey-steps article:focus-within .journey-step-mascot .gio {
+    transform: rotate(-6deg) scale(1.06);
+    filter: drop-shadow(0 0.45rem 0.55rem rgba(35, 83, 214, 0.18));
+}
+
+@media (max-width: 980px) {
+    .journey-map-card {
+        grid-template-columns: auto minmax(0, 1fr);
+    }
+
+    .journey-main-mascot {
+        width: 4.5rem;
+        height: 4.5rem;
+        border-radius: 1.2rem;
+    }
+
+    .journey-main-mascot .gio {
+        width: 3.2rem;
+    }
+
+    .journey-steps article>.journey-step-mascot {
+        width: 3.6rem;
+        height: 3.6rem;
+    }
+
+    .journey-step-mascot .gio {
+        width: 2.2rem;
+    }
+}
+
+@media (max-width: 680px) {
+    .journey-main-mascot {
+        width: 3.85rem;
+        height: 3.85rem;
+        border-radius: 1rem;
+    }
+
+    .journey-main-mascot .gio {
+        width: 2.75rem;
+    }
+
+    .journey-steps article>.journey-step-mascot {
+        width: 3.25rem;
+        height: 3.25rem;
+    }
+
+    .journey-step-mascot .gio {
+        width: 2rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    .journey-step-mascot,
+    .journey-step-mascot .gio {
+        transition: none;
+    }
+
+    .journey-steps article:hover .journey-step-mascot,
+    .journey-steps article:hover .journey-step-mascot .gio {
+        transform: none;
+    }
+}
+
+
+@media (prefers-reduced-motion: reduce) {
+
+    .journey-steps::before,
+    .journey-steps::after {
+        animation: none;
+    }
+}
+
+/* Animated student journey connector */
+.journey-steps::before,
+.journey-steps::after {
+    content: "";
+    position: absolute;
+    left: 4%;
+    right: 4%;
+    top: 2rem;
+    height: 1px;
+    border: 0;
+    border-radius: 999px;
+    pointer-events: none;
+}
+
+.journey-steps::before {
+    background-image: linear-gradient(90deg, rgba(35, 83, 214, 0.28) 50%, transparent 0);
+    background-size: 18px 3px;
+    animation: journey-dash-flow 1.4s linear infinite;
+}
+
+.journey-steps::after {
+    display: none;
+}
+
+@keyframes journey-dash-flow {
+    to {
+        background-position: 18px 0;
+    }
+}
+
+@media (max-width: 980px) {
+
+    .journey-steps::before,
+    .journey-steps::after {
+        display: none;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    .journey-steps::before,
+    .journey-steps::after {
+        animation: none;
+    }
+}

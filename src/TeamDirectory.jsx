@@ -62,17 +62,18 @@ const groups = [
     id: "social-media",
     label: "Digital presence",
     title: "Social media team",
-    description: "The creative team behind our online community.",
+    description:
+      "The creative team behind our digital presence and online community.",
     members: [
       {
-        name: "Name to be added",
-        designation: "Social Media Team",
-        photo: "/images/team-placeholder.svg",
+        name: "Sidhique C.H",
+        designation: "Social Media Head",
+        photo: "/images/staff/sidhique-ch.jpg",
       },
       {
-        name: "Name to be added",
-        designation: "Social Media Team",
-        photo: "/images/team-placeholder.svg",
+        name: "Muhammed Kaif",
+        designation: "Social Media Intern",
+        photo: "/images/staff/muhammed-kaif.jpg",
       },
     ].map((member, index) => ({
       id: "social-media-" + (index + 1),
@@ -102,11 +103,6 @@ const groups = [
         photo: "/images/staff/fathimath-farha.jpg",
       },
       {
-        name: "Muhammed Kaif",
-        designation: "Social Media Intern",
-        photo: "/images/staff/muhammed-kaif.jpg",
-      },
-      {
         name: "Nihala Fathima",
         designation: "Multimedia Faculty",
         photo: "/images/staff/nihala-fathima.jpg",
@@ -130,11 +126,6 @@ const groups = [
         name: "Shazna Sathar",
         designation: "Spoken English & Personality Development Trainer",
         photo: "/images/staff/shazna-sathar.jpg",
-      },
-      {
-        name: "Sidhique C.H",
-        designation: "Social Media Head",
-        photo: "/images/staff/sidhique-ch.jpg",
       },
     ].map((member, index) => ({
       id: "faculty-" + (index + 1),

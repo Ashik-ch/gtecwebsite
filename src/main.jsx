@@ -54,7 +54,11 @@ import { Mascot, GioWelcome, GioFinder } from "./Mascot";
 import ScrollMotion from "./ScrollMotion";
 import TeamDirectory from "./TeamDirectory";
 import PlacedStudents from "./PlacedStudents";
-import PlacementFeatures, { PlacementCompanyDetail, placementCompanies } from "./PlacementFeatures";
+import PlacementFeatures, {
+  PlacementCompanyDetail,
+  placementCompanies,
+} from "./PlacementFeatures";
+import Placements from "./PlacementsPage";
 
 const EnquiryContext = createContext();
 const icons = {
@@ -1566,58 +1570,6 @@ function ContactPage() {
     </>
   );
 }
-function Placements() {
-  return (
-    <>
-      <PageHero
-        eyebrow="SKILLS TODAY. POSSIBILITIES TOMORROW."
-        title={
-          <>
-            Build your skills.
-            <br />
-            <span className="blue">Shape your next chapter.</span>
-          </>
-        }
-        text="Explore career support that helps you connect your learning with the working world."
-        items={[["Placements"]]}
-      />
-      <PlacementSection full />
-      <PlacementFeatures />
-      <section className="container section">
-        <SectionTitle
-          eyebrow="PLACEMENT HIGHLIGHTS"
-          title="A conversation about your future."
-          text="Ask our team for verified placement outcomes, recent hiring opportunities and the support available for your selected programme."
-        />
-        <div className="facility-grid">
-          {[
-            [
-              "Career support",
-              "Discuss your goals and understand the next steps relevant to your field.",
-            ],
-            [
-              "Practical experience",
-              "Explore how programme projects can help you demonstrate what you’ve learned.",
-            ],
-            [
-              "Placement assistance",
-              "Confirm the current placement process, eligibility and opportunities with the team.",
-            ],
-          ].map(([title, text], i) => (
-            <article key={title}>
-              <span className="eyebrow">0{i + 1}</span>
-              <h3>{title}</h3>
-              <p>{text}</p>
-            </article>
-          ))}
-        </div>
-      </section>
-      <Stories />
-      <FAQs />
-      <CTA />
-    </>
-  );
-}
 function CourseDetail() {
   const { slug } = useParams();
   const course = courses.find((c) => c.slug === slug);
@@ -1802,7 +1754,9 @@ function RouteEffects() {
   const { pathname, hash } = useLocation();
   useEffect(() => {
     const c = courses.find((c) => pathname === `/courses/${c.slug}`);
-    const company = placementCompanies.find((item) => pathname === `/placements/companies/${item.slug}`);
+    const company = placementCompanies.find(
+      (item) => pathname === `/placements/companies/${item.slug}`,
+    );
     const name =
       company?.name ||
       c?.name ||
@@ -1921,8 +1875,21 @@ function App() {
               }
             />
             <Route path="/courses/:slug" element={<CourseDetail />} />
-            <Route path="/placements" element={<Placements />} />
-            <Route path="/placements/companies/:slug" element={<PlacementCompanyDetail />} />
+            <Route
+              path="/placements"
+              element={
+                <Placements
+                  SectionTitle={SectionTitle}
+                  Stories={Stories}
+                  FAQs={FAQs}
+                  CTA={CTA}
+                />
+              }
+            />
+            <Route
+              path="/placements/companies/:slug"
+              element={<PlacementCompanyDetail />}
+            />
             <Route path="/life" element={<LifeAtGtec />} />
             <Route path="/contact" element={<ContactPage />} />
             <Route path="*" element={<NotFound />} />
@@ -1956,6 +1923,3 @@ createRoot(document.getElementById("root")).render(
     <App />
   </React.StrictMode>,
 );
-
-
-

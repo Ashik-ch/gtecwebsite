@@ -1,7 +1,15 @@
-import { ArrowUpRight, Check, Play, Star } from "lucide-react";
+﻿import { ArrowUpRight, Check, Play, Star } from "lucide-react";
 import { Link, useParams } from "react-router-dom";
 import "./placement-features.css";
 
+const CompanyLogo = ({ logo, name, className = "company-logo" }) => {
+  const isImage = typeof logo === "string" && logo.startsWith("/");
+  return (
+    <span className={className}>
+      {isImage ? <img src={logo} alt={`${name} logo`} loading="lazy" /> : logo}
+    </span>
+  );
+};
 export const placementCompanies = [
   {
     slug: "bytrix-hub",
@@ -12,7 +20,7 @@ export const placementCompanies = [
       "Bytrix Hub is a development-stage internship partner profile for learners who want exposure to web, digital marketing and business support workflows.",
     location: "Kannur / Remote friendly",
     contact: "placements@bytrixhub.example",
-    logo: "BH",
+    logo: "/images/bytrixlogo.png",
     website: "https://www.bytrixhub.com/",
     opportunities: [
       "Digital Marketing Intern",
@@ -25,7 +33,8 @@ export const placementCompanies = [
     slug: "northstar-accounts",
     name: "NorthStar Accounts",
     field: "Accounting services",
-    detail: "Demo recruiter for accounts assistant and Tally operator profiles.",
+    detail:
+      "Demo recruiter for accounts assistant and Tally operator profiles.",
     about:
       "NorthStar Accounts is dummy data for testing accounting placement flows, company detail pages and opportunity listings.",
     location: "Mahe / Thalassery",
@@ -79,7 +88,8 @@ export const placementCompanies = [
     slug: "brightdesk-solutions",
     name: "BrightDesk Solutions",
     field: "Office administration",
-    detail: "Dummy company for MS Office, admin and front-office role previews.",
+    detail:
+      "Dummy company for MS Office, admin and front-office role previews.",
     about:
       "BrightDesk Solutions helps test admin-focused job cards and company pages during development.",
     location: "Mahe",
@@ -97,7 +107,8 @@ export const placementCompanies = [
     slug: "cloudline-erp",
     name: "CloudLine ERP",
     field: "ERP & software support",
-    detail: "Dummy partner for SAP, ERP support and software trainee opportunities.",
+    detail:
+      "Dummy partner for SAP, ERP support and software trainee opportunities.",
     about:
       "CloudLine ERP is placeholder data for testing enterprise software placement content and opportunity categories.",
     location: "Remote / Kochi",
@@ -212,8 +223,12 @@ function PlacementCompanies() {
       />
       <div className="placement-company-grid">
         {placementCompanies.map((company) => (
-          <Link className="placement-company-card reveal" key={company.name} to={`/placements/companies/${company.slug}`}>
-            <span className="company-logo">{company.logo}</span>
+          <Link
+            className="placement-company-card reveal"
+            key={company.name}
+            to={`/placements/companies/${company.slug}`}
+          >
+            <CompanyLogo logo={company.logo} name={company.name} />
             <div>
               <small>{company.field}</small>
               <h3>{company.name}</h3>
@@ -226,7 +241,6 @@ function PlacementCompanies() {
     </section>
   );
 }
-
 
 export function PlacementCompanyDetail() {
   const { slug } = useParams();
@@ -245,15 +259,21 @@ export function PlacementCompanyDetail() {
   return (
     <section className="section container company-detail-section">
       <div className="company-detail-hero reveal">
-        <span className="company-logo company-detail-logo">{company.logo}</span>
+        <CompanyLogo logo={company.logo} name={company.name} className="company-logo company-detail-logo" />
         <div>
           <span className="eyebrow">{company.field}</span>
           <h1>{company.name}</h1>
           <p>{company.about || company.detail}</p>
           <div className="company-detail-actions">
             {company.website && (
-              <a className="button primary" href={company.website} target="_blank" rel="noreferrer">
-                Visit company website <ArrowUpRight size={18} aria-hidden="true" />
+              <a
+                className="button primary"
+                href={company.website}
+                target="_blank"
+                rel="noreferrer"
+              >
+                Visit company website{" "}
+                <ArrowUpRight size={18} aria-hidden="true" />
               </a>
             )}
             <Link className="button outline" to="/placements">
@@ -268,8 +288,14 @@ export function PlacementCompanyDetail() {
           <h2>Company overview</h2>
           <p>{company.detail}</p>
           <div className="company-meta-list">
-            <span><strong>Location</strong>{company.location}</span>
-            <span><strong>Contact</strong>{company.contact}</span>
+            <span>
+              <strong>Location</strong>
+              {company.location}
+            </span>
+            <span>
+              <strong>Contact</strong>
+              {company.contact}
+            </span>
           </div>
         </article>
         <article>
@@ -277,7 +303,9 @@ export function PlacementCompanyDetail() {
           <h2>Open paths</h2>
           <div className="company-opportunity-list">
             {company.opportunities.map((item) => (
-              <span key={item}><Check size={15} /> {item}</span>
+              <span key={item}>
+                <Check size={15} /> {item}
+              </span>
             ))}
           </div>
         </article>
@@ -502,7 +530,5 @@ export default function PlacementFeatures({ variant = "all" }) {
     </>
   );
 }
-
-
 
 
