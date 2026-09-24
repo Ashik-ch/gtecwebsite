@@ -427,9 +427,6 @@ function AboutSection() {
           </strong>
           <span>A space to become.</span>
         </div>
-        <span className="photo-caption">
-          A shared spirit of learning · illustrative photograph
-        </span>
       </div>
       <div className="about-copy reveal">
         <span className="eyebrow eyebrow-highlight">WELCOME TO G-TEC MAHE</span>
@@ -1883,6 +1880,7 @@ function App() {
                   Stories={Stories}
                   FAQs={FAQs}
                   CTA={CTA}
+                  Modal={Modal}
                 />
               }
             />

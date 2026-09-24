@@ -1,4 +1,4 @@
-﻿import React, { useState } from "react";
+﻿import React, { useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import {
   Check,
@@ -10,6 +10,125 @@ import {
 } from "lucide-react";
 import { Mascot } from "./Mascot";
 import { placementCompanies } from "./PlacementFeatures";
+import { site } from "./data";
+import { usePlacementMotion } from "./PlacementMotion";
+
+const whatsappLink = (text) =>
+  site.whatsappNumber
+    ? `https://wa.me/${site.whatsappNumber}?text=${encodeURIComponent(text)}`
+    : site.whatsapp;
+
+const notifyMessage = `Hello G-TEC Mahe,
+
+I'm not a G-TEC Mahe student, but I'm interested in your internship program (3-6 months, live projects with partner companies).
+
+I saw that open internships for outside students are coming soon. Please add me to your notification list and let me know as soon as applications open.
+
+Thank you!`;
+
+const isDriveLink = (value) =>
+  /^https:\/\/(drive|docs)\.google\.com\//i.test(value);
+
+function EligibilityForm() {
+  const [sent, setSent] = useState(null);
+  const [error, setError] = useState("");
+
+  function submit(e) {
+    e.preventDefault();
+    const form = new FormData(e.currentTarget);
+    if (form.get("website")) return;
+    const resume = String(form.get("resume") || "").trim();
+    if (!isDriveLink(resume))
+      return setError("Please paste a Google Drive link to your resume.");
+    setError("");
+    const message = `Hello G-TEC Mahe, I would like to check my internship eligibility.\nName: ${form.get("name")}\nPhone: ${form.get("phone")}\nEmail: ${form.get("email")}\nResume: ${resume}`;
+    const url = whatsappLink(message);
+    window.open(url, "_blank", "noopener");
+    setSent(url);
+  }
+
+  if (sent)
+    return (
+      <div className="enquiry-draft eligibility-sent">
+        <strong>WhatsApp is open with your details.</strong>
+        <p>
+          Press send in WhatsApp to share your details and resume link with the
+          placement cell.
+        </p>
+        <a
+          className="button primary"
+          href={sent}
+          target="_blank"
+          rel="noreferrer"
+        >
+          Open WhatsApp again
+        </a>
+      </div>
+    );
+
+  return (
+    <form className="enquiry-form" onSubmit={submit}>
+      <label>
+        Your name <span>*</span>
+        <input
+          name="name"
+          required
+          autoComplete="name"
+          placeholder="Full name"
+          maxLength={100}
+        />
+      </label>
+      <div className="form-row">
+        <label>
+          Phone number <span>*</span>
+          <input
+            type="tel"
+            name="phone"
+            required
+            autoComplete="tel"
+            pattern="[+0-9 ()-]{7,20}"
+            placeholder="Your phone number"
+          />
+        </label>
+        <label>
+          Email address <span>*</span>
+          <input
+            name="email"
+            type="email"
+            required
+            autoComplete="email"
+            placeholder="you@example.com"
+          />
+        </label>
+      </div>
+      <label>
+        Resume Google Drive link <span>*</span>
+        <input
+          name="resume"
+          type="url"
+          required
+          inputMode="url"
+          placeholder="https://drive.google.com/file/d/..."
+        />
+      </label>
+      <input
+        className="honeypot"
+        name="website"
+        tabIndex={-1}
+        aria-hidden="true"
+        autoComplete="off"
+      />
+      {error ? <p className="form-error">{error}</p> : null}
+      <button type="submit" className="button primary">
+        Send on WhatsApp
+      </button>
+      <p className="form-note">
+        Set your Drive file's sharing to "Anyone with the link can view" so the
+        placement cell can open it.
+      </p>
+    </form>
+  );
+}
 const countryFlagCodes = {
   IN: "in",
   QA: "qa",
@@ -77,7 +196,10 @@ const MarketList = ({ markets, compact = false, separator = null }) => (
     ))}
   </>
 );
-export default function Placements({ SectionTitle, Stories, FAQs, CTA }) {
+export default function Placements({ SectionTitle, Stories, FAQs, CTA, Modal }) {
+  const [eligibilityOpen, setEligibilityOpen] = useState(false);
+  const pageRef = useRef(null);
+  usePlacementMotion(pageRef);
   const partnerProfiles = placementCompanies
     .slice(0, 5)
     .map((company, index) => {
@@ -223,11 +345,7 @@ export default function Placements({ SectionTitle, Stories, FAQs, CTA }) {
     ],
     [
       "Global Client Exposure",
-      <>
-        Projects connected to companies across the GCC,{" "}
-        <MarketLabel market="US USA" />, <MarketLabel market="GB UK" />,{" "}
-        <MarketLabel market="IN India" /> and other markets.
-      </>,
+      <>Projects connected to companies across the GCC </>,
     ],
     [
       "Mentorship From Professionals",
@@ -255,7 +373,7 @@ export default function Placements({ SectionTitle, Stories, FAQs, CTA }) {
   ];
 
   return (
-    <>
+    <div className="placements-page" ref={pageRef}>
       <section className="placement-modern-hero">
         <div className="container">
           <nav className="placement-breadcrumb" aria-label="Breadcrumb">
@@ -295,7 +413,7 @@ export default function Placements({ SectionTitle, Stories, FAQs, CTA }) {
             {stats.map((stat) => {
               const Icon = stat.icon;
               return (
-                <article className="placement-stat-card" key={stat.label}>
+                <article className="placement-stat-card reveal" key={stat.label}>
                   <span className="placement-stat-icon">
                     <Icon size={18} />
                   </span>
@@ -325,8 +443,7 @@ export default function Placements({ SectionTitle, Stories, FAQs, CTA }) {
         />
         <div className="internship-reason-grid">
           {internshipBlocks.map(([title, text], index) => (
-            <article className="internship-reason-card" key={title}>
-              <span>{String(index + 1).padStart(2, "0")}</span>
+            <article className="internship-reason-card reveal" key={title}>
               <h3>{title}</h3>
               <p>{text}</p>
             </article>
@@ -341,7 +458,7 @@ export default function Placements({ SectionTitle, Stories, FAQs, CTA }) {
           text="The internship program currently runs for G-TEC Mahe students - and we're building toward opening it up more widely."
         />
         <div className="eligibility-grid">
-          <article className="eligibility-card is-open">
+          <article className="eligibility-card reveal is-open">
             <span>OPEN NOW</span>
             <h3>G-TEC Mahe course graduates</h3>
             <ul>
@@ -350,11 +467,15 @@ export default function Placements({ SectionTitle, Stories, FAQs, CTA }) {
               <li>Priority access to live openings from partner companies</li>
               <li>Certificate and placement assistance included</li>
             </ul>
-            <Link className="button primary" to="/contact">
+            <button
+              className="button primary"
+              type="button"
+              onClick={() => setEligibilityOpen(true)}
+            >
               Check my eligibility
-            </Link>
+            </button>
           </article>
-          <article className="eligibility-card is-soon">
+          <article className="eligibility-card reveal is-soon">
             <span>COMING SOON</span>
             <h3>Open internships for outside students</h3>
             <p>
@@ -366,9 +487,14 @@ export default function Placements({ SectionTitle, Stories, FAQs, CTA }) {
               <li>Same partner companies, same 3-6 month structure</li>
               <li>Applications will open in phases as capacity allows</li>
             </ul>
-            <Link className="button gold" to="/contact">
+            <a
+              className="button gold"
+              href={whatsappLink(notifyMessage)}
+              target="_blank"
+              rel="noreferrer"
+            >
               Notify me when this opens
-            </Link>
+            </a>
           </article>
         </div>
       </section>
@@ -380,32 +506,58 @@ export default function Placements({ SectionTitle, Stories, FAQs, CTA }) {
           text="Every completed internship is recognised twice over - once by G-TEC Mahe, and once by the company you worked with."
         />
         <div className="certificate-grid">
-          <article className="certificate-card">
-            <span>CERTIFICATE 01</span>
-            <h3>Certificate of Internship Completion</h3>
-            <p>
-              Issued by G-TEC Mahe, confirming the duration, domain and
-              structured training completed by the student.
-            </p>
-            <div>
-              <small>Issued by</small>
-              <strong>G-TEC Mahe</strong>
+          <article className="certificate-card reveal">
+            <div className="certificate-frame">
+              <span className="certificate-no">CERTIFICATE 01</span>
+              <h3>Certificate of Internship Completion</h3>
+              <p className="certificate-kicker">This is to certify that</p>
+              <div className="certificate-name">Student Name</div>
+              <p>
+                Issued by G-TEC Mahe, confirming the duration, domain and
+                structured training completed by the student.
+              </p>
+              <footer className="certificate-foot">
+                <div className="certificate-sign">
+                  <strong>G-TEC Mahe</strong>
+                  <small>Issued by</small>
+                </div>
+                <div className="certificate-seal" aria-hidden="true">
+                  <span>Verified</span>
+                </div>
+                <div className="certificate-sign">
+                  <strong>On completion</strong>
+                  <small>Date</small>
+                </div>
+              </footer>
             </div>
           </article>
-          <article className="certificate-card">
-            <span>CERTIFICATE 02</span>
-            <h3>Company Experience Certificate</h3>
-            <p>
-              Issued directly by the partner company, confirming the live
-              projects and practical work completed.
-            </p>
-            <div>
-              <small>Issued by</small>
-              <strong>Your internship partner</strong>
+          <article className="certificate-card reveal">
+            <div className="certificate-frame">
+              <span className="certificate-no">CERTIFICATE 02</span>
+              <h3>Company Experience Certificate</h3>
+              <p className="certificate-kicker">This is to certify that</p>
+              <div className="certificate-name">Student Name</div>
+              <p>
+                Issued directly by the partner company, confirming the live
+                projects and practical work completed.
+              </p>
+              <footer className="certificate-foot">
+                <div className="certificate-sign">
+                  <strong>Your internship partner</strong>
+                  <small>Issued by</small>
+                </div>
+                <div className="certificate-seal" aria-hidden="true">
+                  <span>Verified</span>
+                </div>
+                <div className="certificate-sign">
+                  <strong>On completion</strong>
+                  <small>Date</small>
+                </div>
+              </footer>
             </div>
           </article>
         </div>
-        <blockquote className="internship-quote">
+        <blockquote className="internship-quote reveal">
           <p>
             Working on a live client project during my internship taught me more
             about deadlines and communication than any classroom ever could.
@@ -432,7 +584,7 @@ export default function Placements({ SectionTitle, Stories, FAQs, CTA }) {
             const isOpen = activePartner === company.slug;
             return (
               <article
-                className={`partner-card ${isOpen ? "is-open" : ""}`}
+                className={`partner-card reveal ${isOpen ? "is-open" : ""}`}
                 key={company.slug}
               >
                 <button
@@ -447,9 +599,6 @@ export default function Placements({ SectionTitle, Stories, FAQs, CTA }) {
                     <small>
                       {company.field} - {company.duration}
                     </small>
-                  </span>
-                  <span className="partner-codes">
-                    <MarketList markets={company.markets.slice(0, 6)} compact />
                   </span>
                   <ChevronDown size={18} />
                 </button>
@@ -527,7 +676,7 @@ export default function Placements({ SectionTitle, Stories, FAQs, CTA }) {
           </div>
           <div className="journey-steps">
             {journey.map(([title, text], index) => (
-              <article key={title}>
+              <article className="reveal" key={title}>
                 <span className="journey-step-mascot">
                   <Mascot variant="mini" mood={index % 2 ? "wave" : "happy"} />
                 </span>
@@ -539,9 +688,16 @@ export default function Placements({ SectionTitle, Stories, FAQs, CTA }) {
         </div>
       </section>
 
-      <Stories />
       <FAQs />
       <CTA />
-    </>
+      {eligibilityOpen ? (
+        <Modal
+          title="Check my eligibility"
+          onClose={() => setEligibilityOpen(false)}
+        >
+          <EligibilityForm />
+        </Modal>
+      ) : null}
+    </div>
   );
 }
