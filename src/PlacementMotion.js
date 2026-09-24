@@ -104,9 +104,27 @@ export function usePlacementMotion(rootRef) {
 
     // Scroll-linked hero parallax and journey progress.
     const hero = root.querySelector(".placement-modern-hero");
+    const journeySection = root.querySelector(".journey-map-section");
     const journey = root.querySelector(".journey-steps");
     const steps = journey ? [...journey.querySelectorAll("article")] : [];
+    const captions = [...root.querySelectorAll(".journey-caption")];
+    const cinemaQuery = window.matchMedia("(min-width: 981px)");
     let scrollFrame = 0;
+    let activeStep = -1;
+
+    // Desktop: the journey card pins while the section scrolls past, and
+    // progress is how far through that runway the reader is.
+    const journeyProgress = (vh) => {
+      const cinema = cinemaQuery.matches && journeySection;
+      journeySection?.classList.toggle("journey-cinema", !!cinema);
+      if (cinema) {
+        const r = journeySection.getBoundingClientRect();
+        const runway = Math.max(1, r.height - vh);
+        return Math.min(1, Math.max(0, (-r.top + vh * 0.1) / runway) * 1.08);
+      }
+      const r = journey.getBoundingClientRect();
+      return Math.min(1, Math.max(0, (vh * 0.85 - r.top) / (vh * 0.6)));
+    };
 
     const onScroll = () => {
       scrollFrame = 0;
@@ -117,12 +135,18 @@ export function usePlacementMotion(rootRef) {
         hero.style.setProperty("--hero-scroll", t.toFixed(3));
       }
       if (journey) {
-        const r = journey.getBoundingClientRect();
-        const t = Math.min(1, Math.max(0, (vh * 0.85 - r.top) / (vh * 0.6)));
-        journey.style.setProperty("--journey-progress", t.toFixed(3));
+        const t = Math.min(1, journeyProgress(vh));
+        const last = Math.max(1, steps.length - 1);
+        journeySection.style.setProperty("--journey-progress", t.toFixed(4));
         steps.forEach((step, i) => {
-          step.classList.toggle("is-reached", t >= i / Math.max(1, steps.length - 1) - 0.001);
+          step.classList.toggle("is-reached", t >= i / last - 0.001);
         });
+        const current = Math.min(last, Math.round(t * last));
+        if (current !== activeStep) {
+          activeStep = current;
+          steps.forEach((step, i) => step.classList.toggle("is-active", i === current));
+          captions.forEach((c, i) => c.classList.toggle("is-active", i === current));
+        }
       }
     };
     const scheduleScroll = () => {
@@ -130,8 +154,12 @@ export function usePlacementMotion(rootRef) {
     };
     listen(window, "scroll", scheduleScroll, { passive: true });
     listen(window, "resize", scheduleScroll, { passive: true });
+    listen(cinemaQuery, "change", scheduleScroll);
     onScroll();
-    cleanups.push(() => cancelAnimationFrame(scrollFrame));
+    cleanups.push(() => {
+      cancelAnimationFrame(scrollFrame);
+      journeySection?.classList.remove("journey-cinema");
+    });
 
     // Count the hero stat numbers up the first time they appear.
     if (window.IntersectionObserver) {

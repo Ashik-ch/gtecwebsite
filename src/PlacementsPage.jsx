@@ -674,7 +674,22 @@ export default function Placements({ SectionTitle, Stories, FAQs, CTA, Modal }) 
               Meet your G-TEC guide - here's the path from day one to placed
             </h2>
           </div>
+          <div className="journey-stage" aria-hidden="true">
+            {journey.map(([title, text], index) => (
+              <div className="journey-caption" key={title}>
+                <span className="journey-caption-no">
+                  {String(index + 1).padStart(2, "0")}
+                  <small>/ {String(journey.length).padStart(2, "0")}</small>
+                </span>
+                <strong>{title}</strong>
+                <p>{text}</p>
+              </div>
+            ))}
+          </div>
           <div className="journey-steps">
+            <span className="journey-traveler" aria-hidden="true">
+              <Mascot variant="mini" mood="happy" />
+            </span>
             {journey.map(([title, text], index) => (
               <article className="reveal" key={title}>
                 <span className="journey-step-mascot">
