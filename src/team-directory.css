@@ -1356,7 +1356,7 @@
         display: grid;
         grid-template-columns: 1fr;
         height: auto;
-        max-height: none;
+        max-height: 360px;
         min-height: 0
     }
 
@@ -1438,5 +1438,221 @@
     .directors-row-group .team-profile-bio p {
         font-size: 14px;
         line-height: 1.5
+    }
+}
+
+/* Director mobile overlap fix */
+@media(max-width:760px) {
+    .directors-row-group .team-profile-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+
+    .directors-row-group .team-profile {
+        display: flex;
+        flex-direction: column;
+        overflow: visible;
+        height: auto;
+        min-height: 0;
+        max-height: none;
+    }
+
+    .directors-row-group .team-portrait {
+        position: relative;
+        width: 100%;
+        height: clamp(190px, 54vw, 240px);
+        min-height: 0;
+        flex: 0 0 auto;
+        overflow: hidden;
+        border-radius: 18px 18px 0 0;
+    }
+
+    .directors-row-group .team-portrait img {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center 18%;
+    }
+
+    .directors-row-group .team-profile-content {
+        position: relative;
+        inset: auto;
+        width: 100%;
+        display: block;
+        padding: 18px 20px 22px;
+        overflow: visible;
+        min-height: 0;
+        background: #fff;
+    }
+
+    .directors-row-group .team-profile-content::before {
+        position: static;
+        display: block;
+        margin: 0 0 8px;
+        font-size: 42px;
+        line-height: 0.7;
+    }
+
+    .directors-row-group .team-profile h4 {
+        position: static;
+        margin: 0 0 8px;
+        font-size: clamp(24px, 7.2vw, 32px);
+        line-height: 1.08;
+        overflow-wrap: anywhere;
+    }
+
+    .directors-row-group .team-designation {
+        position: static;
+        margin: 0 0 14px;
+    }
+
+    .directors-row-group .team-profile-bio {
+        position: static;
+        max-height: none;
+        height: auto;
+        overflow: visible;
+        margin: 0;
+        padding: 12px 14px 12px 16px;
+    }
+
+    .directors-row-group .team-profile-bio::before {
+        display: none;
+    }
+
+    .directors-row-group .team-profile-bio p {
+        max-height: none;
+        overflow: visible;
+        display: block;
+        font-size: 15px;
+        line-height: 1.6;
+    }
+}
+
+/* Final director small-screen separation fix */
+@media(max-width:760px) {
+    .directors-row-group .team-profile-grid {
+        display: grid !important;
+        grid-template-columns: 1fr !important;
+        gap: 28px !important;
+    }
+
+    .directors-row-group .team-profile {
+        display: block !important;
+        grid-template-columns: none !important;
+        overflow: visible !important;
+        height: auto !important;
+        min-height: 0 !important;
+        max-height: none !important;
+        width: 100% !important;
+        border-radius: 22px !important;
+    }
+
+    .directors-row-group .team-portrait {
+        display: block !important;
+        position: relative !important;
+        width: 100% !important;
+        height: 220px !important;
+        min-height: 220px !important;
+        max-height: 220px !important;
+        overflow: hidden !important;
+        border-radius: 22px 22px 0 0 !important;
+    }
+
+    .directors-row-group .team-portrait img {
+        display: block !important;
+        position: absolute !important;
+        inset: 0 !important;
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover !important;
+        object-position: center top !important;
+        transform: none !important;
+    }
+
+    .directors-row-group .team-profile-content {
+        display: block !important;
+        position: relative !important;
+        inset: auto !important;
+        transform: none !important;
+        width: 100% !important;
+        min-height: 0 !important;
+        height: auto !important;
+        overflow: visible !important;
+        padding: 22px 20px 24px !important;
+        margin: 0 !important;
+        background: #fff !important;
+        border-radius: 0 0 22px 22px !important;
+        z-index: 2 !important;
+    }
+
+    .directors-row-group .team-profile-content::before {
+        position: static !important;
+        display: block !important;
+        width: 44px !important;
+        height: 3px !important;
+        margin: 0 0 12px !important;
+        font-size: 0 !important;
+        line-height: 0 !important;
+        background: var(--blue) !important;
+    }
+
+    .directors-row-group .team-profile h4 {
+        display: block !important;
+        position: relative !important;
+        z-index: 3 !important;
+        margin: 0 0 10px !important;
+        padding: 0 !important;
+        color: var(--ink) !important;
+        font-size: clamp(24px, 7vw, 30px) !important;
+        line-height: 1.12 !important;
+        letter-spacing: -0.7px !important;
+        overflow: visible !important;
+        overflow-wrap: anywhere !important;
+        white-space: normal !important;
+    }
+
+    .directors-row-group .team-designation {
+        display: inline-flex !important;
+        position: relative !important;
+        margin: 0 0 16px !important;
+        z-index: 3 !important;
+    }
+
+    .directors-row-group .team-profile-bio {
+        display: block !important;
+        position: relative !important;
+        max-height: none !important;
+        height: auto !important;
+        overflow: visible !important;
+        margin: 0 !important;
+        padding: 12px 14px 12px 16px !important;
+        z-index: 3 !important;
+    }
+
+    .directors-row-group .team-profile-bio p {
+        display: block !important;
+        max-height: none !important;
+        overflow: visible !important;
+        margin: 0 !important;
+        font-size: 14.5px !important;
+        line-height: 1.55 !important;
+    }
+}
+
+/* Show full director portrait on small screens */
+@media(max-width:760px) {
+    .directors-row-group .team-portrait {
+        height: clamp(260px, 78vw, 340px) !important;
+        min-height: clamp(260px, 78vw, 340px) !important;
+        max-height: none !important;
+        background: #fff !important;
+    }
+
+    .directors-row-group .team-portrait img {
+        object-fit: contain !important;
+        object-position: center bottom !important;
+        background: #fff !important;
     }
 }

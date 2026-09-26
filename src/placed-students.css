@@ -252,3 +252,33 @@
         transform: none
     }
 }
+
+.placed-heading-side {
+    display: flex;
+    align-items: center;
+    gap: clamp(16px, 2.5vw, 28px);
+    flex-shrink: 0
+}
+
+.placed-students-mascot {
+    display: block;
+    width: clamp(120px, 15vw, 100px);
+    height: auto;
+    object-fit: contain;
+    background: transparent;
+    border: 0;
+    box-shadow: none;
+    border-radius: 0
+}
+
+@media(max-width:700px) {
+    .placed-heading-side {
+        width: 100%;
+        justify-content: space-between;
+        align-items: center
+    }
+
+    .placed-students-mascot {
+        width: min(38vw, 140px)
+    }
+}

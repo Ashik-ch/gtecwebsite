@@ -656,10 +656,6 @@ function Stories() {
             </div>
           </article>
         </div>
-        <p className="source-note">
-          Perspectives from public LinkedIn profiles. Individual experiences are
-          not placement guarantees.
-        </p>
       </div>
     </section>
   );
@@ -713,10 +709,6 @@ function Gallery() {
           </button>
         ))}
       </div>
-      <p className="source-note">
-        Images illustrate the learning experience; official campus photography
-        will be added when available.
-      </p>
       {selected && (
         <Modal
           title={selected.title}
@@ -757,10 +749,6 @@ function Team() {
         >
           Explore our team on LinkedIn <Arrow />
         </a>
-        <p className="source-note">
-          Verified faculty biographies and portraits will be added with the
-          team’s approval.
-        </p>
       </div>
     </section>
   );
@@ -1659,10 +1647,6 @@ function CourseDetail() {
                 <span key={t}>{t}</span>
               ))}
             </div>
-            <p className="source-note">
-              Exact tools, versions and practical access depend on your chosen
-              programme. Please confirm with admissions.
-            </p>
           </section>
           <section className="detail-section">
             <h2>Certification</h2>
@@ -1683,10 +1667,6 @@ function CourseDetail() {
                 </span>
               ))}
             </div>
-            <p className="source-note">
-              Career examples are illustrative. Roles depend on your experience,
-              qualifications and employer requirements.
-            </p>
           </section>
         </article>
         <aside className="course-sidebar">

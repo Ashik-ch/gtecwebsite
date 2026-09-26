@@ -51,7 +51,7 @@ const internQuotes = [
   },
 ];
 
-const QUOTE_INTERVAL = 6000;
+const QUOTE_INTERVAL = 3500;
 
 function QuoteSlider({ quotes }) {
   const [active, setActiveIndex] = useState(0);
@@ -69,7 +69,7 @@ function QuoteSlider({ quotes }) {
 
   useEffect(() => {
     if (leaving === null) return;
-    const timer = setTimeout(() => setLeaving(null), 900);
+    const timer = setTimeout(() => setLeaving(null), 520);
     return () => clearTimeout(timer);
   }, [leaving]);
 
@@ -163,8 +163,16 @@ function EligibilityCheck({ onClose }) {
       title: "Have you completed a certified course at G-TEC Mahe?",
       text: "This just helps us show you the right next step.",
       actions: [
-        { label: "Yes, I have", className: "primary", onClick: () => setStep("eligible") },
-        { label: "Not yet", className: "soft", onClick: () => setStep("notYet") },
+        {
+          label: "Yes, I have",
+          className: "primary",
+          onClick: () => setStep("eligible"),
+        },
+        {
+          label: "Not yet",
+          className: "soft",
+          onClick: () => setStep("notYet"),
+        },
       ],
     },
     eligible: {
@@ -180,7 +188,11 @@ function EligibilityCheck({ onClose }) {
       title: "This track is open to G-TEC Mahe graduates right now.",
       text: "Finish a certified course with us to unlock internship access — or register your interest in our upcoming external applicant program.",
       actions: [
-        { label: "Notify me instead", className: "gold", onClick: () => setStep("notified") },
+        {
+          label: "Notify me instead",
+          className: "gold",
+          onClick: () => setStep("notified"),
+        },
         { label: "Maybe later", className: "soft", onClick: onClose },
       ],
     },
@@ -190,7 +202,11 @@ function EligibilityCheck({ onClose }) {
       title: "We'll be in touch.",
       text: "External internships aren't open just yet, but we're working on it — we'll reach out as soon as applications begin. Stay in touch with us in the meantime.",
       actions: [
-        { label: "WhatsApp us", className: "whatsapp", href: whatsappLink(notifyMessage) },
+        {
+          label: "WhatsApp us",
+          className: "whatsapp",
+          href: whatsappLink(notifyMessage),
+        },
         { label: "Close", className: "soft", onClick: onClose },
       ],
     },
@@ -394,6 +410,16 @@ const PartnerLogo = ({ logo, name }) => {
     </span>
   );
 };
+const PlacementMascotImage = ({ src, alt, className = "" }) => (
+  <img
+    className={`placement-mascot-png ${className}`.trim()}
+    src={src}
+    alt={alt}
+    loading="lazy"
+    width="640"
+    height="640"
+  />
+);
 const MarketList = ({ markets, compact = false, separator = null }) => (
   <>
     {markets.map((market, index) => (
@@ -606,32 +632,40 @@ export default function Placements({
             <span>/</span>
             <span>Placements</span>
           </nav>
-          <div className="placement-hero-copy">
-            <p className="eyebrow">CAREERS & INDUSTRY EXPOSURE</p>
-            <h1>
-              Real projects. Real companies. A career that starts before you
-              graduate.
-            </h1>
-            <p>
-              G-TEC Mahe's placement support connects students with structured
-              internships and hiring partners, so learning translates into
-              practical, industry-ready experience.
-            </p>
-            <div className="placement-hero-actions">
-              <button
-                className="button primary"
-                type="button"
-                onClick={() => scrollToPlacementSection("partner-companies")}
-              >
-                Explore partner companies
-              </button>
-              <button
-                className="button secondary dark"
-                type="button"
-                onClick={() => scrollToPlacementSection("student-journey")}
-              >
-                See the student journey
-              </button>
+          <div className="placement-hero-layout">
+            <div className="placement-hero-copy">
+              <p className="eyebrow">CAREERS & INDUSTRY EXPOSURE</p>
+              <h1>
+                Real projects. Real companies. A career that starts before you
+                graduate.
+              </h1>
+              <p>
+                G-TEC Mahe's placement support connects students with structured
+                internships and hiring partners, so learning translates into
+                practical, industry-ready experience.
+              </p>
+              <div className="placement-hero-actions">
+                <button
+                  className="button primary"
+                  type="button"
+                  onClick={() => scrollToPlacementSection("partner-companies")}
+                >
+                  Explore partner companies
+                </button>
+                <button
+                  className="button secondary dark"
+                  type="button"
+                  onClick={() => scrollToPlacementSection("student-journey")}
+                >
+                  See the student journey
+                </button>
+              </div>
+            </div>
+            <div className="placement-hero-mascot">
+              <PlacementMascotImage
+                src="/images/mascot/placement-map.png"
+                alt="GIO placement mascot pointing at a map"
+              />
             </div>
           </div>
           <div className="placement-hero-stats">
@@ -671,6 +705,7 @@ export default function Placements({
           title="Why intern with G-TEC Mahe"
           text="Every G-TEC Mahe internship is built around the same idea: move from classroom knowledge to real, portfolio-ready industry experience - with structured support at every step."
         />
+        {/* <div className="placement-context-mascot is-why"><PlacementMascotImage src="/images/mascot/placement-why.png" alt="GIO mascot with an idea lightbulb" /></div> */}
         <div className="internship-reason-grid">
           {internshipBlocks.map(({ icon: Icon, tag, title, text }, index) => (
             <article className="internship-reason-card reveal" key={title}>
@@ -696,6 +731,7 @@ export default function Placements({
           title="Who can apply"
           text="The internship program currently runs for G-TEC Mahe students - and we're building toward opening it up more widely."
         />
+        <div className="placement-context-mascot is-eligibility"></div>
         <div className="eligibility-grid">
           <article className="eligibility-card reveal is-open">
             <span>OPEN NOW</span>
@@ -744,6 +780,12 @@ export default function Placements({
           title="Two certificates, one internship"
           text="Every completed internship is recognised twice over - once by G-TEC Mahe, and once by the company you worked with."
         />
+        <div className="placement-context-mascot is-certificate">
+          <PlacementMascotImage
+            src="/images/mascot/placement-certificate.png"
+            alt="GIO mascot holding a certificate"
+          />
+        </div>
         <div className="certificate-grid">
           {/* <article className="certificate-card reveal">
             <div className="certificate-frame">
@@ -896,8 +938,13 @@ export default function Placements({
       >
         <div className="journey-map-card">
           <span className="journey-main-mascot">
-            <Mascot variant="mini" mood="celebrate" />
+            {/* <Mascot variant="mini" mood="celebrate" /> */}
+            <PlacementMascotImage
+              src="/images/mascot/placement-eligibility.png"
+              alt="GIO mascot showing eligibility approval"
+            />
           </span>
+
           <div className="journey-map-copy">
             <p className="eyebrow">STUDENT JOURNEY</p>
             <h2>
@@ -950,3 +997,4 @@ export default function Placements({
     </div>
   );
 }
+

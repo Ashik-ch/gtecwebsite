@@ -1,4 +1,4 @@
-import { useState } from "react";
+﻿import { useState } from "react";
 import { GraduationCap, Pause, Play, Sparkle } from "lucide-react";
 import { placedStudents } from "./placed-students";
 import "./placed-students.css";
@@ -52,7 +52,7 @@ export default function PlacedStudents() {
   );
   return (
     <section
-      className="section placed-students-section"
+      className="mt-5 placed-students-section"
       aria-labelledby="placed-students-title"
     >
       <div className="container">
@@ -70,21 +70,31 @@ export default function PlacedStudents() {
                 : "Meet our placed students and explore the courses they studied."}
             </p>
           </div>
-          <button
-            className="button outline placed-scroll-control"
-            type="button"
-            aria-controls="placed-students-carousel"
-            aria-pressed={paused}
-            aria-label="Pause automatic scrolling"
-            onClick={() => setPaused((value) => !value)}
-          >
-            {paused ? (
-              <Play size={16} aria-hidden="true" />
-            ) : (
-              <Pause size={16} aria-hidden="true" />
-            )}
-            {paused ? "Resume scrolling" : "Pause scrolling"}
-          </button>
+          <div className="placed-heading-side">
+            <img
+              className="placed-students-mascot"
+              src="/images/mascot/placement-partners.png"
+              alt="GIO mascot presenting placement partners"
+              loading="lazy"
+              width="360"
+              height="360"
+            />
+            <button
+              className="button outline placed-scroll-control"
+              type="button"
+              aria-controls="placed-students-carousel"
+              aria-pressed={paused}
+              aria-label="Pause automatic scrolling"
+              onClick={() => setPaused((value) => !value)}
+            >
+              {paused ? (
+                <Play size={16} aria-hidden="true" />
+              ) : (
+                <Pause size={16} aria-hidden="true" />
+              )}
+              {paused ? "Resume scrolling" : "Pause scrolling"}
+            </button>
+          </div>
         </header>
       </div>
       <div

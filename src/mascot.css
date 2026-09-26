@@ -88,7 +88,7 @@
 
 /* Sits in the open space left of Gio, clear of the greeting card below. */
 .hero-art:has(.gio-welcome) .badge-skills {
-    top: 34%;
+    top: 20%;
     left: -5%;
     pointer-events: none
 }

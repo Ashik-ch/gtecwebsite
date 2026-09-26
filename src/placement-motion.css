@@ -39,6 +39,7 @@
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
+  color: rgb(6, 13, 76);
   animation: placement-shine 5s ease-in-out 0.6s infinite;
 }
 
@@ -264,11 +265,6 @@
   font-size: clamp(1.4rem, 2.3vw, 2rem);
 }
 
-.journey-cinema .journey-main-mascot {
-  margin-top: 0.6rem;
-  background: linear-gradient(145deg, rgba(255, 255, 255, 0.14), rgba(255, 255, 255, 0.04));
-  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.12), 0 1rem 2.4rem rgba(0, 0, 0, 0.35);
-}
 
 /* Big centred caption for the current step */
 .journey-cinema .journey-stage {

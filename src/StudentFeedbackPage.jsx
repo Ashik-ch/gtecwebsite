@@ -1,4 +1,4 @@
-import { useState } from "react";
+﻿import { useState } from "react";
 import { Link } from "react-router-dom";
 import {
   ArrowUpRight,
@@ -67,7 +67,7 @@ function FeedbackCollector() {
       "Hello G-TEC Mahe, here is my student feedback.",
       `Name: ${form.get("name")}`,
       `Course: ${form.get("course")}`,
-      `Rating: ${"★".repeat(rating)}${"☆".repeat(5 - rating)} (${ratingLabels[rating - 1]})`,
+      `Rating: ${"â˜…".repeat(rating)}${"â˜†".repeat(5 - rating)} (${ratingLabels[rating - 1]})`,
       `Feedback: ${message.trim()}`,
       `OK to feature on website: ${form.get("feature") ? "Yes" : "No"}`,
     ].join("\n");
@@ -84,8 +84,8 @@ function FeedbackCollector() {
         </span>
         <h2>Thank you, {sent.name}!</h2>
         <p>
-          Your feedback is ready in WhatsApp. Press send there so it reaches
-          the G-TEC Mahe team.
+          Your feedback is ready in WhatsApp. Press send there so it reaches the
+          G-TEC Mahe team.
         </p>
         <div className="feedback-thanks-actions">
           <a
@@ -140,19 +140,21 @@ function FeedbackCollector() {
         </div>
       </div>
 
-      <fieldset className="feedback-step">
-        <legend>
-          <StepLabel number="02">Which course did you take?</StepLabel>
-        </legend>
-        <div className="feedback-course-chips">
+      <div className="feedback-step">
+        <StepLabel number="02" htmlFor="feedback-course">
+          Which course did you take?
+        </StepLabel>
+        <select id="feedback-course" name="course" required defaultValue="">
+          <option value="" disabled>
+            Select a course
+          </option>
           {courses.map((course) => (
-            <label key={course.slug}>
-              <input type="radio" name="course" value={course.name} />
-              <span>{course.name}</span>
-            </label>
+            <option key={course.slug} value={course.name}>
+              {course.name}
+            </option>
           ))}
-        </div>
-      </fieldset>
+        </select>
+      </div>
 
       <div className="feedback-step">
         <StepLabel number="03" htmlFor="feedback-name">
@@ -258,3 +260,5 @@ export default function StudentFeedbackPage({ PageHero, CTA }) {
     </>
   );
 }
+
+
