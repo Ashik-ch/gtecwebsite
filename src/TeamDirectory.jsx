@@ -257,13 +257,13 @@ export default function TeamDirectory() {
         </header>
         <section
           id={directors.id}
-          className="team-group directors-row-group"
+          className="directors-row-group"
           aria-labelledby={directors.id + "-title"}
         >
           <GroupHeader group={directors} />
           <GroupBody group={directors} />
         </section>
-        <div className="team-group team-group-row team-group-row--triple">
+        <div className="team-group-row--triple">
           {[hrDepartment, frontOffice, socialMedia].map((group, groupIndex) => (
             <section
               key={group.id}
@@ -282,7 +282,7 @@ export default function TeamDirectory() {
         </div>
         <section
           id={faculty.id}
-          className="team-group"
+          className=""
           aria-labelledby={faculty.id + "-title"}
         >
           <GroupHeader group={faculty} />

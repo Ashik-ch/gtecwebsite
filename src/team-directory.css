@@ -1,4 +1,4 @@
-.team-directory {
+﻿.team-directory {
     background: linear-gradient(180deg, #f5f7fb, #fff 35%);
     border-top: 1px solid var(--line)
 }
@@ -118,10 +118,6 @@
     border-radius: 18px;
     box-shadow: 0 6px 20px #17233508;
     transition: box-shadow .45s, border-color .45s
-}
-
-#directors .team-profile {
-    aspect-ratio: 1/1.08
 }
 
 .team-profile::after {
@@ -776,153 +772,15 @@
     }
 }
 
-/* Director row layout */
-.directors-row-group .team-profile-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 22px
+.team-group-row--triple {
+    margin-top: 10px
 }
-
-.directors-row-group .team-profile {
-    height: 220px;
-    max-height: 220px;
-    aspect-ratio: auto;
-    display: grid;
-    grid-template-columns: minmax(170px, .42fr) 1fr;
-    overflow: hidden;
-    border-radius: 24px;
-    background: #fff;
-    border: 1px solid #e2e8f4;
-    box-shadow: 0 18px 50px #17233514
-}
-
-.directors-row-group .team-profile::after {
-    display: none
-}
-
-.directors-row-group .team-portrait {
-    position: relative;
-    inset: auto;
-    height: 100%;
-    min-height: 220px;
-    background: #dfe8f7
-}
-
-.directors-row-group .team-portrait img {
-    object-position: center 18%
-}
-
-
-.directors-row-group .team-profile-content {
-    position: relative;
-    inset: auto;
-    z-index: 2;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 34px;
-    background: linear-gradient(135deg, #fff, #f7f9ff)
-}
-
-.directors-row-group .team-profile-content::before {
-    width: 52px;
-    background: var(--blue)
-}
-
-.directors-row-group .team-profile h4 {
-    color: var(--ink);
-    font-size: clamp(24px, 2.3vw, 34px);
-    letter-spacing: -1.2px
-}
-
-.directors-row-group .team-designation {
-    width: fit-content;
-    margin-top: 16px;
-    padding: 8px 14px;
-    border-radius: 999px;
-    background: #eef2ff;
-    color: var(--blue);
-    font-size: 13px;
-    font-weight: 700
-}
-
-.directors-row-group .team-profile-bio {
-    position: relative;
-    margin: 22px 0 0;
-    padding: 14px 18px 14px 22px;
-    border-left: 3px solid var(--blue);
-    border-radius: 0 12px 12px 0;
-    background: linear-gradient(90deg, #eef2ff, #f7f9ff00)
-}
-
-/* Oversized opening quote mark */
-.directors-row-group .team-profile-bio::before {
-    content: "\201C";
-    position: absolute;
-    top: -30px;
-    left: 8px;
-    font-family: Georgia, "Times New Roman", serif;
-    font-size: 72px;
-    line-height: 1;
-    color: var(--blue);
-    opacity: .22;
-    pointer-events: none
-}
-
-.directors-row-group .team-profile-bio p {
-    margin: 0;
-    color: #3d4658;
-    font-family: Georgia, "Times New Roman", serif;
-    font-style: italic;
-    font-size: 15.5px;
-    line-height: 1.7
-}
-
-/* Closing quote mark, inline after the last word */
-.directors-row-group .team-profile-bio p::after {
-    content: "\201D";
-    margin-left: 2px;
-    font-size: 26px;
-    line-height: 0;
-    vertical-align: -8px;
-    color: var(--blue);
-    opacity: .55
-}
-
-@media(hover:hover) and (prefers-reduced-motion:no-preference) {
-    .directors-row-group .team-profile:hover {
-        box-shadow: 0 28px 70px #17233522
-    }
-
-    .directors-row-group .team-profile:hover .team-portrait img {
-        transform: scale(1.06)
-    }
-}
-
-@media(max-width:760px) {
-    .directors-row-group .team-profile {
-        grid-template-columns: 1fr;
-        height: auto;
-        max-height: none;
-        min-height: 0
-    }
-
-    .directors-row-group .team-portrait {
-        height: 240px;
-        min-height: 0
-    }
-
-    .directors-row-group .team-profile-content {
-        padding: 28px 24px
-    }
-}
-
-
-
 
 @media(min-width:960px) {
     .team-group-row--triple {
         grid-template-columns: repeat(3, minmax(0, 1fr));
-        gap: 24px
+        gap: 24px;
+        margin-top: 10px
     }
 
     .team-group-row--triple .team-group-heading {
@@ -997,150 +855,12 @@
     border-color: color-mix(in srgb, var(--group-accent, #fff) 35%, #ffffff2f)
 }
 
-/* Director title visibility safeguards */
-.directors-row-group .team-profile {
-    min-width: 0
-}
-
-.directors-row-group .team-profile-content {
-    min-width: 0;
-    overflow: visible
-}
-
-.directors-row-group .team-profile h4,
-.directors-row-group .team-designation {
-    max-width: 100%;
-    overflow-wrap: anywhere;
-    white-space: normal
-}
-
-.directors-row-group .team-designation {
-    display: inline-flex;
-    line-height: 1.35
-}
-
-@media(max-width:1180px) and (min-width:901px) {
-    .directors-row-group .team-profile {
-        grid-template-columns: minmax(135px, .38fr) 1fr;
-        min-height: 205px
-    }
-
-    .directors-row-group .team-portrait {
-        min-height: 205px
-    }
-
-    .directors-row-group .team-profile-content {
-        padding: 26px 22px
-    }
-
-    .directors-row-group .team-profile h4 {
-        font-size: clamp(21px, 2vw, 28px);
-        letter-spacing: -.7px
-    }
-
-    .directors-row-group .team-designation {
-        font-size: 13px;
-        padding: 7px 12px
-    }
-}
-
-@media(max-width:520px) {
-    .directors-row-group .team-profile h4 {
-        font-size: clamp(24px, 8vw, 32px)
-    }
-
-    .directors-row-group .team-designation {
-        font-size: 13px
-    }
-}
-
-/* Director compact text fit */
-.directors-row-group .team-profile-content {
-    padding: 22px 24px;
-    gap: 0;
-    overflow: hidden
-}
-
-.directors-row-group .team-profile-content::before {
-    margin-bottom: 12px
-}
-
-.directors-row-group .team-profile h4 {
-    font-size: clamp(20px, 1.85vw, 28px);
-    line-height: 1.18;
-    letter-spacing: -.6px;
-    display: block
-}
-
-.directors-row-group .team-designation {
-    margin-top: 10px;
-    padding: 6px 12px;
-    font-size: 13px;
-    line-height: 1.25;
-    display: inline-flex
-}
-
-@media(max-width:1180px) and (min-width:901px) {
-    .directors-row-group .team-profile-content {
-        padding: 18px 18px
-    }
-
-    .directors-row-group .team-profile h4 {
-        font-size: clamp(18px, 1.75vw, 24px)
-    }
-}
-
-@media(max-width:760px) {
-    .directors-row-group .team-profile-content {
-        padding: 24px 22px;
-        overflow: visible
-    }
-
-    .directors-row-group .team-profile h4 {
-        font-size: clamp(24px, 8vw, 32px)
-    }
-}
-
-/* Director row width fix */
-.directors-row-group .team-profile-grid {
-    grid-template-columns: repeat(2, minmax(460px, 1fr));
-    align-items: stretch
-}
-
-.directors-row-group .team-profile {
-    min-width: 0;
-    width: 100%;
-    grid-template-columns: 220px minmax(0, 1fr)
-}
-
-.directors-row-group .team-profile-content {
-    min-width: 0;
-    overflow: visible
-}
-
-.directors-row-group .team-profile h4 {
-    max-width: 100%;
-    white-space: normal;
-    overflow-wrap: break-word
-}
-
-@media(max-width:1080px) {
-    .directors-row-group .team-profile-grid {
-        grid-template-columns: 1fr
-    }
-
-    .directors-row-group .team-profile {
-        max-width: none
-    }
-}
 
 /* Neutral team image backgrounds */
 .team-person-media,
 .cinematic-team-group .team-person-media,
 .team-group-nested .team-person-media,
-.directors-row-group .team-portrait {
-    background: #f3f6fb
-}
+
 
 .team-person-initial,
 .cinematic-team-group .team-person-initial,
@@ -1239,17 +959,6 @@
     }
 }
 
-
-/* Smaller team image areas */
-.directors-row-group .team-profile {
-    grid-template-columns: 130px minmax(0, 1fr)
-}
-
-.directors-row-group .team-portrait img {
-    object-fit: cover;
-    object-position: center 16%
-}
-
 .cinematic-team-group .team-person-card,
 .team-group-nested .team-person-card {
     height: 260px;
@@ -1272,11 +981,6 @@
     }
 }
 
-@media(max-width:760px) {
-    .directors-row-group .team-portrait {
-        height: 210px
-    }
-}
 
 /* Desktop single-row support team people layout */
 @media(min-width:1180px) {
@@ -1346,313 +1050,170 @@
     }
 }
 
-/* Final mobile director layout guard */
-@media(max-width:760px) {
-    .directors-row-group .team-profile-grid {
-        grid-template-columns: 1fr
-    }
-
-    .directors-row-group .team-profile {
-        display: grid;
-        grid-template-columns: 1fr;
-        height: auto;
-        max-height: 360px;
-        min-height: 0
-    }
-
-    /* Fixed photo band so the portrait can't grow to its natural (screen-tall) height */
-    .directors-row-group .team-portrait {
-        width: 100%;
-        height: 200px;
-        min-height: 0
-    }
-
-    .directors-row-group .team-portrait img {
-        position: absolute;
-        inset: 0
-    }
-
-    .directors-row-group .team-profile-content {
-        padding: 18px 20px 20px;
-        min-height: 0
-    }
+/* Directors: photo-left profile cards with a pull-quote bio */
+.directors-row-group .team-profile-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: clamp(22px, 3vw, 34px);
 }
 
-/* Directors cards grow to fit their bio */
 .directors-row-group .team-profile {
-    height: auto;
-    max-height: none;
-    min-height: 220px
+    position: relative;
+    display: grid;
+    grid-template-columns: minmax(220px, 43%) minmax(0, 1fr);
+    align-items: stretch;
+    aspect-ratio: auto;
+    min-height: 320px;
+    overflow: visible;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
+}
+
+.directors-row-group .team-profile::after {
+    display: none;
+}
+
+.directors-row-group .team-portrait {
+    position: relative;
+    min-height: 0;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    background: #f7f9ff;
+}
+
+.directors-row-group .team-portrait img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    transform: none;
 }
 
 .directors-row-group .team-profile-content {
-    overflow: visible
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-width: 0;
+    padding: clamp(20px, 3.2vw, 42px) clamp(20px, 3vw, 34px);
+    background: #fff;
 }
 
-/* Compact director cards: wider portrait, tighter text column (desktop/tablet) */
-@media(min-width:761px) {
+.directors-row-group .team-profile-content::before {
+    content: "";
+    width: 56px;
+    height: 4px;
+    margin-bottom: 14px;
+    border-radius: 999px;
+    background: var(--blue);
+}
+
+.directors-row-group .team-profile h4 {
+    margin: 0;
+    color: var(--ink);
+    font-size: clamp(22px, 2.1vw, 31px);
+    line-height: 1.1;
+    letter-spacing: -1px;
+    overflow-wrap: anywhere;
+}
+
+.directors-row-group .team-designation {
+    display: inline-flex;
+    width: fit-content;
+    margin: 10px 0 0;
+    padding: 6px 13px;
+    border-radius: 999px;
+    background: #eef2ff;
+    color: var(--blue);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: .3px;
+}
+
+.directors-row-group .team-profile-bio {
+    position: relative;
+    margin: 14px 0 0;
+    padding: 10px 16px 10px 18px;
+    border-left: 4px solid var(--blue);
+    background: transparent;
+}
+
+.directors-row-group .team-profile-bio::before {
+    content: "\201C";
+    position: absolute;
+    top: -22px;
+    left: 12px;
+    color: #cbd7ff;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 42px;
+    line-height: 1;
+}
+
+.directors-row-group .team-profile-bio p {
+    margin: 0;
+    color: #3d4658;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(14px, 1.05vw, 16px);
+    font-style: italic;
+    line-height: 1.6;
+}
+
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
     .directors-row-group .team-profile {
-        grid-template-columns: minmax(200px, 42%) minmax(0, 1fr);
-        min-height: 0
+        transition: transform .35s ease;
     }
 
-    .directors-row-group .team-portrait {
-        height: auto;
-        min-height: 0
-    }
-
-    /* Photo fills the column instead of setting the card height */
     .directors-row-group .team-portrait img {
-        position: absolute;
-        inset: 0
+        transition: transform .45s ease;
     }
 
-    .directors-row-group .team-profile-content {
-        justify-content: center;
-        padding: 16px 20px
+    .directors-row-group .team-profile:hover {
+        transform: translateY(-4px);
     }
 
-    .directors-row-group .team-profile-content::before {
-        margin-bottom: 8px
-    }
-
-    .directors-row-group .team-profile h4 {
-        font-size: clamp(19px, 1.6vw, 24px)
-    }
-
-    .directors-row-group .team-designation {
-        margin-top: 6px;
-        padding: 5px 11px
-    }
-
-    .directors-row-group .team-profile-bio {
-        margin-top: 12px;
-        padding: 8px 12px 8px 14px
-    }
-
-    .directors-row-group .team-profile-bio::before {
-        top: -18px;
-        font-size: 48px
-    }
-
-    .directors-row-group .team-profile-bio p {
-        font-size: 14px;
-        line-height: 1.5
+    .directors-row-group .team-profile:hover .team-portrait img {
+        transform: scale(1.04);
     }
 }
 
-/* Director mobile overlap fix */
-@media(max-width:760px) {
+@media (max-width: 1180px) {
     .directors-row-group .team-profile-grid {
         grid-template-columns: 1fr;
+    }
+
+    .directors-row-group .team-profile {
+        grid-template-columns: minmax(220px, 36%) minmax(0, 1fr);
+        min-height: 280px;
+    }
+}
+
+@media (max-width: 700px) {
+    .directors-row-group .team-profile-grid {
         gap: 24px;
     }
 
     .directors-row-group .team-profile {
-        display: flex;
-        flex-direction: column;
-        overflow: visible;
-        height: auto;
+        grid-template-columns: 1fr;
         min-height: 0;
-        max-height: none;
-    }
-
-    .directors-row-group .team-portrait {
-        position: relative;
-        width: 100%;
-        height: clamp(190px, 54vw, 240px);
-        min-height: 0;
-        flex: 0 0 auto;
+        border: 1px solid #e4eaf4;
+        border-radius: 24px;
         overflow: hidden;
-        border-radius: 18px 18px 0 0;
-    }
-
-    .directors-row-group .team-portrait img {
-        position: absolute;
-        inset: 0;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        object-position: center 18%;
-    }
-
-    .directors-row-group .team-profile-content {
-        position: relative;
-        inset: auto;
-        width: 100%;
-        display: block;
-        padding: 18px 20px 22px;
-        overflow: visible;
-        min-height: 0;
-        background: #fff;
-    }
-
-    .directors-row-group .team-profile-content::before {
-        position: static;
-        display: block;
-        margin: 0 0 8px;
-        font-size: 42px;
-        line-height: 0.7;
-    }
-
-    .directors-row-group .team-profile h4 {
-        position: static;
-        margin: 0 0 8px;
-        font-size: clamp(24px, 7.2vw, 32px);
-        line-height: 1.08;
-        overflow-wrap: anywhere;
-    }
-
-    .directors-row-group .team-designation {
-        position: static;
-        margin: 0 0 14px;
-    }
-
-    .directors-row-group .team-profile-bio {
-        position: static;
-        max-height: none;
-        height: auto;
-        overflow: visible;
-        margin: 0;
-        padding: 12px 14px 12px 16px;
-    }
-
-    .directors-row-group .team-profile-bio::before {
-        display: none;
-    }
-
-    .directors-row-group .team-profile-bio p {
-        max-height: none;
-        overflow: visible;
-        display: block;
-        font-size: 15px;
-        line-height: 1.6;
-    }
-}
-
-/* Final director small-screen separation fix */
-@media(max-width:760px) {
-    .directors-row-group .team-profile-grid {
-        display: grid !important;
-        grid-template-columns: 1fr !important;
-        gap: 28px !important;
-    }
-
-    .directors-row-group .team-profile {
-        display: block !important;
-        grid-template-columns: none !important;
-        overflow: visible !important;
-        height: auto !important;
-        min-height: 0 !important;
-        max-height: none !important;
-        width: 100% !important;
-        border-radius: 22px !important;
+        box-shadow: 0 18px 48px rgba(23, 35, 53, .08);
     }
 
     .directors-row-group .team-portrait {
-        display: block !important;
-        position: relative !important;
-        width: 100% !important;
-        height: 220px !important;
-        min-height: 220px !important;
-        max-height: 220px !important;
-        overflow: hidden !important;
-        border-radius: 22px 22px 0 0 !important;
-    }
-
-    .directors-row-group .team-portrait img {
-        display: block !important;
-        position: absolute !important;
-        inset: 0 !important;
-        width: 100% !important;
-        height: 100% !important;
-        object-fit: cover !important;
-        object-position: center top !important;
-        transform: none !important;
+        border-radius: 0;
     }
 
     .directors-row-group .team-profile-content {
-        display: block !important;
-        position: relative !important;
-        inset: auto !important;
-        transform: none !important;
-        width: 100% !important;
-        min-height: 0 !important;
-        height: auto !important;
-        overflow: visible !important;
-        padding: 22px 20px 24px !important;
-        margin: 0 !important;
-        background: #fff !important;
-        border-radius: 0 0 22px 22px !important;
-        z-index: 2 !important;
-    }
-
-    .directors-row-group .team-profile-content::before {
-        position: static !important;
-        display: block !important;
-        width: 44px !important;
-        height: 3px !important;
-        margin: 0 0 12px !important;
-        font-size: 0 !important;
-        line-height: 0 !important;
-        background: var(--blue) !important;
+        padding: 24px 22px 26px;
     }
 
     .directors-row-group .team-profile h4 {
-        display: block !important;
-        position: relative !important;
-        z-index: 3 !important;
-        margin: 0 0 10px !important;
-        padding: 0 !important;
-        color: var(--ink) !important;
-        font-size: clamp(24px, 7vw, 30px) !important;
-        line-height: 1.12 !important;
-        letter-spacing: -0.7px !important;
-        overflow: visible !important;
-        overflow-wrap: anywhere !important;
-        white-space: normal !important;
-    }
-
-    .directors-row-group .team-designation {
-        display: inline-flex !important;
-        position: relative !important;
-        margin: 0 0 16px !important;
-        z-index: 3 !important;
-    }
-
-    .directors-row-group .team-profile-bio {
-        display: block !important;
-        position: relative !important;
-        max-height: none !important;
-        height: auto !important;
-        overflow: visible !important;
-        margin: 0 !important;
-        padding: 12px 14px 12px 16px !important;
-        z-index: 3 !important;
-    }
-
-    .directors-row-group .team-profile-bio p {
-        display: block !important;
-        max-height: none !important;
-        overflow: visible !important;
-        margin: 0 !important;
-        font-size: 14.5px !important;
-        line-height: 1.55 !important;
-    }
-}
-
-/* Show full director portrait on small screens */
-@media(max-width:760px) {
-    .directors-row-group .team-portrait {
-        height: clamp(260px, 78vw, 340px) !important;
-        min-height: clamp(260px, 78vw, 340px) !important;
-        max-height: none !important;
-        background: #fff !important;
-    }
-
-    .directors-row-group .team-portrait img {
-        object-fit: contain !important;
-        object-position: center bottom !important;
-        background: #fff !important;
+        font-size: clamp(23px, 7vw, 29px);
     }
 }
