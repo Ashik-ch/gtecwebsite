@@ -209,7 +209,7 @@ h3 {
 }
 
 .section-title p {
-    font-size: 14px;
+    font-size: 17px;
     margin-top: 14px
 }
 
@@ -254,7 +254,7 @@ h3 {
     display: inline-flex;
     gap: 5px;
     align-items: center;
-    font-size: 12px;
+    font-size: 13px;
     color: #5d6571;
     position: relative;
     padding: 12px 0
@@ -276,7 +276,7 @@ h3 {
 }
 
 .nav-enquire {
-    font-size: 12px;
+    font-size: 13px;
     padding: 13px 18px;
     min-height: 43px
 }
@@ -312,7 +312,7 @@ h3 {
     gap: 8px;
     background: var(--red);
     color: #fff;
-    font-size: 9px;
+    font-size: 11.5px;
     font-weight: 700;
     letter-spacing: 1.6px;
     padding: 8px 14px 8px 12px;
@@ -355,7 +355,7 @@ h3 {
 }
 
 .hero-content>p {
-    font-size: 14px;
+    font-size: 17px;
     line-height: 1.9;
     margin-top: 33px
 }
@@ -369,7 +369,7 @@ h3 {
 
 .hero-actions .text-button {
     color: var(--ink);
-    font-size: 12px
+    font-size: 13px
 }
 
 .play-circle {
@@ -412,7 +412,7 @@ h3 {
 }
 
 .hero-bottom p {
-    font-size: 10px;
+    font-size: 14.5px;
     line-height: 1.6
 }
 
@@ -532,12 +532,12 @@ h3 {
 
 .floating-badge strong {
     display: block;
-    font-size: 12px
+    font-size: 13px
 }
 
 .floating-badge small {
     display: block;
-    font-size: 9px;
+    font-size: 11.5px;
     color: var(--muted);
     margin-top: 4px
 }
@@ -558,7 +558,7 @@ h3 {
     bottom: 87px;
     left: 31%;
     color: white;
-    font-size: 8px;
+    font-size: 10.5px;
     letter-spacing: 1.6px;
     display: flex;
     align-items: center;
@@ -577,7 +577,7 @@ h3 {
     position: absolute;
     right: -21px;
     top: 175px;
-    font-size: 7px;
+    font-size: 10.5px;
     letter-spacing: 2.4px;
     color: #7081a0
 }
@@ -612,14 +612,14 @@ h3 {
 }
 
 .benefits strong {
-    font-size: 12px;
+    font-size: 13px;
     font-weight: 600;
     display: block;
     margin-bottom: 5px
 }
 
 .benefits small {
-    font-size: 10px;
+    font-size: 12px;
     color: var(--muted)
 }
 
@@ -647,7 +647,7 @@ h3 {
     padding: 10px 17px;
     background: transparent;
     border: 1px solid #e2e5ec;
-    font-size: 11px;
+    font-size: 12px;
     border-radius: 5px;
     display: flex;
     gap: 8px;
@@ -661,7 +661,7 @@ h3 {
 }
 
 .filters button span {
-    font-size: 8px;
+    font-size: 10.5px;
     background: #ffffff23;
     padding: 2px 4px;
     border-radius: 3px
@@ -725,7 +725,7 @@ h3 {
     padding: 6px 10px;
     background: #fffffff2;
     border-radius: 4px;
-    font-size: 9px;
+    font-size: 11.5px;
     font-weight: 500
 }
 
@@ -747,7 +747,7 @@ h3 {
 }
 
 .course-kicker {
-    font-size: 7px;
+    font-size: 10.5px;
     letter-spacing: 1.45px;
     color: #8b929d;
     font-weight: 600
@@ -776,7 +776,7 @@ h3 {
 }
 
 .course-body p {
-    font-size: 11px;
+    font-size: 14.5px;
     line-height: 1.8;
     margin-top: 10px;
     min-height: 59px
@@ -789,7 +789,7 @@ h3 {
     border-top: 1px solid #eceef2;
     padding-top: 15px;
     margin-top: 17px;
-    font-size: 8px;
+    font-size: 10.5px;
     color: #697180
 }
 
@@ -799,7 +799,7 @@ h3 {
     align-items: center;
     gap: 5px;
     color: var(--blue);
-    font-size: 9px
+    font-size: 11.5px
 }
 
 .course-help {
@@ -808,7 +808,7 @@ h3 {
     justify-content: center;
     gap: 8px;
     margin-top: 30px;
-    font-size: 11px;
+    font-size: 12px;
     color: var(--muted)
 }
 
@@ -817,7 +817,7 @@ h3 {
 }
 
 .course-help .inline-link {
-    font-size: 11px;
+    font-size: 12px;
     margin-left: 4px
 }
 
@@ -860,12 +860,12 @@ h3 {
 }
 
 .about-stamp>span {
-    font-size: 9px;
+    font-size: 11.5px;
     color: #7684a1
 }
 
 .photo-caption {
-    font-size: 8px;
+    font-size: 10.5px;
     position: absolute;
     bottom: -19px;
     left: 0;
@@ -873,7 +873,7 @@ h3 {
 }
 
 .about-copy>p {
-    font-size: 13px;
+    font-size: 16px;
     margin-top: 20px
 }
 
@@ -885,7 +885,7 @@ h3 {
     display: grid;
     gap: 13px;
     margin-block: 23px 29px;
-    font-size: 12px
+    font-size: 13px
 }
 
 .check-list>span {
@@ -944,7 +944,7 @@ h3 {
 }
 
 .why-card p {
-    font-size: 12px;
+    font-size: 15px;
     margin-top: 12px
 }
 
@@ -957,7 +957,7 @@ h3 {
 }
 
 .placement-copy>p {
-    font-size: 13px;
+    font-size: 16px;
     margin-top: 21px;
     max-width: 470px
 }
@@ -975,7 +975,7 @@ h3 {
     align-items: center;
     background: #f3f5f9;
     padding: 7px 9px;
-    font-size: 9px;
+    font-size: 11.5px;
     border-radius: 4px
 }
 
@@ -985,7 +985,7 @@ h3 {
 
 .support-note {
     display: block;
-    font-size: 8px;
+    font-size: 10.5px;
     color: #89909a;
     margin-top: 17px;
     line-height: 1.8
@@ -1008,7 +1008,7 @@ h3 {
 
 .career-top .eyebrow {
     margin: 0;
-    font-size: 8px
+    font-size: 10.5px
 }
 
 .career-visual h3 {
@@ -1038,20 +1038,20 @@ h3 {
 
 .career-step strong {
     display: block;
-    font-size: 12px
+    font-size: 13px
 }
 
 .career-step small {
     display: block;
     margin-top: 4px;
-    font-size: 10px;
+    font-size: 12px;
     color: #7d88a2
 }
 
 .step-num {
     margin-left: auto;
     color: #b0bed9;
-    font-size: 11px
+    font-size: 12px
 }
 
 .stories-section {
@@ -1082,7 +1082,7 @@ h3 {
 }
 
 .story-intro p {
-    font-size: 12px;
+    font-size: 15px;
     margin-top: 12px;
     margin-bottom: 23px
 }
@@ -1097,7 +1097,7 @@ h3 {
 }
 
 .story-label {
-    font-size: 8px;
+    font-size: 10.5px;
     letter-spacing: 1.7px;
     color: #7f8aa1
 }
@@ -1117,7 +1117,7 @@ h3 {
 }
 
 .story-card>p {
-    font-size: 11px;
+    font-size: 14.5px;
     margin-top: 10px;
     margin-bottom: 25px
 }
@@ -1137,20 +1137,20 @@ h3 {
     height: 34px;
     display: grid;
     place-items: center;
-    font-size: 10px;
+    font-size: 12px;
     color: #586d99;
     background: #eef1f7
 }
 
 .story-person strong {
     display: block;
-    font-size: 11px
+    font-size: 12px
 }
 
 .story-person small {
     display: block;
     color: #89919d;
-    font-size: 9px;
+    font-size: 11.5px;
     margin-top: 4px
 }
 
@@ -1160,7 +1160,7 @@ h3 {
 }
 
 .source-note {
-    font-size: 9px;
+    font-size: 11.5px;
     line-height: 1.7;
     color: #838b98;
     margin-top: 17px
@@ -1208,7 +1208,7 @@ h3 {
 }
 
 .gallery-photo small {
-    font-size: 8px;
+    font-size: 10.5px;
     letter-spacing: 1.5px;
     display: block;
     margin-bottom: 8px
@@ -1247,7 +1247,7 @@ h3 {
 }
 
 .team-section p {
-    font-size: 13px
+    font-size: 16px
 }
 
 .team-section .inline-link {
@@ -1255,7 +1255,7 @@ h3 {
 }
 
 .team-section .source-note {
-    font-size: 9px
+    font-size: 11.5px
 }
 
 .faq-section {
@@ -1266,7 +1266,7 @@ h3 {
 }
 
 .faq-heading>p {
-    font-size: 12px;
+    font-size: 15px;
     margin-top: 20px;
     margin-bottom: 20px
 }
@@ -1280,7 +1280,7 @@ h3 {
     display: flex;
     align-items: center;
     gap: 15px;
-    font-size: 12px;
+    font-size: 13px;
     font-weight: 500;
     padding: 22px 0;
     cursor: pointer
@@ -1291,7 +1291,7 @@ h3 {
 }
 
 .faq-num {
-    font-size: 10px;
+    font-size: 12px;
     color: #96a1b4
 }
 
@@ -1310,7 +1310,7 @@ h3 {
 }
 
 .faq-list details>p {
-    font-size: 12px;
+    font-size: 15px;
     padding: 0 28px 22px;
     line-height: 1.85
 }
@@ -1344,7 +1344,7 @@ h3 {
 
 .cta-section .eyebrow {
     color: #bbcaff;
-    font-size: 8px
+    font-size: 10.5px
 }
 
 .cta-section h2 {
@@ -1353,7 +1353,7 @@ h3 {
 }
 
 .cta-section p {
-    font-size: 11px;
+    font-size: 14.5px;
     color: #cfdaff;
     margin-top: 12px
 }
@@ -1390,7 +1390,7 @@ h3 {
 }
 
 .contact-section>div>p {
-    font-size: 13px;
+    font-size: 16px;
     margin-top: 20px;
     max-width: 330px
 }
@@ -1408,14 +1408,14 @@ h3 {
 }
 
 .address p {
-    font-size: 12px;
+    font-size: 15px;
     margin-top: 8px;
     max-width: 260px
 }
 
 .address .inline-link {
     margin-top: 13px;
-    font-size: 11px
+    font-size: 12px
 }
 
 .map-placeholder {
@@ -1435,7 +1435,7 @@ h3 {
 
 .map-placeholder small {
     display: block;
-    font-size: 10px;
+    font-size: 12px;
     margin-top: 5px;
     color: #74859f
 }
@@ -1468,7 +1468,7 @@ h3 {
 }
 
 .enquiry-form>.eyebrow {
-    font-size: 8px;
+    font-size: 10.5px;
     margin: 0
 }
 
@@ -1481,7 +1481,7 @@ h3 {
     display: flex;
     flex-direction: column;
     gap: 8px;
-    font-size: 10px;
+    font-size: 12px;
     font-weight: 500
 }
 
@@ -1502,7 +1502,7 @@ h3 {
     border: 1px solid #e0e4ec;
     background: white;
     border-radius: 5px;
-    font-size: 11px;
+    font-size: 16px;
     color: var(--ink)
 }
 
@@ -1527,7 +1527,7 @@ h3 {
     gap: 8px;
     line-height: 1.7;
     color: #778192;
-    font-size: 9px;
+    font-size: 11.5px;
     font-weight: 400
 }
 
@@ -1540,11 +1540,11 @@ h3 {
 
 .enquiry-form>.button {
     width: 100%;
-    font-size: 12px
+    font-size: 13px
 }
 
 .form-note {
-    font-size: 9px;
+    font-size: 11.5px;
     text-align: center;
     line-height: 1.6;
     margin-top: -6px
@@ -1559,25 +1559,25 @@ h3 {
     color: #256640;
     padding: 13px;
     border-radius: 6px;
-    font-size: 12px;
+    font-size: 13px;
     display: flex;
     align-items: center;
     gap: 9px
 }
 
 .form-error {
-    font-size: 12px;
+    font-size: 13px;
     color: #a12828
 }
 
 .enquiry-draft {
     border-top: 1px solid var(--line);
     padding-top: 18px;
-    font-size: 12px
+    font-size: 13px
 }
 
 .enquiry-draft p {
-    font-size: 11px;
+    font-size: 14.5px;
     margin-block: 8px 12px
 }
 
@@ -1611,12 +1611,12 @@ footer {
 .footer-main h3 {
     font-family: 'DM Sans', sans-serif;
     letter-spacing: 0;
-    font-size: 11px;
+    font-size: 12px;
     margin: 6px 0 9px
 }
 
 .footer-main>div>a:not(.logo):not(.social-link) {
-    font-size: 10px;
+    font-size: 12px;
     color: #7a8393
 }
 
@@ -1625,7 +1625,7 @@ footer {
 }
 
 .footer-main p {
-    font-size: 11px;
+    font-size: 14.5px;
     margin-top: 17px
 }
 
@@ -1636,7 +1636,7 @@ footer {
 }
 
 .footer-main .inline-link {
-    font-size: 10px
+    font-size: 12px
 }
 
 .footer-bottom {
@@ -1645,7 +1645,7 @@ footer {
     justify-content: space-between;
     padding-block: 20px;
     color: #939baa;
-    font-size: 9px
+    font-size: 11.5px
 }
 
 .footer-bottom>span:last-child {
@@ -1668,7 +1668,7 @@ footer {
     border: 2px solid white;
     border-radius: 50px;
     box-shadow: 0 6px 25px #1748db30;
-    font-size: 12px;
+    font-size: 13px;
     font-weight: 500
 }
 
@@ -1706,12 +1706,12 @@ footer {
 }
 
 .chat-head strong {
-    font-size: 12px;
+    font-size: 13px;
     display: block
 }
 
 .chat-head small {
-    font-size: 9px;
+    font-size: 11.5px;
     color: #7685a2;
     display: block;
     margin-top: 4px
@@ -1740,7 +1740,7 @@ footer {
 }
 
 .chat-messages p {
-    font-size: 12px;
+    font-size: 15px;
     padding: 12px;
     border-radius: 8px;
     line-height: 1.75;
@@ -1771,7 +1771,7 @@ footer {
     background: white;
     color: var(--blue);
     border-radius: 20px;
-    font-size: 9px;
+    font-size: 11.5px;
     padding: 7px
 }
 
@@ -1782,7 +1782,7 @@ footer {
     border: 0;
     background: none;
     color: var(--blue);
-    font-size: 11px;
+    font-size: 12px;
     margin: 9px 15px 13px
 }
 
@@ -1795,7 +1795,7 @@ footer {
 .chat-input input {
     border: 0;
     padding: 8px;
-    font-size: 11px;
+    font-size: 16px;
     flex: 1;
     min-width: 0
 }
@@ -1873,7 +1873,7 @@ footer {
 }
 
 .lightbox>p {
-    font-size: 11px;
+    font-size: 14.5px;
     margin-top: 10px
 }
 
@@ -1887,7 +1887,7 @@ footer {
 .breadcrumbs {
     display: flex;
     gap: 10px;
-    font-size: 10px;
+    font-size: 12px;
     color: #8793a8;
     padding-block: 27px 45px
 }
@@ -1906,7 +1906,7 @@ footer {
 .page-hero p {
     max-width: 540px;
     margin-top: 23px;
-    font-size: 14px
+    font-size: 17px
 }
 
 .page-spark {
@@ -1937,7 +1937,7 @@ footer {
 .search input {
     border: 0;
     outline: none;
-    font-size: 11px;
+    font-size: 16px;
     width: 160px
 }
 
@@ -1954,7 +1954,7 @@ footer {
 }
 
 .empty-state p {
-    font-size: 13px;
+    font-size: 16px;
     margin: 10px 0 20px
 }
 
@@ -1981,7 +1981,7 @@ footer {
 }
 
 .vision-grid p {
-    font-size: 13px;
+    font-size: 16px;
     max-width: 400px;
     margin-top: 20px
 }
@@ -2009,7 +2009,7 @@ footer {
 }
 
 .facility-grid p {
-    font-size: 12px
+    font-size: 15px
 }
 
 .course-detail-hero {
@@ -2031,7 +2031,7 @@ footer {
 }
 
 .course-detail-top p {
-    font-size: 14px;
+    font-size: 17px;
     margin: 23px 0;
     max-width: 450px
 }
@@ -2063,7 +2063,7 @@ footer {
     display: flex;
     gap: 23px;
     margin-top: 26px;
-    font-size: 10px;
+    font-size: 12px;
     color: #7a879a
 }
 
@@ -2090,12 +2090,12 @@ footer {
 }
 
 .detail-section p {
-    font-size: 13px;
+    font-size: 16px;
     margin-top: 17px
 }
 
 .detail-section .source-note {
-    font-size: 10px
+    font-size: 12px
 }
 
 .syllabus-list {
@@ -2125,7 +2125,7 @@ footer {
 }
 
 .syllabus-list span {
-    font-size: 10px;
+    font-size: 12px;
     color: #8c9cbb
 }
 
@@ -2146,7 +2146,7 @@ footer {
     color: var(--blue);
     padding: 10px 15px;
     border-radius: 5px;
-    font-size: 12px
+    font-size: 13px
 }
 
 .course-sidebar {
@@ -2179,11 +2179,11 @@ footer {
 
 .course-sidebar strong {
     display: block;
-    font-size: 12px
+    font-size: 13px
 }
 
 .course-sidebar small {
-    font-size: 10px;
+    font-size: 12px;
     display: block;
     margin-top: 6px;
     color: #8390a6;
@@ -2192,13 +2192,13 @@ footer {
 
 .course-sidebar>.button {
     width: 100%;
-    font-size: 12px;
+    font-size: 13px;
     margin-top: 12px
 }
 
 .course-sidebar>p {
     text-align: center;
-    font-size: 9px;
+    font-size: 14.5px;
     margin-top: 12px
 }
 
@@ -2281,7 +2281,7 @@ footer {
     }
 
     .hero-content>p {
-        font-size: 15px
+        font-size: 18px
     }
 
     .nav-links {
@@ -2289,7 +2289,7 @@ footer {
     }
 
     .hero-eyebrow {
-        font-size: 10px
+        font-size: 12px
     }
 
     .course-image {
@@ -2307,7 +2307,7 @@ footer {
     }
 
     .nav-links a {
-        font-size: 11px
+        font-size: 12px
     }
 
     .hero {
@@ -2353,16 +2353,16 @@ footer {
     }
 
     .hero-actions .button {
-        font-size: 11px;
+        font-size: 12px;
         padding: 14px
     }
 
     .hero-actions .text-button {
-        font-size: 10px
+        font-size: 12px
     }
 
     .hero-content>p {
-        font-size: 12px
+        font-size: 15px
     }
 
     .hero h1 .underline {
@@ -2383,11 +2383,11 @@ footer {
     }
 
     .benefits strong {
-        font-size: 11px
+        font-size: 12px
     }
 
     .benefits small {
-        font-size: 9px
+        font-size: 11.5px
     }
 
     .about-section,
@@ -2412,11 +2412,11 @@ footer {
     }
 
     .course-foot {
-        font-size: 7px
+        font-size: 10.5px
     }
 
     .course-foot>span {
-        font-size: 8px
+        font-size: 10.5px
     }
 
     .course-image {
@@ -2470,7 +2470,7 @@ footer {
     }
 
     .cta-section .button {
-        font-size: 11px
+        font-size: 12px
     }
 
     .gallery-photo {
@@ -2491,6 +2491,17 @@ footer {
 
     .faq-section {
         gap: 45px
+    }
+}
+
+/* Room for the full nav between the laptop and mobile-menu breakpoints */
+@media(max-width:1000px) and (min-width:851px) {
+    .nav-links {
+        gap: 13px
+    }
+
+    .nav-enquire {
+        padding-inline: 14px
     }
 }
 
@@ -2551,7 +2562,7 @@ footer {
     }
 
     .hero-eyebrow {
-        font-size: 8px;
+        font-size: 10.5px;
         letter-spacing: 1.3px
     }
 
@@ -2571,12 +2582,12 @@ footer {
     }
 
     .hero-actions .button {
-        font-size: 12px;
+        font-size: 13px;
         padding: 14px 19px
     }
 
     .hero-actions .text-button {
-        font-size: 11px
+        font-size: 12px
     }
 
     .hero-bottom {
@@ -2588,11 +2599,11 @@ footer {
     }
 
     .floating-badge strong {
-        font-size: 10px
+        font-size: 12px
     }
 
     .floating-badge small {
-        font-size: 7px
+        font-size: 10.5px
     }
 
     .badge-icon {
@@ -2622,11 +2633,11 @@ footer {
     .image-label {
         left: 22%;
         bottom: 85px;
-        font-size: 6px
+        font-size: 10.5px
     }
 
     .vertical-label {
-        font-size: 6px;
+        font-size: 10.5px;
         top: 150px
     }
 
@@ -2645,11 +2656,11 @@ footer {
     }
 
     .benefits strong {
-        font-size: 12px
+        font-size: 13px
     }
 
     .benefits small {
-        font-size: 10px
+        font-size: 12px
     }
 
     .course-grid {
@@ -2693,13 +2704,13 @@ footer {
 
     .section-title>.button {
         white-space: nowrap;
-        font-size: 10px;
+        font-size: 12px;
         padding: 13px 15px;
         margin-top: 25px
     }
 
     .section-title p {
-        font-size: 12px
+        font-size: 15px
     }
 
     .about-section {
@@ -2712,7 +2723,7 @@ footer {
     }
 
     .about-copy>p {
-        font-size: 12px
+        font-size: 15px
     }
 
     .about-image>img {
@@ -2734,11 +2745,11 @@ footer {
     }
 
     .check-list {
-        font-size: 11px
+        font-size: 12px
     }
 
     .about-copy .button {
-        font-size: 11px
+        font-size: 12px
     }
 
     .why-grid {
@@ -2754,7 +2765,7 @@ footer {
     }
 
     .why-card p {
-        font-size: 11px
+        font-size: 14.5px
     }
 
     .placement-section {
@@ -2874,7 +2885,7 @@ footer {
     }
 
     .filters button {
-        font-size: 10px;
+        font-size: 12px;
         padding: 9px 13px
     }
 
@@ -2912,7 +2923,7 @@ footer {
     }
 
     .course-detail-top p {
-        font-size: 12px
+        font-size: 15px
     }
 
     .course-layout {
@@ -2933,7 +2944,7 @@ footer {
     }
 
     .detail-section p {
-        font-size: 12px
+        font-size: 15px
     }
 }
 
@@ -2959,7 +2970,7 @@ footer {
     }
 
     .nav-enquire {
-        font-size: 10px;
+        font-size: 12px;
         padding: 10px 12px;
         min-height: 37px;
         gap: 8px
@@ -2993,13 +3004,13 @@ footer {
     }
 
     .hero-eyebrow {
-        font-size: 9px;
+        font-size: 11.5px;
         letter-spacing: 1.4px;
         margin-bottom: 22px
     }
 
     .hero-content>p {
-        font-size: 12px;
+        font-size: 15px;
         line-height: 1.9;
         margin-top: 27px
     }
@@ -3021,12 +3032,12 @@ footer {
 
     .hero-actions .button {
         padding: 13px 16px;
-        font-size: 11px;
+        font-size: 12px;
         gap: 12px
     }
 
     .hero-actions .text-button {
-        font-size: 10px;
+        font-size: 12px;
         gap: 6px
     }
 
@@ -3076,11 +3087,11 @@ footer {
     }
 
     .floating-badge strong {
-        font-size: 11px
+        font-size: 12px
     }
 
     .floating-badge small {
-        font-size: 8px
+        font-size: 10.5px
     }
 
     .spark-one {
@@ -3098,7 +3109,7 @@ footer {
     .image-label {
         bottom: 77px;
         left: 30%;
-        font-size: 7px
+        font-size: 10.5px
     }
 
     .vertical-label {
@@ -3125,11 +3136,11 @@ footer {
     }
 
     .benefits strong {
-        font-size: 10px
+        font-size: 12px
     }
 
     .benefits small {
-        font-size: 8px
+        font-size: 10.5px
     }
 
     .benefit-icon svg {
@@ -3146,7 +3157,7 @@ footer {
     }
 
     .eyebrow {
-        font-size: 8px;
+        font-size: 10.5px;
         letter-spacing: 1.7px;
         margin-bottom: 12px
     }
@@ -3157,7 +3168,7 @@ footer {
     }
 
     .section-title p {
-        font-size: 12px;
+        font-size: 15px;
         margin-top: 11px
     }
 
@@ -3184,11 +3195,11 @@ footer {
 
     .filters button {
         padding: 8px 11px;
-        font-size: 9px
+        font-size: 11.5px
     }
 
     .filters button span {
-        font-size: 7px
+        font-size: 10.5px
     }
 
     .carousel-buttons {
@@ -3222,20 +3233,20 @@ footer {
     }
 
     .course-kicker {
-        font-size: 8px
+        font-size: 10.5px
     }
 
     .course-body p {
-        font-size: 12px;
+        font-size: 15px;
         min-height: 0
     }
 
     .course-foot {
-        font-size: 9px
+        font-size: 11.5px
     }
 
     .course-foot>span {
-        font-size: 10px
+        font-size: 12px
     }
 
     .courses-section:not(.full-courses) .course-card:last-child:nth-child(3) {
@@ -3250,14 +3261,14 @@ footer {
 
     .course-help {
         flex-wrap: wrap;
-        font-size: 10px;
+        font-size: 12px;
         line-height: 1.7;
         gap: 5px;
         margin-top: 24px
     }
 
     .course-help .inline-link {
-        font-size: 10px
+        font-size: 12px
     }
 
     .about-section {
@@ -3289,11 +3300,11 @@ footer {
     }
 
     .about-copy>p {
-        font-size: 13px
+        font-size: 16px
     }
 
     .check-list {
-        font-size: 12px;
+        font-size: 13px;
         gap: 12px
     }
 
@@ -3319,7 +3330,7 @@ footer {
     }
 
     .why-card p {
-        font-size: 12px;
+        font-size: 15px;
         margin-top: 8px
     }
 
@@ -3341,7 +3352,7 @@ footer {
     }
 
     .placement-copy>p {
-        font-size: 13px
+        font-size: 16px
     }
 
     .placement-tags {
@@ -3349,7 +3360,7 @@ footer {
     }
 
     .placement-tags>span {
-        font-size: 9px
+        font-size: 11.5px
     }
 
     .career-visual {
@@ -3378,7 +3389,7 @@ footer {
     }
 
     .story-card>p {
-        font-size: 12px
+        font-size: 15px
     }
 
     .gallery-grid {
@@ -3399,7 +3410,7 @@ footer {
     }
 
     .gallery-photo small {
-        font-size: 7px
+        font-size: 10.5px
     }
 
     .gallery-photo>span:not(.gallery-plus) {
@@ -3417,7 +3428,7 @@ footer {
     }
 
     .team-section p {
-        font-size: 12px
+        font-size: 15px
     }
 
     .faq-section {
@@ -3426,19 +3437,19 @@ footer {
     }
 
     .faq-list summary {
-        font-size: 11px;
+        font-size: 12px;
         gap: 10px;
         padding-block: 21px
     }
 
     .faq-list details>p {
-        font-size: 12px;
+        font-size: 15px;
         padding-left: 24px;
         padding-right: 10px
     }
 
     .faq-num {
-        font-size: 9px
+        font-size: 11.5px
     }
 
     .cta-section {
@@ -3455,12 +3466,12 @@ footer {
 
     .cta-section>.button {
         margin: 0;
-        font-size: 11px;
+        font-size: 12px;
         min-height: 44px
     }
 
     .cta-section p {
-        font-size: 11px;
+        font-size: 14.5px;
         max-width: 250px
     }
 
@@ -3481,7 +3492,7 @@ footer {
     }
 
     .contact-section>div>p {
-        font-size: 13px
+        font-size: 16px
     }
 
     .address {
@@ -3497,13 +3508,13 @@ footer {
     }
 
     .enquiry-form label {
-        font-size: 11px
+        font-size: 12px
     }
 
     .enquiry-form input,
     .enquiry-form select,
     .enquiry-form textarea {
-        font-size: 12px;
+        font-size: 16px;
         padding: 13px
     }
 
@@ -3517,11 +3528,11 @@ footer {
     }
 
     .enquiry-form .consent {
-        font-size: 10px
+        font-size: 12px
     }
 
     .form-note {
-        font-size: 10px
+        font-size: 12px
     }
 
     .footer-main {
@@ -3542,21 +3553,21 @@ footer {
     }
 
     .footer-main h3 {
-        font-size: 12px
+        font-size: 13px
     }
 
     .footer-main>div>a:not(.logo):not(.social-link) {
-        font-size: 11px
+        font-size: 12px
     }
 
     .footer-main p {
-        font-size: 12px
+        font-size: 15px
     }
 
     .footer-bottom {
         flex-direction: column;
         gap: 10px;
-        font-size: 9px;
+        font-size: 11.5px;
         padding-bottom: 90px
     }
 
@@ -3564,7 +3575,7 @@ footer {
         right: 15px;
         bottom: 17px;
         padding: 12px 15px;
-        font-size: 11px
+        font-size: 12px
     }
 
     .chat-launcher svg {
@@ -3611,7 +3622,7 @@ footer {
     }
 
     .breadcrumbs {
-        font-size: 9px;
+        font-size: 11.5px;
         padding-block: 22px 32px
     }
 
@@ -3621,7 +3632,7 @@ footer {
     }
 
     .page-hero p {
-        font-size: 12px;
+        font-size: 15px;
         max-width: 300px
     }
 
@@ -3651,7 +3662,7 @@ footer {
 
     .search input {
         width: 100%;
-        font-size: 12px
+        font-size: 16px
     }
 
     .vision-grid {
@@ -3680,7 +3691,7 @@ footer {
     }
 
     .facility-grid p {
-        font-size: 13px
+        font-size: 16px
     }
 
     .course-detail-top {
@@ -3693,7 +3704,7 @@ footer {
     }
 
     .course-detail-top p {
-        font-size: 13px
+        font-size: 16px
     }
 
     .detail-photo {
@@ -3726,11 +3737,11 @@ footer {
     }
 
     .course-sidebar .eyebrow {
-        font-size: 9px
+        font-size: 11.5px
     }
 
     .course-sidebar small {
-        font-size: 11px
+        font-size: 12px
     }
 
     .detail-section h2 {
@@ -3738,7 +3749,7 @@ footer {
     }
 
     .detail-section p {
-        font-size: 13px
+        font-size: 16px
     }
 
     .syllabus-list>div {
@@ -3904,7 +3915,7 @@ footer {
     gap: 9px;
     padding: 12px 18px;
     border-radius: 50px;
-    font-size: 12px;
+    font-size: 13px;
     font-weight: 500;
     background: #25d366;
     color: #fff;
@@ -3923,7 +3934,7 @@ footer {
         right: 15px;
         bottom: 80px;
         padding: 10px 15px;
-        font-size: 11px
+        font-size: 12px
     }
 }
 
@@ -3993,7 +4004,7 @@ footer {
     .enquiry-form input,
     .enquiry-form select,
     .enquiry-form textarea {
-        font-size: 12px;
+        font-size: 16px;
         padding: 12px;
         min-height: 44px
     }
@@ -4104,14 +4115,20 @@ footer {
 .placement-hero-stats {
     position: relative;
     z-index: 1;
-    display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
+    /* Flex so any number of cards fills the full row width. */
+    display: flex;
+    flex-wrap: wrap;
     gap: 1rem;
     margin-top: clamp(3rem, 6vw, 5rem);
 }
 
+.placement-hero-stats>.placement-stat-card {
+    flex: 1 1 15rem;
+    min-width: 0;
+}
+
 .placement-stat-card {
-    min-height: 10.6rem;
+    min-height: 9.5rem;
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 16px;
     background: rgba(255, 255, 255, 0.045);
@@ -4141,6 +4158,21 @@ footer {
     letter-spacing: -0.04em;
 }
 
+.placement-stat-head {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 0.25rem;
+}
+
+.placement-stat-head strong {
+    margin-top: 0;
+}
+
+.placement-stat-head .placement-stat-icon {
+    flex: 0 0 auto;
+}
+
 .placement-stat-card>span:not(.placement-stat-icon) {
     color: rgba(226, 234, 255, 0.62);
     font-size: 0.84rem;
@@ -4159,7 +4191,7 @@ footer {
     background: rgba(255, 255, 255, 0.14);
     color: rgba(255, 255, 255, 0.88);
     padding: 0.25rem 0.5rem;
-    font-size: 0.68rem;
+    font-size: 0.743rem;
     font-weight: 800;
 }
 
@@ -4175,28 +4207,96 @@ footer {
 .internship-reason-grid {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
-    border: 1px solid rgba(10, 28, 65, 0.1);
-    background: #fff;
-    box-shadow: 0 1.5rem 4rem rgba(8, 21, 50, 0.08);
+    gap: 1.25rem;
+    counter-reset: reason;
 }
 
 .internship-reason-card {
-    min-height: 11rem;
     position: relative;
-    padding: clamp(1.35rem, 2.3vw, 2rem);
-    border-right: 1px solid rgba(10, 28, 65, 0.08);
-    border-bottom: 1px solid rgba(10, 28, 65, 0.08);
+    display: flex;
+    flex-direction: column;
+    min-height: 15rem;
+    padding: clamp(1.4rem, 2.4vw, 1.9rem);
+    border: 1px solid rgba(10, 28, 65, 0.09);
+    border-radius: 20px;
+    background: linear-gradient(165deg, #ffffff 0%, #f7f9ff 100%);
+    box-shadow: 0 1rem 2.6rem rgba(8, 21, 50, 0.06);
     overflow: hidden;
 }
 
-.internship-reason-card span {
+/* Accent bar across the top that widens on hover */
+.internship-reason-card::before {
+    content: "";
     position: absolute;
-    right: 1.45rem;
-    top: 0.95rem;
-    color: rgba(35, 83, 214, 0.08);
-    font-size: clamp(2.4rem, 5vw, 4.25rem);
-    font-weight: 900;
-    line-height: 1;
+    top: 0;
+    left: 0;
+    height: 4px;
+    width: 3.5rem;
+    border-radius: 0 0 4px 0;
+    background: linear-gradient(90deg, #2353d6, #25c1b9);
+    transition: width 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.internship-reason-card:hover::before {
+    width: 100%;
+}
+
+.reason-card-top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 1.2rem;
+}
+
+.reason-icon {
+    display: inline-grid;
+    place-items: center;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 14px;
+    color: #2353d6;
+    background: #eaf0ff;
+    box-shadow: inset 0 0 0 1px rgba(35, 83, 214, 0.12);
+    transition: background 0.3s ease, color 0.3s ease, rotate 0.4s ease;
+}
+
+.internship-reason-card:hover .reason-icon {
+    color: #fff;
+    background: linear-gradient(135deg, #2353d6, #25c1b9);
+    rotate: -6deg;
+}
+
+.reason-count {
+    font-family: 'Manrope', sans-serif;
+    font-size: clamp(2.6rem, 4.4vw, 3.6rem);
+    font-weight: 800;
+    line-height: 0.85;
+    letter-spacing: -0.06em;
+    color: transparent;
+    -webkit-text-stroke: 1.5px rgba(35, 83, 214, 0.28);
+    transition: color 0.35s ease, -webkit-text-stroke-color 0.35s ease;
+}
+
+.internship-reason-card:hover .reason-count {
+    color: rgba(35, 83, 214, 0.1);
+    -webkit-text-stroke-color: rgba(35, 83, 214, 0.55);
+}
+
+.reason-tag {
+    align-self: flex-start;
+    margin-top: auto;
+    padding: 0.4rem 0.8rem;
+    border-radius: 999px;
+    background: #eef6f5;
+    color: #13867f;
+    font-size: 0.78rem;
+    font-weight: 800;
+    letter-spacing: 0.03em;
+}
+
+.internship-reason-card>p:not(:last-child) {
+    margin-bottom: 1.2rem;
 }
 
 .internship-reason-card h3,
@@ -4227,6 +4327,11 @@ footer {
     gap: 1.5rem;
 }
 
+.certificate-grid:has(> .certificate-card:only-child) {
+    grid-template-columns: minmax(0, 40rem);
+    justify-content: center;
+}
+
 .eligibility-card {
     border-radius: 18px;
     border: 1px solid rgba(10, 28, 65, 0.11);
@@ -4247,7 +4352,7 @@ footer {
     display: inline-flex;
     border-radius: 999px;
     padding: 0.42rem 0.85rem;
-    font-size: 0.7rem;
+    font-size: 0.762rem;
     font-weight: 900;
     color: #15945c;
     background: #e9fff5;
@@ -4339,7 +4444,7 @@ footer {
 .partner-list-label {
     display: block;
     color: #2353d6;
-    font-size: 0.72rem;
+    font-size: 0.782rem;
     letter-spacing: 0.16em;
     font-weight: 900;
     margin-bottom: 1.2rem;
@@ -4398,7 +4503,7 @@ footer {
 
 .certificate-sign small {
     color: var(--muted);
-    font-size: 0.7rem;
+    font-size: 0.762rem;
     letter-spacing: 0.1em;
     text-transform: uppercase;
 }
@@ -4449,6 +4554,214 @@ footer {
     font-size: clamp(1.1rem, 1.6vw, 1.3rem);
     font-style: normal;
     font-weight: 400;
+}
+
+/* Intern stories: a shuffling deck of notebook-paper cards */
+.quote-slider {
+    position: relative;
+    border: 0;
+    border-radius: 0;
+    background: none;
+    padding: 0;
+}
+
+.quote-mark {
+    position: absolute;
+    z-index: 20;
+    top: -0.6rem;
+    left: 0.9rem;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(4rem, 8vw, 6rem);
+    line-height: 1;
+    color: #2353d6;
+    opacity: 0.25;
+    pointer-events: none;
+}
+
+/* Cards share one grid cell; the deck offset leaves room for the ones behind */
+.quote-track {
+    display: grid;
+    padding: 0 1.8rem 1.8rem 0;
+    perspective: 1400px;
+}
+
+.quote-slide {
+    --pos: 0;
+    grid-area: 1 / 1;
+    margin: 0;
+    padding: clamp(1.6rem, 3vw, 2.2rem) clamp(1.4rem, 3vw, 2.2rem) clamp(1.4rem, 3vw, 2rem) clamp(3rem, 6vw, 4.4rem);
+    border: 1px solid rgba(10, 28, 65, 0.1);
+    border-radius: 16px;
+    background:
+        linear-gradient(90deg, transparent calc(clamp(3rem, 6vw, 4.4rem) - 0.9rem), rgba(224, 67, 59, 0.28) calc(clamp(3rem, 6vw, 4.4rem) - 0.9rem) calc(clamp(3rem, 6vw, 4.4rem) - 0.8rem), transparent 0),
+        repeating-linear-gradient(180deg, transparent 0 2.2rem, rgba(35, 83, 214, 0.09) 2.2rem calc(2.2rem + 1px)),
+        #fffdf8;
+    box-shadow: 0 1rem 2.4rem rgba(8, 21, 50, 0.08);
+    z-index: calc(10 - var(--pos));
+    transform-origin: 20% 100%;
+    transform:
+        translate(calc(var(--pos) * 0.9rem), calc(var(--pos) * 0.9rem))
+        rotate(calc(var(--pos) * 1.6deg))
+        scale(calc(1 - var(--pos) * 0.035));
+    pointer-events: none;
+    transition: transform 0.75s cubic-bezier(0.34, 1.3, 0.64, 1), box-shadow 0.5s ease;
+}
+
+.quote-slide.is-active {
+    pointer-events: auto;
+    box-shadow: 0 1.6rem 3.4rem rgba(8, 21, 50, 0.14);
+}
+
+/* Only the top card's writing is visible */
+.quote-slide>* {
+    opacity: 0;
+    transition: opacity 0.35s ease;
+}
+
+.quote-slide.is-active>* {
+    opacity: 1;
+    transition-delay: 0.35s;
+}
+
+/* Top card flicks up and away, then tucks in at the back of the deck */
+.quote-slide.is-leaving {
+    animation: quote-flick 0.85s cubic-bezier(0.45, 0, 0.2, 1);
+}
+
+.quote-slide.is-leaving>* {
+    opacity: 1;
+    transition: none;
+    animation: quote-ink-out 0.85s ease forwards;
+}
+
+@keyframes quote-flick {
+    0% {
+        z-index: 20;
+        transform: translate(0, 0) rotate(0deg) scale(1);
+    }
+
+    45% {
+        z-index: 20;
+        transform: translate(38%, -22%) rotate(9deg) scale(1.02);
+    }
+
+    46% {
+        z-index: 0;
+    }
+
+    100% {
+        z-index: 0;
+        transform:
+            translate(calc(var(--pos) * 0.9rem), calc(var(--pos) * 0.9rem))
+            rotate(calc(var(--pos) * 1.6deg))
+            scale(calc(1 - var(--pos) * 0.035));
+    }
+}
+
+@keyframes quote-ink-out {
+    0%, 40% { opacity: 1; }
+    60%, 100% { opacity: 0; }
+}
+
+@media (max-width: 680px) {
+    .quote-track {
+        padding: 0 1rem 1rem 0;
+    }
+
+    .quote-slide {
+        transform:
+            translate(calc(var(--pos) * 0.5rem), calc(var(--pos) * 0.5rem))
+            rotate(calc(var(--pos) * 1deg));
+    }
+}
+
+.quote-slide cite span {
+    color: #2353d6;
+    font-weight: 700;
+}
+
+.quote-controls {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-top: 1.2rem;
+}
+
+.quote-dots {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.quote-dots button {
+    position: relative;
+    width: 0.6rem;
+    height: 0.6rem;
+    padding: 0;
+    border: 0;
+    border-radius: 999px;
+    background: rgba(35, 83, 214, 0.22);
+    overflow: hidden;
+    cursor: pointer;
+    transition: width 0.4s cubic-bezier(0.16, 1, 0.3, 1), background 0.3s ease;
+}
+
+.quote-dots button.is-active {
+    width: 2.6rem;
+    background: rgba(35, 83, 214, 0.2);
+}
+
+.quote-dots button.is-active:not(:has(.quote-progress)) {
+    background: #2353d6;
+}
+
+/* Fills the active dot over the slide interval */
+.quote-progress {
+    position: absolute;
+    inset: 0;
+    background: #2353d6;
+    transform-origin: left;
+    animation: quote-progress linear forwards;
+}
+
+.quote-slider.is-paused .quote-progress {
+    animation-play-state: paused;
+}
+
+@keyframes quote-progress {
+    from { transform: scaleX(0); }
+    to { transform: scaleX(1); }
+}
+
+.quote-arrows {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.quote-arrows button {
+    display: grid;
+    place-items: center;
+    width: 2.4rem;
+    height: 2.4rem;
+    border: 1px solid rgba(35, 83, 214, 0.2);
+    border-radius: 50%;
+    background: #fff;
+    color: #2353d6;
+    cursor: pointer;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+.quote-arrows button:hover {
+    background: #2353d6;
+    color: #fff;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .quote-slide,
+    .quote-slide>* {
+        transition: none !important;
+        animation: none !important;
+    }
 }
 
 .partner-list {
@@ -4503,7 +4816,7 @@ footer {
 .partner-name-block small,
 .partner-codes {
     color: var(--muted);
-    font-size: 0.78rem;
+    font-size: 0.843rem;
     font-weight: 800;
 }
 
@@ -4541,7 +4854,7 @@ footer {
 .partner-meta-grid span,
 .partner-market-panel>span {
     color: #2353d6;
-    font-size: 0.72rem;
+    font-size: 0.782rem;
     letter-spacing: 0.12em;
     font-weight: 900;
 }
@@ -4569,7 +4882,7 @@ footer {
     display: flex;
     align-items: flex-start;
     gap: 0.5rem;
-    font-size: 0.92rem;
+    font-size: 1.094rem;
 }
 
 .partner-benefit-grid svg {
@@ -4590,7 +4903,7 @@ footer {
     border-radius: 999px;
     background: #f5f7fb;
     color: var(--ink);
-    font-size: 0.78rem;
+    font-size: 0.843rem;
     font-weight: 800;
     padding: 0.45rem 0.75rem;
 }
@@ -4664,7 +4977,7 @@ footer {
 
 .journey-steps p {
     color: var(--muted);
-    font-size: 0.72rem;
+    font-size: 0.906rem;
     line-height: 1.35;
     margin: 0;
 }
@@ -4815,6 +5128,13 @@ footer {
     gap: 0.28rem;
     vertical-align: middle;
     white-space: nowrap;
+}
+
+.country-code {
+    font-size: 0.78rem;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    line-height: 1;
 }
 
 .country-flag {
@@ -5006,6 +5326,132 @@ footer {
 
     .journey-steps::before,
     .journey-steps::after {
+        animation: none;
+    }
+}
+/* Placements: eligibility quick-check modal */
+.modal.eligibility-modal {
+    width: 560px;
+    padding: clamp(1.6rem, 4vw, 2.6rem);
+    border-radius: 24px;
+}
+
+.eligibility-modal .modal-close {
+    width: 40px;
+    height: 40px;
+    right: 18px;
+    top: 18px;
+}
+
+.eligibility-check {
+    display: grid;
+    gap: 0.9rem;
+    animation: eligibility-step-in 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.eligibility-badge {
+    justify-self: start;
+    font-size: 0.82rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+}
+
+.eligibility-badge.is-plain {
+    color: #1748db;
+    letter-spacing: 0.12em;
+}
+
+.eligibility-badge.is-green,
+.eligibility-badge.is-amber {
+    padding: 0.45rem 1rem;
+    border-radius: 999px;
+}
+
+.eligibility-badge.is-green {
+    color: #15894f;
+    background: #e3f7ec;
+}
+
+.eligibility-badge.is-amber {
+    color: #9a6a06;
+    background: #fbefcf;
+}
+
+.eligibility-check h2 {
+    margin: 0.2rem 0 0;
+    padding-right: 2.5rem;
+    color: var(--ink);
+    font-size: clamp(1.4rem, 2.6vw, 1.75rem);
+    line-height: 1.25;
+    letter-spacing: -0.03em;
+}
+
+.eligibility-check p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 1rem;
+    line-height: 1.65;
+}
+
+.eligibility-actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.9rem;
+    margin-top: 0.9rem;
+}
+
+.eligibility-actions.is-single {
+    grid-template-columns: 1fr;
+}
+
+.eligibility-actions .button {
+    width: 100%;
+    min-height: 56px;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: 700;
+}
+
+.eligibility-actions .button.soft {
+    background: #f5f6fa;
+    color: var(--ink);
+    border: 1px solid #e6e9f0;
+}
+
+.eligibility-actions .button.soft:hover {
+    background: #eceff5;
+}
+
+.eligibility-actions .button.gold {
+    background: #e8b84a;
+    color: #1c1500;
+    box-shadow: none;
+}
+
+.eligibility-actions .button.whatsapp {
+    background: #25d366;
+    color: #fff;
+}
+
+.eligibility-actions .button.whatsapp:hover {
+    background: #1fbd5a;
+}
+
+@keyframes eligibility-step-in {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+}
+
+@media (max-width: 480px) {
+    .eligibility-actions {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .eligibility-check {
         animation: none;
     }
 }

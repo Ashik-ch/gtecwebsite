@@ -1,5 +1,5 @@
 ﻿import { useState } from "react";
-import { Plus, Minus, Clock } from "lucide-react";
+import { Clock } from "lucide-react";
 import "./faculty-panels.css";
 const colors = ["#ffffff", "#ffffff", "#ffffff", "#ffffff", "#ffffff"];
 
@@ -23,14 +23,25 @@ function FacultyRow({ members, offset }) {
             style={{
               "--faculty-color": colors[(index + offset) % colors.length],
             }}
+            role="button"
+            tabIndex={0}
+            aria-expanded={expanded}
+            aria-controls={member.id + "-details"}
+            aria-label={"Experience details for " + member.name}
             onPointerEnter={(event) => {
               if (event.pointerType === "mouse") setActive(index);
             }}
+            onClick={(event) => {
+              if (event.pointerType !== "mouse")
+                setActive(expanded ? null : index);
+            }}
+            onKeyDown={(event) => {
+              if (event.key !== "Enter" && event.key !== " ") return;
+              event.preventDefault();
+              setActive(expanded ? null : index);
+            }}
           >
             <div className="faculty-panel-art">
-              <span className="faculty-panel-number" aria-hidden="true">
-                {String(offset + index + 1).padStart(2, "0")}
-              </span>
               <img
                 src={member.photo || "/images/team-placeholder.svg"}
                 alt={
@@ -45,16 +56,6 @@ function FacultyRow({ members, offset }) {
                   Photo to be added
                 </span>
               )}
-              <button
-                type="button"
-                className="faculty-panel-toggle"
-                aria-expanded={expanded}
-                aria-controls={member.id + "-details"}
-                aria-label={"Experience details for " + member.name}
-                onClick={() => setActive(expanded ? null : index)}
-              >
-                {expanded ? <Minus size={18} /> : <Plus size={18} />}
-              </button>
             </div>
             <div className="faculty-panel-caption">
               <span className="faculty-panel-role">{member.designation}</span>
@@ -66,7 +67,7 @@ function FacultyRow({ members, offset }) {
               >
                 <p>
                   <Clock size={14} aria-hidden="true" />
-                  {member.experience || "Experience to be added"}
+                  {member.experience || "2 Years"} of experience
                 </p>
                 {member.pending && <small>Faculty details coming soon</small>}
               </div>
@@ -80,10 +81,7 @@ function FacultyRow({ members, offset }) {
 export default function FacultyPanels({ members }) {
   return (
     <div className="faculty-showcase">
-      <p className="faculty-showcase-hint">
-        Meet your mentors <span aria-hidden="true">/</span> Select + to explore
-        each profile
-      </p>
+      <p className="faculty-showcase-hint">Meet your mentors</p>
       <FacultyRow offset={0} members={members} />
     </div>
   );

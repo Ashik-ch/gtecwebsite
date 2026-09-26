@@ -1,25 +1,254 @@
-.placed-students-section{overflow:hidden;position:relative;background:radial-gradient(circle,#d9e4fa 1.6px,transparent 1.6px) 0 0/22px 22px,linear-gradient(135deg,#f5f8ff,#fbfcff 55%,#eef4ff);border-block:1px solid #e7edf8}
-.placed-students-heading{display:flex;justify-content:space-between;align-items:end;gap:30px;margin-bottom:34px}
-.placed-students-heading p{max-width:520px;margin-top:16px;font-size:13px}
-.placed-scroll-control{flex-shrink:0;gap:10px;background:white}
-.placed-students-viewport{overflow-x:auto;scrollbar-width:thin;scrollbar-color:#c4d4f3 transparent;padding:14px 0 34px;outline-offset:-3px}
-.placed-students-track{display:flex;width:max-content;animation:placed-students-marquee 44s linear infinite;will-change:transform}
-.placed-students-list{display:flex;flex-shrink:0;gap:34px;padding:10px 24px 10px 6px;margin:0;list-style:none}
-.placed-student-card{position:relative;isolation:isolate;width:222px;flex-shrink:0;padding:14px 14px 20px;background:#fffefb;border-radius:4px;box-shadow:0 10px 22px #17233514,0 2px 6px #17233510;transition:transform .4s cubic-bezier(.2,.7,.2,1),box-shadow .4s}
-.placed-students-list .placed-student-card:nth-child(3n+1){transform:rotate(-3.5deg)}
-.placed-students-list .placed-student-card:nth-child(3n+2){transform:rotate(2.5deg)}
-.placed-students-list .placed-student-card:nth-child(3n){transform:rotate(-1.5deg)}
-.placed-tape{position:absolute;top:-11px;left:50%;width:64px;height:26px;transform:translateX(-50%) rotate(-4deg);background:repeating-linear-gradient(115deg,var(--tape),var(--tape) 5px,#ffffff40 5px,#ffffff40 7px);opacity:.85;box-shadow:0 2px 4px #17233522;z-index:2}
-.placed-photo-frame{position:relative;aspect-ratio:1/1;overflow:hidden;background:#e9eef8}
-.placed-photo-frame img{width:100%;height:100%;object-fit:cover;object-position:center 22%;filter:saturate(1.05);transition:transform .6s cubic-bezier(.2,.7,.2,1)}
-.placed-seal{position:absolute;right:-10px;bottom:-10px;z-index:2;display:inline-flex;align-items:center;gap:4px;padding:6px 10px 6px 8px;border-radius:20px;background:var(--blue);color:#fff;font-size:9px;font-weight:700;letter-spacing:.4px;text-transform:uppercase;transform:rotate(-6deg);box-shadow:0 4px 10px #1748db40,0 0 0 3px #fffefb}
-.placed-caption{padding-top:16px;text-align:center}
-.placed-caption h3{font-family:'Caveat',cursive;font-size:26px;font-weight:700;line-height:1.15;color:#1c2b45;letter-spacing:.2px;transform:rotate(-1deg);overflow-wrap:anywhere}
-.placed-photo-note{display:block;margin-top:4px;color:#8089a0;font-size:9.5px;font-style:italic;line-height:1.4}
-.placed-course-stamp{display:inline-flex;align-items:center;gap:6px;margin-top:11px;padding:6px 12px;border:1.5px dashed #b9c6e6;border-radius:20px;color:#3454a0;font-size:9.5px;font-weight:700;letter-spacing:.6px;text-transform:uppercase;transform:rotate(1deg)}
-.placed-course-stamp svg{color:var(--blue);flex-shrink:0}
-.placed-students-viewport:hover .placed-students-track,.placed-students-viewport:focus-within .placed-students-track,.placed-students-viewport[data-paused="true"] .placed-students-track{animation-play-state:paused}
-@keyframes placed-students-marquee{to{transform:translateX(-50%)}}
-@media(hover:hover) and (prefers-reduced-motion:no-preference){.placed-student-card:hover{transform:rotate(0deg) translateY(-8px) scale(1.03);box-shadow:0 22px 40px #17233524;z-index:3}.placed-student-card:hover img{transform:scale(1.08)}}
-@media(max-width:700px){.placed-students-heading{align-items:start;flex-direction:column;gap:20px}.placed-student-card{width:190px;padding:11px 11px 16px}.placed-students-list{gap:22px;padding:8px 16px 8px 4px}.placed-caption h3{font-size:22px}.placed-students-heading p{font-size:12px}.placed-scroll-control{font-size:12px}.placed-course-stamp{font-size:9px;padding:5px 10px}}
-@media(prefers-reduced-motion:reduce){.placed-students-track{animation:none;transform:none;will-change:auto}.placed-students-copy,.placed-scroll-control{display:none}.placed-photo-frame img,.placed-student-card{transition:none}.placed-students-viewport{padding-inline:24px}.placed-students-list .placed-student-card{transform:none}}
+.placed-students-section {
+    overflow: hidden;
+    position: relative;
+    background: radial-gradient(circle, #d9e4fa 1.6px, transparent 1.6px) 0 0/22px 22px, linear-gradient(135deg, #f5f8ff, #fbfcff 55%, #eef4ff);
+    border-block: 1px solid #e7edf8
+}
+
+.placed-students-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    gap: 30px;
+    margin-bottom: 34px
+}
+
+.placed-students-heading p {
+    max-width: 520px;
+    margin-top: 16px;
+    font-size: 16px
+}
+
+.placed-scroll-control {
+    flex-shrink: 0;
+    gap: 10px;
+    background: white
+}
+
+.placed-students-viewport {
+    overflow-x: auto;
+    scrollbar-width: thin;
+    scrollbar-color: #c4d4f3 transparent;
+    padding: 14px 0 34px;
+    outline-offset: -3px
+}
+
+.placed-students-track {
+    display: flex;
+    width: max-content;
+    animation: placed-students-marquee 44s linear infinite;
+    will-change: transform
+}
+
+.placed-students-list {
+    display: flex;
+    flex-shrink: 0;
+    gap: 34px;
+    padding: 10px 24px 10px 6px;
+    margin: 0;
+    list-style: none
+}
+
+.placed-student-card {
+    position: relative;
+    isolation: isolate;
+    width: 222px;
+    flex-shrink: 0;
+    padding: 14px 14px 20px;
+    background: #fffefb;
+    border-radius: 4px;
+    box-shadow: 0 10px 22px #17233514, 0 2px 6px #17233510;
+    transition: transform .4s cubic-bezier(.2, .7, .2, 1), box-shadow .4s
+}
+
+.placed-students-list .placed-student-card:nth-child(3n+1) {
+    transform: rotate(-3.5deg)
+}
+
+.placed-students-list .placed-student-card:nth-child(3n+2) {
+    transform: rotate(2.5deg)
+}
+
+.placed-students-list .placed-student-card:nth-child(3n) {
+    transform: rotate(-1.5deg)
+}
+
+.placed-tape {
+    position: absolute;
+    top: -11px;
+    left: 50%;
+    width: 64px;
+    height: 26px;
+    transform: translateX(-50%) rotate(-4deg);
+    background: repeating-linear-gradient(115deg, var(--tape), var(--tape) 5px, #ffffff40 5px, #ffffff40 7px);
+    opacity: .85;
+    box-shadow: 0 2px 4px #17233522;
+    z-index: 2
+}
+
+.placed-photo-frame {
+    position: relative;
+    aspect-ratio: 1/1;
+    overflow: hidden;
+    background: #e9eef8
+}
+
+.placed-photo-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 22%;
+    filter: saturate(1.05);
+    transition: transform .6s cubic-bezier(.2, .7, .2, 1)
+}
+
+.placed-seal {
+    position: absolute;
+    right: -10px;
+    bottom: -10px;
+    z-index: 2;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 6px 10px 6px 8px;
+    border-radius: 20px;
+    background: var(--blue);
+    color: #fff;
+    font-size: 11.5px;
+    font-weight: 700;
+    letter-spacing: .4px;
+    text-transform: uppercase;
+    transform: rotate(-6deg);
+    box-shadow: 0 4px 10px #1748db40, 0 0 0 3px #fffefb
+}
+
+.placed-caption {
+    padding-top: 16px;
+    text-align: center
+}
+
+.placed-caption h3 {
+    font-family: 'Caveat', cursive;
+    font-size: 26px;
+    font-weight: 700;
+    line-height: 1.15;
+    color: #1c2b45;
+    letter-spacing: .2px;
+    transform: rotate(-1deg);
+    overflow-wrap: anywhere
+}
+
+.placed-photo-note {
+    display: block;
+    margin-top: 4px;
+    color: #8089a0;
+    font-size: 12px;
+    font-style: italic;
+    line-height: 1.4
+}
+
+.placed-course-stamp {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 11px;
+    padding: 6px 12px;
+    border: 1.5px dashed #b9c6e6;
+    border-radius: 20px;
+    color: #3454a0;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: .6px;
+    text-transform: uppercase;
+    transform: rotate(1deg)
+}
+
+.placed-course-stamp svg {
+    color: var(--blue);
+    flex-shrink: 0
+}
+
+.placed-students-viewport:hover .placed-students-track,
+.placed-students-viewport:focus-within .placed-students-track,
+.placed-students-viewport[data-paused="true"] .placed-students-track {
+    animation-play-state: paused
+}
+
+@keyframes placed-students-marquee {
+    to {
+        transform: translateX(-50%)
+    }
+}
+
+@media(hover:hover) and (prefers-reduced-motion:no-preference) {
+    .placed-student-card:hover {
+        transform: rotate(0deg) translateY(-8px) scale(1.03);
+        box-shadow: 0 22px 40px #17233524;
+        z-index: 3
+    }
+
+    .placed-student-card:hover img {
+        transform: scale(1.08)
+    }
+}
+
+@media(max-width:700px) {
+    .placed-students-heading {
+        align-items: start;
+        flex-direction: column;
+        gap: 20px
+    }
+
+    .placed-student-card {
+        width: 190px;
+        padding: 11px 11px 16px
+    }
+
+    .placed-students-list {
+        gap: 22px;
+        padding: 8px 16px 8px 4px
+    }
+
+    .placed-caption h3 {
+        font-size: 22px
+    }
+
+    .placed-students-heading p {
+        font-size: 15px
+    }
+
+    .placed-scroll-control {
+        font-size: 13px
+    }
+
+    .placed-course-stamp {
+        font-size: 11.5px;
+        padding: 5px 10px
+    }
+}
+
+@media(prefers-reduced-motion:reduce) {
+    .placed-students-track {
+        animation: none;
+        transform: none;
+        will-change: auto
+    }
+
+    .placed-students-copy,
+    .placed-scroll-control {
+        display: none
+    }
+
+    .placed-photo-frame img,
+    .placed-student-card {
+        transition: none
+    }
+
+    .placed-students-viewport {
+        padding-inline: 24px
+    }
+
+    .placed-students-list .placed-student-card {
+        transform: none
+    }
+}

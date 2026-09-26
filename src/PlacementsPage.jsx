@@ -1,11 +1,17 @@
-﻿import React, { useRef, useState } from "react";
+﻿import React, { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import {
+  Award,
+  Briefcase,
+  CalendarRange,
   Check,
   ChevronDown,
   Clock,
+  Globe,
+  GraduationCap,
   MapPin,
   ShieldCheck,
+  TrendingUp,
   Users,
 } from "lucide-react";
 import { Mascot } from "./Mascot";
@@ -25,6 +31,209 @@ I'm not a G-TEC Mahe student, but I'm interested in your internship program (3-6
 I saw that open internships for outside students are coming soon. Please add me to your notification list and let me know as soon as applications open.
 
 Thank you!`;
+
+// Placeholder student quotes - replace with real interns' stories.
+const internQuotes = [
+  {
+    text: "Working on a live client project during my internship taught me more about deadlines and communication than any classroom ever could.",
+    name: "Placeholder student",
+    role: "Digital Marketing intern",
+  },
+  {
+    text: "My mentor reviewed every piece of work with me. By the end, I could present my own project to the client with confidence.",
+    name: "Placeholder student",
+    role: "Web & Digital Solutions intern",
+  },
+  {
+    text: "The internship gave me real portfolio work and an experience certificate - it's what got me my first interview call.",
+    name: "Placeholder student",
+    role: "Data Analytics intern",
+  },
+];
+
+const QUOTE_INTERVAL = 6000;
+
+function QuoteSlider({ quotes }) {
+  const [active, setActiveIndex] = useState(0);
+  const [leaving, setLeaving] = useState(null);
+  const [paused, setPaused] = useState(false);
+  const [autoplay, setAutoplay] = useState(false);
+
+  // The card on top flicks away to the back of the deck when it changes.
+  const setActive = (next) =>
+    setActiveIndex((current) => {
+      const target = typeof next === "function" ? next(current) : next;
+      if (target !== current) setLeaving(current);
+      return target;
+    });
+
+  useEffect(() => {
+    if (leaving === null) return;
+    const timer = setTimeout(() => setLeaving(null), 900);
+    return () => clearTimeout(timer);
+  }, [leaving]);
+
+  useEffect(() => {
+    const query = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const update = () => setAutoplay(!query.matches);
+    update();
+    query.addEventListener("change", update);
+    return () => query.removeEventListener("change", update);
+  }, []);
+
+  useEffect(() => {
+    if (!autoplay || paused) return;
+    const timer = setTimeout(
+      () => setActive((i) => (i + 1) % quotes.length),
+      QUOTE_INTERVAL,
+    );
+    return () => clearTimeout(timer);
+  }, [active, autoplay, paused, quotes.length]);
+
+  const go = (step) =>
+    setActive((i) => (i + step + quotes.length) % quotes.length);
+
+  return (
+    <section
+      className={`internship-quote quote-slider reveal${paused ? " is-paused" : ""}`}
+      aria-roledescription="carousel"
+      aria-label="Intern stories"
+      onMouseEnter={() => setPaused(true)}
+      onMouseLeave={() => setPaused(false)}
+      onFocus={() => setPaused(true)}
+      onBlur={() => setPaused(false)}
+    >
+      <span className="quote-mark" aria-hidden="true">
+        &ldquo;
+      </span>
+      <div className="quote-track">
+        {quotes.map((quote, index) => (
+          <blockquote
+            key={quote.text}
+            className={`quote-slide${index === active ? " is-active" : ""}${
+              index === leaving ? " is-leaving" : ""
+            }`}
+            style={{
+              "--pos": (index - active + quotes.length) % quotes.length,
+            }}
+            aria-hidden={index !== active}
+            aria-roledescription="slide"
+            aria-label={`${index + 1} of ${quotes.length}`}
+          >
+            <p>{quote.text}</p>
+            <cite>
+              - {quote.name}, <span>{quote.role}</span>
+            </cite>
+          </blockquote>
+        ))}
+      </div>
+      <div className="quote-controls">
+        <div className="quote-dots">
+          {quotes.map((quote, index) => (
+            <button
+              key={quote.text}
+              type="button"
+              className={index === active ? "is-active" : ""}
+              aria-label={`Show story ${index + 1}`}
+              aria-current={index === active}
+              onClick={() => setActive(index)}
+            >
+              {index === active && autoplay ? (
+                <span
+                  className="quote-progress"
+                  style={{ animationDuration: `${QUOTE_INTERVAL}ms` }}
+                />
+              ) : null}
+            </button>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// Quick check -> eligible / not yet -> notified
+function EligibilityCheck({ onClose }) {
+  const [step, setStep] = useState("check");
+
+  const steps = {
+    check: {
+      badge: "QUICK CHECK",
+      tone: "plain",
+      title: "Have you completed a certified course at G-TEC Mahe?",
+      text: "This just helps us show you the right next step.",
+      actions: [
+        { label: "Yes, I have", className: "primary", onClick: () => setStep("eligible") },
+        { label: "Not yet", className: "soft", onClick: () => setStep("notYet") },
+      ],
+    },
+    eligible: {
+      badge: "YOU'RE ELIGIBLE",
+      tone: "green",
+      title: "Great — you can apply right away.",
+      text: "Bring your course completion details to the G-TEC Mahe placement cell to start your internship application.",
+      actions: [{ label: "Got it", className: "primary", onClick: onClose }],
+    },
+    notYet: {
+      badge: "NOT YET ELIGIBLE",
+      tone: "amber",
+      title: "This track is open to G-TEC Mahe graduates right now.",
+      text: "Finish a certified course with us to unlock internship access — or register your interest in our upcoming external applicant program.",
+      actions: [
+        { label: "Notify me instead", className: "gold", onClick: () => setStep("notified") },
+        { label: "Maybe later", className: "soft", onClick: onClose },
+      ],
+    },
+    notified: {
+      badge: "THANKS FOR YOUR INTEREST",
+      tone: "amber",
+      title: "We'll be in touch.",
+      text: "External internships aren't open just yet, but we're working on it — we'll reach out as soon as applications begin. Stay in touch with us in the meantime.",
+      actions: [
+        { label: "WhatsApp us", className: "whatsapp", href: whatsappLink(notifyMessage) },
+        { label: "Close", className: "soft", onClick: onClose },
+      ],
+    },
+  };
+
+  const current = steps[step];
+
+  return (
+    <div className="eligibility-check" key={step}>
+      <span className={`eligibility-badge is-${current.tone}`}>
+        {current.badge}
+      </span>
+      <h2>{current.title}</h2>
+      <p>{current.text}</p>
+      <div
+        className={`eligibility-actions${current.actions.length === 1 ? " is-single" : ""}`}
+      >
+        {current.actions.map((action) =>
+          action.href ? (
+            <a
+              key={action.label}
+              className={`button ${action.className}`}
+              href={action.href}
+              target="_blank"
+              rel="noreferrer"
+            >
+              {action.label}
+            </a>
+          ) : (
+            <button
+              key={action.label}
+              type="button"
+              className={`button ${action.className}`}
+              onClick={action.onClick}
+            >
+              {action.label}
+            </button>
+          ),
+        )}
+      </div>
+    </div>
+  );
+}
 
 const isDriveLink = (value) =>
   /^https:\/\/(drive|docs)\.google\.com\//i.test(value);
@@ -170,8 +379,9 @@ const MarketLabel = ({ market, compact = false }) => {
   if (market.startsWith("+")) return <>{market}</>;
   const { code, name } = splitMarket(market);
   return (
-    <span className="country-label">
+    <span className="country-label" title={name || code}>
       <CountryFlag code={code} label={name || code} />
+      <span className="country-code">{code}</span>
     </span>
   );
 };
@@ -196,7 +406,13 @@ const MarketList = ({ markets, compact = false, separator = null }) => (
     ))}
   </>
 );
-export default function Placements({ SectionTitle, Stories, FAQs, CTA, Modal }) {
+export default function Placements({
+  SectionTitle,
+  Stories,
+  FAQs,
+  CTA,
+  Modal,
+}) {
   const [eligibilityOpen, setEligibilityOpen] = useState(false);
   const pageRef = useRef(null);
   usePlacementMotion(pageRef);
@@ -306,9 +522,7 @@ export default function Placements({ SectionTitle, Stories, FAQs, CTA, Modal }) 
       };
     });
 
-  const [activePartner, setActivePartner] = useState(
-    partnerProfiles[0]?.slug || "",
-  );
+  const [activePartner, setActivePartner] = useState("");
 
   const scrollToPlacementSection = (id) => {
     const section = document.getElementById(id);
@@ -331,34 +545,45 @@ export default function Placements({ SectionTitle, Stories, FAQs, CTA, Modal }) 
       label: "Global project exposure",
       chips: ["IN India", "QA Qatar", "AE UAE", "US USA", "GB UK", "+3 more"],
     },
-    { icon: ShieldCheck, value: "2", label: "Certificates on completion" },
   ];
 
   const internshipBlocks = [
-    [
-      "Structured 3-6 Month Internships",
-      "A clear timeline with defined milestones, so students know exactly what to expect.",
-    ],
-    [
-      "Live Industry Projects",
-      "Real company and client work, not simulated exercises - real requirements, real deadlines.",
-    ],
-    [
-      "Global Client Exposure",
-      <>Projects connected to companies across the GCC </>,
-    ],
-    [
-      "Mentorship From Professionals",
-      "Guidance from experienced practitioners on tools, workflow and communication.",
-    ],
-    [
-      "Placement Assistance",
-      "Resume support, interview preparation and career guidance after completion.",
-    ],
-    [
-      "Experience Certificate",
-      "A certificate from G-TEC Mahe, plus one from the partner company on completion.",
-    ],
+    {
+      icon: CalendarRange,
+      tag: "3-6 months",
+      title: "Structured 3-6 Month Internships",
+      text: "A clear timeline with defined milestones, so students know exactly what to expect.",
+    },
+    {
+      icon: Briefcase,
+      tag: "Real clients",
+      title: "Live Industry Projects",
+      text: "Real company and client work, not simulated exercises - real requirements, real deadlines.",
+    },
+    {
+      icon: Globe,
+      tag: "GCC & beyond",
+      title: "Global Client Exposure",
+      text: "Projects connected to companies across the GCC.",
+    },
+    {
+      icon: GraduationCap,
+      tag: "1:1 guidance",
+      title: "Mentorship From Professionals",
+      text: "Guidance from experienced practitioners on tools, workflow and communication.",
+    },
+    {
+      icon: TrendingUp,
+      tag: "Career ready",
+      title: "Placement Assistance",
+      text: "Resume support, interview preparation and career guidance after completion.",
+    },
+    {
+      icon: Award,
+      tag: "Certificates",
+      title: "Experience Certificate",
+      text: "A certificate from G-TEC Mahe, plus one from the partner company on completion.",
+    },
   ];
 
   const journey = [
@@ -413,11 +638,16 @@ export default function Placements({ SectionTitle, Stories, FAQs, CTA, Modal }) 
             {stats.map((stat) => {
               const Icon = stat.icon;
               return (
-                <article className="placement-stat-card reveal" key={stat.label}>
-                  <span className="placement-stat-icon">
-                    <Icon size={18} />
-                  </span>
-                  <strong>{stat.value}</strong>
+                <article
+                  className="placement-stat-card reveal"
+                  key={stat.label}
+                >
+                  <div className="placement-stat-head">
+                    <span className="placement-stat-icon">
+                      <Icon size={18} />
+                    </span>
+                    <strong>{stat.value}</strong>
+                  </div>
                   <span>{stat.label}</span>
                   {stat.chips ? (
                     <div className="placement-market-chips">
@@ -442,10 +672,19 @@ export default function Placements({ SectionTitle, Stories, FAQs, CTA, Modal }) 
           text="Every G-TEC Mahe internship is built around the same idea: move from classroom knowledge to real, portfolio-ready industry experience - with structured support at every step."
         />
         <div className="internship-reason-grid">
-          {internshipBlocks.map(([title, text], index) => (
+          {internshipBlocks.map(({ icon: Icon, tag, title, text }, index) => (
             <article className="internship-reason-card reveal" key={title}>
+              <div className="reason-card-top">
+                <span className="reason-icon" aria-hidden="true">
+                  <Icon size={22} />
+                </span>
+                <span className="reason-count" aria-hidden="true">
+                  {String(index + 1).padStart(2, "0")}
+                </span>
+              </div>
               <h3>{title}</h3>
               <p>{text}</p>
+              <span className="reason-tag">{tag}</span>
             </article>
           ))}
         </div>
@@ -506,7 +745,7 @@ export default function Placements({ SectionTitle, Stories, FAQs, CTA, Modal }) 
           text="Every completed internship is recognised twice over - once by G-TEC Mahe, and once by the company you worked with."
         />
         <div className="certificate-grid">
-          <article className="certificate-card reveal">
+          {/* <article className="certificate-card reveal">
             <div className="certificate-frame">
               <span className="certificate-no">CERTIFICATE 01</span>
               <h3>Certificate of Internship Completion</h3>
@@ -530,10 +769,10 @@ export default function Placements({ SectionTitle, Stories, FAQs, CTA, Modal }) 
                 </div>
               </footer>
             </div>
-          </article>
+          </article> */}
           <article className="certificate-card reveal">
             <div className="certificate-frame">
-              <span className="certificate-no">CERTIFICATE 02</span>
+              <span className="certificate-no">CERTIFICATE</span>
               <h3>Company Experience Certificate</h3>
               <p className="certificate-kicker">This is to certify that</p>
               <div className="certificate-name">Student Name</div>
@@ -557,16 +796,7 @@ export default function Placements({ SectionTitle, Stories, FAQs, CTA, Modal }) 
             </div>
           </article>
         </div>
-        <blockquote className="internship-quote reveal">
-          <p>
-            Working on a live client project during my internship taught me more
-            about deadlines and communication than any classroom ever could.
-          </p>
-          <cite>
-            - Placeholder student quote, to be replaced with a real intern's
-            story
-          </cite>
-        </blockquote>
+        <QuoteSlider quotes={internQuotes} />
       </section>
 
       <section
@@ -708,9 +938,13 @@ export default function Placements({ SectionTitle, Stories, FAQs, CTA, Modal }) 
       {eligibilityOpen ? (
         <Modal
           title="Check my eligibility"
+          className="eligibility-modal"
+          hideTitle
           onClose={() => setEligibilityOpen(false)}
         >
-          <EligibilityForm />
+          <EligibilityCheck onClose={() => setEligibilityOpen(false)} />
+          {/* Resume (Google Drive link) form - disabled for now.
+          <EligibilityForm /> */}
         </Modal>
       ) : null}
     </div>

@@ -67,7 +67,7 @@ const directions = [
   {
     name: "Build with technology",
     text: "Programming & problem solving",
-    courses: [["Software Courses", "software-courses"]],
+    courses: [["Skill Developments", "skill-developments"]],
   },
   {
     name: "Create something new",
@@ -159,4 +159,3 @@ export function GioFinder() {
     </div>
   );
 }
-

@@ -14,11 +14,13 @@ const groups = [
         name: "Firoz Valliyadath",
         designation: "Director",
         photo: "/images/staff/firoz-valliyadath.jpg",
+        bio: "Leads G-TEC Mahe's vision for career-focused education, building partnerships with industry so every student gets practical skills and real opportunities.",
       },
       {
         name: "Mohammed Fawaaz",
         designation: "Director",
         photo: "/images/staff/mohammed-fawaaz.jpg",
+        bio: "Oversees academics and student success, making sure every course stays current, every trainer is supported and every learner leaves job-ready.",
       },
     ],
   },
@@ -29,14 +31,14 @@ const groups = [
     description: "A friendly first point of contact for your next step.",
     members: [
       {
-        name: "Safa Naval",
-        designation: "Career Counselor",
-        photo: "/images/staff/safa-naval.jpg",
-      },
-      {
         name: "Fathimathul Hena",
         designation: "Academic Counselor",
         photo: "/images/staff/fathimathul-hena.jpg",
+      },
+      {
+        name: "Safa Naval",
+        designation: "Career Counselor",
+        photo: "/images/staff/safa-naval.jpg",
       },
     ],
   },
@@ -88,14 +90,19 @@ const groups = [
     faculty: true,
     members: [
       {
+        name: "Rasha Fouz",
+        designation: "Digital Marketing Executive & Trainer",
+        photo: "/images/staff/rasha-fouz.jpg",
+      },
+      {
         name: "Anusree K",
         designation: "Accounts & Software Trainer",
         photo: "/images/staff/anusree-k.jpg",
       },
       {
-        name: "Athulya V",
-        designation: "Digital Marketing Executive & Faculty",
-        photo: "/images/staff/athulya-v.jpg",
+        name: "Shazna Sathar",
+        designation: "Spoken English & Personality Development Trainer",
+        photo: "/images/staff/shazna-sathar.jpg",
       },
       {
         name: "Fathimath Farha",
@@ -103,14 +110,9 @@ const groups = [
         photo: "/images/staff/fathimath-farha.jpg",
       },
       {
-        name: "Nihala Fathima",
-        designation: "Multimedia Faculty",
-        photo: "/images/staff/nihala-fathima.jpg",
-      },
-      {
-        name: "Rasha Fouz",
-        designation: "Digital Marketing Executive & Trainer",
-        photo: "/images/staff/rasha-fouz.jpg",
+        name: "Athulya V",
+        designation: "Digital Marketing Executive & Faculty",
+        photo: "/images/staff/athulya-v.jpg",
       },
       {
         name: "Rayhanath E.P",
@@ -123,9 +125,9 @@ const groups = [
         photo: "/images/staff/sarima-g.jpg",
       },
       {
-        name: "Shazna Sathar",
-        designation: "Spoken English & Personality Development Trainer",
-        photo: "/images/staff/shazna-sathar.jpg",
+        name: "Nihala Fathima",
+        designation: "Multimedia Faculty",
+        photo: "/images/staff/nihala-fathima.jpg",
       },
     ].map((member, index) => ({
       id: "faculty-" + (index + 1),
@@ -205,6 +207,11 @@ function GroupBody({ group }) {
           <div className="team-profile-content">
             <h4>{member.name}</h4>
             <p className="team-designation">{member.designation}</p>
+            {member.bio && (
+              <blockquote className="team-profile-bio">
+                <p>{member.bio}</p>
+              </blockquote>
+            )}
           </div>
         </article>
       ))}

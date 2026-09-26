@@ -153,7 +153,7 @@ const videoTestimonials = [
   ],
   [
     "Nihal P",
-    "Software Courses",
+    "Skill Developments",
     "Building small projects made coding easier to understand.",
   ],
 ];
@@ -259,7 +259,11 @@ export function PlacementCompanyDetail() {
   return (
     <section className="section container company-detail-section">
       <div className="company-detail-hero reveal">
-        <CompanyLogo logo={company.logo} name={company.name} className="company-logo company-detail-logo" />
+        <CompanyLogo
+          logo={company.logo}
+          name={company.name}
+          className="company-logo company-detail-logo"
+        />
         <div>
           <span className="eyebrow">{company.field}</span>
           <h1>{company.name}</h1>
@@ -369,42 +373,6 @@ function Affiliations() {
             <span>{label}</span>
           </article>
         ))}
-      </div>
-    </section>
-  );
-}
-
-function FeedbackForm() {
-  return (
-    <section className="section container feedback-review-section feedback-review-section--form">
-      <div className="feedback-card reveal">
-        <span className="eyebrow">STUDENT FEEDBACK</span>
-        <h2>Share your learning experience.</h2>
-        <form className="student-feedback-form">
-          <label>
-            Name
-            <input type="text" placeholder="Your name" />
-          </label>
-          <label>
-            Course
-            <select defaultValue="">
-              <option value="" disabled>
-                Select course
-              </option>
-              <option>Digital Marketing</option>
-              <option>Accounting</option>
-              <option>Multimedia</option>
-              <option>Software Courses</option>
-            </select>
-          </label>
-          <label className="feedback-message">
-            Feedback
-            <textarea rows="4" placeholder="Tell us about your experience" />
-          </label>
-          <button className="button primary" type="button">
-            Submit feedback <ArrowUpRight size={18} aria-hidden="true" />
-          </button>
-        </form>
       </div>
     </section>
   );
@@ -520,8 +488,7 @@ export default function PlacementFeatures({ variant = "all" }) {
   if (variant === "companies") return <PlacementCompanies />;
   if (variant === "affiliations") return <Affiliations />;
   if (variant === "reviews") return <GoogleReviews />;
-  if (variant === "feedback") return <FeedbackForm />;
-  if (variant === "videos") return <VideoTestimonials />;
+  // if (variant === "videos") return <VideoTestimonials />;
   return (
     <>
       <PlacementCompanies />
@@ -530,5 +497,3 @@ export default function PlacementFeatures({ variant = "all" }) {
     </>
   );
 }
-
-

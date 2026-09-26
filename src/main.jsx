@@ -59,6 +59,7 @@ import PlacementFeatures, {
   placementCompanies,
 } from "./PlacementFeatures";
 import Placements from "./PlacementsPage";
+import StudentFeedbackPage from "./StudentFeedbackPage";
 
 const EnquiryContext = createContext();
 const icons = {
@@ -121,6 +122,7 @@ function Header() {
           </NavLink>
           <NavLink to="/placements">Placements</NavLink>
           <Link to="/life">Life at G-TEC</Link>
+          <NavLink to="/feedback">Feedback</NavLink>
           <Link to="/contact">Contact</Link>
         </nav>
         <Enquire className="button primary nav-enquire" />
@@ -973,6 +975,7 @@ function Footer() {
           <Link to="/courses">Our courses</Link>
           <Link to="/placements">Career & placements</Link>
           <Link to="/life">Life at G-TEC</Link>
+          <Link to="/feedback">Student feedback</Link>
         </div>
         <div>
           <h3>Find your course</h3>
@@ -1011,7 +1014,13 @@ function Footer() {
     </footer>
   );
 }
-function Modal({ title, children, onClose, className = "" }) {
+function Modal({
+  title,
+  children,
+  onClose,
+  className = "",
+  hideTitle = false,
+}) {
   const ref = useRef(null);
   const closeRef = useRef(onClose);
   closeRef.current = onClose;
@@ -1070,7 +1079,7 @@ function Modal({ title, children, onClose, className = "" }) {
         >
           <X />
         </button>
-        <h2>{title}</h2>
+        {!hideTitle && <h2>{title}</h2>}
         {children}
       </div>
     </div>
@@ -1288,7 +1297,7 @@ function Chat() {
       "I can help you explore courses, location and admissions. For fees, schedules or personal advice, please use “Talk to an advisor” below.";
     if (/course|learn|study/.test(q))
       answer =
-        "Explore Digital Marketing, Multimedia, Interior Designing, Accounting, MS Office, SAP and Software Courses. Browse the courses page to find your direction.";
+        "Explore Digital Marketing, Multimedia, Interior Designing, Accounting, MS Office, SAP and Skill Developments. Browse the courses page to find your direction.";
     if (/fee|duration|batch|time|cost/.test(q))
       answer =
         "Fees, duration and batch timings need to be confirmed by admissions for your selected programme. Tap “Talk to an advisor” to prepare an enquiry.";
@@ -1543,7 +1552,15 @@ function LifeAtGtec() {
       <Gallery />
       <Team />
       <PlacementFeatures variant="videos" />
-      <PlacementFeatures variant="feedback" />
+      <section className="container section feedback-invite reveal">
+        <div>
+          <span className="eyebrow">STUDENT FEEDBACK</span>
+          <h2>Studied with us? Tell us how it went.</h2>
+        </div>
+        <Link className="button primary" to="/feedback">
+          Share your feedback <Arrow />
+        </Link>
+      </section>
       <CTA />
     </>
   );
@@ -1763,6 +1780,7 @@ function RouteEffects() {
         "/courses": "Explore Our Courses",
         "/placements": "Career & Placement Support",
         "/life": "Life at G-TEC",
+        "/feedback": "Student Feedback",
         "/contact": "Contact",
       }[pathname] ||
       "Page Not Found";
@@ -1889,6 +1907,10 @@ function App() {
               element={<PlacementCompanyDetail />}
             />
             <Route path="/life" element={<LifeAtGtec />} />
+            <Route
+              path="/feedback"
+              element={<StudentFeedbackPage PageHero={PageHero} CTA={CTA} />}
+            />
             <Route path="/contact" element={<ContactPage />} />
             <Route path="*" element={<NotFound />} />
           </Routes>

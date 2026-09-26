@@ -14,7 +14,7 @@
 
 .placement-feature-head p {
     max-width: 560px;
-    font-size: 12px
+    font-size: 15px
 }
 
 .placement-company-grid {
@@ -56,7 +56,7 @@
 .placement-company-card small,
 .job-card small,
 .video-testimonial-card small {
-    font-size: 8px;
+    font-size: 10.5px;
     color: #58677e;
     letter-spacing: 1.2px;
     text-transform: uppercase
@@ -68,7 +68,7 @@
 }
 
 .placement-company-card p {
-    font-size: 11px;
+    font-size: 14.5px;
     line-height: 1.75
 }
 
@@ -89,7 +89,7 @@
 }
 
 .placement-portal-copy p {
-    font-size: 13px;
+    font-size: 16px;
     margin-top: 18px;
     max-width: 430px
 }
@@ -118,7 +118,7 @@
     place-items: center;
     background: #eef2ff;
     color: var(--blue);
-    font-size: 10px;
+    font-size: 12px;
     font-weight: 600
 }
 
@@ -127,7 +127,7 @@
 }
 
 .job-card p {
-    font-size: 10px;
+    font-size: 14.5px;
     margin-top: 5px
 }
 
@@ -160,7 +160,7 @@
 }
 
 .affiliation-card span {
-    font-size: 10px;
+    font-size: 12px;
     color: #58677e
 }
 
@@ -209,7 +209,7 @@
 }
 
 .video-testimonial-card p {
-    font-size: 11px;
+    font-size: 14.5px;
     margin-top: 9px
 }
 
@@ -245,7 +245,7 @@
     display: flex;
     flex-direction: column;
     gap: 7px;
-    font-size: 10px;
+    font-size: 12px;
     color: #536174
 }
 
@@ -257,7 +257,7 @@
     border-radius: 6px;
     padding: 12px;
     font: inherit;
-    font-size: 12px;
+    font-size: 16px;
     background: #fff;
     color: var(--ink)
 }
@@ -295,16 +295,16 @@
     gap: 5px;
     background: #eef2ff;
     color: var(--blue);
-    font-size: 11px;
+    font-size: 12px;
     font-weight: 600
 }
 
 .review-card strong {
-    font-size: 12px
+    font-size: 13px
 }
 
 .review-card p {
-    font-size: 11px;
+    font-size: 14.5px;
     margin-top: 6px
 }
 
@@ -388,7 +388,7 @@
     .student-feedback-form input,
     .student-feedback-form select,
     .student-feedback-form textarea {
-        font-size: 12px;
+        font-size: 16px;
         min-height: 44px
     }
 
@@ -508,7 +508,7 @@
 }
 
 .google-review-brand small {
-    font-size: 11px;
+    font-size: 12px;
     color: #5f6b7d
 }
 
@@ -575,13 +575,13 @@
 .google-review-person small {
     display: block;
     margin-top: 2px;
-    font-size: 11px;
+    font-size: 12px;
     color: #6c7788
 }
 
 .google-review-card p {
     margin-top: 15px;
-    font-size: 13px;
+    font-size: 16px;
     line-height: 1.6;
     color: #152033
 }
@@ -643,7 +643,7 @@
 .company-detail-hero p {
     max-width: 720px;
     margin-top: 14px;
-    font-size: 14px
+    font-size: 17px
 }
 
 .company-detail-actions {
@@ -674,7 +674,7 @@
 
 .company-detail-grid p {
     margin-top: 12px;
-    font-size: 13px
+    font-size: 16px
 }
 
 .company-opportunity-list {
@@ -690,7 +690,7 @@
     padding: 10px 12px;
     border-radius: 8px;
     background: #f3f6fb;
-    font-size: 12px
+    font-size: 13px
 }
 
 .company-opportunity-list svg {
@@ -722,12 +722,12 @@
     border-radius: 8px;
     background: #f3f6fb;
     color: #536174;
-    font-size: 12px
+    font-size: 13px
 }
 
 .company-meta-list strong {
     color: var(--ink);
-    font-size: 11px;
+    font-size: 12px;
     text-transform: uppercase;
     letter-spacing: 1px
 }

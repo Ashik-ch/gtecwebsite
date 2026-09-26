@@ -12,7 +12,7 @@
   z-index: 0;
   pointer-events: none;
   background: radial-gradient(28rem circle at var(--hx, 80%) var(--hy, 20%),
-      rgba(64, 120, 255, 0.22),
+      rgba(64, 120, 255, 0.14),
       rgba(37, 193, 185, 0.1) 40%,
       transparent 70%);
   transition: background 0.2s linear;
@@ -24,13 +24,13 @@
 }
 
 .motion-on .placement-hero-copy {
-  translate: calc(var(--px, 0) * -14px) calc(var(--py, 0) * -10px + var(--hero-scroll, 0) * 60px);
+  translate: calc(var(--px, 0) * -7px) calc(var(--py, 0) * -5px + var(--hero-scroll, 0) * 36px);
   opacity: calc(1 - var(--hero-scroll, 0) * 0.7);
   transition: translate 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .motion-on .placement-hero-stats {
-  translate: calc(var(--px, 0) * 10px) calc(var(--py, 0) * 8px + var(--hero-scroll, 0) * 24px);
+  translate: calc(var(--px, 0) * 5px) calc(var(--py, 0) * 4px + var(--hero-scroll, 0) * 14px);
   transition: translate 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
@@ -96,7 +96,7 @@
   pointer-events: none;
   opacity: 0;
   background: radial-gradient(18rem circle at var(--mx, 50%) var(--my, 50%),
-      rgba(35, 83, 214, 0.1),
+      rgba(35, 83, 214, 0.06),
       transparent 60%);
   transition: opacity 0.3s ease;
 }
@@ -106,7 +106,7 @@
 }
 
 .motion-on :is(.internship-reason-card, .eligibility-card, .partner-card:not(.is-open)):hover {
-  transform: translateY(-4px);
+  transform: translateY(-2px);
   box-shadow: 0 1.4rem 3rem rgba(8, 21, 50, 0.1);
 }
 
@@ -198,7 +198,7 @@
   position: sticky;
   top: 110px;
   height: calc(100vh - 130px);
-  min-height: 34rem;
+  min-height: 40rem;
   max-height: 52rem;
   overflow: hidden;
   isolation: isolate;
@@ -209,7 +209,7 @@
   background:
     radial-gradient(40rem circle at calc(10% + var(--journey-progress, 0) * 80%) 110%, rgba(37, 193, 185, 0.28), transparent 60%),
     radial-gradient(34rem circle at calc(90% - var(--journey-progress, 0) * 70%) -10%, rgba(64, 110, 255, 0.35), transparent 60%),
-    linear-gradient(160deg, #050c22 0%, #0a1a45 55%, #06112d 100%);
+    linear-gradient(160deg, #0e205c 0%, #132d76 55%, #0e2561 100%);
   box-shadow: 0 2.5rem 6rem rgba(5, 12, 34, 0.35), inset 0 0 12rem rgba(0, 0, 0, 0.45);
 }
 
@@ -222,7 +222,7 @@
   right: 0;
   z-index: 3;
   height: 1.1rem;
-  background: #000;
+  background: rgba(255, 255, 255, 0);
   pointer-events: none;
   animation: journey-letterbox 1.2s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
@@ -238,8 +238,13 @@
 }
 
 @keyframes journey-letterbox {
-  from { transform: scaleY(0); }
-  to { transform: scaleY(1); }
+  from {
+    transform: scaleY(0);
+  }
+
+  to {
+    transform: scaleY(1);
+  }
 }
 
 .journey-cinema .journey-map-copy {
@@ -359,12 +364,12 @@
   opacity: 1;
 }
 
-.journey-cinema .journey-steps article > span {
+.journey-cinema .journey-steps article>span {
   background: rgba(255, 255, 255, 0.08);
   border-color: rgba(255, 255, 255, 0.14);
 }
 
-.journey-cinema .journey-steps article.is-active > span {
+.journey-cinema .journey-steps article.is-active>span {
   scale: 1.18;
   background: rgba(255, 255, 255, 0.16);
   border-color: rgba(94, 230, 220, 0.8);
@@ -405,8 +410,13 @@
 }
 
 @keyframes journey-walk {
-  from { transform: translateY(0) rotate(-4deg); }
-  to { transform: translateY(-6px) rotate(4deg); }
+  from {
+    transform: translateY(0) rotate(-4deg);
+  }
+
+  to {
+    transform: translateY(-6px) rotate(4deg);
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {

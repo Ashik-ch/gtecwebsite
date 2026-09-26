@@ -6,7 +6,7 @@
 }
 
 .faculty-showcase-hint {
-    font-size: 11px;
+    font-size: 12px;
     letter-spacing: .3px;
     color: #64645f;
     margin-bottom: 28px
@@ -81,7 +81,7 @@
     transform: translateX(-50%);
     z-index: 2;
     color: #fff;
-    font-size: 11px;
+    font-size: 12px;
     letter-spacing: 2px
 }
 
@@ -100,34 +100,17 @@
     right: 12px;
     text-align: center;
     z-index: 2;
-    font-size: 9px;
+    font-size: 11.5px;
     letter-spacing: .2px;
     color: white
 }
 
-.faculty-panel-toggle {
-    position: absolute;
-    bottom: 13px;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 3;
-    display: grid;
-    place-items: center;
-    width: 34px;
-    height: 34px;
-    border: 1px solid #ffffff70;
-    border-radius: 50%;
-    background: #fffffff0;
-    color: #172335;
-    transition: background .2s
+.faculty-panel {
+    cursor: pointer
 }
 
-.faculty-panel-toggle:hover {
-    background: #fff
-}
-
-.faculty-panel-toggle:focus-visible {
-    outline: 3px solid white;
+.faculty-panel:focus-visible {
+    outline: 3px solid var(--blue);
     outline-offset: 4px
 }
 
@@ -137,7 +120,7 @@
 
 .faculty-panel-role {
     display: block;
-    font-size: 9px;
+    font-size: 11.5px;
     line-height: 1.5;
     letter-spacing: .7px;
     text-transform: uppercase;
@@ -162,14 +145,14 @@
     display: flex;
     align-items: center;
     gap: 6px;
-    font-size: 10px;
+    font-size: 14.5px;
     line-height: 1.5;
     color: #46556b
 }
 
 .faculty-panel-details small {
     display: block;
-    font-size: 9px;
+    font-size: 11.5px;
     color: #656b75;
     margin-top: 6px
 }
@@ -212,7 +195,7 @@
     }
 
     .faculty-showcase-hint {
-        font-size: 10px;
+        font-size: 12px;
         line-height: 1.7;
         max-width: 240px
     }
@@ -250,8 +233,7 @@
 
     .faculty-panel,
     .faculty-panel-art,
-    .faculty-panel-art img,
-    .faculty-panel-toggle {
+    .faculty-panel-art img {
         transition: none
     }
 

@@ -11,7 +11,7 @@
 }
 
 .team-intro>p {
-    font-size: 14px;
+    font-size: 17px;
     max-width: 420px
 }
 
@@ -30,7 +30,7 @@
     border: 1px solid var(--line);
     border-radius: 7px;
     background: #fff;
-    font-size: 12px;
+    font-size: 13px;
     font-weight: 600;
     transition: background .2s, color .2s
 }
@@ -42,7 +42,7 @@
 
 .team-group {
     scroll-margin-top: 120px;
-    margin-top: 54px
+    margin-top: 44px
 }
 
 .team-group+.team-group {
@@ -97,7 +97,7 @@
 }
 
 .team-group-heading>p {
-    font-size: 13px;
+    font-size: 16px;
     max-width: 320px
 }
 
@@ -160,7 +160,7 @@
     border-radius: 20px;
     background: #ffffffdf;
     color: #354560;
-    font-size: 10px;
+    font-size: 12px;
     white-space: nowrap;
     z-index: 2
 }
@@ -200,7 +200,7 @@
 
 .team-designation {
     margin-top: 9px;
-    font-size: 12px;
+    font-size: 13px;
     line-height: 1.65;
     color: #e0eaff;
     font-weight: 500;
@@ -261,13 +261,13 @@
     .team-people-grid--wide .team-person-badge {
         width: 28px;
         height: 28px;
-        font-size: 10px;
+        font-size: 12px;
         top: 12px;
         left: 12px
     }
 
     .team-people-grid--wide .team-person-body .team-designation {
-        font-size: 9px;
+        font-size: 11.5px;
         padding: 4px 9px
     }
 
@@ -374,7 +374,7 @@
     padding: 6px 13px;
     border-radius: 20px;
     background: color-mix(in srgb, var(--accent) 12%, #fff);
-    font-size: 11px;
+    font-size: 12px;
     line-height: 1.4;
     font-weight: 600;
     letter-spacing: .3px;
@@ -456,7 +456,7 @@
     border-top: 1px solid #ffffff30;
     padding-top: 12px;
     margin-top: 15px;
-    font-size: 10px;
+    font-size: 12px;
     line-height: 1.5;
     color: #e0eaff
 }
@@ -524,7 +524,7 @@
 
     .team-navigation a {
         padding: 10px 12px;
-        font-size: 11px
+        font-size: 12px
     }
 
     .team-group {
@@ -545,7 +545,7 @@
 
 
     .team-experience {
-        font-size: 10px;
+        font-size: 12px;
         align-items: start
     }
 
@@ -740,7 +740,7 @@
     }
 
     .team-group-row .team-person-body .team-designation {
-        font-size: 12px;
+        font-size: 13px;
         padding: 7px 12px
     }
 }
@@ -802,7 +802,8 @@
 .directors-row-group .team-portrait {
     position: relative;
     inset: auto;
-    height: 220px;
+    height: 100%;
+    min-height: 220px;
     background: #dfe8f7
 }
 
@@ -842,6 +843,49 @@
     color: var(--blue);
     font-size: 13px;
     font-weight: 700
+}
+
+.directors-row-group .team-profile-bio {
+    position: relative;
+    margin: 22px 0 0;
+    padding: 14px 18px 14px 22px;
+    border-left: 3px solid var(--blue);
+    border-radius: 0 12px 12px 0;
+    background: linear-gradient(90deg, #eef2ff, #f7f9ff00)
+}
+
+/* Oversized opening quote mark */
+.directors-row-group .team-profile-bio::before {
+    content: "\201C";
+    position: absolute;
+    top: -30px;
+    left: 8px;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 72px;
+    line-height: 1;
+    color: var(--blue);
+    opacity: .22;
+    pointer-events: none
+}
+
+.directors-row-group .team-profile-bio p {
+    margin: 0;
+    color: #3d4658;
+    font-family: Georgia, "Times New Roman", serif;
+    font-style: italic;
+    font-size: 15.5px;
+    line-height: 1.7
+}
+
+/* Closing quote mark, inline after the last word */
+.directors-row-group .team-profile-bio p::after {
+    content: "\201D";
+    margin-left: 2px;
+    font-size: 26px;
+    line-height: 0;
+    vertical-align: -8px;
+    color: var(--blue);
+    opacity: .55
 }
 
 @media(hover:hover) and (prefers-reduced-motion:no-preference) {
@@ -892,7 +936,7 @@
 
     .team-group-row--triple .team-group-heading>p {
         margin-top: 10px;
-        font-size: 12px
+        font-size: 15px
     }
 
     .team-group-row--triple .team-people-grid--wide {
@@ -995,7 +1039,7 @@
     }
 
     .directors-row-group .team-designation {
-        font-size: 12px;
+        font-size: 13px;
         padding: 7px 12px
     }
 }
@@ -1031,7 +1075,7 @@
 .directors-row-group .team-designation {
     margin-top: 10px;
     padding: 6px 12px;
-    font-size: 12px;
+    font-size: 13px;
     line-height: 1.25;
     display: inline-flex
 }
@@ -1263,7 +1307,7 @@
 
     .team-group-row--triple .team-group-heading>p {
         margin-top: 9px;
-        font-size: 12px;
+        font-size: 15px;
         line-height: 1.55
     }
 
@@ -1292,7 +1336,7 @@
 
     .team-group-row--triple .team-person-body .team-designation {
         padding: 6px 9px;
-        font-size: 10px;
+        font-size: 12px;
         line-height: 1.25
     }
 
@@ -1316,14 +1360,83 @@
         min-height: 0
     }
 
+    /* Fixed photo band so the portrait can't grow to its natural (screen-tall) height */
     .directors-row-group .team-portrait {
         width: 100%;
-        height: 100%;
+        height: 200px;
         min-height: 0
     }
 
+    .directors-row-group .team-portrait img {
+        position: absolute;
+        inset: 0
+    }
+
     .directors-row-group .team-profile-content {
-        padding: 24px 22px;
+        padding: 18px 20px 20px;
         min-height: 0
+    }
+}
+
+/* Directors cards grow to fit their bio */
+.directors-row-group .team-profile {
+    height: auto;
+    max-height: none;
+    min-height: 220px
+}
+
+.directors-row-group .team-profile-content {
+    overflow: visible
+}
+
+/* Compact director cards: wider portrait, tighter text column (desktop/tablet) */
+@media(min-width:761px) {
+    .directors-row-group .team-profile {
+        grid-template-columns: minmax(200px, 42%) minmax(0, 1fr);
+        min-height: 0
+    }
+
+    .directors-row-group .team-portrait {
+        height: auto;
+        min-height: 0
+    }
+
+    /* Photo fills the column instead of setting the card height */
+    .directors-row-group .team-portrait img {
+        position: absolute;
+        inset: 0
+    }
+
+    .directors-row-group .team-profile-content {
+        justify-content: center;
+        padding: 16px 20px
+    }
+
+    .directors-row-group .team-profile-content::before {
+        margin-bottom: 8px
+    }
+
+    .directors-row-group .team-profile h4 {
+        font-size: clamp(19px, 1.6vw, 24px)
+    }
+
+    .directors-row-group .team-designation {
+        margin-top: 6px;
+        padding: 5px 11px
+    }
+
+    .directors-row-group .team-profile-bio {
+        margin-top: 12px;
+        padding: 8px 12px 8px 14px
+    }
+
+    .directors-row-group .team-profile-bio::before {
+        top: -18px;
+        font-size: 48px
+    }
+
+    .directors-row-group .team-profile-bio p {
+        font-size: 14px;
+        line-height: 1.5
     }
 }

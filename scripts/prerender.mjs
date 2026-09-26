@@ -6,7 +6,7 @@ import path from 'node:path';
 
 const slugs = ['digital-marketing','multimedia','interior-designing','accounting','ms-office','sap','software-courses'];
 const companySlugs = ['bytrix-hub','northstar-accounts','pixelcraft-studio','urbannest-interiors','brightdesk-solutions','cloudline-erp'];
-const routes = ['/', '/about', '/courses', '/placements', '/life', '/contact', ...slugs.map(s => '/courses/' + s), ...companySlugs.map(s => '/placements/companies/' + s)];
+const routes = ['/', '/about', '/courses', '/placements', '/life', '/feedback', '/contact', ...slugs.map(s => '/courses/' + s), ...companySlugs.map(s => '/placements/companies/' + s)];
 const server = spawn(process.execPath, ['node_modules/vite/bin/vite.js','preview','--host','127.0.0.1','--port','4178','--strictPort'], { stdio: 'pipe' });
 const origin = 'http://127.0.0.1:4178';
 let browser;

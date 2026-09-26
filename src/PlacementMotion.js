@@ -68,8 +68,8 @@ export function usePlacementMotion(rootRef) {
           const x = (e.clientX - r.left) / r.width - 0.5;
           const y = (e.clientY - r.top) / r.height - 0.5;
           tilt.classList.add("is-tilting");
-          tilt.style.setProperty("--rx", `${(-y * 8).toFixed(2)}deg`);
-          tilt.style.setProperty("--ry", `${(x * 10).toFixed(2)}deg`);
+          tilt.style.setProperty("--rx", `${(-y * 4).toFixed(2)}deg`);
+          tilt.style.setProperty("--ry", `${(x * 5).toFixed(2)}deg`);
         }
 
         const button = target?.closest(MAGNETIC);
@@ -79,8 +79,8 @@ export function usePlacementMotion(rootRef) {
           const r = button.getBoundingClientRect();
           const x = e.clientX - r.left - r.width / 2;
           const y = e.clientY - r.top - r.height / 2;
-          button.style.setProperty("--bx", `${(x * 0.22).toFixed(1)}px`);
-          button.style.setProperty("--by", `${(y * 0.3).toFixed(1)}px`);
+          button.style.setProperty("--bx", `${(x * 0.12).toFixed(1)}px`);
+          button.style.setProperty("--by", `${(y * 0.16).toFixed(1)}px`);
         }
       };
 

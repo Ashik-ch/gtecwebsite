@@ -1,0 +1,421 @@
+/* Student feedback page */
+.feedback-page-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.45fr) minmax(0, 1fr);
+  gap: clamp(1.5rem, 3vw, 2.5rem);
+  align-items: start;
+}
+
+.feedback-collector {
+  position: relative;
+  display: grid;
+  gap: 1.9rem;
+  padding: clamp(1.5rem, 3.5vw, 2.6rem);
+  border: 1px solid #e2e8f4;
+  border-radius: 24px;
+  background: #fff;
+  box-shadow: 0 1.8rem 4.5rem rgba(8, 21, 50, 0.08);
+}
+
+/* Numbered steps joined by a faint rail */
+.feedback-step {
+  position: relative;
+  display: grid;
+  gap: 0.85rem;
+  min-width: 0;
+  margin: 0;
+  padding: 0 0 0 3.1rem;
+  border: 0;
+}
+
+.feedback-step::before {
+  content: "";
+  position: absolute;
+  left: 1.05rem;
+  top: 2.3rem;
+  bottom: -1.6rem;
+  width: 2px;
+  background: linear-gradient(#dfe7fb, transparent);
+}
+
+.feedback-step:nth-last-of-type(1)::before {
+  display: none;
+}
+
+.feedback-step legend {
+  padding: 0;
+  margin-bottom: 0.85rem;
+}
+
+.feedback-step-label {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  margin-left: -3.1rem;
+  color: var(--ink);
+  font-family: 'Manrope', sans-serif;
+  font-size: clamp(1.05rem, 1.6vw, 1.2rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.feedback-step-label b {
+  display: inline-grid;
+  place-items: center;
+  flex: 0 0 2.2rem;
+  width: 2.2rem;
+  height: 2.2rem;
+  border-radius: 50%;
+  border: 2px solid linear-gradient(135deg, #1748db, #25c1b9);
+  color: #432c8e;
+  font-size: 0.8rem;
+  box-shadow: 0 0.5rem 1.2rem rgba(23, 72, 219, 0.25);
+}
+
+/* Star rating */
+.feedback-stars {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.feedback-stars button {
+  display: grid;
+  place-items: center;
+  width: 3.1rem;
+  height: 3.1rem;
+  padding: 0;
+  border: 1px solid #e2e8f4;
+  border-radius: 14px;
+  background: #f7f9fd;
+  color: #d3dae8;
+  cursor: pointer;
+  transition: color 0.2s ease, background 0.2s ease, border-color 0.2s ease, transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.feedback-stars button.is-lit {
+  color: #f5b301;
+  background: #fff8e6;
+  border-color: #f7d77a;
+}
+
+.feedback-stars button:hover,
+.feedback-stars button:focus-visible {
+  transform: translateY(-3px) scale(1.08);
+}
+
+.feedback-stars button:focus-visible {
+  outline: 3px solid rgba(23, 72, 219, 0.35);
+  outline-offset: 2px;
+}
+
+.feedback-star-label {
+  margin-left: 0.6rem;
+  padding: 0.35rem 0.8rem;
+  border-radius: 999px;
+  background: #eef2ff;
+  color: #1748db;
+  font-size: 0.85rem;
+  font-weight: 800;
+}
+
+/* Course chips */
+.feedback-course-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+}
+
+.feedback-course-chips label {
+  position: relative;
+  cursor: pointer;
+}
+
+.feedback-course-chips input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.feedback-course-chips span {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.6rem 1rem;
+  border: 1px solid #dfe5f1;
+  border-radius: 999px;
+  background: #fff;
+  color: #3d4658;
+  font-size: 0.92rem;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.feedback-course-chips label:hover span {
+  border-color: #9db5f5;
+  color: #1748db;
+}
+
+.feedback-course-chips input:checked+span {
+  border-color: #1748db;
+  background: #1748db;
+  color: #fff;
+  box-shadow: 0 0.5rem 1.2rem rgba(23, 72, 219, 0.25);
+}
+
+.feedback-course-chips input:focus-visible+span {
+  outline: 3px solid rgba(23, 72, 219, 0.35);
+  outline-offset: 2px;
+}
+
+/* Text fields */
+.feedback-collector input:not([type="radio"]):not([type="checkbox"]),
+.feedback-collector textarea {
+  width: 100%;
+  padding: 0.9rem 1rem;
+  border: 1px solid #dfe5f1;
+  border-radius: 12px;
+  background: #fbfcff;
+  color: var(--ink);
+  font-size: 16px;
+  font-family: inherit;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.feedback-collector input:not([type="radio"]):not([type="checkbox"]):focus,
+.feedback-collector textarea:focus {
+  outline: none;
+  border-color: #1748db;
+  background: #fff;
+  box-shadow: 0 0 0 4px rgba(23, 72, 219, 0.1);
+}
+
+.feedback-collector textarea {
+  resize: vertical;
+  min-height: 8rem;
+  line-height: 1.6;
+}
+
+.feedback-counter {
+  justify-self: end;
+  margin-top: -0.4rem;
+  color: var(--muted);
+  font-size: 0.8rem;
+}
+
+.feedback-feature {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.65rem;
+  padding: 0.9rem 1rem;
+  border-radius: 12px;
+  background: #f5f8ff;
+  color: #3d4658;
+  font-size: 0.92rem;
+  cursor: pointer;
+}
+
+.feedback-feature input {
+  width: 1.1rem;
+  height: 1.1rem;
+  margin-top: 0.15rem;
+  accent-color: #1748db;
+}
+
+.feedback-submit {
+  justify-self: start;
+  min-width: 13rem;
+}
+
+.feedback-note {
+  margin-top: -1rem;
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+/* Thank-you state */
+.feedback-thanks {
+  justify-items: center;
+  text-align: center;
+  padding-block: clamp(2.5rem, 6vw, 4rem);
+}
+
+.feedback-thanks-icon {
+  display: grid;
+  place-items: center;
+  width: 4.5rem;
+  height: 4.5rem;
+  border-radius: 50%;
+  background: #e9fff5;
+  color: #16a765;
+  animation: feedback-pop 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.feedback-thanks h2 {
+  margin: 0;
+}
+
+.feedback-thanks p {
+  max-width: 28rem;
+}
+
+.feedback-thanks-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.8rem;
+}
+
+@keyframes feedback-pop {
+  from {
+    transform: scale(0.4);
+    opacity: 0;
+  }
+}
+
+/* Side panel */
+.feedback-aside {
+  position: sticky;
+  top: 120px;
+}
+
+.feedback-aside-card {
+  position: relative;
+  overflow: hidden;
+  padding: clamp(1.5rem, 3vw, 2.2rem);
+  border-radius: 24px;
+  color: #fff;
+  background:
+    radial-gradient(22rem circle at 110% -10%, rgba(37, 193, 185, 0.35), transparent 60%),
+    radial-gradient(20rem circle at -20% 120%, rgba(87, 140, 255, 0.4), transparent 60%),
+    linear-gradient(160deg, #0a1a45, #1748db);
+  box-shadow: 0 1.8rem 4.5rem rgba(23, 72, 219, 0.25);
+}
+
+.feedback-aside-card .eyebrow {
+  color: #9fc1ff;
+}
+
+.feedback-aside-card h2 {
+  margin: 0.5rem 0 1.4rem;
+  color: #fff;
+  font-size: clamp(1.5rem, 2.4vw, 2rem);
+  letter-spacing: -0.04em;
+}
+
+.feedback-aside-card ul {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  gap: 1.1rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.feedback-aside-card li {
+  display: flex;
+  gap: 0.9rem;
+}
+
+.feedback-aside-icon {
+  display: grid;
+  place-items: center;
+  flex: 0 0 2.6rem;
+  height: 2.6rem;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.12);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.18);
+}
+
+.feedback-aside-card strong {
+  display: block;
+  margin-bottom: 0.2rem;
+  font-size: 1rem;
+}
+
+.feedback-aside-card li p {
+  margin: 0;
+  color: rgba(226, 234, 255, 0.78);
+  font-size: 0.92rem;
+  line-height: 1.55;
+}
+
+.feedback-aside-gio {
+  position: absolute;
+  right: -0.4rem;
+  bottom: -0.6rem;
+  width: 5.5rem;
+  opacity: 0.9;
+  pointer-events: none;
+}
+
+.feedback-aside-gio .gio {
+  width: 100%;
+  height: auto;
+}
+
+.feedback-aside-card ul {
+  padding-bottom: 3.5rem;
+}
+
+@media (max-width: 900px) {
+  .feedback-page-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .feedback-aside {
+    position: static;
+    order: -1;
+  }
+}
+
+@media (max-width: 520px) {
+  .feedback-step {
+    padding-left: 0;
+  }
+
+  .feedback-step::before {
+    display: none;
+  }
+
+  .feedback-step-label {
+    margin-left: 0;
+  }
+
+  .feedback-stars button {
+    width: 2.7rem;
+    height: 2.7rem;
+  }
+
+  .feedback-submit {
+    width: 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+  .feedback-stars button,
+  .feedback-thanks-icon {
+    transition: none;
+    animation: none;
+  }
+}
+
+/* Invite banner on the Life at G-TEC page */
+.feedback-invite {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.2rem 2rem;
+  padding: clamp(1.6rem, 3.5vw, 2.4rem) clamp(1.4rem, 4vw, 3rem);
+  border: 1px solid #dfe7fb;
+  border-radius: 24px;
+  background: linear-gradient(120deg, #f3f6fd, #eef9f8);
+}
+
+.feedback-invite h2 {
+  margin: 0.4rem 0 0;
+  font-size: clamp(1.5rem, 2.6vw, 2.1rem);
+}
