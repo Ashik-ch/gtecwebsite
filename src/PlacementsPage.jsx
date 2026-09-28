@@ -707,7 +707,7 @@ export default function Placements({
             </div>
             <div className="placement-hero-mascot">
               <PlacementMascotImage
-                src="/images/mascot/placement-partners.png"
+                src="/images/mascot/placement-partners.jpg"
                 alt="GIO placement mascot pointing at a map"
               />
             </div>
@@ -772,7 +772,7 @@ export default function Placements({
           title="Why intern with G-TEC Mahe"
           text="Every G-TEC Mahe internship is built around the same idea: move from classroom knowledge to real, portfolio-ready industry experience - with structured support at every step."
         />
-        {/* <div className="placement-context-mascot is-why"><PlacementMascotImage src="/images/mascot/placement-why.png" alt="GIO mascot with an idea lightbulb" /></div> */}
+        {/* <div className="placement-context-mascot is-why"><PlacementMascotImage src="/images/mascot/placement-why.jpg" alt="GIO mascot with an idea lightbulb" /></div> */}
         <div className="internship-reason-grid">
           {internshipBlocks.map(({ icon: Icon, tag, title, text }, index) => (
             <article className="internship-reason-card reveal" key={title}>
@@ -849,7 +849,7 @@ export default function Placements({
         />
         <div className="placement-context-mascot is-certificate">
           <PlacementMascotImage
-            src="/images/mascot/placement-certificate.png"
+            src="/images/mascot/placement-certificate.jpg"
             alt="GIO mascot holding a certificate"
           />
         </div>
@@ -1007,7 +1007,7 @@ export default function Placements({
           <span className="journey-main-mascot">
             {/* <Mascot variant="mini" mood="celebrate" /> */}
             <PlacementMascotImage
-              src="/images/mascot/placement-eligibility.png"
+              src="/images/mascot/placement-eligibility.jpg"
               alt="GIO mascot showing eligibility approval"
             />
           </span>

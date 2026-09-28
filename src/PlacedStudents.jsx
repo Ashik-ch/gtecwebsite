@@ -73,7 +73,7 @@ export default function PlacedStudents() {
           <div className="placed-heading-side">
             <img
               className="placed-students-mascot"
-              src="/images/mascot/placement-partners.png"
+              src="/images/mascot/placement-partners.jpg"
               alt="GIO mascot presenting placement partners"
               loading="lazy"
               width="360"
