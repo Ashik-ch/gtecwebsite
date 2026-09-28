@@ -11,8 +11,8 @@
   inset: 0;
   z-index: 0;
   pointer-events: none;
-  background: radial-gradient(28rem circle at var(--hx, 80%) var(--hy, 20%),
-      rgba(64, 120, 255, 0.14),
+  background: radial-gradient(16rem circle at var(--hx, 80%) var(--hy, 20%),
+      rgba(64, 120, 255, 0.24),
       rgba(37, 193, 185, 0.1) 40%,
       transparent 70%);
   transition: background 0.2s linear;
@@ -96,9 +96,9 @@
   border-radius: inherit;
   pointer-events: none;
   opacity: 0;
-  background: radial-gradient(18rem circle at var(--mx, 50%) var(--my, 50%),
-      rgba(35, 83, 214, 0.06),
-      transparent 60%);
+  background: radial-gradient(10rem circle at var(--mx, 50%) var(--my, 50%),
+      rgba(23, 72, 219, 0.22),
+      transparent 55%);
   transition: opacity 0.3s ease;
 }
 
@@ -207,8 +207,7 @@
   align-items: start;
   color: #fff;
   border-color: rgba(120, 160, 255, 0.18);
-  background:
-    radial-gradient(40rem circle at calc(10% + var(--journey-progress, 0) * 80%) 110%, rgba(37, 193, 185, 0.28), transparent 60%),
+  background: radial-gradient(40rem circle at calc(10% + var(--journey-progress, 0) * 80%) 110%, rgba(37, 193, 185, 0.28), transparent 60%),
     radial-gradient(34rem circle at calc(90% - var(--journey-progress, 0) * 70%) -10%, rgba(64, 110, 255, 0.35), transparent 60%),
     linear-gradient(160deg, #0e205c 0%, #132d76 55%, #0e2561 100%);
   box-shadow: 0 2.5rem 6rem rgba(5, 12, 34, 0.35), inset 0 0 12rem rgba(0, 0, 0, 0.45);

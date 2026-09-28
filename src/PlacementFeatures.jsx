@@ -376,8 +376,10 @@ function Affiliations() {
       <div className="affiliation-grid">
         {affiliations.map(([label, image]) => (
           <article className="affiliation-card reveal" key={label}>
-            <img src={image} alt={label} loading="lazy" />
-            <span>{label}</span>
+            <span className="affiliation-card-plate">
+              <img src={image} alt={label} loading="lazy" />
+            </span>
+            <span className="affiliation-card-label">{label}</span>
           </article>
         ))}
       </div>

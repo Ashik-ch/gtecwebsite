@@ -1814,6 +1814,13 @@ footer {
     margin: 9px 15px 13px
 }
 
+.chat-tagline {
+    margin: 0 15px 12px;
+    color: var(--muted);
+    font-size: 11px;
+    text-align: center
+}
+
 .chat-input {
     border-top: 1px solid var(--line);
     display: flex;
@@ -4630,7 +4637,7 @@ footer {
     z-index: calc(10 - var(--pos));
     transform-origin: 20% 100%;
     transform:
-        translate(calc(var(--pos) * 0.9rem), calc(var(--pos) * 0.9rem)) rotate(calc(var(--pos) * 1.6deg)) scale(calc(1 - var(--pos) * 0.035));
+        translate(calc(min(var(--pos), 2) * 0.9rem), calc(min(var(--pos), 2) * 0.9rem)) rotate(calc(min(var(--pos), 2) * 1.6deg)) scale(calc(1 - min(var(--pos), 2) * 0.035));
     pointer-events: none;
     transition: transform 0.75s cubic-bezier(0.34, 1.3, 0.64, 1), box-shadow 0.5s ease;
 }
@@ -4680,7 +4687,7 @@ footer {
     100% {
         z-index: 0;
         transform:
-            translate(calc(var(--pos) * 0.9rem), calc(var(--pos) * 0.9rem)) rotate(calc(var(--pos) * 1.6deg)) scale(calc(1 - var(--pos) * 0.035));
+            translate(calc(min(var(--pos), 2) * 0.9rem), calc(min(var(--pos), 2) * 0.9rem)) rotate(calc(min(var(--pos), 2) * 1.6deg)) scale(calc(1 - min(var(--pos), 2) * 0.035));
     }
 }
 
@@ -4704,7 +4711,7 @@ footer {
 
     .quote-slide {
         transform:
-            translate(calc(var(--pos) * 0.5rem), calc(var(--pos) * 0.5rem)) rotate(calc(var(--pos) * 1deg));
+            translate(calc(min(var(--pos), 2) * 0.5rem), calc(min(var(--pos), 2) * 0.5rem)) rotate(calc(min(var(--pos), 2) * 1deg));
     }
 }
 
@@ -5434,7 +5441,7 @@ footer {
 }
 
 .placement-hero-mascot {
-    min-height: 260px;
+    min-height: 190px;
     display: grid;
     place-items: center;
     position: relative;
@@ -5462,9 +5469,10 @@ footer {
 .placement-hero-mascot .placement-mascot-png {
     position: relative;
     z-index: 2;
-    width: min(100%, 23rem);
+    width: min(100%, 16rem);
     height: auto;
-    aspect-ratio: 1 / 1;
+    aspect-ratio: 2 / 3;
+    object-fit: contain;
     border-radius: 24px;
     animation: placement-mascot-float 4s ease-in-out infinite;
 }
@@ -5529,7 +5537,7 @@ footer {
     }
 
     .placement-hero-mascot {
-        min-height: 210px;
+        min-height: 160px;
         max-width: 420px;
     }
 
@@ -5543,12 +5551,12 @@ footer {
 
 @media (max-width: 680px) {
     .placement-hero-mascot {
-        min-height: 180px;
+        min-height: 140px;
         border-radius: 22px;
     }
 
     .placement-hero-mascot .placement-mascot-png {
-        width: min(100%, 16rem);
+        width: min(100%, 12rem);
         border-radius: 18px;
     }
 

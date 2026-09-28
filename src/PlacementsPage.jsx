@@ -32,6 +32,12 @@ I saw that open internships for outside students are coming soon. Please add me 
 
 Thank you!`;
 
+const eligibleMessage = `Hello G-TEC Mahe,
+
+I've completed a certified course with you and I'm ready to apply for the internship program. Please let me know the next steps to start my application with the placement cell.
+
+Thank you!`;
+
 // Placeholder student quotes - replace with real interns' stories.
 const internQuotes = [
   {
@@ -48,6 +54,31 @@ const internQuotes = [
     text: "The internship gave me real portfolio work and an experience certificate - it's what got me my first interview call.",
     name: "Placeholder student",
     role: "Data Analytics intern",
+  },
+  {
+    text: "I moved from practice briefs to an actual client mood board in my first month. Seeing my design go live was the moment it all clicked.",
+    name: "Placeholder student",
+    role: "Multimedia intern",
+  },
+  {
+    text: "I got to sit in on real site visits and client meetings, not just draw layouts in class. That hands-on exposure made all the difference.",
+    name: "Placeholder student",
+    role: "Interior Designing intern",
+  },
+  {
+    text: "Reconciling actual company books instead of textbook examples made accounting finally make sense to me.",
+    name: "Placeholder student",
+    role: "Accounting intern",
+  },
+  {
+    text: "I built reports the office team actually used every week. It felt good knowing my work mattered from day one.",
+    name: "Placeholder student",
+    role: "MS Office intern",
+  },
+  {
+    text: "Shadowing the ERP support team showed me how the systems I learned about in class actually run a real business.",
+    name: "Placeholder student",
+    role: "SAP intern",
   },
 ];
 
@@ -180,7 +211,14 @@ function EligibilityCheck({ onClose }) {
       tone: "green",
       title: "Great — you can apply right away.",
       text: "Bring your course completion details to the G-TEC Mahe placement cell to start your internship application.",
-      actions: [{ label: "Got it", className: "primary", onClick: onClose }],
+      actions: [
+        {
+          label: "WhatsApp us",
+          className: "whatsapp",
+          href: whatsappLink(eligibleMessage),
+        },
+        { label: "Close", className: "soft", onClick: onClose },
+      ],
     },
     notYet: {
       badge: "NOT YET ELIGIBLE",
@@ -663,7 +701,7 @@ export default function Placements({
             </div>
             <div className="placement-hero-mascot">
               <PlacementMascotImage
-                src="/images/mascot/placement-map.png"
+                src="/images/mascot/placement-partners.png"
                 alt="GIO placement mascot pointing at a map"
               />
             </div>
@@ -997,4 +1035,3 @@ export default function Placements({
     </div>
   );
 }
-
