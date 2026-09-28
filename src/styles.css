@@ -1280,7 +1280,7 @@ h3 {
     display: flex;
     align-items: center;
     gap: 15px;
-    font-size: 14px;
+    font-size: 15px;
     font-weight: 500;
     padding: 22px 0;
     cursor: pointer
@@ -1933,7 +1933,7 @@ footer {
 
 .page-hero h1 {
     font-size: clamp(38px, 4.2vw, 60px);
-    line-height: 1.16;
+    line-height: 1.28;
     letter-spacing: -2.5px;
     font-weight: 600
 }
@@ -4116,7 +4116,7 @@ footer {
 .placement-hero-copy h1 {
     color: #fff;
     font-size: clamp(38px, 4.2vw, 60px);
-    line-height: 1.16;
+    line-height: 1.28;
     letter-spacing: -2.5px;
     margin: 0.65rem 0 1rem;
 }
@@ -4226,7 +4226,6 @@ footer {
 .partner-market-panel small {
     border-radius: 999px;
     background: rgba(255, 255, 255, 0.14);
-    color: rgba(255, 255, 255, 0.88);
     padding: 0.25rem 0.5rem;
     font-size: 0.743rem;
     font-weight: 800;
@@ -5136,6 +5135,84 @@ footer {
 .placement-market-chips small {
     display: inline-flex;
     align-items: center;
+}
+
+.market-more {
+    position: relative;
+    display: inline-flex;
+    outline: none;
+    cursor: default;
+}
+
+.market-more-trigger {
+    cursor: pointer;
+    border: 1px dashed rgba(23, 72, 219, 0.35);
+}
+
+.market-more-panel {
+    position: absolute;
+    z-index: 20;
+    bottom: calc(100% + 10px);
+    left: 50%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    width: max-content;
+    max-width: 14rem;
+    padding: 0.65rem 0.8rem;
+    border-radius: 12px;
+    background: #0a1630;
+    box-shadow: 0 1.2rem 2.6rem rgba(3, 8, 20, 0.4);
+    opacity: 0;
+    transform: translate(-50%, 6px) scale(0.96);
+    transform-origin: bottom center;
+    pointer-events: none;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.market-more-panel::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    width: 10px;
+    height: 10px;
+    background: #0a1630;
+    transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.market-more:hover .market-more-panel,
+.market-more:focus-visible .market-more-panel,
+.market-more:focus-within .market-more-panel {
+    opacity: 1;
+    transform: translate(-50%, 0) scale(1);
+    pointer-events: auto;
+}
+
+.market-more-row {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: #fff;
+    white-space: nowrap;
+}
+
+.market-more-row .country-code {
+    color: rgba(255, 255, 255, 0.65);
+    font-weight: 700;
+}
+
+.market-more-name {
+    color: rgba(226, 234, 255, 0.85);
+    font-weight: 500;
+}
+
+@media(prefers-reduced-motion:reduce) {
+    .market-more-panel {
+        transition: none;
+    }
 }
 
 .partner-logo img {

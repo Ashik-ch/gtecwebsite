@@ -607,7 +607,13 @@ export default function Placements({
       icon: MapPin,
       value: "8 Countries",
       label: "Global project exposure",
-      chips: ["IN India", "QA Qatar", "AE UAE", "US USA", "GB UK", "+3 more"],
+      chips: ["IN India", "QA Qatar", "AE UAE", "US USA"],
+      moreMarkets: [
+        "GB Great Britain",
+        "AU Australia",
+        "CA Canada",
+        "IE Ireland",
+      ],
     },
   ];
 
@@ -728,6 +734,29 @@ export default function Placements({
                           <MarketLabel market={chip} />
                         </small>
                       ))}
+                      {stat.moreMarkets?.length ? (
+                        <span
+                          className="market-more"
+                          tabIndex={0}
+                          aria-label={`${stat.moreMarkets.length} more countries: ${stat.moreMarkets
+                            .map((m) => splitMarket(m).name)
+                            .join(", ")}`}
+                        >
+                          <small className="market-more-trigger">
+                            +{stat.moreMarkets.length} more
+                          </small>
+                          <span className="market-more-panel" role="tooltip">
+                            {stat.moreMarkets.map((market) => (
+                              <span key={market} className="market-more-row">
+                                <MarketLabel market={market} />
+                                <span className="market-more-name">
+                                  {splitMarket(market).name}
+                                </span>
+                              </span>
+                            ))}
+                          </span>
+                        </span>
+                      ) : null}
                     </div>
                   ) : null}
                 </article>
