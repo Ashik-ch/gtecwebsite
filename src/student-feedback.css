@@ -170,8 +170,10 @@
 
 /* Text fields */
 .feedback-collector input:not([type="radio"]):not([type="checkbox"]),
+.feedback-collector select,
 .feedback-collector textarea {
   width: 100%;
+  max-width: 100%;
   padding: 0.9rem 1rem;
   border: 1px solid #dfe5f1;
   border-radius: 12px;
@@ -179,15 +181,31 @@
   color: var(--ink);
   font-size: 16px;
   font-family: inherit;
-  transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
 }
 
 .feedback-collector input:not([type="radio"]):not([type="checkbox"]):focus,
+.feedback-collector select:focus,
 .feedback-collector textarea:focus {
   outline: none;
   border-color: #1748db;
   background: #fff;
   box-shadow: 0 0 0 4px rgba(23, 72, 219, 0.1);
+}
+
+.feedback-collector select {
+  appearance: none;
+  -webkit-appearance: none;
+  padding-right: 2.6rem;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='9' viewBox='0 0 14 9' fill='none'%3E%3Cpath d='M1 1.5L7 7.5L13 1.5' stroke='%23697180' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  background-size: 14px 9px;
+  cursor: pointer;
+}
+
+.feedback-collector select:invalid {
+  color: var(--muted);
 }
 
 .feedback-collector textarea {

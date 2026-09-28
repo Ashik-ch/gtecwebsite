@@ -35,6 +35,8 @@ import {
   MessageCircle,
   Send,
   MapPin,
+  Phone,
+  Mail,
   Megaphone,
   Palette,
   Armchair,
@@ -852,12 +854,34 @@ function Contact() {
             <p>{site.address}</p>
             <a
               className="inline-link"
-              href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent("G-TEC Mahe " + site.address)}`}
+              href={site.mapUrl}
               target="_blank"
               rel="noreferrer"
             >
               Get directions <Arrow />
             </a>
+          </div>
+        </div>
+        <div className="address">
+          <Phone size={23} />
+          <div>
+            <strong>Call us</strong>
+            <p>
+              <a href={`tel:+91${site.phone}`}>+91 {site.phone}</a>
+              <br />
+              <a href={`tel:+91${site.phoneSecondary}`}>
+                +91 {site.phoneSecondary}
+              </a>
+            </p>
+          </div>
+        </div>
+        <div className="address">
+          <Mail size={23} />
+          <div>
+            <strong>Email us</strong>
+            <p>
+              <a href={`mailto:${site.email}`}>{site.email}</a>
+            </p>
           </div>
         </div>
         {map ? (
@@ -892,6 +916,17 @@ function Footer() {
             <br />
             One skill. One opportunity. One you.
           </p>
+          <div className="footer-contact">
+            <a href={`tel:+91${site.phone}`}>
+              <Phone size={14} aria-hidden="true" /> +91 {site.phone}
+            </a>
+            <a href={`tel:+91${site.phoneSecondary}`}>
+              <Phone size={14} aria-hidden="true" /> +91 {site.phoneSecondary}
+            </a>
+            <a href={`mailto:${site.email}`}>
+              <Mail size={14} aria-hidden="true" /> {site.email}
+            </a>
+          </div>
           <div className="footer-socials" aria-label="Social media">
             <a
               className="social-link"
@@ -1800,10 +1835,12 @@ function RouteEffects() {
       "@type": "EducationalOrganization",
       name: site.name,
       url: site.url,
+      telephone: "+91" + site.phone,
+      email: site.email,
       address: {
         "@type": "PostalAddress",
-        streetAddress: "Shams Plaza, Mahe Main Road",
-        addressLocality: "Parimadam",
+        streetAddress: "Near Full Cart Supermarket, Parimadam, New Mahe",
+        addressLocality: "Thalassery",
         addressRegion: "Kerala",
         postalCode: "673311",
         addressCountry: "IN",

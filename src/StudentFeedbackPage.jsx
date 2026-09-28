@@ -134,9 +134,6 @@ function FeedbackCollector() {
               </button>
             );
           })}
-          <span className="feedback-star-label" aria-live="polite">
-            {shown ? ratingLabels[shown - 1] : "Tap a star"}
-          </span>
         </div>
       </div>
 
@@ -260,5 +257,3 @@ export default function StudentFeedbackPage({ PageHero, CTA }) {
     </>
   );
 }
-
-

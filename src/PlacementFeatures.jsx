@@ -132,12 +132,19 @@ const openings = [
 ];
 
 const affiliations = [
-  ["G-TEC Certificate", "/images/gTecLogo.png"],
-  ["Certification Partner", "/images/aff1.jpg"],
-  ["Training Affiliation", "/images/aff2.jpg"],
-  ["Skill Certification", "/images/aff3.jpg"],
-  ["Technology Learning", "/images/aff4.jpg"],
-  ["Career Credential", "/images/aff5.jpg"],
+  ["EC-Council", "/images/aff1.jpg"],
+  ["Autodesk", "/images/aff2.jpg"],
+  ["Microsoft Office Specialist", "/images/aff3.jpg"],
+  ["IC3 Digital Literacy Certification", "/images/aff4.jpg"],
+  ["Tally", "/images/tally.png"],
+  ["Cisco", "/images/aff6.jpg"],
+  ["Adobe", "/images/adobe.png"],
+  ["Meta", "/images/meta.png"],
+  ["SAP", "/images/sap.png"],
+  ["Zoho", "/images/zoho.png"],
+  ["QuickBooks Certified User", "/images/quickbooks.png"],
+  ["ABMA Education", "/images/abma.png"],
+  ["Institute of Accountants & Bookkeepers", "/images/iab.png"],
 ];
 
 const videoTestimonials = [
@@ -364,7 +371,7 @@ function Affiliations() {
       <SectionHead
         eyebrow="OUR AFFILIATIONS"
         title="Certificates and learning credentials."
-        text="Certification logos are shown as dummy data and can be replaced with approved final assets."
+        text="Industry-recognised certifications and technology partnerships that back our training programmes."
       />
       <div className="affiliation-grid">
         {affiliations.map(([label, image]) => (

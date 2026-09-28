@@ -1413,6 +1413,15 @@ h3 {
     max-width: 260px
 }
 
+.address p a {
+    color: var(--ink);
+    font-weight: 500
+}
+
+.address p a:hover {
+    color: var(--blue)
+}
+
 .address .inline-link {
     margin-top: 13px;
     font-size: 12px
@@ -1618,6 +1627,25 @@ footer {
 .footer-main>div>a:not(.logo):not(.social-link) {
     font-size: 12px;
     color: #7a8393
+}
+
+.footer-contact {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 14px
+}
+
+.footer-contact a {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 12px;
+    color: #7a8393
+}
+
+.footer-contact a:hover {
+    color: var(--blue)
 }
 
 .footer-main>div>a:hover {
@@ -4080,9 +4108,9 @@ footer {
 
 .placement-hero-copy h1 {
     color: #fff;
-    font-size: clamp(2.4rem, 5.4vw, 4.45rem);
-    line-height: 0.98;
-    letter-spacing: -0.065em;
+    font-size: clamp(38px, 4.2vw, 60px);
+    line-height: 1.16;
+    letter-spacing: -2.5px;
     margin: 0.65rem 0 1rem;
 }
 
@@ -4102,12 +4130,13 @@ footer {
 
 .button.secondary.dark {
     background: transparent;
-    color: #fff;
-    border-color: rgba(255, 255, 255, 0.24);
+    color: var(--ink);
+    border-color: rgba(23, 35, 53, 0.18);
 }
 
 .button.secondary.dark:hover {
     background: #f8fbff;
+    color: var(--blue);
     border-color: rgba(35, 83, 214, 0.24);
 }
 
