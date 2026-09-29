@@ -1083,7 +1083,7 @@
 
 .directors-row-group .team-portrait {
     position: relative;
-    min-height: 0;
+    min-height: 220px;
     aspect-ratio: 1 / 1;
     overflow: hidden;
     background: #f7f9ff;
@@ -1213,6 +1213,8 @@
     }
 
     .directors-row-group .team-portrait {
+        aspect-ratio: auto;
+        height: min(88vw, 400px);
         border-radius: 0;
     }
 

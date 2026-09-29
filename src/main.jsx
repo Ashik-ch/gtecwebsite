@@ -1665,7 +1665,11 @@ function NotFound() {
   );
 }
 function RouteEffects() {
-  const { pathname, hash } = useLocation();
+  const { pathname: rawPathname, hash } = useLocation();
+  const pathname =
+    rawPathname.length > 1 && rawPathname.endsWith("/")
+      ? rawPathname.slice(0, -1)
+      : rawPathname;
   useEffect(() => {
     const c = courses.find((c) => pathname === `/courses/${c.slug}`);
     const company = placementCompanies.find(
