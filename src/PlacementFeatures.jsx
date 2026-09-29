@@ -379,7 +379,6 @@ function Affiliations() {
             <span className="affiliation-card-plate">
               <img src={image} alt={label} loading="lazy" />
             </span>
-            <span className="affiliation-card-label">{label}</span>
           </article>
         ))}
       </div>

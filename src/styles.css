@@ -1946,7 +1946,7 @@ footer {
     font-size: clamp(38px, 4.2vw, 60px);
     line-height: 1.28;
     letter-spacing: -2.5px;
-    font-weight: 600
+    font-weight: 700
 }
 
 .page-hero p {
@@ -2055,18 +2055,57 @@ footer {
 }
 
 .vision-grid article {
+    position: relative;
     background: #f2f5fc;
     padding: 40px;
-    border-radius: 12px
+    border-radius: 12px;
+    border: 1px solid transparent;
+    transition: transform .35s ease, box-shadow .35s ease, border-color .35s ease, background .35s ease
 }
 
 .vision-grid article:last-child {
     background: #f5f5f0
 }
 
-.vision-grid article>svg {
-    color: var(--blue);
+.vision-grid article:hover {
+    transform: translateY(-6px);
+    border-color: rgba(23, 72, 219, .18);
+    box-shadow: 0 22px 44px rgba(18, 35, 78, .1)
+}
+
+.vision-label-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
     margin-bottom: 20px
+}
+
+.vision-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #fff;
+    box-shadow: 0 6px 16px rgba(18, 35, 78, .08);
+    flex-shrink: 0;
+    transition: transform .35s ease, box-shadow .35s ease
+}
+
+.vision-icon svg {
+    color: var(--blue);
+    width: 20px;
+    height: 20px
+}
+
+.vision-grid article:hover .vision-icon {
+    transform: scale(1.1) rotate(-6deg);
+    box-shadow: 0 10px 22px rgba(23, 72, 219, .22)
+}
+
+.vision-label-row .eyebrow {
+    margin: 0
 }
 
 .vision-grid p {
@@ -2116,7 +2155,8 @@ footer {
 .course-detail-top h1 {
     font-size: clamp(39px, 4.3vw, 60px);
     letter-spacing: -2.5px;
-    line-height: 1.15
+    line-height: 1.15;
+    font-weight: 700
 }
 
 .course-detail-top p {
@@ -4138,7 +4178,7 @@ footer {
     overflow: hidden;
     background: linear-gradient(180deg, #f3f6fd 0%, #ffffff 100%);
     color: var(--ink);
-    padding: clamp(4.8rem, 7vw, 7.2rem) 0 clamp(2.4rem, 4vw, 4rem);
+    padding: 27px 0 65px;
     border-bottom: 1px solid rgba(16, 32, 69, 0.06);
 }
 
@@ -4172,6 +4212,7 @@ footer {
     font-size: clamp(38px, 4.2vw, 60px);
     line-height: 1.28;
     letter-spacing: -2.5px;
+    font-weight: 700;
     margin: 0.65rem 0 1rem;
 }
 
@@ -5107,7 +5148,7 @@ footer {
 
 @media (max-width: 680px) {
     .placement-modern-hero {
-        padding-top: 4.4rem;
+        padding-bottom: 43px;
     }
 
     .placement-hero-actions,

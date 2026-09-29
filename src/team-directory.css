@@ -773,14 +773,21 @@
 }
 
 .team-group-row--triple {
-    margin-top: 10px
+    margin-top: clamp(60px, 7vw, 88px);
+    padding-top: clamp(60px, 7vw, 88px);
+    border-top: 1px solid var(--line)
+}
+
+.team-group-faculty {
+    margin-top: clamp(60px, 7vw, 88px);
+    padding-top: clamp(60px, 7vw, 88px);
+    border-top: 1px solid var(--line)
 }
 
 @media(min-width:960px) {
     .team-group-row--triple {
         grid-template-columns: repeat(3, minmax(0, 1fr));
-        gap: 24px;
-        margin-top: 10px
+        gap: 24px
     }
 
     .team-group-row--triple .team-group-heading {

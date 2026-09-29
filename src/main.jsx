@@ -1369,8 +1369,12 @@ function About() {
       <AboutSection />
       <section className="container section vision-grid">
         <article>
-          <Lightbulb />
-          <span className="eyebrow">Our Vision</span>
+          <div className="vision-label-row">
+            <span className="vision-icon">
+              <Lightbulb />
+            </span>
+            <span className="eyebrow">Our Vision</span>
+          </div>
           <h2>
             Open doors
             <br />
@@ -1382,8 +1386,12 @@ function About() {
           </p>
         </article>
         <article>
-          <Target />
-          <span className="eyebrow">Our Mission</span>
+          <div className="vision-label-row">
+            <span className="vision-icon">
+              <Target />
+            </span>
+            <span className="eyebrow">Our Mission</span>
+          </div>
           <h2>
             Help ambition
             <br />

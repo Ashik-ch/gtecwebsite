@@ -282,7 +282,7 @@ export default function TeamDirectory() {
         </div>
         <section
           id={faculty.id}
-          className=""
+          className="team-group-faculty"
           aria-labelledby={faculty.id + "-title"}
         >
           <GroupHeader group={faculty} />
