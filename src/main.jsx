@@ -183,9 +183,9 @@ function Hero() {
         </div>
         <div className="hero-bottom">
           <div className="mini-avatars">
-            <img src={photo("photo-1500648767791-00dcc994a43e", 80)} alt="" />
-            <img src={photo("photo-1534528741775-53994a69daeb", 80)} alt="" />
-            <img src={photo("photo-1506794778202-cad84cf45f1d", 80)} alt="" />
+            <img src="/images/av1.jpg" alt="" />
+            <img src="/images/av2.jpg" alt="" />
+            <img src="/images/av3.jpg" alt="" />
             <span>
               <GraduationCap size={17} />
             </span>
@@ -1446,7 +1446,7 @@ function LifeAtGtec() {
   return (
     <>
       <PageHero
-        eyebrow="Life At G-TEC"
+        eyebrow="Life at G-TEC"
         title={
           <>
             A place to learn.

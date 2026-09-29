@@ -71,14 +71,14 @@ export default function PlacedStudents() {
             </p>
           </div>
           <div className="placed-heading-side">
-            <img
+            {/* <img
               className="placed-students-mascot"
               src="/images/mascot/placement-partners.png"
               alt="GIO mascot presenting placement partners"
               loading="lazy"
               width="360"
               height="360"
-            />
+            /> */}
             <button
               className="button outline placed-scroll-control"
               type="button"

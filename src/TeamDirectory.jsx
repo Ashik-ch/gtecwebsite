@@ -120,14 +120,14 @@ const groups = [
         photo: "/images/staff/rayhanath-ep.jpg",
       },
       {
-        name: "Sarima G",
-        designation: "Accounting Skills Development Trainer",
-        photo: "/images/staff/sarima-g.jpg",
-      },
-      {
         name: "Nihala Fathima",
         designation: "Multimedia Faculty",
         photo: "/images/staff/nihala-fathima.jpg",
+      },
+      {
+        name: "Sarima G",
+        designation: "Accounting Skills Development Trainer",
+        photo: "/images/staff/sarima-g.jpg",
       },
     ].map((member, index) => ({
       id: "faculty-" + (index + 1),

@@ -4208,7 +4208,7 @@ footer {
 }
 
 .placement-hero-copy h1 {
-    color: #fff;
+    color: var(--ink);
     font-size: clamp(38px, 4.2vw, 60px);
     line-height: 1.28;
     letter-spacing: -2.5px;
