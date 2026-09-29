@@ -1327,7 +1327,7 @@ function PageHero({ eyebrow, title, text, items }) {
         <h1>{title}</h1>
         <p>{text}</p>
       </div>
-      <Mascot pose="guide" className="page-gio" />
+      {/* <Mascot pose="guide" className="page-gio" /> */}
     </section>
   );
 }

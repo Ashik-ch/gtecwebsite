@@ -707,12 +707,12 @@ export default function Placements({
                 </button>
               </div>
             </div>
-            <div className="placement-hero-mascot">
+            {/* <div className="placement-hero-mascot">
               <PlacementMascotImage
                 src="/images/mascot/placement-partners.png"
                 alt="GIO placement mascot pointing at a map"
               />
-            </div>
+            </div> */}
           </div>
           <div className="placement-hero-stats">
             {stats.map((stat) => {
