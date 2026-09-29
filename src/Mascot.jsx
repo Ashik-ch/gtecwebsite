@@ -101,7 +101,7 @@ export function GioFinder() {
       <div className="gio-finder-intro">
         <Mascot pose={choice ? "guide" : "curious"} />
         <div>
-          <span className="eyebrow red-label">A LITTLE HELP FROM GIO</span>
+          <span className="eyebrow red-label">A Little Help From Gio</span>
           <h3>Curious is a great place to start.</h3>
           <p>Tell me what you enjoy. Let’s explore a direction together.</p>
         </div>

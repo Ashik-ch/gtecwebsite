@@ -243,7 +243,7 @@ export default function TeamDirectory() {
       <div className="container">
         <header className="team-intro reveal">
           <div>
-            <span className="eyebrow">PEOPLE WHO HELP YOU GROW</span>
+            <span className="eyebrow">People Who Help You Grow</span>
             <h2 id="team-title">
               A little guidance.
               <br />

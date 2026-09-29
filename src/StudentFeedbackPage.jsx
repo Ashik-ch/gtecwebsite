@@ -215,7 +215,7 @@ export default function StudentFeedbackPage({ PageHero, CTA }) {
   return (
     <>
       <PageHero
-        eyebrow="STUDENT FEEDBACK"
+        eyebrow="Student Feedback"
         title={
           <>
             Your voice.
@@ -231,7 +231,7 @@ export default function StudentFeedbackPage({ PageHero, CTA }) {
           <FeedbackCollector />
           <aside className="feedback-aside">
             <div className="feedback-aside-card">
-              <span className="eyebrow">WHY IT MATTERS</span>
+              <span className="eyebrow">Why It Matters</span>
               <h2>Every response makes G-TEC better.</h2>
               <ul>
                 {reasons.map(({ icon: Icon, title, text }) => (

@@ -224,7 +224,7 @@ function PlacementCompanies() {
   return (
     <section className="section container placement-feature-section">
       <SectionHead
-        eyebrow="PLACEMENT & INTERNSHIP PROVIDERS"
+        eyebrow="Placement & Internship Providers"
         title="Connect your skills with growing teams."
         text="Explore internship opportunities with Bytrix Hub. Other company profiles below are illustrative examples."
       />
@@ -255,7 +255,7 @@ export function PlacementCompanyDetail() {
   if (!company) {
     return (
       <section className="section container company-detail-section">
-        <span className="eyebrow">COMPANY NOT FOUND</span>
+        <span className="eyebrow">Company Not Found</span>
         <h1>Company profile unavailable.</h1>
         <Link className="button primary" to="/placements">
           Back to placements <ArrowUpRight size={18} aria-hidden="true" />
@@ -295,7 +295,7 @@ export function PlacementCompanyDetail() {
       </div>
       <div className="company-detail-grid">
         <article>
-          <span className="eyebrow">BASIC DETAILS</span>
+          <span className="eyebrow">Basic Details</span>
           <h2>Company overview</h2>
           <p>{company.detail}</p>
           <div className="company-meta-list">
@@ -310,7 +310,7 @@ export function PlacementCompanyDetail() {
           </div>
         </article>
         <article>
-          <span className="eyebrow">AVAILABLE OPPORTUNITIES</span>
+          <span className="eyebrow">Available Opportunities</span>
           <h2>Open paths</h2>
           <div className="company-opportunity-list">
             {company.opportunities.map((item) => (
@@ -329,7 +329,7 @@ function JobPortal() {
     <section className="section placement-portal-section">
       <div className="container placement-portal-grid">
         <div className="placement-portal-copy reveal">
-          <span className="eyebrow">JOB PORTAL</span>
+          <span className="eyebrow">Job Portal</span>
           <h2>
             Current openings.
             <br />
@@ -369,7 +369,7 @@ function Affiliations() {
   return (
     <section className="section container affiliations-section">
       <SectionHead
-        eyebrow="OUR AFFILIATIONS"
+        eyebrow="Our Affiliations"
         title="Certificates and learning credentials."
         text="Industry-recognised certifications and technology partnerships that back our training programmes."
       />
@@ -468,7 +468,7 @@ function VideoTestimonials() {
     <section className="section video-testimonial-section">
       <div className="container">
         <SectionHead
-          eyebrow="VIDEO TESTIMONIALS"
+          eyebrow="Video Testimonials"
           title="Student stories in their own voice."
           text="Placeholder video cards for future student testimonial uploads."
         />

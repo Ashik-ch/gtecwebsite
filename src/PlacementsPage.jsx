@@ -607,13 +607,15 @@ export default function Placements({
       icon: MapPin,
       value: "8 Countries",
       label: "Global project exposure",
-      chips: ["IN India", "QA Qatar", "AE UAE", "US USA"],
-      moreMarkets: [
-        "GB Great Britain",
+      chips: [
+        "IN India",
+        "QA Qatar",
+        "AE UAE",
+        "US USA",
+        "GB UK",
         "AU Australia",
-        "CA Canada",
-        "IE Ireland",
       ],
+      moreMarkets: ["CA Canada", "IE Ireland"],
     },
   ];
 
@@ -678,7 +680,7 @@ export default function Placements({
           </nav>
           <div className="placement-hero-layout">
             <div className="placement-hero-copy">
-              <p className="eyebrow">CAREERS & INDUSTRY EXPOSURE</p>
+              <p className="eyebrow">Careers & Industry Exposure</p>
               <h1>
                 Real projects. Real companies. A career that starts before you
                 graduate.
@@ -707,7 +709,7 @@ export default function Placements({
             </div>
             <div className="placement-hero-mascot">
               <PlacementMascotImage
-                src="/images/mascot/placement-partners.jpg"
+                src="/images/mascot/placement-partners.png"
                 alt="GIO placement mascot pointing at a map"
               />
             </div>
@@ -717,7 +719,10 @@ export default function Placements({
               const Icon = stat.icon;
               return (
                 <article
-                  className="placement-stat-card reveal"
+                  className={
+                    "placement-stat-card reveal" +
+                    (stat.chips ? " placement-stat-card--wide" : "")
+                  }
                   key={stat.label}
                 >
                   <div className="placement-stat-head">
@@ -768,7 +773,7 @@ export default function Placements({
 
       <section className="container section internship-program-section">
         <SectionTitle
-          eyebrow="GTEC MAHE INTERNSHIP PROGRAM"
+          eyebrow="G-TEC Mahe Internship Program"
           title="Why intern with G-TEC Mahe"
           text="Every G-TEC Mahe internship is built around the same idea: move from classroom knowledge to real, portfolio-ready industry experience - with structured support at every step."
         />
@@ -794,7 +799,7 @@ export default function Placements({
 
       <section className="container section eligibility-section">
         <SectionTitle
-          eyebrow="ELIGIBILITY"
+          eyebrow="Eligibility"
           title="Who can apply"
           text="The internship program currently runs for G-TEC Mahe students - and we're building toward opening it up more widely."
         />
@@ -843,13 +848,13 @@ export default function Placements({
 
       <section className="container section certificate-section">
         <SectionTitle
-          eyebrow="CERTIFIED EXPERIENCE"
+          eyebrow="Certified Experience"
           title="Two certificates, one internship"
           text="Every completed internship is recognised twice over - once by G-TEC Mahe, and once by the company you worked with."
         />
         <div className="placement-context-mascot is-certificate">
           <PlacementMascotImage
-            src="/images/mascot/placement-certificate.jpg"
+            src="/images/mascot/placement-certificate.png"
             alt="GIO mascot holding a certificate"
           />
         </div>
@@ -913,7 +918,7 @@ export default function Placements({
         id="partner-companies"
       >
         <SectionTitle
-          eyebrow="COMPANY PARTNERS"
+          eyebrow="Company Partners"
           title="Companies & Global Work Exposure"
           text="Five partner companies currently work with G-TEC Mahe students on live projects and structured internships. Tap any card to see the full profile - presence, client markets, benefits and domains."
         />
@@ -1007,13 +1012,13 @@ export default function Placements({
           <span className="journey-main-mascot">
             {/* <Mascot variant="mini" mood="celebrate" /> */}
             <PlacementMascotImage
-              src="/images/mascot/placement-eligibility.jpg"
+              src="/images/mascot/placement-eligibility.png"
               alt="GIO mascot showing eligibility approval"
             />
           </span>
 
           <div className="journey-map-copy">
-            <p className="eyebrow">STUDENT JOURNEY</p>
+            <p className="eyebrow">Student Journey</p>
             <h2>
               Meet your G-TEC guide - here's the path from day one to placed
             </h2>

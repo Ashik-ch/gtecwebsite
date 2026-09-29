@@ -58,7 +58,7 @@ export default function PlacedStudents() {
       <div className="container">
         <header className="placed-students-heading reveal">
           <div>
-            <span className="eyebrow">PLACED STUDENTS</span>
+            <span className="eyebrow">Placed Students</span>
             <h2 id="placed-students-title">
               New skills.
               <br />
@@ -73,7 +73,7 @@ export default function PlacedStudents() {
           <div className="placed-heading-side">
             <img
               className="placed-students-mascot"
-              src="/images/mascot/placement-partners.jpg"
+              src="/images/mascot/placement-partners.png"
               alt="GIO mascot presenting placement partners"
               loading="lazy"
               width="360"

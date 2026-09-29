@@ -4,20 +4,61 @@
   display: contents;
 }
 
-/* Hero: cursor-following glow, pointer parallax and scroll fade */
-.motion-on .placement-modern-hero::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: 0;
+/* Custom trailing cursor: a tight leader dot plus a softer ring that eases
+   behind it, swapping to a filled "view" pill over anything clickable. */
+.placement-cursor-dot,
+.placement-cursor-ring {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 80;
   pointer-events: none;
-  background: radial-gradient(16rem circle at var(--hx, 80%) var(--hy, 20%),
-      rgba(64, 120, 255, 0.24),
-      rgba(37, 193, 185, 0.1) 40%,
-      transparent 70%);
-  transition: background 0.2s linear;
+  border-radius: 50%;
+  transform: translate3d(-50%, -50%, 0);
+  opacity: 0;
+  transition: opacity 0.25s ease;
 }
 
+.placement-cursor-dot {
+  width: 7px;
+  height: 7px;
+  background: #1748db;
+}
+
+.placement-cursor-ring {
+  width: 34px;
+  height: 34px;
+  border: 1.5px solid rgba(23, 72, 219, 0.45);
+  transition: width 0.28s cubic-bezier(0.16, 1, 0.3, 1), height 0.28s cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 0.28s ease, background 0.28s ease, opacity 0.25s ease;
+}
+
+.placement-cursor-dot.is-visible,
+.placement-cursor-ring.is-visible {
+  opacity: 1;
+}
+
+.placement-cursor-ring.is-hover {
+  width: 58px;
+  height: 58px;
+  background: rgba(37, 193, 185, 0.12);
+  border-color: rgba(37, 193, 185, 0.65);
+}
+
+.placement-cursor-dot.is-hover {
+  background: #25c1b9;
+}
+
+@media (max-width: 980px), (hover: none), (pointer: coarse) {
+
+  .placement-cursor-dot,
+  .placement-cursor-ring {
+    display: none;
+  }
+}
+
+/* Hero: pointer parallax and scroll fade (the old cursor-glow blob is gone -
+   replaced by the cursor-companion trail below). */
 .motion-on .placement-modern-hero>.container {
   position: relative;
   z-index: 1;
@@ -83,27 +124,43 @@
   }
 }
 
-/* Cursor spotlight on cards */
-.motion-on :is(.placement-stat-card, .internship-reason-card, .eligibility-card, .certificate-card, .partner-card, .internship-quote) {
+/* Card hover feedback: lift + a thin traveling border highlight instead of
+   an internal glow blob. */
+.motion-on :is(.placement-stat-card, .internship-reason-card, .eligibility-card, .certificate-card, .partner-card) {
   position: relative;
   transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease, border-color 0.3s ease;
 }
 
-.motion-on :is(.placement-stat-card, .internship-reason-card, .eligibility-card, .certificate-card, .partner-card, .internship-quote)::after {
+.motion-on :is(.placement-stat-card, .internship-reason-card, .eligibility-card, .certificate-card, .partner-card)::after {
   content: "";
   position: absolute;
   inset: 0;
   border-radius: inherit;
   pointer-events: none;
+  padding: 1.5px;
+  background: conic-gradient(from var(--edge-angle, 0deg), transparent 0 78%, #25c1b9 88%, #2353d6 94%, transparent 100%);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
   opacity: 0;
-  background: radial-gradient(10rem circle at var(--mx, 50%) var(--my, 50%),
-      rgba(23, 72, 219, 0.22),
-      transparent 55%);
-  transition: opacity 0.3s ease;
+  transition: opacity 0.35s ease;
 }
 
-.motion-on :is(.placement-stat-card, .internship-reason-card, .eligibility-card, .certificate-card, .partner-card, .internship-quote):hover::after {
+.motion-on :is(.placement-stat-card, .internship-reason-card, .eligibility-card, .certificate-card, .partner-card):hover::after {
   opacity: 1;
+  animation: placement-edge-spin 2.6s linear infinite;
+}
+
+@keyframes placement-edge-spin {
+  to {
+    --edge-angle: 360deg;
+  }
+}
+
+@property --edge-angle {
+  syntax: '<angle>';
+  inherits: false;
+  initial-value: 0deg;
 }
 
 .motion-on :is(.internship-reason-card, .eligibility-card, .partner-card:not(.is-open)):hover {

@@ -1657,6 +1657,17 @@ footer {
     margin-top: 17px
 }
 
+.footer-brand-row {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px
+}
+
+.footer-brand-row p {
+    margin-top: 0
+}
+
 .social-link {
     display: inline-flex;
     margin-top: 17px;
@@ -1942,6 +1953,49 @@ footer {
     max-width: 540px;
     margin-top: 23px;
     font-size: 17px
+}
+
+/* Pointer parallax, scroll fade and text shine - the same treatment the
+   Placements page hero uses, kept in sync so every page hero feels the same. */
+.page-hero.motion-on>.container {
+    position: relative;
+    z-index: 1;
+    translate: calc(var(--px, 0) * -7px) calc(var(--py, 0) * -5px + var(--hero-scroll, 0) * 24px);
+    opacity: calc(1 - var(--hero-scroll, 0) * 0.6);
+    transition: translate 0.35s cubic-bezier(0.16, 1, 0.3, 1)
+}
+
+.page-hero.motion-on h1 {
+    color: var(--ink);
+    background: linear-gradient(100deg, currentColor 40%, #4f86ff 50%, currentColor 60%) 0 0/250% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: hero-shine 5s ease-in-out .6s infinite
+}
+
+@keyframes hero-shine {
+
+    0%,
+    55% {
+        background-position: 100% 0
+    }
+
+    100% {
+        background-position: -50% 0
+    }
+}
+
+@media(prefers-reduced-motion:reduce) {
+    .page-hero.motion-on h1 {
+        animation: none;
+        background: none;
+        -webkit-text-fill-color: currentColor
+    }
+
+    .page-hero.motion-on>.container {
+        transition: none
+    }
 }
 
 .page-spark {
@@ -4150,7 +4204,8 @@ footer {
 .placement-hero-stats {
     position: relative;
     z-index: 1;
-    /* Flex so any number of cards fills the full row width. */
+    /* Flex so any number of cards fills the full row width; items stretch
+       to the same height as the tallest card in the row. */
     display: flex;
     flex-wrap: wrap;
     gap: 1rem;
@@ -4158,12 +4213,16 @@ footer {
 }
 
 .placement-hero-stats>.placement-stat-card {
-    flex: 1 1 15rem;
+    flex: 1 1 11rem;
     min-width: 0;
 }
 
+.placement-hero-stats>.placement-stat-card--wide {
+    flex: 1.7 1 20rem;
+}
+
 .placement-stat-card {
-    min-height: 9.5rem;
+    min-height: 7.5rem;
     border: 1px solid rgba(16, 32, 69, 0.09);
     border-radius: 16px;
     background: rgba(255, 255, 255, 0.82);

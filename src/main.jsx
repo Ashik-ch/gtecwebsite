@@ -57,6 +57,7 @@ import Placements from "./PlacementsPage";
 import StudentFeedbackPage from "./StudentFeedbackPage";
 import Chatbot from "./Chatbot";
 import { EnquiryContext } from "./EnquiryContext";
+import { useHeroMotion } from "./HeroMotion";
 
 const icons = {
   Megaphone,
@@ -309,7 +310,7 @@ function CourseExplorer({ full = false }) {
     >
       <div className="container">
         <SectionTitle
-          eyebrow="FIND YOUR DIRECTION"
+          eyebrow="Find Your Direction"
           title={
             full
               ? "A new skill. A new possibility."
@@ -427,7 +428,7 @@ function AboutSection() {
         </div>
       </div>
       <div className="about-copy reveal">
-        <span className="eyebrow eyebrow-highlight">WELCOME TO G-TEC MAHE</span>
+        <span className="eyebrow eyebrow-highlight">Welcome to G-TEC MAHE</span>
         <h2>
           Where potential
           <br />
@@ -465,7 +466,7 @@ function WhyUs() {
     <section className="section why-section">
       <div className="container">
         <SectionTitle
-          eyebrow="THE G-TEC DIFFERENCE"
+          eyebrow="The G-TEC Difference"
           title="Learn with purpose. Grow with confidence."
           text="A learning journey built around the possibilities ahead."
         />
@@ -508,7 +509,7 @@ function PlacementSection({ full = false }) {
   return (
     <section className="section container placement-section">
       <div className="placement-copy reveal">
-        <span className="eyebrow">BEYOND THE CLASSROOM</span>
+        <span className="eyebrow">Beyond The Classroom</span>
         <h2>
           Your next chapter.
           <br />
@@ -544,7 +545,7 @@ function PlacementSection({ full = false }) {
       </div>
       <div className="career-visual reveal">
         <div className="career-top">
-          <span className="eyebrow red-label">YOUR GROWTH JOURNEY</span>
+          <span className="eyebrow red-label">Your Growth Journey</span>
           <Mascot pose="guide" />
         </div>
         <h3>
@@ -577,7 +578,7 @@ function Stories() {
     <section className="section stories-section">
       <div className="container">
         <SectionTitle
-          eyebrow="THE PEOPLE BEHIND THE PROGRESS"
+          eyebrow="The People Behind the Progress"
           title="Every journey starts with a first step."
         />
         <div className="stories-grid">
@@ -678,7 +679,7 @@ function Gallery() {
   return (
     <section id="life" className="section container">
       <SectionTitle
-        eyebrow="THE SPIRIT OF G-TEC"
+        eyebrow="The Spirit Of G-TEC"
         title="A place to learn. A place to belong."
         text="Curiosity. Collaboration. The excitement of discovering what you can do."
       />
@@ -725,7 +726,7 @@ function Team() {
   return (
     <section className="section container team-section">
       <div>
-        <span className="eyebrow">PEOPLE WHO HELP YOU GROW</span>
+        <span className="eyebrow">People Who Help You Grow</span>
         <h2>
           A little guidance.
           <br />A world of difference.
@@ -777,7 +778,7 @@ function FAQs({ course }) {
   return (
     <section className="section container faq-section">
       <div className="faq-heading">
-        <span className="eyebrow">A LITTLE MORE CLARITY</span>
+        <span className="eyebrow">A Little More Clarity</span>
         <h2>
           Good questions.
           <br />
@@ -814,7 +815,7 @@ function CTA() {
         <Mascot pose="guide" />
       </div>
       <div>
-        <span className="eyebrow red-label">YOUR FUTURE IS CALLING</span>
+        <span className="eyebrow red-label">Your Future Is Calling</span>
         <h2>
           Let’s make your
           <br />
@@ -834,7 +835,7 @@ function Contact() {
   return (
     <section id="contact" className="section container contact-section">
       <div>
-        <span className="eyebrow">LET’S CONNECT</span>
+        <span className="eyebrow">Let’s Connect</span>
         <h2>
           Big plans?
           <br />
@@ -904,12 +905,14 @@ function Footer() {
     <footer>
       <div className="container footer-main">
         <div>
-          <Logo />
-          <p>
-            Innovating your tech future.
-            <br />
-            One skill. One opportunity. One you.
-          </p>
+          <div className="footer-brand-row">
+            <Logo />
+            <p>
+              Innovating your tech future.
+              <br />
+              One skill. One opportunity. One you.
+            </p>
+          </div>
           <div className="footer-contact">
             <a href={site.mapUrl} target="_blank" rel="noreferrer">
               <MapPin size={14} aria-hidden="true" /> {site.address}
@@ -1135,7 +1138,7 @@ function EnquiryForm({ initialCourse = "", showEyebrow = true }) {
   }
   return (
     <form className="enquiry-form" onSubmit={submit}>
-      <span className="eyebrow">LET’S FIND YOUR PATH</span>
+      <span className="eyebrow">Let’s Find Your Path</span>
       <h3>Tell us what’s next for you.</h3>
       <div className="form-row">
         <label>
@@ -1314,8 +1317,10 @@ function Breadcrumbs({ items }) {
   );
 }
 function PageHero({ eyebrow, title, text, items }) {
+  const heroRef = useRef(null);
+  useHeroMotion(heroRef);
   return (
-    <section className="page-hero">
+    <section className="page-hero" ref={heroRef}>
       <div className="container">
         <Breadcrumbs items={items} />
         <span className="eyebrow eyebrow-highlight">{eyebrow}</span>
@@ -1350,7 +1355,7 @@ function About() {
   return (
     <>
       <PageHero
-        eyebrow="GET TO KNOW G-TEC MAHE"
+        eyebrow="Get to know G-TEC MAHE"
         title={
           <>
             Your potential.
@@ -1365,7 +1370,7 @@ function About() {
       <section className="container section vision-grid">
         <article>
           <Lightbulb />
-          <span className="eyebrow">OUR VISION</span>
+          <span className="eyebrow">Our Vision</span>
           <h2>
             Open doors
             <br />
@@ -1378,7 +1383,7 @@ function About() {
         </article>
         <article>
           <Target />
-          <span className="eyebrow">OUR MISSION</span>
+          <span className="eyebrow">Our Mission</span>
           <h2>
             Help ambition
             <br />
@@ -1393,7 +1398,7 @@ function About() {
       <WhyUs />
       <section className="container section">
         <SectionTitle
-          eyebrow="THE LEARNING ENVIRONMENT"
+          eyebrow="The Learning Environment"
           title="Space to focus. Support to grow."
           text="Explore practical sessions, project-based learning and personalised guidance. Visit the centre to see the facilities and confirm resources for your programme."
         />
@@ -1433,7 +1438,7 @@ function LifeAtGtec() {
   return (
     <>
       <PageHero
-        eyebrow="LIFE AT G-TEC"
+        eyebrow="Life At G-TEC"
         title={
           <>
             A place to learn.
@@ -1449,7 +1454,7 @@ function LifeAtGtec() {
       <PlacementFeatures variant="videos" />
       <section className="container section feedback-invite reveal">
         <div>
-          <span className="eyebrow">STUDENT FEEDBACK</span>
+          <span className="eyebrow">Student Feedback</span>
           <h2>Studied with us? Tell us how it went.</h2>
         </div>
         <Link className="button primary" to="/feedback">
@@ -1464,7 +1469,7 @@ function ContactPage() {
   return (
     <>
       <PageHero
-        eyebrow="CONTACT G-TEC MAHE"
+        eyebrow="Contact G-TEC Mahe"
         title={
           <>
             Big plans?
@@ -1522,7 +1527,7 @@ function CourseDetail() {
       <div className="container course-layout">
         <article>
           <section className="detail-section">
-            <span className="eyebrow">THE START OF SOMETHING NEW</span>
+            <span className="eyebrow">The Start Of Something New</span>
             <h2>Course overview</h2>
             <p>
               {course.description} Talk to our team about the programme options
@@ -1578,7 +1583,7 @@ function CourseDetail() {
         </article>
         <aside className="course-sidebar">
           <Mascot pose="guide" className="sidebar-gio" />
-          <span className="eyebrow">YOUR COURSE AT A GLANCE</span>
+          <span className="eyebrow">Your Course At A Glance</span>
           <h3>
             A little planning.
             <br />A lot of possibility.
@@ -1618,7 +1623,7 @@ function CourseDetail() {
       <FAQs course={course} />
       <section className="container section">
         <SectionTitle
-          eyebrow="KEEP EXPLORING"
+          eyebrow="Keep Exploring"
           title="More paths. More possibilities."
         />
         <div className="course-grid">
@@ -1638,7 +1643,7 @@ function NotFound() {
   return (
     <section className="container not-found">
       <Mascot pose="curious" />
-      <span className="eyebrow">404 · A SMALL DETOUR</span>
+      <span className="eyebrow">404 · A Small Detour</span>
       <h1>
         Let’s get you
         <br />
@@ -1761,7 +1766,7 @@ function App() {
               element={
                 <>
                   <PageHero
-                    eyebrow="FIND YOUR NEXT CHAPTER"
+                    eyebrow="Find Your Next Chapter"
                     title={
                       <>
                         Made for your ambition.
