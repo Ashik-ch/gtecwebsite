@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef, useContext } from "react";
 import { createRoot } from "react-dom/client";
+import { version as appVersion } from "../package.json";
 import {
   BrowserRouter,
   Routes,
@@ -68,7 +69,8 @@ const icons = {
   Layers3,
   Code2,
 };
-const photo = (id, width = 800) => `/images/${id}-${width}.jpg`;
+const photo = (id, width = 800) =>
+  id.startsWith("/") ? id : `/images/${id}-${width}.jpg`;
 const Arrow = () => <ArrowUpRight size={18} aria-hidden="true" />;
 const Linkedin = () => (
   <span
@@ -100,8 +102,20 @@ function Logo() {
 }
 function Header() {
   const [menu, setMenu] = useState(false);
+  const [coursesOpen, setCoursesOpen] = useState(false);
   const { pathname } = useLocation();
-  useEffect(() => setMenu(false), [pathname]);
+  useEffect(() => {
+    setMenu(false);
+    setCoursesOpen(false);
+  }, [pathname]);
+  useEffect(() => {
+    if (!coursesOpen) return;
+    const close = (e) => {
+      if (!e.target.closest(".nav-courses")) setCoursesOpen(false);
+    };
+    document.addEventListener("click", close);
+    return () => document.removeEventListener("click", close);
+  }, [coursesOpen]);
   return (
     <header className="site-header">
       <div className="container nav-wrap">
@@ -114,9 +128,39 @@ function Header() {
             Home
           </NavLink>
           <NavLink to="/about">About us</NavLink>
-          <NavLink to="/courses">
-            Courses <ChevronDown size={13} />
-          </NavLink>
+          <div className={"nav-courses" + (coursesOpen ? " is-open" : "")}>
+            <span className="nav-courses-trigger">
+              <NavLink to="/courses">Courses</NavLink>
+              <button
+                type="button"
+                className="nav-courses-arrow"
+                aria-expanded={coursesOpen}
+                aria-label="Toggle courses menu"
+                onClick={() => setCoursesOpen((value) => !value)}
+              >
+                <ChevronDown size={13} />
+              </button>
+            </span>
+            <div className="nav-courses-panel" role="menu">
+              {courses.map((c) => (
+                <Link
+                  key={c.slug}
+                  to={`/courses/${c.slug}`}
+                  role="menuitem"
+                  onClick={() => setCoursesOpen(false)}
+                >
+                  {c.name}
+                </Link>
+              ))}
+              <Link
+                to="/courses"
+                className="nav-courses-viewall"
+                onClick={() => setCoursesOpen(false)}
+              >
+                View all courses <Arrow />
+              </Link>
+            </div>
+          </div>
           <NavLink to="/placements">Placements</NavLink>
           <Link to="/life">Life at G-TEC</Link>
           <NavLink to="/feedback">Feedback</NavLink>
@@ -174,12 +218,17 @@ function Hero() {
           <Link className="button primary" to="/courses">
             Explore our courses <Arrow />
           </Link>
-          <Link className="text-button" to="/about">
+          <a
+            className="text-button"
+            href="https://www.instagram.com/reel/Ddl03kBp00b/?utm_source=ig_web_copy_link&stkn=NTc4MTIwNjQ2YQ=="
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <span className="play-circle">
               <Play size={12} fill="currentColor" />
             </span>
             Get to know us
-          </Link>
+          </a>
         </div>
         <div className="hero-bottom">
           <div className="mini-avatars">
@@ -1032,6 +1081,7 @@ function Footer() {
             Bytrix Hub
           </a>{" "}
           <ArrowUpRight size={13} />
+          <span className="footer-version"> · v{appVersion}</span>
         </span>
       </div>
     </footer>

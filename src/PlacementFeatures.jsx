@@ -500,7 +500,7 @@ export default function PlacementFeatures({ variant = "all" }) {
   return (
     <>
       <PlacementCompanies />
-      <JobPortal />
+      {/* <JobPortal /> */}
       <Affiliations />
     </>
   );

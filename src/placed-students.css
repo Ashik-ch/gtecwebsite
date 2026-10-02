@@ -1,6 +1,7 @@
 .placed-students-section {
     overflow: hidden;
     position: relative;
+    padding-block: 76px;
     background: radial-gradient(circle, #d9e4fa 1.6px, transparent 1.6px) 0 0/22px 22px, linear-gradient(135deg, #f5f8ff, #fbfcff 55%, #eef4ff);
     border-block: 1px solid #e7edf8
 }

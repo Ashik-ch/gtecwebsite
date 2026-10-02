@@ -275,6 +275,94 @@ h3 {
     background: var(--blue)
 }
 
+.nav-courses {
+    position: relative
+}
+
+.nav-courses-trigger {
+    display: inline-flex;
+    align-items: center
+}
+
+.nav-courses-arrow {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4px;
+    margin-left: 2px;
+    border: 0;
+    border-radius: 6px;
+    background: none;
+    color: #5d6571;
+    cursor: pointer;
+    transition: transform .25s ease, color .2s ease
+}
+
+.nav-courses-arrow:hover {
+    color: var(--blue)
+}
+
+.nav-courses.is-open .nav-courses-arrow {
+    transform: rotate(180deg)
+}
+
+.nav-courses-panel {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 40;
+    min-width: 210px;
+    margin-top: 10px;
+    padding: 6px;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    background: #fff;
+    box-shadow: 0 10px 26px rgba(18, 35, 78, .08);
+    display: grid;
+    gap: 1px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-4px);
+    transition: opacity .18s ease, transform .18s ease, visibility .18s
+}
+
+.nav-links .nav-courses-panel a {
+    padding: 9px 10px;
+    border-radius: 8px;
+    font-size: 13px;
+    color: var(--ink)
+}
+
+.nav-links .nav-courses-panel a:hover {
+    background: #f3f6fd;
+    color: var(--blue)
+}
+
+.nav-links .nav-courses-panel a.nav-courses-viewall {
+    margin-top: 4px;
+    padding-top: 10px;
+    border-top: 1px solid var(--line);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-weight: 600;
+    color: var(--blue)
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .nav-courses:hover .nav-courses-panel {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0)
+    }
+}
+
+.nav-courses.is-open .nav-courses-panel {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0)
+}
+
 .nav-enquire {
     font-size: 13px;
     padding: 13px 18px;
@@ -2104,6 +2192,35 @@ footer {
     box-shadow: 0 10px 22px rgba(23, 72, 219, .22)
 }
 
+/* Traveling border highlight on hover, matching the Placements eligibility cards */
+@media (prefers-reduced-motion: no-preference) {
+    :is(.vision-grid article, .facility-grid article)::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        border-radius: inherit;
+        pointer-events: none;
+        padding: 1.5px;
+        background: conic-gradient(from var(--edge-angle, 0deg), transparent 0 78%, #25c1b9 88%, #2353d6 94%, transparent 100%);
+        -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+        -webkit-mask-composite: xor;
+        mask-composite: exclude;
+        opacity: 0;
+        transition: opacity .35s ease
+    }
+
+    :is(.vision-grid article, .facility-grid article):hover::after {
+        opacity: 1;
+        animation: edge-trace-spin 2.6s linear infinite
+    }
+
+    @keyframes edge-trace-spin {
+        to {
+            --edge-angle: 360deg
+        }
+    }
+}
+
 .vision-label-row .eyebrow {
     margin: 0
 }
@@ -2121,9 +2238,17 @@ footer {
 }
 
 .facility-grid article {
+    position: relative;
     padding: 28px;
     border: 1px solid var(--line);
-    border-radius: 10px
+    border-radius: 10px;
+    transition: transform .35s ease, box-shadow .35s ease, border-color .35s ease
+}
+
+.facility-grid article:hover {
+    transform: translateY(-6px);
+    border-color: rgba(23, 72, 219, .18);
+    box-shadow: 0 22px 44px rgba(18, 35, 78, .1)
 }
 
 .facility-grid svg {
@@ -2660,6 +2785,42 @@ footer {
 
     .nav-links a.active:after {
         display: none
+    }
+
+    .nav-courses-trigger {
+        display: flex;
+        align-items: center;
+        justify-content: space-between
+    }
+
+    .nav-courses-arrow {
+        margin-left: 0
+    }
+
+    .nav-courses-panel {
+        position: static;
+        margin-top: 0;
+        padding: 0;
+        border: 0;
+        border-radius: 0;
+        box-shadow: none;
+        background: transparent;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height .3s ease
+    }
+
+    .nav-courses.is-open .nav-courses-panel {
+        max-height: 420px;
+        margin-top: 4px
+    }
+
+    .nav-links .nav-courses-panel a {
+        padding-left: 24px;
+        color: #5d6571
     }
 
     .menu-button {
