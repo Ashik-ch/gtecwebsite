@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef, useContext } from "react";
 import { createRoot } from "react-dom/client";
 import { version as appVersion } from "../package.json";
+import { seoPath } from "./seo-paths";
 import {
   BrowserRouter,
   Routes,
@@ -199,24 +200,21 @@ function Hero() {
           <span /> YOUR NEXT CHAPTER STARTS HERE
         </div>
         <h1>
-          Big dreams.
+          Job-Oriented Courses.
           <br />
-          Real skills.
-          <br />
-          <span>A brighter future.</span>
+          <span>Build Your Future Today.</span>
           <svg className="underline" viewBox="0 0 410 15" aria-hidden="true">
             <path d="M3 10Q180-3 406 8" />
           </svg>
         </h1>
         <p>
-          Discover your potential with career-focused learning.
-          <br className="desktop-break" /> Build the skills to turn your
-          ambition into opportunity
-          <br className="desktop-break" /> at G-TEC Mahe.
+          Build practical, career-ready skills through industry-relevant courses
+          and training designed to support your next career step with G-TEC
+          MAHE.
         </p>
         <div className="hero-actions">
           <Link className="button primary" to="/courses">
-            Explore our courses <Arrow />
+            Explore Our Courses <Arrow />
           </Link>
           <a
             className="text-button"
@@ -289,9 +287,9 @@ function Benefits() {
     <div className="container benefits">
       {[
         [BookOpen, "Practical learning", "Build skills that matter"],
-        [Users, "Expert guidance", "Learn with a personal touch"],
-        [BriefcaseBusiness, "Career support", "Take your next step"],
-        [GraduationCap, "Learning for everyone", "Find your starting point"],
+        [Users, "Expert guidance", "Industry-relevant training"],
+        [BriefcaseBusiness, "Career support", "Internship & placement"],
+        [GraduationCap, "Building your future", "CV & interview preparation"],
       ].map(([Icon, title, desc]) => (
         <div key={title}>
           <span className="benefit-icon">
@@ -1748,7 +1746,7 @@ function RouteEffects() {
       ["og:title", document.title, "property"],
       ["og:description", description, "property"],
       ["og:type", "website", "property"],
-      ["og:url", site.url + pathname, "property"],
+      ["og:url", site.url + seoPath(pathname), "property"],
       ["og:image", site.url + "/images/gTec.PNG", "property"],
       ["twitter:card", "summary", "name"],
       ["twitter:title", document.title, "name"],
@@ -1768,7 +1766,7 @@ function RouteEffects() {
       canonical.rel = "canonical";
       document.head.append(canonical);
     }
-    canonical.href = site.url + pathname;
+    canonical.href = site.url + seoPath(pathname);
     const schema = {
       "@context": "https://schema.org",
       "@type": "EducationalOrganization",
