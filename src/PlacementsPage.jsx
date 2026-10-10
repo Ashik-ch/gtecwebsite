@@ -38,6 +38,16 @@ I've completed a certified course with you and I'm ready to apply for the intern
 
 Thank you!`;
 
+// Home-page style accent: blue words, a hand-drawn underline and a twinkling star.
+const Highlight = ({ children }) => (
+  <span className="placement-highlight">
+    {children}
+    <span className="placement-highlight-star" aria-hidden="true">
+      ✦
+    </span>
+  </span>
+);
+
 // Placeholder student quotes - replace with real interns' stories.
 const internQuotes = [
   {
@@ -709,12 +719,28 @@ export default function Placements({
             <span>/</span>
             <span>Placements</span>
           </nav>
+          <span className="spark placement-spark-one" aria-hidden="true">
+            ✳
+          </span>
+          <span className="spark placement-spark-two" aria-hidden="true">
+            ✧
+          </span>
           <div className="placement-hero-layout">
             <div className="placement-hero-copy">
-              <p className="eyebrow">Careers & Industry Exposure</p>
-              <h1>
-                Real projects. Real companies. A career that starts before you
-                graduate.
+              <div className="hero-eyebrow">
+                <span /> CAREERS & INDUSTRY EXPOSURE
+              </div>
+              <h1 className="placement-hero-title">
+                Real projects. Real companies.
+                <br />
+                <span>A career that starts before you graduate.</span>
+                <svg
+                  className="underline placement-underline"
+                  viewBox="0 0 410 15"
+                  aria-hidden="true"
+                >
+                  <path d="M3 10Q180-3 406 8" />
+                </svg>
               </h1>
               <p>
                 G-TEC Mahe's placement support connects students with structured
@@ -745,6 +771,11 @@ export default function Placements({
               />
             </div> */}
           </div>
+        </div>
+      </section>
+
+      {/* Stats sit in their own band below the hero to keep the hero compact */}
+      <section className="container placement-stats-section">
           <div className="placement-hero-stats">
             {stats.map((stat) => {
               const Icon = stat.icon;
@@ -799,13 +830,16 @@ export default function Placements({
               );
             })}
           </div>
-        </div>
       </section>
 
       <section className="container section internship-program-section">
         <SectionTitle
           eyebrow="G-TEC Mahe Internship Program"
-          title="Why intern with G-TEC Mahe"
+          title={
+            <>
+              Why intern with <Highlight>G-TEC Mahe</Highlight>
+            </>
+          }
           text="Every G-TEC Mahe internship is built around the same idea: move from classroom knowledge to real, portfolio-ready industry experience - with structured support at every step."
         />
         {/* <div className="placement-context-mascot is-why"><PlacementMascotImage src="/images/mascot/placement-why.jpg" alt="GIO mascot with an idea lightbulb" /></div> */}
@@ -831,7 +865,11 @@ export default function Placements({
       <section className="container section eligibility-section">
         <SectionTitle
           eyebrow="Eligibility"
-          title="Who can apply"
+          title={
+            <>
+              Who can <Highlight>apply</Highlight>
+            </>
+          }
           text="The internship program currently runs for G-TEC Mahe students - and we're building toward opening it up more widely."
         />
         <div className="placement-context-mascot is-eligibility"></div>
@@ -880,7 +918,11 @@ export default function Placements({
       <section className="container section certificate-section">
         <SectionTitle
           eyebrow="Certified Experience"
-          title="Two certificates, one internship"
+          title={
+            <>
+              Two certificates, <Highlight>one internship</Highlight>
+            </>
+          }
           text="Every completed internship is recognised twice over - once by G-TEC Mahe, and once by the company you worked with."
         />
         <div className="placement-context-mascot is-certificate">
@@ -950,7 +992,11 @@ export default function Placements({
       >
         <SectionTitle
           eyebrow="Company Partners"
-          title="Companies & Global Work Exposure"
+          title={
+            <>
+              Companies & <Highlight>Global Work Exposure</Highlight>
+            </>
+          }
           text="Five partner companies currently work with G-TEC Mahe students on live projects and structured internships. Tap any card to see the full profile - presence, client markets, benefits and domains."
         />
         <p className="partner-list-label">PARTNER COMPANIES</p>
@@ -1051,7 +1097,8 @@ export default function Placements({
           <div className="journey-map-copy">
             <p className="eyebrow">Student Journey</p>
             <h2>
-              Meet your G-TEC guide - here's the path from day one to placed
+              Meet your G-TEC guide - here's the path from{" "}
+              <Highlight>day one to placed</Highlight>
             </h2>
           </div>
           <div className="journey-stage" aria-hidden="true">

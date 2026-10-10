@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { ArrowUpRight, X } from "lucide-react";
+import { courseHref } from "./seo-paths";
 import "./mascot.css";
 
 // Canonical assets: never recolour, mirror, stretch or substitute a new character.
@@ -145,7 +146,7 @@ export function GioFinder() {
                   <Link
                     className="button primary"
                     key={slug}
-                    to={`/courses/${slug}`}
+                    to={courseHref(slug)}
                   >
                     {name}
                     <ArrowUpRight size={16} />

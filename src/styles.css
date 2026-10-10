@@ -2062,6 +2062,11 @@ footer {
     animation: hero-shine 5s ease-in-out .6s infinite
 }
 
+/* The shine makes h1 text transparent; keep the blue phrase solid blue */
+.page-hero.motion-on h1 .blue {
+    -webkit-text-fill-color: var(--blue);
+}
+
 @keyframes hero-shine {
 
     0%,
@@ -4534,10 +4539,6 @@ footer {
     transition: width 0.5s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.internship-reason-card:hover::before {
-    width: 100%;
-}
-
 .reason-card-top {
     display: flex;
     align-items: flex-start;
@@ -4558,12 +4559,6 @@ footer {
     transition: background 0.3s ease, color 0.3s ease, rotate 0.4s ease;
 }
 
-.internship-reason-card:hover .reason-icon {
-    color: #fff;
-    background: linear-gradient(135deg, #2353d6, #25c1b9);
-    rotate: -6deg;
-}
-
 .reason-count {
     font-family: 'Manrope', sans-serif;
     font-size: clamp(2.6rem, 4.4vw, 3.6rem);
@@ -4573,11 +4568,6 @@ footer {
     color: transparent;
     -webkit-text-stroke: 1.5px rgba(35, 83, 214, 0.28);
     transition: color 0.35s ease, -webkit-text-stroke-color 0.35s ease;
-}
-
-.internship-reason-card:hover .reason-count {
-    color: rgba(35, 83, 214, 0.1);
-    -webkit-text-stroke-color: rgba(35, 83, 214, 0.55);
 }
 
 .reason-tag {
@@ -5509,19 +5499,6 @@ footer {
     transition: transform 260ms ease, filter 260ms ease;
 }
 
-.journey-steps article:hover .journey-step-mascot,
-.journey-steps article:focus-within .journey-step-mascot {
-    transform: translateY(-0.45rem) scale(1.08);
-    border-color: rgba(35, 83, 214, 0.28);
-    box-shadow: 0 0.9rem 2rem rgba(35, 83, 214, 0.12);
-}
-
-.journey-steps article:hover .journey-step-mascot .gio,
-.journey-steps article:focus-within .journey-step-mascot .gio {
-    transform: rotate(-6deg) scale(1.06);
-    filter: drop-shadow(0 0.45rem 0.55rem rgba(35, 83, 214, 0.18));
-}
-
 @media (max-width: 980px) {
     .journey-map-card {
         grid-template-columns: auto minmax(0, 1fr);
@@ -5909,4 +5886,115 @@ footer {
     .placement-hero-mascot .placement-mascot-png {
         animation: none;
     }
+}
+/* Placements: home-page style accents (blue words, hand-drawn underline, stars) */
+.placement-modern-hero>.container {
+    position: relative;
+}
+
+.placement-hero-title {
+    position: relative;
+    width: fit-content;
+    max-width: 100%;
+}
+
+.placement-hero-title>span {
+    color: var(--blue);
+}
+
+.placement-underline {
+    width: 78%;
+    bottom: -14px;
+}
+
+.placement-spark-one,
+.placement-spark-two {
+    pointer-events: none;
+    line-height: 1;
+}
+
+.placement-spark-one {
+    top: 1.2rem;
+    right: 6%;
+    font-size: clamp(38px, 5vw, 60px);
+}
+
+.placement-spark-two {
+    top: 38%;
+    right: 20%;
+    font-size: clamp(30px, 4vw, 48px);
+}
+
+.placement-highlight {
+    position: relative;
+    display: inline-block;
+    color: var(--blue);
+}
+
+.placement-highlight::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 4%;
+    bottom: -0.2em;
+    height: 0.3em;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 410 15' preserveAspectRatio='none'%3E%3Cpath d='M3 10Q180-3 406 8' fill='none' stroke='%2391aeff' stroke-width='4' stroke-linecap='round' vector-effect='non-scaling-stroke'/%3E%3C/svg%3E") no-repeat center / 100% 100%;
+    pointer-events: none;
+}
+
+.placement-highlight-star {
+    position: absolute;
+    top: -0.35em;
+    right: -0.7em;
+    font-size: 0.5em;
+    line-height: 1;
+    color: var(--blue);
+}
+
+/* Lighter accents on the dark journey panel */
+.journey-cinema .placement-highlight {
+    color: #9fd0ff;
+}
+
+.journey-cinema .placement-highlight-star {
+    color: #5ee6dc;
+}
+
+@media (max-width: 680px) {
+
+    .placement-spark-one,
+    .placement-spark-two {
+        display: none;
+    }
+
+    .placement-underline {
+        width: 90%;
+    }
+}
+
+/* Site-wide: blue heading phrases get the home hero's hand-drawn underline */
+:is(h1, h2) .blue {
+    position: relative;
+    display: inline-block;
+}
+
+:is(h1, h2) .blue::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 6%;
+    bottom: -0.16em;
+    height: 0.26em;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 410 15' preserveAspectRatio='none'%3E%3Cpath d='M3 10Q180-3 406 8' fill='none' stroke='%2391aeff' stroke-width='4' stroke-linecap='round' vector-effect='non-scaling-stroke'/%3E%3C/svg%3E") no-repeat center / 100% 100%;
+    pointer-events: none;
+}
+
+/* Placements: stats band moved out of the hero */
+.placement-stats-section {
+    position: relative;
+    padding-top: clamp(2rem, 4vw, 3rem);
+}
+
+.placement-stats-section .placement-hero-stats {
+    margin-top: 0;
 }

@@ -4,95 +4,52 @@
   display: contents;
 }
 
-/* Custom trailing cursor: a tight leader dot plus a softer ring that eases
-   behind it, swapping to a filled "view" pill over anything clickable. */
-.placement-cursor-dot,
-.placement-cursor-ring {
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 80;
-  pointer-events: none;
-  border-radius: 50%;
-  transform: translate3d(-50%, -50%, 0);
-  opacity: 0;
-  transition: opacity 0.25s ease;
-}
-
-.placement-cursor-dot {
-  width: 7px;
-  height: 7px;
-  background: #1748db;
-}
-
-.placement-cursor-ring {
-  width: 34px;
-  height: 34px;
-  border: 1.5px solid rgba(23, 72, 219, 0.45);
-  transition: width 0.28s cubic-bezier(0.16, 1, 0.3, 1), height 0.28s cubic-bezier(0.16, 1, 0.3, 1),
-    border-color 0.28s ease, background 0.28s ease, opacity 0.25s ease;
-}
-
-.placement-cursor-dot.is-visible,
-.placement-cursor-ring.is-visible {
-  opacity: 1;
-}
-
-.placement-cursor-ring.is-hover {
-  width: 58px;
-  height: 58px;
-  background: rgba(37, 193, 185, 0.12);
-  border-color: rgba(37, 193, 185, 0.65);
-}
-
-.placement-cursor-dot.is-hover {
-  background: #25c1b9;
-}
-
-@media (max-width: 980px), (hover: none), (pointer: coarse) {
-
-  .placement-cursor-dot,
-  .placement-cursor-ring {
-    display: none;
-  }
-}
-
-/* Hero: pointer parallax and scroll fade (the old cursor-glow blob is gone -
-   replaced by the cursor-companion trail below). */
+/* Hero: scroll fade */
 .motion-on .placement-modern-hero>.container {
   position: relative;
   z-index: 1;
 }
 
 .motion-on .placement-hero-copy {
-  translate: calc(var(--px, 0) * -7px) calc(var(--py, 0) * -5px + var(--hero-scroll, 0) * 36px);
+  translate: 0 calc(var(--hero-scroll, 0) * 36px);
   opacity: calc(1 - var(--hero-scroll, 0) * 0.7);
-  transition: translate 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.motion-on .placement-hero-stats {
-  translate: calc(var(--px, 0) * 5px) calc(var(--py, 0) * 4px + var(--hero-scroll, 0) * 14px);
-  transition: translate 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+/* Hero underline draws itself in, like a pen stroke */
+.motion-on .placement-underline path {
+  stroke-dasharray: 420;
+  stroke-dashoffset: 420;
+  animation: placement-draw 1.1s cubic-bezier(0.65, 0, 0.35, 1) 0.4s forwards;
 }
 
-.motion-on .placement-hero-copy h1 {
-  background: linear-gradient(100deg, currentColor 40%, #4f86ff 50%, currentColor 60%) 0 0 / 250% 100%;
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  color: rgb(6, 13, 76);
-  animation: placement-shine 5s ease-in-out 0.6s infinite;
+@keyframes placement-draw {
+  to {
+    stroke-dashoffset: 0;
+  }
 }
 
-@keyframes placement-shine {
+/* Twinkling stars */
+.motion-on :is(.placement-spark-one, .placement-spark-two, .placement-highlight-star) {
+  animation: placement-twinkle 3.2s ease-in-out infinite;
+}
+
+.motion-on .placement-spark-two {
+  animation-delay: -1.4s;
+}
+
+@keyframes placement-twinkle {
 
   0%,
-  55% {
-    background-position: 100% 0;
+  100% {
+    opacity: 1;
+    scale: 1;
+    rotate: 0deg;
   }
 
-  100% {
-    background-position: -50% 0;
+  50% {
+    opacity: 0.45;
+    scale: 0.78;
+    rotate: 25deg;
   }
 }
 
@@ -122,87 +79,6 @@
   50% {
     translate: 0 -5px;
   }
-}
-
-/* Card hover feedback: lift + a thin traveling border highlight instead of
-   an internal glow blob. */
-.motion-on :is(.placement-stat-card, .internship-reason-card, .eligibility-card, .certificate-card, .partner-card) {
-  position: relative;
-  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease, border-color 0.3s ease;
-}
-
-.motion-on :is(.placement-stat-card, .internship-reason-card, .eligibility-card, .certificate-card, .partner-card)::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  pointer-events: none;
-  padding: 1.5px;
-  background: conic-gradient(from var(--edge-angle, 0deg), transparent 0 78%, #25c1b9 88%, #2353d6 94%, transparent 100%);
-  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
-  opacity: 0;
-  transition: opacity 0.35s ease;
-}
-
-.motion-on :is(.placement-stat-card, .internship-reason-card, .eligibility-card, .certificate-card, .partner-card):hover::after {
-  opacity: 1;
-  animation: placement-edge-spin 2.6s linear infinite;
-}
-
-@keyframes placement-edge-spin {
-  to {
-    --edge-angle: 360deg;
-  }
-}
-
-@property --edge-angle {
-  syntax: '<angle>';
-  inherits: false;
-  initial-value: 0deg;
-}
-
-.motion-on :is(.internship-reason-card, .eligibility-card, .partner-card:not(.is-open)):hover {
-  transform: translateY(-2px);
-  box-shadow: 0 1.4rem 3rem rgba(8, 21, 50, 0.1);
-}
-
-.motion-on .internship-reason-card:hover {
-  z-index: 2;
-  border-color: rgba(35, 83, 214, 0.2);
-}
-
-/* 3D tilt */
-.motion-on :is(.placement-stat-card, .certificate-card) {
-  transform: perspective(900px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg));
-}
-
-.motion-on :is(.placement-stat-card, .certificate-card).is-tilting {
-  transition: transform 0.12s linear, box-shadow 0.3s ease;
-  box-shadow: 0 1.6rem 3.4rem rgba(8, 21, 50, 0.14);
-}
-
-.motion-on .certificate-card.is-tilting .certificate-seal {
-  animation: placement-seal-spin 1.2s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-@keyframes placement-seal-spin {
-  from {
-    rotate: -25deg;
-    scale: 0.9;
-  }
-
-  to {
-    rotate: 0deg;
-    scale: 1;
-  }
-}
-
-/* Magnetic buttons */
-.motion-on :is(.placement-hero-actions, .eligibility-card) .button {
-  translate: var(--bx, 0) var(--by, 0);
-  transition: transform 0.2s, background 0.2s, box-shadow 0.2s, translate 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 /* Journey line fills as you scroll */

@@ -228,7 +228,12 @@ function PlacementCompanies() {
     <section className="section container placement-feature-section">
       <SectionHead
         eyebrow="Placement & Internship Providers"
-        title="Connect your skills with growing teams."
+        title={
+          <>
+            Connect your skills with{" "}
+            <span className="blue">growing teams.</span>
+          </>
+        }
         text="Explore internship opportunities with Bytrix Hub. Other company profiles below are illustrative examples."
       />
       <div className="placement-company-grid">
@@ -373,7 +378,11 @@ function Affiliations() {
     <section className="section container affiliations-section">
       <SectionHead
         eyebrow="Our Affiliations"
-        title="Certificates and learning credentials."
+        title={
+          <>
+            Certificates and <span className="blue">learning credentials.</span>
+          </>
+        }
         text="Industry-recognised certifications and technology partnerships that support G-TEC Mahe's professional training programmes."
       />
       <div className="affiliation-grid">
@@ -471,7 +480,12 @@ function VideoTestimonials() {
       <div className="container">
         <SectionHead
           eyebrow="Video Testimonials"
-          title="Student stories in their own voice."
+          title={
+            <>
+              Student stories in{" "}
+              <span className="blue">their own voice.</span>
+            </>
+          }
           text="Placeholder video cards for future student testimonial uploads."
         />
         <div className="video-testimonial-grid">

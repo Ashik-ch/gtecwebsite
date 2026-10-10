@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef, useContext } from "react";
 import { createRoot } from "react-dom/client";
 import { version as appVersion } from "../package.json";
-import { seoPath } from "./seo-paths";
+import { seoPath, courseHref } from "./seo-paths";
 import {
   BrowserRouter,
   Routes,
@@ -146,7 +146,7 @@ function Header() {
               {courses.map((c) => (
                 <Link
                   key={c.slug}
-                  to={`/courses/${c.slug}`}
+                  to={courseHref(c.slug)}
                   role="menuitem"
                   onClick={() => setCoursesOpen(false)}
                 >
@@ -307,7 +307,7 @@ function Benefits() {
 function CourseCard({ course }) {
   const Icon = icons[course.icon];
   return (
-    <Link to={`/courses/${course.slug}`} className="course-card reveal">
+    <Link to={courseHref(course.slug)} className="course-card reveal">
       <div className="course-image" style={{ backgroundColor: course.color }}>
         <img
           src={photo(course.image, 650)}
@@ -359,9 +359,15 @@ function CourseExplorer({ full = false }) {
         <SectionTitle
           eyebrow="Explore our courses"
           title={
-            full
-              ? "A new skill. A new possibility."
-              : "Your ambition. Your course."
+            full ? (
+              <>
+                A new skill. <span className="blue">A new possibility.</span>
+              </>
+            ) : (
+              <>
+                Your ambition. <span className="blue">Your course.</span>
+              </>
+            )
           }
           text="Explore job-ready courses in Mahe and build skills for your career."
         >
@@ -473,7 +479,8 @@ const aboutCopy = {
         meets <span className="blue">possibility.</span>
       </>
     ),
-    intro: "Your future isn’t one-size-fits-all. Your learning shouldn’t be either.",
+    intro:
+      "Your future isn’t one-size-fits-all. Your learning shouldn’t be either.",
     text: "At G-TEC Mahe, explore job-ready professional courses in technology, design, marketing and business, with practical learning and personalised guidance.",
     features: [
       "Real-world, hands-on learning",
@@ -541,7 +548,12 @@ function WhyUs() {
       <div className="container">
         <SectionTitle
           eyebrow="The G-TEC Difference"
-          title="Learn with purpose. Grow with confidence."
+          title={
+            <>
+              Learn with purpose.{" "}
+              <span className="blue">Grow with confidence.</span>
+            </>
+          }
           text="A learning journey built around the possibilities ahead."
         />
         <div className="why-grid">
@@ -591,8 +603,8 @@ function PlacementSection({ full = false }) {
         </h2>
         <p>
           Learning is just the beginning. Discover how G-TEC Mahe’s career
-          guidance, placement support and practical training can help you
-          become job-ready.
+          guidance, placement support and practical training can help you become
+          job-ready.
         </p>
         <div className="placement-tags">
           <span>
@@ -653,7 +665,12 @@ function Stories() {
       <div className="container">
         <SectionTitle
           eyebrow="The People Behind the Progress"
-          title="Every journey starts with a first step."
+          title={
+            <>
+              Every journey starts with{" "}
+              <span className="blue">a first step.</span>
+            </>
+          }
         />
         <div className="stories-grid">
           <div className="story-intro">
@@ -740,7 +757,11 @@ const galleryPhotoIds = [
 const galleryCopy = {
   home: {
     eyebrow: "The Spirit Of G-TEC",
-    title: "A place to learn. A place to belong.",
+    title: (
+      <>
+        A place to learn. <span className="blue">A place to belong.</span>
+      </>
+    ),
     text: "Curiosity. Collaboration. The excitement of discovering what you can do.",
     cards: [
       ["COLLABORATE", "Learn together."],
@@ -750,7 +771,11 @@ const galleryCopy = {
   },
   about: {
     eyebrow: "The G-TEC Difference",
-    title: "Learn with purpose. Grow with confidence.",
+    title: (
+      <>
+        Learn with purpose. <span className="blue">Grow with confidence.</span>
+      </>
+    ),
     text: "Practical skills, expert guidance and career-focused learning designed to help you move forward.",
     cards: [
       ["PRACTICAL", "Learn by doing."],
@@ -760,7 +785,11 @@ const galleryCopy = {
   },
   life: {
     eyebrow: "THE PEOPLE BEHIND G-TEC mahe",
-    title: "A team that makes it happen.",
+    title: (
+      <>
+        A team that <span className="blue">makes it happen.</span>
+      </>
+    ),
     text: "Meet the people who bring learning, support and opportunity together at G-TEC mahe",
     cards: [
       ["TOGETHER", "One team. One vision."],
@@ -779,7 +808,11 @@ function Gallery({ variant = "home" }) {
   }));
   return (
     <section id="life" className="section container">
-      <SectionTitle eyebrow={copy.eyebrow} title={copy.title} text={copy.text} />
+      <SectionTitle
+        eyebrow={copy.eyebrow}
+        title={copy.title}
+        text={copy.text}
+      />
       <div className="gallery-grid">
         {galleryImages.map((g, i) => (
           <button
@@ -826,7 +859,8 @@ function Team() {
         <span className="eyebrow">People Who Help You Grow</span>
         <h2>
           A little guidance.
-          <br />A world of difference.
+          <br />
+          <span className="blue">A world of difference.</span>
         </h2>
       </div>
       <div>
@@ -882,7 +916,7 @@ function FAQs({ course }) {
         <h2>
           Good questions.
           <br />
-          Helpful answers.
+          <span className="blue">Helpful answers.</span>
         </h2>
         <p>
           Still have something on your mind?
@@ -939,7 +973,7 @@ function Contact() {
         <h2>
           Big plans?
           <br />
-          Start a conversation.
+          <span className="blue">Start a conversation.</span>
         </h2>
         <p>Tell us a little about yourself and what you’d like to learn.</p>
         <div className="address">
@@ -1007,11 +1041,6 @@ function Footer() {
         <div>
           <div className="footer-brand-row">
             <Logo />
-            <p>
-              Innovating your tech future.
-              <br />
-              One skill. One opportunity. One you.
-            </p>
           </div>
           <div className="footer-contact">
             <a href={site.mapUrl} target="_blank" rel="noreferrer">
@@ -1103,7 +1132,7 @@ function Footer() {
         <div>
           <h3>Find your course</h3>
           {courses.slice(0, 4).map((c) => (
-            <Link key={c.slug} to={`/courses/${c.slug}`}>
+            <Link key={c.slug} to={courseHref(c.slug)}>
               {c.name}
             </Link>
           ))}
@@ -1111,7 +1140,7 @@ function Footer() {
         <div>
           <h3>Take the next step</h3>
           {courses.slice(4).map((c) => (
-            <Link key={c.slug} to={`/courses/${c.slug}`}>
+            <Link key={c.slug} to={courseHref(c.slug)}>
               {c.name}
             </Link>
           ))}
@@ -1479,7 +1508,7 @@ function About() {
           <h2>
             Open doors
             <br />
-            through learning.
+            <span className="blue">through learning.</span>
           </h2>
           <p>
             Our direction is shaped by a simple idea: practical skills can help
@@ -1496,7 +1525,7 @@ function About() {
           <h2>
             Help ambition
             <br />
-            become ability.
+            <span className="blue">become ability.</span>
           </h2>
           <p>
             Support learners through relevant professional training, practical
@@ -1508,7 +1537,11 @@ function About() {
       <section className="container section">
         <SectionTitle
           eyebrow="The Learning Environment"
-          title="Space to focus. Support to grow."
+          title={
+            <>
+              Space to focus. <span className="blue">Support to grow.</span>
+            </>
+          }
           text="Explore practical sessions, project-based learning and personalised guidance at G-TEC Mahe. Visit our centre to experience the learning environment and facilities."
         />
         <div className="facility-grid">
@@ -1564,7 +1597,9 @@ function LifeAtGtec() {
       <section className="container section feedback-invite reveal">
         <div>
           <span className="eyebrow">Student Feedback</span>
-          <h2>Studied with us? Tell us how it went.</h2>
+          <h2>
+            Studied with us? <span className="blue">Tell us how it went.</span>
+          </h2>
         </div>
         <Link className="button primary" to="/feedback">
           Share your feedback <Arrow />
@@ -1593,8 +1628,9 @@ function ContactPage() {
     </>
   );
 }
-function CourseDetail() {
-  const { slug } = useParams();
+function CourseDetail({ slug: slugProp }) {
+  const { slug: slugParam } = useParams();
+  const slug = slugProp || slugParam;
   const course = courses.find((c) => c.slug === slug);
   if (!course) return <NotFound />;
   const Icon = icons[course.icon];
@@ -1611,8 +1647,7 @@ function CourseDetail() {
             <div>
               <span className="eyebrow eyebrow-highlight">{course.tag}</span>
               <h1>
-                {course.name}
-                <span className="blue">.</span>
+                <span className="blue">{course.name}.</span>
               </h1>
               <p>{course.description}</p>
               <Enquire course={course.name}>Enquire about this course</Enquire>
@@ -1711,14 +1746,18 @@ function CourseDetail() {
             <Clock />
             <span>
               <strong>Duration</strong>
-              <small>{page.duration || "Confirm your programme schedule"}</small>
+              <small>
+                {page.duration || "Confirm your programme schedule"}
+              </small>
             </span>
           </div>
           <div>
             <GraduationCap />
             <span>
               <strong>Eligibility</strong>
-              <small>{page.eligibility || "Ask about entry requirements"}</small>
+              <small>
+                {page.eligibility || "Ask about entry requirements"}
+              </small>
             </span>
           </div>
           <div>
@@ -1733,7 +1772,8 @@ function CourseDetail() {
             <span>
               <strong>Certification</strong>
               <small>
-                {page.certification || "Confirm qualification and awarding body"}
+                {page.certification ||
+                  "Confirm qualification and awarding body"}
               </small>
             </span>
           </div>
@@ -1745,7 +1785,11 @@ function CourseDetail() {
       <section className="container section">
         <SectionTitle
           eyebrow="Keep Exploring"
-          title="More paths. More possibilities."
+          title={
+            <>
+              More paths. <span className="blue">More possibilities.</span>
+            </>
+          }
         />
         <div className="course-grid">
           {courses
@@ -1784,7 +1828,11 @@ function RouteEffects() {
       ? rawPathname.slice(0, -1)
       : rawPathname;
   useEffect(() => {
-    const c = courses.find((c) => pathname === `/courses/${c.slug}`);
+    const c = courses.find(
+      (c) =>
+        pathname === `/courses/${c.slug}` ||
+        pathname === courseHref(c.slug),
+    );
     const company = placementCompanies.find(
       (item) => pathname === `/placements/companies/${item.slug}`,
     );
@@ -1909,6 +1957,34 @@ function App() {
               }
             />
             <Route path="/courses/:slug" element={<CourseDetail />} />
+            <Route
+              path="/digital-marketing-courses-in-mahe"
+              element={<CourseDetail slug="digital-marketing" />}
+            />
+            <Route
+              path="/multimedia-courses-in-mahe"
+              element={<CourseDetail slug="multimedia" />}
+            />
+            <Route
+              path="/interior-designing-courses-in-mahe"
+              element={<CourseDetail slug="interior-designing" />}
+            />
+            <Route
+              path="/accounting-courses-in-mahe"
+              element={<CourseDetail slug="accounting" />}
+            />
+            <Route
+              path="/ms-office-courses-in-mahe"
+              element={<CourseDetail slug="ms-office" />}
+            />
+            <Route
+              path="/sap-training-courses-in-mahe"
+              element={<CourseDetail slug="sap" />}
+            />
+            <Route
+              path="/skill-development-courses-in-mahe"
+              element={<CourseDetail slug="skill-developments" />}
+            />
             <Route
               path="/placements"
               element={
