@@ -30,22 +30,25 @@ export const placementCompanies = [
     ],
   },
   {
+    // Partner card 02. Slug kept from the previous placeholder entry so
+    // existing routes don't change.
     slug: "northstar-accounts",
-    name: "NorthStar Accounts",
-    field: "Accounting services",
+    name: "AYIZX",
+    field: "Internship provider",
     detail:
-      "Demo recruiter for accounts assistant and Tally operator profiles.",
+      "Ayizx is an internship partner offering learners practical exposure to professional workflows, real-world projects and industry-oriented work environments.",
     about:
-      "NorthStar Accounts is dummy data for testing accounting placement flows, company detail pages and opportunity listings.",
-    location: "Mahe / Thalassery",
-    contact: "hr@northstar-demo.example",
-    logo: "NA",
-    website: "https://example.com/northstar-accounts",
+      "Ayizx is an internship partner offering learners practical exposure to professional workflows, real-world projects and industry-oriented work environments.",
+    location: "USA · China · Saudi Arabia · UAE · Qatar · India · Kuwait",
+    contact: "Through the G-TEC Mahe placement cell",
+    logo: "AY",
     opportunities: [
-      "Accounts Assistant",
-      "Tally Operator",
-      "Billing Executive Trainee",
-      "Office Accounts Trainee",
+      "Digital Marketing",
+      "Web & Development",
+      "AI & Automation",
+      "Creative & Design",
+      "Business & Analytics",
+      "Content Creation",
     ],
   },
   {
@@ -371,7 +374,7 @@ function Affiliations() {
       <SectionHead
         eyebrow="Our Affiliations"
         title="Certificates and learning credentials."
-        text="Industry-recognised certifications and technology partnerships that back our training programmes."
+        text="Industry-recognised certifications and technology partnerships that support G-TEC Mahe's professional training programmes."
       />
       <div className="affiliation-grid">
         {affiliations.map(([label, image]) => (

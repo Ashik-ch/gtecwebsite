@@ -401,6 +401,9 @@ const countryFlagCodes = {
   AU: "au",
   CA: "ca",
   IE: "ie",
+  CN: "cn",
+  SA: "sa",
+  KW: "kw",
 };
 
 const splitMarket = (market) => {
@@ -513,15 +516,43 @@ export default function Placements({
           ],
         },
         {
-          presence: ["QA Qatar", "AE UAE", "IN India"],
-          markets: ["QA Qatar", "AE UAE", "IN India", "GB UK", "AU Australia"],
-          benefits: [
-            "Website and campaign workflow exposure",
-            "Client brief interpretation",
-            "Quality review and reporting practice",
-            "Presentation-ready project documentation",
+          duration: "3 Months",
+          presence: [
+            "US USA",
+            "CN China",
+            "SA Saudi Arabia",
+            "AE UAE",
+            "QA Qatar",
+            "IN India",
+            "KW Kuwait",
           ],
-          domains: ["Web Design", "Digital Campaigns", "Content", "SEO"],
+          markets: [
+            "IN India",
+            "US USA",
+            "CN China",
+            "SA Saudi Arabia",
+            "AE UAE",
+            "QA Qatar",
+            "KW Kuwait",
+          ],
+          marketCaption:
+            "Ayizx's partner markets and client exposure across multiple regions.",
+          benefits: [
+            "Live project experience with real clients",
+            "Professional team and client-oriented communication",
+            "Portfolio-ready work from real projects",
+            "Understanding real client requirements",
+            "Reporting, quality checks and project delivery",
+            "Placement assistance after completion",
+          ],
+          domains: [
+            "Digital Marketing",
+            "Web & Development",
+            "AI & Automation",
+            "Creative & Design",
+            "Business & Analytics",
+            "Content Creation",
+          ],
         },
         {
           presence: ["AE UAE", "GB UK", "US USA"],
@@ -974,8 +1005,8 @@ export default function Placements({
                         ))}
                       </div>
                       <p>
-                        {company.name}'s widest-reaching partner markets and
-                        client exposure.
+                        {company.marketCaption ||
+                          `${company.name}'s widest-reaching partner markets and client exposure.`}
                       </p>
                     </div>
                     <div className="partner-benefit-grid">

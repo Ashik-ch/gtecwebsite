@@ -66,7 +66,7 @@ export default function PlacedStudents() {
             </h2>
             <p>
               {pending
-                ? "Student placement profiles are being prepared. Cards below are placeholders."
+                ? "Meet our placed students and explore their career journeys."
                 : "Meet our placed students and explore the courses they studied."}
             </p>
           </div>

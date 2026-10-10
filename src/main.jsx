@@ -357,13 +357,13 @@ function CourseExplorer({ full = false }) {
     >
       <div className="container">
         <SectionTitle
-          eyebrow="Find Your Direction"
+          eyebrow="Explore our courses"
           title={
             full
               ? "A new skill. A new possibility."
               : "Your ambition. Your course."
           }
-          text="From your first step to your next big move, find a path that feels like you."
+          text="Explore job-ready courses in Mahe and build skills for your career."
         >
           {!full && (
             <Link to="/courses" className="button outline">
@@ -456,7 +456,52 @@ function CourseExplorer({ full = false }) {
     </section>
   );
 }
-function AboutSection() {
+// Home and About share this section; the About page uses its own copy.
+const aboutCopy = {
+  home: {
+    stamp: (
+      <>
+        More than
+        <br />a classroom.
+      </>
+    ),
+    stampText: "A space to become.",
+    heading: (
+      <>
+        Where potential
+        <br />
+        meets <span className="blue">possibility.</span>
+      </>
+    ),
+    intro: "Your future isn’t one-size-fits-all. Your learning shouldn’t be either.",
+    text: "At G-TEC Mahe, explore job-ready professional courses in technology, design, marketing and business, with practical learning and personalised guidance.",
+    features: [
+      "Real-world, hands-on learning",
+      "A focus on your individual goals",
+      "Support for your next career step",
+    ],
+  },
+  about: {
+    stamp: "Learn. Grow. Move forward.",
+    stampText: "Skills for your next chapter.",
+    heading: (
+      <>
+        Where learning becomes
+        <br />
+        <span className="blue">career-ready skills.</span>
+      </>
+    ),
+    intro: "At G-TEC Mahe, learning goes beyond the classroom.",
+    text: "We bring together practical training, industry-relevant skills and personal guidance to help learners build confidence and move towards their career goals.",
+    features: [
+      "Learn From Experts",
+      "Practice What You Learn",
+      "Grow With G-TEC-mahe",
+    ],
+  },
+};
+function AboutSection({ variant = "home" }) {
+  const copy = aboutCopy[variant] || aboutCopy.home;
   return (
     <section className="section container about-section">
       <div className="about-image reveal">
@@ -467,39 +512,21 @@ function AboutSection() {
         />
         <div className="about-stamp">
           <GraduationCap size={34} />
-          <strong>
-            More than
-            <br />a classroom.
-          </strong>
-          <span>A space to become.</span>
+          <strong>{copy.stamp}</strong>
+          <span>{copy.stampText}</span>
         </div>
       </div>
       <div className="about-copy reveal">
         <span className="eyebrow eyebrow-highlight">Welcome to G-TEC MAHE</span>
-        <h2>
-          Where potential
-          <br />
-          meets <span className="blue">possibility.</span>
-        </h2>
-        <p>
-          Your future isn’t one-size-fits-all. Your learning shouldn’t be
-          either.
-        </p>
-        <p>
-          At G-TEC Mahe, explore professional training in technology, design,
-          marketing and business, with practical learning and personalised
-          guidance to help you move forward.
-        </p>
+        <h2>{copy.heading}</h2>
+        <p>{copy.intro}</p>
+        <p>{copy.text}</p>
         <div className="check-list">
-          <span>
-            <CheckCircle2 /> Real-world, hands-on learning
-          </span>
-          <span>
-            <CheckCircle2 /> A focus on your individual goals
-          </span>
-          <span>
-            <CheckCircle2 /> Support for your next career step
-          </span>
+          {copy.features.map((feature) => (
+            <span key={feature}>
+              <CheckCircle2 /> {feature}
+            </span>
+          ))}
         </div>
         <Link className="button outline" to="/about">
           Discover G-TEC Mahe <Arrow />
@@ -523,13 +550,13 @@ function WhyUs() {
               Monitor,
               "01",
               "Turn learning into doing",
-              "Explore concepts through practical sessions and real-world projects.",
+              "Build practical skills through hands-on sessions and real-world projects.",
             ],
             [
               Users,
               "02",
               "Find guidance that matters",
-              "Get personalised support as you build confidence in a new field.",
+              "Get personalised guidance as you build job-ready skills for your career.",
             ],
             [
               Target,
@@ -564,18 +591,18 @@ function PlacementSection({ full = false }) {
         </h2>
         <p>
           Learning is just the beginning. Discover how G-TEC Mahe’s career
-          guidance and placement assistance can support your transition into the
-          workplace.
+          guidance, placement support and practical training can help you
+          become job-ready.
         </p>
         <div className="placement-tags">
           <span>
-            <Check size={15} /> Career guidance
+            <Check size={15} /> Industry exposure
           </span>
           <span>
             <Check size={15} /> Placement assistance
           </span>
           <span>
-            <Check size={15} /> Practical skills
+            <Check size={15} /> Interview Preparation
           </span>
         </div>
         {full ? (
@@ -637,8 +664,8 @@ function Stories() {
               From our community.
             </h3>
             <p>
-              Discover learner experiences and student milestones shared
-              publicly by the G-TEC Mahe community.
+              Discover learner experiences, student success stories and
+              milestones from the G-TEC Mahe community.
             </p>
             <a
               className="inline-link"
@@ -704,32 +731,55 @@ function Stories() {
     </section>
   );
 }
-const galleryImages = [
-  {
-    id: "photo-1523240795612-9a054b0db644",
-    title: "Better, together.",
-    label: "COLLABORATE",
-  },
-  {
-    id: "photo-1522071820081-009f0129c71c",
-    title: "Make room for ideas.",
-    label: "CREATE",
-  },
-  {
-    id: "photo-1516321318423-f06f85e504b3",
-    title: "Stay curious.",
-    label: "DISCOVER",
-  },
+const galleryPhotoIds = [
+  "photo-1523240795612-9a054b0db644",
+  "photo-1522071820081-009f0129c71c",
+  "photo-1516321318423-f06f85e504b3",
 ];
-function Gallery() {
+// Same photos on every page; heading and card copy differ per page.
+const galleryCopy = {
+  home: {
+    eyebrow: "The Spirit Of G-TEC",
+    title: "A place to learn. A place to belong.",
+    text: "Curiosity. Collaboration. The excitement of discovering what you can do.",
+    cards: [
+      ["COLLABORATE", "Learn together."],
+      ["CREATE", "Turn ideas into skills."],
+      ["DISCOVER", "Discover new possibilities."],
+    ],
+  },
+  about: {
+    eyebrow: "The G-TEC Difference",
+    title: "Learn with purpose. Grow with confidence.",
+    text: "Practical skills, expert guidance and career-focused learning designed to help you move forward.",
+    cards: [
+      ["PRACTICAL", "Learn by doing."],
+      ["GUIDANCE", "Learn from experience."],
+      ["CAREER", "Build what’s next."],
+    ],
+  },
+  life: {
+    eyebrow: "THE PEOPLE BEHIND G-TEC mahe",
+    title: "A team that makes it happen.",
+    text: "Meet the people who bring learning, support and opportunity together at G-TEC mahe",
+    cards: [
+      ["TOGETHER", "One team. One vision."],
+      ["people", "Passion behind every step."],
+      ["PURPOSE", "Working towards a better future."],
+    ],
+  },
+};
+function Gallery({ variant = "home" }) {
   const [selected, setSelected] = useState(null);
+  const copy = galleryCopy[variant] || galleryCopy.home;
+  const galleryImages = galleryPhotoIds.map((id, i) => ({
+    id,
+    label: copy.cards[i][0],
+    title: copy.cards[i][1],
+  }));
   return (
     <section id="life" className="section container">
-      <SectionTitle
-        eyebrow="The Spirit Of G-TEC"
-        title="A place to learn. A place to belong."
-        text="Curiosity. Collaboration. The excitement of discovering what you can do."
-      />
+      <SectionTitle eyebrow={copy.eyebrow} title={copy.title} text={copy.text} />
       <div className="gallery-grid">
         {galleryImages.map((g, i) => (
           <button
@@ -781,9 +831,9 @@ function Team() {
       </div>
       <div>
         <p>
-          Meet the people who guide your learning. Talk to our advisors about
-          your course, the teaching team and how practical sessions are
-          delivered.
+          Meet the people who guide your learning at G-TEC Mahe. Talk to our
+          advisors about your course, the teaching team and how practical
+          sessions are delivered.
         </p>
         <a
           href={site.linkedin + "people/"}
@@ -820,7 +870,10 @@ function FAQs({ course }) {
           "What career opportunities can I explore?",
           `Examples in this field include ${course.careers.join(", ")}. These are career directions, not a promise of employment.`,
         ],
-      ]
+      ].map(([question, answer], i) => [
+        question,
+        course.page?.faqs?.[i] || answer,
+      ])
     : faqs;
   return (
     <section className="section container faq-section">
@@ -1414,7 +1467,7 @@ function About() {
         text="A place to discover what you’re capable of — and take the next step towards it."
         items={[["About us"]]}
       />
-      <AboutSection />
+      <AboutSection variant="about" />
       <section className="container section vision-grid">
         <article>
           <div className="vision-label-row">
@@ -1456,7 +1509,7 @@ function About() {
         <SectionTitle
           eyebrow="The Learning Environment"
           title="Space to focus. Support to grow."
-          text="Explore practical sessions, project-based learning and personalised guidance. Visit the centre to see the facilities and confirm resources for your programme."
+          text="Explore practical sessions, project-based learning and personalised guidance at G-TEC Mahe. Visit our centre to experience the learning environment and facilities."
         />
         <div className="facility-grid">
           {[
@@ -1485,7 +1538,7 @@ function About() {
         </div>
       </section>
       <TeamDirectory />
-      <Gallery />
+      <Gallery variant="about" />
       <CTA />
     </>
   );
@@ -1502,10 +1555,10 @@ function LifeAtGtec() {
             <span className="blue">A place to belong.</span>
           </>
         }
-        text="Explore the spirit of learning, creativity and community at G-TEC Mahe."
+        text="Explore the people, culture and community that make G-TEC Mahe special."
         items={[["Life at G-TEC"]]}
       />
-      <Gallery />
+      <Gallery variant="life" />
       <Team />
       <PlacementFeatures variant="videos" />
       <section className="container section feedback-invite reveal">
@@ -1545,6 +1598,10 @@ function CourseDetail() {
   const course = courses.find((c) => c.slug === slug);
   if (!course) return <NotFound />;
   const Icon = icons[course.icon];
+  const page = course.page || {};
+  const sidebarHeading = page.sidebarHeading
+    ? page.sidebarHeading.split(/(?<=\.)\s+/)
+    : ["A little planning.", "A lot of possibility."];
   return (
     <>
       <section className="course-detail-hero">
@@ -1583,20 +1640,20 @@ function CourseDetail() {
       <div className="container course-layout">
         <article>
           <section className="detail-section">
-            <span className="eyebrow">The Start Of Something New</span>
-            <h2>Course overview</h2>
+            <span className="eyebrow">
+              {page.eyebrow || "The Start Of Something New"}
+            </span>
+            <h2>{page.overviewHeading || "Course overview"}</h2>
             <p>
-              {course.description} Talk to our team about the programme options
-              available at G-TEC Mahe and the learning path that suits your
-              goals.
+              {page.overviewText ||
+                `${course.description} Talk to our team about the programme options available at G-TEC Mahe and the learning path that suits your goals.`}
             </p>
           </section>
           <section className="detail-section">
-            <h2>Syllabus & learning themes</h2>
+            <h2>{page.syllabusHeading || "Syllabus & learning themes"}</h2>
             <p>
-              These are indicative themes in this field, not a confirmed
-              syllabus. Request the current programme brochure for module
-              details.
+              {page.syllabusText ||
+                "These are indicative themes in this field, not a confirmed syllabus. Request the current programme brochure for module details."}
             </p>
             <div className="syllabus-list">
               {course.topics.map((t, i) => (
@@ -1609,7 +1666,7 @@ function CourseDetail() {
             </div>
           </section>
           <section className="detail-section">
-            <h2>Skills & tools to explore</h2>
+            <h2>{page.skillsHeading || "Skills & tools to explore"}</h2>
             <div className="tool-tags">
               {course.tools.map((t) => (
                 <span key={t}>{t}</span>
@@ -1619,14 +1676,16 @@ function CourseDetail() {
           <section className="detail-section">
             <h2>Certification</h2>
             <p>
-              Get clarity before you enrol. Ask for the exact certificate title,
-              awarding body, assessment requirements and any separate
-              examination fees.
+              {page.certText ||
+                "Get clarity before you enrol. Ask for the exact certificate title, awarding body, assessment requirements and any separate examination fees."}
             </p>
           </section>
           <section className="detail-section">
-            <h2>Where could this take you?</h2>
-            <p>Potential career directions in this field include:</p>
+            <h2>{page.careerHeading || "Where could this take you?"}</h2>
+            <p>
+              {page.careerText ||
+                "Potential career directions in this field include:"}
+            </p>
             <div className="check-list">
               {course.careers.map((c) => (
                 <span key={c}>
@@ -1641,21 +1700,25 @@ function CourseDetail() {
           <Mascot pose="guide" className="sidebar-gio" />
           <span className="eyebrow">Your Course At A Glance</span>
           <h3>
-            A little planning.
-            <br />A lot of possibility.
+            {sidebarHeading.map((line, i) => (
+              <React.Fragment key={line}>
+                {i > 0 && <br />}
+                {line}
+              </React.Fragment>
+            ))}
           </h3>
           <div>
             <Clock />
             <span>
               <strong>Duration</strong>
-              <small>Confirm your programme schedule</small>
+              <small>{page.duration || "Confirm your programme schedule"}</small>
             </span>
           </div>
           <div>
             <GraduationCap />
             <span>
               <strong>Eligibility</strong>
-              <small>Ask about entry requirements</small>
+              <small>{page.eligibility || "Ask about entry requirements"}</small>
             </span>
           </div>
           <div>
@@ -1669,7 +1732,9 @@ function CourseDetail() {
             <ShieldCheck />
             <span>
               <strong>Certification</strong>
-              <small>Confirm qualification and awarding body</small>
+              <small>
+                {page.certification || "Confirm qualification and awarding body"}
+              </small>
             </span>
           </div>
           <Enquire course={course.name}>Get course details</Enquire>
@@ -1834,7 +1899,7 @@ function App() {
                         <span className="blue">Built around your future.</span>
                       </>
                     }
-                    text="Seven course areas. A world of possibilities. Find the field that sparks your curiosity."
+                    text="Explore our growing range of courses. A world of possibilities. Find the field that sparks your curiosity."
                     items={[["Courses"]]}
                   />
                   <CourseExplorer full />
