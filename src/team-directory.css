@@ -993,7 +993,7 @@
 @media(min-width:1180px) {
     .team-group-row--triple {
         display: grid;
-        grid-template-columns: repeat(6, minmax(0, 1fr));
+        grid-template-columns: repeat(var(--team-cols, 6), minmax(0, 1fr));
         gap: 18px;
         align-items: stretch
     }
@@ -1003,7 +1003,7 @@
     }
 
     .team-group-row--triple .team-group-heading {
-        grid-column: span 2;
+        grid-column: span var(--team-span, 2);
         display: block;
         min-height: 118px;
         margin: 0;

@@ -40,6 +40,11 @@ const groups = [
         designation: "Career Counselor",
         photo: "/images/staff/safa-naval.jpg",
       },
+      {
+        name: "Fathima Nidha Noushad",
+        designation: "Academic Counselor",
+        photo: "/images/staff/fathima-nidha-noushad.jpeg",
+      },
     ],
   },
   {
@@ -219,9 +224,9 @@ function GroupBody({ group }) {
   );
 }
 
-function GroupHeader({ group }) {
+function GroupHeader({ group, style }) {
   return (
-    <header className="team-group-heading reveal">
+    <header className="team-group-heading reveal" style={style}>
       <div>
         <span className="eyebrow">{group.label}</span>
         <h3 id={group.id + "-title"}>{group.title} </h3>
@@ -263,7 +268,16 @@ export default function TeamDirectory() {
           <GroupHeader group={directors} />
           <GroupBody group={directors} />
         </section>
-        <div className="team-group-row--triple">
+        {/* On wide screens each heading spans one column per team member */}
+        <div
+          className="team-group-row--triple"
+          style={{
+            "--team-cols": [hrDepartment, frontOffice, socialMedia].reduce(
+              (total, group) => total + group.members.length,
+              0,
+            ),
+          }}
+        >
           {[hrDepartment, frontOffice, socialMedia].map((group, groupIndex) => (
             <section
               key={group.id}
@@ -271,7 +285,10 @@ export default function TeamDirectory() {
               className="team-group-nested cinematic-team-group"
               aria-labelledby={group.id + "-title"}
             >
-              <GroupHeader group={group} />
+              <GroupHeader
+                group={group}
+                style={{ "--team-span": group.members.length }}
+              />
               <HorizontalGroup
                 members={group.members}
                 wide
