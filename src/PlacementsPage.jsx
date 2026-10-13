@@ -194,8 +194,8 @@ function QuoteSlider({ quotes }) {
 }
 
 // Quick check -> eligible / not yet -> notified
-function EligibilityCheck({ onClose }) {
-  const [step, setStep] = useState("check");
+function EligibilityCheck({ onClose, initialStep = "check" }) {
+  const [step, setStep] = useState(initialStep);
 
   const steps = {
     check: {
@@ -490,7 +490,8 @@ export default function Placements({
   CTA,
   Modal,
 }) {
-  const [eligibilityOpen, setEligibilityOpen] = useState(false);
+  // null when closed, otherwise the popup step to open on ("check" or "notified")
+  const [eligibilityStep, setEligibilityStep] = useState(null);
   const pageRef = useRef(null);
   usePlacementMotion(pageRef);
   const partnerProfiles = placementCompanies
@@ -886,7 +887,7 @@ export default function Placements({
             <button
               className="button primary"
               type="button"
-              onClick={() => setEligibilityOpen(true)}
+              onClick={() => setEligibilityStep("check")}
             >
               Check my eligibility
             </button>
@@ -903,14 +904,13 @@ export default function Placements({
               <li>Same partner companies, same 3-6 month structure</li>
               <li>Applications will open in phases as capacity allows</li>
             </ul>
-            <a
+            <button
               className="button gold"
-              href={whatsappLink(notifyMessage)}
-              target="_blank"
-              rel="noreferrer"
+              type="button"
+              onClick={() => setEligibilityStep("notified")}
             >
               Notify me when this opens
-            </a>
+            </button>
           </article>
         </div>
       </section>
@@ -1132,14 +1132,21 @@ export default function Placements({
 
       <FAQs />
       <CTA />
-      {eligibilityOpen ? (
+      {eligibilityStep ? (
         <Modal
-          title="Check my eligibility"
+          title={
+            eligibilityStep === "notified"
+              ? "Notify me when this opens"
+              : "Check my eligibility"
+          }
           className="eligibility-modal"
           hideTitle
-          onClose={() => setEligibilityOpen(false)}
+          onClose={() => setEligibilityStep(null)}
         >
-          <EligibilityCheck onClose={() => setEligibilityOpen(false)} />
+          <EligibilityCheck
+            initialStep={eligibilityStep}
+            onClose={() => setEligibilityStep(null)}
+          />
           {/* Resume (Google Drive link) form - disabled for now.
           <EligibilityForm /> */}
         </Modal>

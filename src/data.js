@@ -78,7 +78,7 @@ export const courses = [
     },
   },
   {
-    slug: 'accounting', name: 'Accounting', category: 'Business', tag: 'Build Business Confidence', icon: 'Calculator', color: '#f2ecff', image: 'photo-1450101499163-c8848c66ca85',
+    slug: 'accounting', name: 'Accounting', category: 'Business', tag: 'Build Business Confidence', icon: 'Calculator', color: '#f2ecff', image: 'photo-1450101499163-c8848c66ca86',
     description: 'Understand the numbers behind every business. Discover accounting and the tools used in a modern workplace.',
     topics: ['Accounting foundations', 'Business transactions', 'Computerised accounting', 'Financial reporting'],
     tools: ['Tally Prime', 'QuickBooks', 'Zoho Books', 'SAP'],

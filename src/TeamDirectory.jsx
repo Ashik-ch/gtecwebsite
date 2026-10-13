@@ -101,7 +101,7 @@ const groups = [
       },
       {
         name: "Anusree K",
-        designation: "Accounts & Software Trainer",
+        designation: "Accounts, SAP & Software Trainer",
         photo: "/images/staff/anusree-k.jpg",
       },
       {
