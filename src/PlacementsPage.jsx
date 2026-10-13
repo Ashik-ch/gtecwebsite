@@ -15,6 +15,7 @@ import {
   Users,
 } from "lucide-react";
 import { Mascot } from "./Mascot";
+import HeroSparks from "./HeroSparks";
 import { placementCompanies } from "./PlacementFeatures";
 import { site } from "./data";
 import { usePlacementMotion } from "./PlacementMotion";
@@ -643,7 +644,8 @@ export default function Placements({
   };
 
   const stats = [
-    { icon: Users, value: "5", label: "Industry hiring partners" },
+    // Hidden for now:
+    // { icon: Users, value: "5", label: "Industry hiring partners" },
     { icon: Clock, value: "3-6 Months", label: "Structured internship track" },
     {
       icon: MapPin,
@@ -720,12 +722,7 @@ export default function Placements({
             <span>/</span>
             <span>Placements</span>
           </nav>
-          <span className="spark placement-spark-one" aria-hidden="true">
-            ✳
-          </span>
-          <span className="spark placement-spark-two" aria-hidden="true">
-            ✧
-          </span>
+          <HeroSparks />
           <div className="placement-hero-layout">
             <div className="placement-hero-copy">
               <div className="hero-eyebrow">
@@ -757,7 +754,7 @@ export default function Placements({
                   Explore partner companies
                 </button>
                 <button
-                  className="button secondary dark"
+                  className="button secondary dark journey-link"
                   type="button"
                   onClick={() => scrollToPlacementSection("student-journey")}
                 >

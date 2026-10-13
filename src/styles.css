@@ -1537,7 +1537,8 @@ h3 {
     align-items: center;
     gap: 17px;
     color: var(--blue);
-    text-align: left
+    text-align: left;
+    text-decoration: none
 }
 
 .map-placeholder small {
@@ -6009,4 +6010,50 @@ footer {
 
 .placement-stats-section .placement-hero-stats {
     margin-top: 0;
+}
+/* Page headers (About, Courses, Life, Contact, Feedback) reuse the Placements stars */
+.page-hero>.container {
+    position: relative;
+}
+
+@media (max-width: 980px) {
+    .page-hero .placement-spark-two {
+        display: none;
+    }
+}
+
+/* Placements stats band: two cards - duration (1 part) beside countries (2 parts) */
+.placement-stats-section .placement-hero-stats {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
+    align-items: stretch;
+}
+
+.placement-stats-section .placement-stat-card {
+    justify-content: center;
+}
+
+@media (max-width: 680px) {
+    .placement-stats-section .placement-hero-stats {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Placements: Student Journey is desktop/tablet only. Its hero link goes too,
+   since it would scroll to a hidden section. */
+@media (max-width: 680px) {
+    .journey-map-section,
+    .placement-hero-actions .journey-link {
+        display: none;
+    }
+}
+
+/* Enquiry modal: still scrolls, but the scrollbar itself is hidden */
+.modal.enquiry-modal {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.modal.enquiry-modal::-webkit-scrollbar {
+    display: none;
 }

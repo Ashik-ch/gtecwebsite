@@ -51,80 +51,80 @@ export const placementCompanies = [
       "Content Creation",
     ],
   },
-  {
-    slug: "pixelcraft-studio",
-    name: "PixelCraft Studio",
-    field: "Design & multimedia",
-    detail: "Placeholder creative studio for design portfolio opportunities.",
-    about:
-      "PixelCraft Studio is a sample creative company profile for testing multimedia, design and content placement layouts.",
-    location: "Calicut / Hybrid",
-    contact: "studio@pixelcraft-demo.example",
-    logo: "PC",
-    website: "https://example.com/pixelcraft-studio",
-    opportunities: [
-      "Graphic Design Trainee",
-      "Video Editing Intern",
-      "Motion Graphics Assistant",
-      "Creative Content Designer",
-    ],
-  },
-  {
-    slug: "urbannest-interiors",
-    name: "UrbanNest Interiors",
-    field: "Interior design",
-    detail: "Sample placement company for junior designer and drafting roles.",
-    about:
-      "UrbanNest Interiors is dummy company data for interior design students and junior drafting opportunity previews.",
-    location: "Kannur / Site visits",
-    contact: "careers@urbannest-demo.example",
-    logo: "UI",
-    website: "https://example.com/urbannest-interiors",
-    opportunities: [
-      "Junior Interior Designer",
-      "Drafting Assistant",
-      "3D Visualisation Trainee",
-      "Design Presentation Assistant",
-    ],
-  },
-  {
-    slug: "brightdesk-solutions",
-    name: "BrightDesk Solutions",
-    field: "Office administration",
-    detail:
-      "Dummy company for MS Office, admin and front-office role previews.",
-    about:
-      "BrightDesk Solutions helps test admin-focused job cards and company pages during development.",
-    location: "Mahe",
-    contact: "jobs@brightdesk-demo.example",
-    logo: "BD",
-    website: "https://example.com/brightdesk-solutions",
-    opportunities: [
-      "Office Admin Executive",
-      "Data Entry Operator",
-      "Front Desk Trainee",
-      "Documentation Assistant",
-    ],
-  },
-  {
-    slug: "cloudline-erp",
-    name: "CloudLine ERP",
-    field: "ERP & software support",
-    detail:
-      "Dummy partner for SAP, ERP support and software trainee opportunities.",
-    about:
-      "CloudLine ERP is placeholder data for testing enterprise software placement content and opportunity categories.",
-    location: "Remote / Kochi",
-    contact: "talent@cloudline-demo.example",
-    logo: "CE",
-    website: "https://example.com/cloudline-erp",
-    opportunities: [
-      "ERP Support Trainee",
-      "SAP End-user Support",
-      "Software Support Associate",
-      "Implementation Coordinator Trainee",
-    ],
-  },
+  // {
+  //   slug: "pixelcraft-studio",
+  //   name: "PixelCraft Studio",
+  //   field: "Design & multimedia",
+  //   detail: "Placeholder creative studio for design portfolio opportunities.",
+  //   about:
+  //     "PixelCraft Studio is a sample creative company profile for testing multimedia, design and content placement layouts.",
+  //   location: "Calicut / Hybrid",
+  //   contact: "studio@pixelcraft-demo.example",
+  //   logo: "PC",
+  //   website: "https://example.com/pixelcraft-studio",
+  //   opportunities: [
+  //     "Graphic Design Trainee",
+  //     "Video Editing Intern",
+  //     "Motion Graphics Assistant",
+  //     "Creative Content Designer",
+  //   ],
+  // },
+  // {
+  //   slug: "urbannest-interiors",
+  //   name: "UrbanNest Interiors",
+  //   field: "Interior design",
+  //   detail: "Sample placement company for junior designer and drafting roles.",
+  //   about:
+  //     "UrbanNest Interiors is dummy company data for interior design students and junior drafting opportunity previews.",
+  //   location: "Kannur / Site visits",
+  //   contact: "careers@urbannest-demo.example",
+  //   logo: "UI",
+  //   website: "https://example.com/urbannest-interiors",
+  //   opportunities: [
+  //     "Junior Interior Designer",
+  //     "Drafting Assistant",
+  //     "3D Visualisation Trainee",
+  //     "Design Presentation Assistant",
+  //   ],
+  // },
+  // {
+  //   slug: "brightdesk-solutions",
+  //   name: "BrightDesk Solutions",
+  //   field: "Office administration",
+  //   detail:
+  //     "Dummy company for MS Office, admin and front-office role previews.",
+  //   about:
+  //     "BrightDesk Solutions helps test admin-focused job cards and company pages during development.",
+  //   location: "Mahe",
+  //   contact: "jobs@brightdesk-demo.example",
+  //   logo: "BD",
+  //   website: "https://example.com/brightdesk-solutions",
+  //   opportunities: [
+  //     "Office Admin Executive",
+  //     "Data Entry Operator",
+  //     "Front Desk Trainee",
+  //     "Documentation Assistant",
+  //   ],
+  // },
+  // {
+  //   slug: "cloudline-erp",
+  //   name: "CloudLine ERP",
+  //   field: "ERP & software support",
+  //   detail:
+  //     "Dummy partner for SAP, ERP support and software trainee opportunities.",
+  //   about:
+  //     "CloudLine ERP is placeholder data for testing enterprise software placement content and opportunity categories.",
+  //   location: "Remote / Kochi",
+  //   contact: "talent@cloudline-demo.example",
+  //   logo: "CE",
+  //   website: "https://example.com/cloudline-erp",
+  //   opportunities: [
+  //     "ERP Support Trainee",
+  //     "SAP End-user Support",
+  //     "Software Support Associate",
+  //     "Implementation Coordinator Trainee",
+  //   ],
+  // },
 ];
 
 const openings = [

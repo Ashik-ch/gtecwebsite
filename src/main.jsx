@@ -57,6 +57,7 @@ import PlacementFeatures, {
 } from "./PlacementFeatures";
 import Placements from "./PlacementsPage";
 import StudentFeedbackPage from "./StudentFeedbackPage";
+import HeroSparks from "./HeroSparks";
 import Chatbot from "./Chatbot";
 import { EnquiryContext } from "./EnquiryContext";
 import { useHeroMotion } from "./HeroMotion";
@@ -985,7 +986,7 @@ function CTA() {
   );
 }
 function Contact() {
-  const [map, setMap] = useState(false);
+  // const [map, setMap] = useState(false); // for the hidden embedded map
   return (
     <section id="contact" className="section container contact-section">
       <div>
@@ -1033,6 +1034,7 @@ function Contact() {
             </p>
           </div>
         </div>
+        {/* Embedded map hidden for now - the card opens Google Maps instead.
         {map ? (
           <iframe
             title="G-TEC Mahe location on Google Maps"
@@ -1040,15 +1042,19 @@ function Contact() {
             loading="lazy"
             src={`https://maps.google.com/maps?q=${encodeURIComponent("G-TEC Mahe " + site.address)}&output=embed`}
           />
-        ) : (
-          <button className="map-placeholder" onClick={() => setMap(true)}>
-            <MapPin size={26} />
-            <span>
-              Explore our location<small>Load Google Maps</small>
-            </span>
-            <Arrow />
-          </button>
-        )}
+        ) : null} */}
+        <a
+          className="map-placeholder"
+          href="https://share.google/lEKiVa48vQ7hOk13u"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <MapPin size={26} />
+          <span>
+            Explore our location<small>Load Google Maps</small>
+          </span>
+          <Arrow />
+        </a>
       </div>
       <EnquiryForm />
     </section>
@@ -1472,6 +1478,7 @@ function PageHero({ eyebrow, title, text, items }) {
   return (
     <section className="page-hero" ref={heroRef}>
       <div className="container">
+        <HeroSparks count={3} />
         <Breadcrumbs items={items} />
         <span className="eyebrow eyebrow-highlight">{eyebrow}</span>
         <h1>{title}</h1>
@@ -1908,8 +1915,7 @@ function RouteEffects() {
       email: site.email,
       address: {
         "@type": "PostalAddress",
-        streetAddress: "Near Full Cart Supermarket, Parimadam, New Mahe",
-        addressLocality: "Thalassery",
+        streetAddress: "Parimadam, New Mahe",
         addressRegion: "Kerala",
         postalCode: "673311",
         addressCountry: "IN",
@@ -2034,6 +2040,7 @@ function App() {
         {enquiry && (
           <Modal
             title="Your future starts with a conversation."
+            className="enquiry-modal"
             onClose={() => setEnquiry(null)}
           >
             <div className="gio-form-intro">
