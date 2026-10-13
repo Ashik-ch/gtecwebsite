@@ -6057,3 +6057,164 @@ footer {
 .modal.enquiry-modal::-webkit-scrollbar {
     display: none;
 }
+
+/* Contact: "Explore our location" map card */
+.contact-section .map-placeholder {
+    display: grid;
+    gap: 0;
+    padding: 0;
+    max-width: 400px;
+    overflow: hidden;
+    border: 1px solid #dbe4f6;
+    border-radius: 16px;
+    background: #fff;
+    box-shadow: 0 14px 34px rgba(23, 53, 98, 0.08);
+    transition: box-shadow 0.3s ease, transform 0.3s ease, border-color 0.3s ease;
+}
+
+.contact-section .map-placeholder:hover {
+    transform: translateY(-3px);
+    border-color: #b9c9f2;
+    box-shadow: 0 20px 44px rgba(23, 53, 98, 0.14);
+}
+
+.map-card-art {
+    position: relative;
+    display: block;
+    height: 112px;
+    background:
+        linear-gradient(#e6edf9 1px, transparent 1px) 0 0 / 26px 26px,
+        linear-gradient(90deg, #e6edf9 1px, transparent 1px) 0 0 / 26px 26px,
+        linear-gradient(135deg, #f4f7fe, #eaf6f5);
+}
+
+.map-card-art svg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.map-road {
+    fill: none;
+    stroke: #fff;
+    stroke-width: 9;
+    stroke-linecap: round;
+}
+
+.map-road.thin {
+    stroke-width: 6;
+}
+
+.map-route {
+    fill: none;
+    stroke: var(--blue);
+    stroke-width: 3;
+    stroke-linecap: round;
+    stroke-dasharray: 7 7;
+    animation: map-route-flow 1.6s linear infinite;
+}
+
+@keyframes map-route-flow {
+    to {
+        stroke-dashoffset: -14;
+    }
+}
+
+.map-card-pin {
+    position: absolute;
+    left: 72%;
+    top: 28%;
+    display: grid;
+    place-items: center;
+    width: 38px;
+    height: 38px;
+    border-radius: 50% 50% 50% 0;
+    background: var(--blue);
+    color: #fff;
+    rotate: -45deg;
+    translate: -50% -50%;
+    box-shadow: 0 8px 18px rgba(23, 72, 219, 0.35);
+}
+
+.map-card-pin svg {
+    rotate: 45deg;
+}
+
+.map-card-pin::after {
+    content: "";
+    position: absolute;
+    inset: -6px;
+    border-radius: inherit;
+    border: 2px solid rgba(23, 72, 219, 0.35);
+    animation: map-pin-pulse 2s ease-out infinite;
+}
+
+@keyframes map-pin-pulse {
+    from {
+        opacity: 1;
+        scale: 0.85;
+    }
+
+    to {
+        opacity: 0;
+        scale: 1.5;
+    }
+}
+
+.map-card-body {
+    display: grid;
+    gap: 4px;
+    padding: 16px 20px 18px;
+}
+
+.map-card-title {
+    color: var(--ink);
+    font-family: 'Manrope', sans-serif;
+    font-size: 17px;
+    font-weight: 800;
+}
+
+.contact-section .map-placeholder .map-card-body small {
+    margin-top: 0;
+    color: var(--muted);
+    font-size: 13.5px;
+    line-height: 1.5;
+}
+
+.map-card-action {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 8px;
+    color: var(--blue);
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.map-card-action svg {
+    transition: translate 0.25s ease;
+}
+
+.contact-section .map-placeholder:hover .map-card-action svg {
+    translate: 3px -3px;
+}
+
+@media (max-width: 760px) {
+    .contact-section .map-placeholder {
+        max-width: none;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    .map-route,
+    .map-card-pin::after {
+        animation: none;
+    }
+
+    .contact-section .map-placeholder,
+    .map-card-action svg {
+        transition: none;
+    }
+}

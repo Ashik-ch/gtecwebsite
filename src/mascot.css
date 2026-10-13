@@ -446,7 +446,7 @@
     }
 
     .hero-art:has(.gio-welcome) .badge-skills {
-        top: 30%;
+        top: 10%;
         left: -3%
     }
 

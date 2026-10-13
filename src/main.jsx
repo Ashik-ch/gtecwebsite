@@ -1001,7 +1001,11 @@ function Contact() {
           <MapPin size={23} />
           <div>
             <strong>Visit G-TEC Mahe</strong>
-            <p>{site.address}</p>
+            <p>
+              {site.addressLines[0]}
+              <br />
+              {site.addressLines[1]}
+            </p>
             <a
               className="inline-link"
               href={site.mapUrl}
@@ -1049,11 +1053,27 @@ function Contact() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          <MapPin size={26} />
-          <span>
-            Explore our location<small>Load Google Maps</small>
+          {/* Decorative mini map: roads, dashed route and a pulsing pin */}
+          <span className="map-card-art" aria-hidden="true">
+            <svg viewBox="0 0 320 120" preserveAspectRatio="xMidYMid slice">
+              <path className="map-road" d="M-10 86 C60 70 90 104 160 82 S260 40 330 58" />
+              <path className="map-road" d="M70 -10 C82 40 64 80 92 130" />
+              <path className="map-road thin" d="M200 -10 C214 34 190 70 236 130" />
+              <path className="map-route" d="M40 100 C90 84 120 92 160 70 S226 44 236 46" />
+            </svg>
+            <span className="map-card-pin">
+              <MapPin size={20} />
+            </span>
           </span>
-          <Arrow />
+          <span className="map-card-body">
+            <span className="map-card-title">Explore our location</span>
+            <small>
+              {site.addressLines[0]} {site.addressLines[1]}
+            </small>
+            <span className="map-card-action">
+              Open in Google Maps <Arrow />
+            </span>
+          </span>
         </a>
       </div>
       <EnquiryForm />
@@ -1070,7 +1090,12 @@ function Footer() {
           </div>
           <div className="footer-contact">
             <a href={site.mapUrl} target="_blank" rel="noreferrer">
-              <MapPin size={14} aria-hidden="true" /> {site.address}
+              <MapPin size={14} aria-hidden="true" />{" "}
+              <span>
+                {site.addressLines[0]}
+                <br />
+                {site.addressLines[1]}
+              </span>
             </a>
             <a href={`tel:+91${site.phone}`}>
               <Phone size={14} aria-hidden="true" /> +91 {site.phone}
@@ -1915,7 +1940,7 @@ function RouteEffects() {
       email: site.email,
       address: {
         "@type": "PostalAddress",
-        streetAddress: "Parimadam, New Mahe",
+        streetAddress: "Parimadam, New Mahe, Mahe,",
         addressRegion: "Kerala",
         postalCode: "673311",
         addressCountry: "IN",
