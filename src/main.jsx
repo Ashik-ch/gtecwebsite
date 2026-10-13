@@ -489,8 +489,15 @@ const aboutCopy = {
     ],
   },
   about: {
-    stamp: "Learn. Grow. Move forward.",
+    stamp: (
+      <>
+        Learn. Grow.
+        <br />
+        Move forward.
+      </>
+    ),
     stampText: "Skills for your next chapter.",
+    image: "/images/about.png",
     heading: (
       <>
         Where learning becomes
@@ -513,13 +520,15 @@ function AboutSection({ variant = "home" }) {
     <section className="section container about-section">
       <div className="about-image reveal">
         <img
-          src={photo("about", 1000)}
+          src={copy.image || "/images/home.png"}
           loading="lazy"
-          alt="Illustrative photograph of learners collaborating around a table"
+          alt="Gtec Mahe learners collaborating on a project in a classroom setting"
         />
         <div className="about-stamp">
-          <GraduationCap size={34} />
-          <strong>{copy.stamp}</strong>
+          <strong>
+            <GraduationCap size={30} className="about-stamp-icon" />
+            {copy.stamp}
+          </strong>
           <span>{copy.stampText}</span>
         </div>
       </div>
@@ -748,14 +757,15 @@ function Stories() {
     </section>
   );
 }
-const galleryPhotoIds = [
-  "photo-1523240795612-9a054b0db644",
-  "photo-1522071820081-009f0129c71c",
-  "photo-1516321318423-f06f85e504b3",
+const spiritImages = [
+  "/images/spirit-1.png",
+  "/images/spirit-2.png",
+  "/images/spirit-3.png",
 ];
-// Same photos on every page; heading and card copy differ per page.
+// Heading, card copy and photos per page.
 const galleryCopy = {
   home: {
+    images: spiritImages,
     eyebrow: "The Spirit Of G-TEC",
     title: (
       <>
@@ -770,6 +780,11 @@ const galleryCopy = {
     ],
   },
   about: {
+    images: [
+      "/images/about-01.png",
+      "/images/about-02.png",
+      "/images/about-03.png",
+    ],
     eyebrow: "The G-TEC Difference",
     title: (
       <>
@@ -784,6 +799,11 @@ const galleryCopy = {
     ],
   },
   life: {
+    images: [
+      "/images/people-01.png",
+      "/images/people-02.png",
+      "/images/people-03.png",
+    ],
     eyebrow: "THE PEOPLE BEHIND G-TEC mahe",
     title: (
       <>
@@ -801,7 +821,7 @@ const galleryCopy = {
 function Gallery({ variant = "home" }) {
   const [selected, setSelected] = useState(null);
   const copy = galleryCopy[variant] || galleryCopy.home;
-  const galleryImages = galleryPhotoIds.map((id, i) => ({
+  const galleryImages = copy.images.map((id, i) => ({
     id,
     label: copy.cards[i][0],
     title: copy.cards[i][1],
@@ -1830,8 +1850,7 @@ function RouteEffects() {
   useEffect(() => {
     const c = courses.find(
       (c) =>
-        pathname === `/courses/${c.slug}` ||
-        pathname === courseHref(c.slug),
+        pathname === `/courses/${c.slug}` || pathname === courseHref(c.slug),
     );
     const company = placementCompanies.find(
       (item) => pathname === `/placements/companies/${item.slug}`,

@@ -41,7 +41,7 @@ export const placementCompanies = [
       "Ayizx is an internship partner offering learners practical exposure to professional workflows, real-world projects and industry-oriented work environments.",
     location: "USA · China · Saudi Arabia · UAE · Qatar · India · Kuwait",
     contact: "Through the G-TEC Mahe placement cell",
-    logo: "AY",
+    logo: "/images/comp1AYIZX.png ",
     opportunities: [
       "Digital Marketing",
       "Web & Development",
@@ -482,8 +482,7 @@ function VideoTestimonials() {
           eyebrow="Video Testimonials"
           title={
             <>
-              Student stories in{" "}
-              <span className="blue">their own voice.</span>
+              Student stories in <span className="blue">their own voice.</span>
             </>
           }
           text="Placeholder video cards for future student testimonial uploads."
