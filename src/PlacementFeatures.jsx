@@ -41,7 +41,7 @@ export const placementCompanies = [
       "Ayizx is an internship partner offering learners practical exposure to professional workflows, real-world projects and industry-oriented work environments.",
     location: "USA · China · Saudi Arabia · UAE · Qatar · India · Kuwait",
     contact: "Through the G-TEC Mahe placement cell",
-    logo: "/images/comp1AYIZX.png ",
+    logo: "/images/ayizx-favicon.ico",
     opportunities: [
       "Digital Marketing",
       "Web & Development",
@@ -234,7 +234,7 @@ function PlacementCompanies() {
             <span className="blue">growing teams.</span>
           </>
         }
-        text="Explore internship opportunities with Bytrix Hub. Other company profiles below are illustrative examples."
+        text="Explore internship opportunities with Bytrix Hub, Ayizx and other placement partners. Gain practical exposure to professional workflows, real-world projects and industry-oriented work environments."
       />
       <div className="placement-company-grid">
         {placementCompanies.map((company) => (

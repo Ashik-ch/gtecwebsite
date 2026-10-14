@@ -1,4 +1,4 @@
-export const courses = [
+﻿export const courses = [
   {
     slug: 'digital-marketing', name: 'Digital Marketing', category: 'Marketing', tag: 'Build Your Career', icon: 'Megaphone', color: '#e9eeff', image: '/images/courses/digital-marketing.jpg',
     description: 'Build practical skills in digital marketing, SEO, social media and online growth.',
@@ -78,7 +78,7 @@ export const courses = [
     },
   },
   {
-    slug: 'accounting', name: 'Accounting', category: 'Business', tag: 'Build Business Confidence', icon: 'Calculator', color: '#f2ecff', image: 'photo-1450101499163-c8848c66ca86',
+    slug: 'accounting', name: 'Accounting', category: 'Business', tag: 'Build Business Confidence', icon: 'Calculator', color: '#f2ecff', image: 'photo-1450101499163-c8848c66ca85',
     description: 'Understand the numbers behind every business. Discover accounting and the tools used in a modern workplace.',
     topics: ['Accounting foundations', 'Business transactions', 'Computerised accounting', 'Financial reporting'],
     tools: ['Tally Prime', 'QuickBooks', 'Zoho Books', 'SAP'],
@@ -184,7 +184,7 @@ export const courses = [
     },
   },
 ];
-export const site = { name: 'G-TEC Mahe', url: 'https://gtecmahe.com', address: 'Parimadam, New Mahe, Mahe, Kerala 673311', addressLines: ['Parimadam, New Mahe, Mahe,', 'Kerala 673311'],mapUrl: 'https://maps.app.goo.gl/NcbyvmiELrYXGfTdA', phone: '9745099220', phoneSecondary: '9745399220', email: 'admingtecmahe@gmail.com', instagram: 'https://www.instagram.com/gtec_mahe?stkn=c3pucDJmYTd4cGxo', facebook: 'https://www.facebook.com/gtecmahe', linkedin: 'https://www.linkedin.com/company/gtec-mahe/', whatsapp: 'https://wa.me/message/YN52QJSMD3MGB1', whatsappNumber: (import.meta.env.VITE_WHATSAPP_NUMBER || '').replace(/\D/g, ''), enquiryEndpoint: import.meta.env.VITE_ENQUIRY_ENDPOINT || '' };
+export const site = { name: 'G-TEC Mahe', url: 'https://gtecmahe.com', address: 'Parimadam, New Mahe, Mahe, Kerala 673311', addressLines: ['Parimadam, New Mahe, Mahe,', 'Kerala 673311'], mapUrl: 'https://maps.app.goo.gl/NcbyvmiELrYXGfTdA', phone: '9745099220', phoneSecondary: '9745399220', email: 'admingtecmahe@gmail.com', instagram: 'https://www.instagram.com/gtec_mahe?stkn=c3pucDJmYTd4cGxo', facebook: 'https://www.facebook.com/gtecmahe', linkedin: 'https://www.linkedin.com/company/gtec-mahe/', whatsapp: 'https://wa.me/message/YN52QJSMD3MGB1', whatsappNumber: (import.meta.env.VITE_WHATSAPP_NUMBER || '').replace(/\D/g, ''), enquiryEndpoint: import.meta.env.VITE_ENQUIRY_ENDPOINT || '' };
 export const faqs = [
   ['How do I choose the right course?', 'Start with your interests, career goals and current skills. At G-TEC Mahe, our advisors can help you explore suitable courses and choose a learning path that matches your goals.'],
   ['Can I join as a beginner?', 'Yes. Many programmes at G-TEC Mahe are suitable for beginners. Entry requirements may vary by course, so our admissions team can guide you on the right starting point.'],
@@ -193,4 +193,5 @@ export const faqs = [
   ['Are internships available?', 'Internship opportunities may be available depending on the programme. Ask the G-TEC Mahe team about current internship opportunities, eligibility and programme-specific details.'],
   ['Does G-TEC Mahe provide interview preparation?', 'Yes. Selected programmes may include interview preparation and career support to help learners build confidence and prepare for employment opportunities.'],
 ];
+
 

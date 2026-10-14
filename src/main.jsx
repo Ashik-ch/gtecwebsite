@@ -844,7 +844,7 @@ function Gallery({ variant = "home" }) {
           >
             <img
               src={photo(g.id, 900)}
-              alt={`Illustrative learning scene: ${g.title}`}
+              alt={`learning scene: ${g.title}`}
               loading="lazy"
             />
             <span>
@@ -865,9 +865,8 @@ function Gallery({ variant = "home" }) {
         >
           <img
             src={photo(selected.id, 1600)}
-            alt={`Illustrative learning scene: ${selected.title}`}
+            alt={`learning scene: ${selected.title}`}
           />
-          <p>Illustrative learning photography.</p>
         </Modal>
       )}
     </section>
@@ -1056,10 +1055,19 @@ function Contact() {
           {/* Decorative mini map: roads, dashed route and a pulsing pin */}
           <span className="map-card-art" aria-hidden="true">
             <svg viewBox="0 0 320 120" preserveAspectRatio="xMidYMid slice">
-              <path className="map-road" d="M-10 86 C60 70 90 104 160 82 S260 40 330 58" />
+              <path
+                className="map-road"
+                d="M-10 86 C60 70 90 104 160 82 S260 40 330 58"
+              />
               <path className="map-road" d="M70 -10 C82 40 64 80 92 130" />
-              <path className="map-road thin" d="M200 -10 C214 34 190 70 236 130" />
-              <path className="map-route" d="M40 100 C90 84 120 92 160 70 S226 44 236 46" />
+              <path
+                className="map-road thin"
+                d="M200 -10 C214 34 190 70 236 130"
+              />
+              <path
+                className="map-route"
+                d="M40 100 C90 84 120 92 160 70 S226 44 236 46"
+              />
             </svg>
             <span className="map-card-pin">
               <MapPin size={20} />
