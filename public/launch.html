@@ -1,145 +1,1050 @@
 <!doctype html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>G-TEC Mahe — Launch Day</title>
-<style>
-*{box-sizing:border-box}body{margin:0;background:#040b20;color:#fff;font-family:Arial,Helvetica,sans-serif}button,a{-webkit-tap-highlight-color:transparent}button{font:inherit;cursor:pointer}a{color:inherit}button:focus-visible,a:focus-visible{outline:3px solid #68e6ff;outline-offset:6px}.launch{min-height:100svh;display:flex;flex-direction:column;isolation:isolate;overflow:hidden;position:relative;background:radial-gradient(ellipse at 50% 60%,#163c852e,transparent 65%)}header,footer{display:flex;justify-content:space-between;align-items:center;gap:20px;padding:28px clamp(22px,5vw,80px);z-index:2}header img{width:100px;height:64px;object-fit:contain;background:#fff;border-radius:12px;padding:7px}.label{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#9db4d5}.live{display:flex;align-items:center;gap:10px}.live:before{content:"";width:7px;height:7px;background:#64e2ff;border-radius:50%;box-shadow:0 0 18px #64e2ff}main{flex:1;min-height:550px;display:grid;place-items:center;position:relative;padding:50px 22px}.ambient{position:absolute;inset:0;pointer-events:none;z-index:-1;background-image:radial-gradient(#75c9ff80 1px,transparent 1px);background-size:73px 73px;mask-image:linear-gradient(transparent,#000,transparent);animation:drift 35s linear infinite}.halo{position:absolute;width:min(80vw,720px);aspect-ratio:1;border:1px solid #438bff35;border-radius:50%;box-shadow:0 0 90px #145cfd24,inset 0 0 80px #145cfd15;pointer-events:none;animation:orbit 24s linear infinite}.halo:before,.halo:after{content:"";position:absolute;inset:8%;border-radius:50%;border:1px dashed #6dbdff30}.halo:after{inset:20%;border-style:solid;border-color:#6dbdff20}.halo i{position:absolute;top:50%;left:-4px;width:8px;height:8px;border-radius:50%;background:#6ff3ff;box-shadow:0 0 30px #67eaff}.stage{position:relative;text-align:center;width:min(100%,1000px);z-index:1}.eyebrow{color:#76ccff;letter-spacing:.27em;font-size:12px;text-transform:uppercase;margin:0 0 24px}.intro{font-size:clamp(22px,3.5vw,42px);font-weight:400;letter-spacing:-.04em;margin:0}.number{font-size:clamp(130px,25vw,260px);line-height:1.05;font-weight:800;letter-spacing:-.08em;text-indent:-.08em;margin:16px 0;color:#fff;text-shadow:0 0 75px #428bff70}.number.tick{animation:tick .65s cubic-bezier(.2,.7,.2,1)}.count-note{color:#99afce;font-size:15px;line-height:1.6}.progress{height:3px;background:#ffffff15;width:min(260px,75%);margin:26px auto;border-radius:4px;overflow:hidden}.progress span{display:block;height:100%;background:linear-gradient(90deg,#225cff,#65ecff);width:0;transition:width .6s linear}.reveal h1{font-size:clamp(48px,8vw,106px);line-height:1.02;letter-spacing:-.065em;margin:12px 0 24px}.reveal h1 span{display:block;color:#78d5ff}.reveal p.copy{color:#b5c4dd;font-size:clamp(16px,2vw,20px);line-height:1.7;max-width:550px;margin:0 auto 34px}.actions{display:flex;justify-content:center;align-items:center;flex-wrap:wrap;gap:16px}.enter{display:inline-flex;align-items:center;gap:36px;text-decoration:none;background:#245cff;border:1px solid #5984ff;border-radius:100px;padding:19px 30px;font-size:15px;font-weight:700;box-shadow:0 12px 60px #245cff55;transition:transform .2s,background .2s}.enter:hover{transform:translateY(-3px);background:#3970ff}.quiet{border:1px solid #ffffff25;color:#bbcbe2;border-radius:100px;padding:12px 19px;background:#ffffff05;font-size:12px}.quiet:hover{background:#ffffff10}.reveal{animation:arrive 1.3s cubic-bezier(.16,1,.3,1) both}.reveal .eyebrow{display:inline-block;border:1px solid #61ddff40;padding:10px 18px;border-radius:100px;background:#59cbff09}.flash{position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse,#a7eaff,transparent 70%);opacity:0;z-index:3}.launched .flash{animation:flash 1.3s ease-out both}.launched .halo{border-color:#62dfff70;box-shadow:0 0 140px #145cfd50}.confetti{position:absolute;inset:0;pointer-events:none;overflow:hidden}.confetti i{position:absolute;left:var(--x);top:-20px;width:6px;height:16px;background:var(--c);animation:fall var(--t) var(--delay) ease-in forwards}footer{font-size:11px;color:#859bbb;letter-spacing:.06em}.signature{color:#b4c8e8}.sr-only{position:absolute;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0,0,0,0)}[hidden]{display:none!important}@keyframes orbit{to{transform:rotate(360deg)}}@keyframes drift{to{background-position:146px 146px}}@keyframes tick{from{opacity:0;transform:scale(1.25);filter:blur(8px)}to{opacity:1;transform:scale(1);filter:blur(0)}}@keyframes arrive{from{opacity:0;transform:translateY(45px);filter:blur(12px)}to{opacity:1;transform:none;filter:blur(0)}}@keyframes flash{0%{opacity:.65}100%{opacity:0}}@keyframes fall{to{transform:translate3d(50px,110vh,0) rotate(560deg);opacity:0}}@media(max-width:600px){header,footer{padding:22px}header img{width:80px;height:52px}header .label{font-size:9px;letter-spacing:.12em}main{min-height:480px;padding:40px 22px}.halo{width:110vw}footer{align-items:flex-start;font-size:10px}.eyebrow{font-size:10px}.reveal h1{font-size:clamp(44px,12vw,70px)}}@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important}.confetti,.flash{display:none}}
-/* Launch choreography: decorative layers never capture input. */
-.aurora{position:absolute;inset:-25%;z-index:-1;pointer-events:none;background:conic-gradient(from 100deg at 50% 50%,transparent 20%,#245cff30,transparent 48%,#36cfff20,transparent 80%);filter:blur(50px);animation:aurora-drift 18s ease-in-out infinite alternate}
-.orbit-trail{position:absolute;width:min(85vw,790px);aspect-ratio:1;pointer-events:none;border:2px solid transparent;border-top-color:#65dcff70;border-bottom-color:#386aff40;border-radius:50%;animation:orbit 9s linear infinite;transform:rotate(-30deg)}
-.orbit-trail.second{width:min(65vw,570px);border-top-color:#fff5;border-bottom-color:transparent;animation-direction:reverse;animation-duration:14s}
-.count-pulse{position:absolute;width:min(55vw,440px);aspect-ratio:1;border:1px solid #70cfff55;border-radius:50%;pointer-events:none;animation:count-pulse 1s ease-out infinite}
-.launched .count-pulse{animation:launch-wave 2s ease-out both}
-.launch.is-final .orbit-trail{animation-duration:3s}.launch.is-final .number{color:#abedff}.launch.launched .orbit-trail{animation-duration:12s}
-.reveal>h1,.reveal>.copy,.reveal>.actions{animation:arrive 1s cubic-bezier(.16,1,.3,1) both}.reveal>h1{animation-delay:.18s}.reveal>.copy{animation-delay:.45s}.reveal>.actions{animation-delay:.7s}
-.reveal h1 span{background:linear-gradient(110deg,#72d5ff 25%,#fff 45%,#72d5ff 65%);background-size:220% 100%;background-clip:text;-webkit-background-clip:text;color:transparent;animation:title-shimmer 6s ease-in-out infinite}
-.enter{position:relative;overflow:hidden}.enter:before{content:"";position:absolute;inset:-60% auto -60% -60%;width:40%;background:linear-gradient(90deg,transparent,#ffffff40,transparent);transform:skewX(-25deg);animation:button-sheen 5s ease-in-out infinite}.enter span{animation:arrow-nudge 2.5s ease-in-out infinite}
-header img{animation:logo-arrive 1s ease-out both}.live:before{animation:signal 2.5s ease-in-out infinite}
-.sparks{position:absolute;inset:0;pointer-events:none;overflow:hidden}.sparks i{position:absolute;left:var(--x);bottom:-12px;width:3px;height:3px;border-radius:50%;background:#8be5ff;box-shadow:0 0 12px #54baff;animation:spark-rise var(--t) var(--delay) linear infinite}
-@keyframes aurora-drift{to{transform:rotate(35deg) scale(1.15)}}
-@keyframes count-pulse{from{transform:scale(.65);opacity:.5}to{transform:scale(1.15);opacity:0}}
-@keyframes launch-wave{from{transform:scale(.6);opacity:.7;box-shadow:0 0 50px #5bbfff}to{transform:scale(4);opacity:0}}
-@keyframes title-shimmer{0%,100%{background-position:100% 0}50%{background-position:0 0}}
-@keyframes button-sheen{0%,60%{left:-60%}100%{left:150%}}
-@keyframes arrow-nudge{0%,100%{transform:translate(0,0)}50%{transform:translate(3px,-3px)}}
-@keyframes logo-arrive{from{opacity:0;transform:translateY(-20px)}to{opacity:1;transform:none}}
-@keyframes signal{50%{box-shadow:0 0 22px #64e2ff;opacity:.45}}
-@keyframes spark-rise{0%{transform:translateY(0);opacity:0}15%,70%{opacity:.7}100%{transform:translate(45px,-110vh);opacity:0}}
-@media(max-width:600px){.orbit-trail{width:115vw}.orbit-trail.second{width:90vw}.count-pulse{width:70vw}.aurora{filter:blur(28px)}}
-@media(prefers-reduced-motion:reduce){.aurora,.sparks,.count-pulse,.orbit-trail,.enter:before{display:none}.reveal h1 span{background:none;color:#78d5ff}}
-/* Shared launch host and collaboration signature. */
-.launch-host{margin:0 auto 24px;display:grid;justify-items:center;gap:8px}
-.launch-host img{width:clamp(110px,15vw,170px);height:auto;object-fit:contain;filter:drop-shadow(0 12px 28px #367dff55);animation:gio-float 4s ease-in-out infinite}
-.launch-host figcaption{font-size:11px;letter-spacing:.14em;color:#9fc9f3;text-transform:uppercase}
-.launched .launch-host img{animation:gio-celebrate 1s ease-out,gio-float 4s 1s ease-in-out infinite}
-.launch-partner{display:flex;align-items:center;gap:14px;flex-wrap:wrap;justify-content:center}
-.launch-partner>span{font-size:10px;text-transform:uppercase;letter-spacing:.13em;color:#9db4d5}
-.launch-partner a{display:inline-flex;align-items:center;gap:10px;text-decoration:none;font-size:13px;color:#e2edff;font-weight:700;transition:transform .2s}
-.launch-partner a:hover{transform:translateY(-2px)}
-.launch-partner img{width:38px;height:38px;object-fit:contain;background:#fff;border-radius:9px;padding:5px}
-@keyframes gio-float{0%,100%{transform:translateY(0) rotate(-2deg)}50%{transform:translateY(-12px) rotate(2deg)}}
-@keyframes gio-celebrate{0%{transform:scale(.9) rotate(-8deg)}50%{transform:translateY(-20px) scale(1.08) rotate(6deg)}100%{transform:none}}
-@media(max-width:600px){.launch-host{margin-bottom:20px}.launch-host img{width:110px}footer{flex-direction:column;align-items:center;text-align:center;gap:18px}.launch-partner{gap:8px 12px}}
-@media(prefers-reduced-motion:reduce){.launch-host img{animation:none}}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>G-TEC Mahe — Launch Day</title>
+  <style>
+    * {
+      box-sizing: border-box
+    }
+
+    body {
+      margin: 0;
+      background: #040b20;
+      color: #fff;
+      font-family: Arial, Helvetica, sans-serif
+    }
+
+    button,
+    a {
+      -webkit-tap-highlight-color: transparent
+    }
+
+    button {
+      font: inherit;
+      cursor: pointer
+    }
+
+    a {
+      color: inherit
+    }
+
+    button:focus-visible,
+    a:focus-visible {
+      outline: 3px solid #68e6ff;
+      outline-offset: 6px
+    }
+
+    .launch {
+      min-height: 100svh;
+      display: flex;
+      flex-direction: column;
+      isolation: isolate;
+      overflow: hidden;
+      position: relative;
+      background: radial-gradient(ellipse at 50% 60%, #163c852e, transparent 65%)
+    }
+
+    header,
+    footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      padding: 28px clamp(22px, 5vw, 80px);
+      z-index: 2
+    }
+
+    header img {
+      width: 100px;
+      height: 64px;
+      object-fit: contain;
+      background: #fff;
+      border-radius: 12px;
+      padding: 7px
+    }
+
+    .label {
+      font-size: 11px;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: #9db4d5
+    }
+
+    .live {
+      display: flex;
+      align-items: center;
+      gap: 10px
+    }
+
+    .live:before {
+      content: "";
+      width: 7px;
+      height: 7px;
+      background: #64e2ff;
+      border-radius: 50%;
+      box-shadow: 0 0 18px #64e2ff
+    }
+
+    main {
+      flex: 1;
+      min-height: 550px;
+      display: grid;
+      place-items: center;
+      position: relative;
+      padding: 50px 22px
+    }
+
+    .ambient {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      z-index: -1;
+      background-image: radial-gradient(#75c9ff80 1px, transparent 1px);
+      background-size: 73px 73px;
+      mask-image: linear-gradient(transparent, #000, transparent);
+      animation: drift 35s linear infinite
+    }
+
+    .halo {
+      position: absolute;
+      width: min(80vw, 720px);
+      aspect-ratio: 1;
+      border: 1px solid #438bff35;
+      border-radius: 50%;
+      box-shadow: 0 0 90px #145cfd24, inset 0 0 80px #145cfd15;
+      pointer-events: none;
+      animation: orbit 24s linear infinite
+    }
+
+    .halo:before,
+    .halo:after {
+      content: "";
+      position: absolute;
+      inset: 8%;
+      border-radius: 50%;
+      border: 1px dashed #6dbdff30
+    }
+
+    .halo:after {
+      inset: 20%;
+      border-style: solid;
+      border-color: #6dbdff20
+    }
+
+    .halo i {
+      position: absolute;
+      top: 50%;
+      left: -4px;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #6ff3ff;
+      box-shadow: 0 0 30px #67eaff
+    }
+
+    .stage {
+      position: relative;
+      text-align: center;
+      width: min(100%, 1000px);
+      z-index: 1
+    }
+
+    .eyebrow {
+      color: #76ccff;
+      letter-spacing: .27em;
+      font-size: 12px;
+      text-transform: uppercase;
+      margin: 0 0 24px
+    }
+
+    .intro {
+      font-size: clamp(22px, 3.5vw, 42px);
+      font-weight: 400;
+      letter-spacing: -.04em;
+      margin: 0
+    }
+
+    .number {
+      font-size: clamp(130px, 25vw, 260px);
+      line-height: 1.05;
+      font-weight: 800;
+      letter-spacing: -.08em;
+      text-indent: -.08em;
+      margin: 16px 0;
+      color: #fff;
+      text-shadow: 0 0 75px #428bff70
+    }
+
+    .number.tick {
+      animation: tick .65s cubic-bezier(.2, .7, .2, 1)
+    }
+
+    .count-note {
+      color: #99afce;
+      font-size: 15px;
+      line-height: 1.6
+    }
+
+    .progress {
+      height: 3px;
+      background: #ffffff15;
+      width: min(260px, 75%);
+      margin: 26px auto;
+      border-radius: 4px;
+      overflow: hidden
+    }
+
+    .progress span {
+      display: block;
+      height: 100%;
+      background: linear-gradient(90deg, #225cff, #65ecff);
+      width: 0;
+      transition: width .6s linear
+    }
+
+    .reveal h1 {
+      font-size: clamp(48px, 8vw, 106px);
+      line-height: 1.02;
+      letter-spacing: -.065em;
+      margin: 12px 0 24px
+    }
+
+    .reveal h1 span {
+      display: block;
+      color: #78d5ff
+    }
+
+    .reveal p.copy {
+      color: #b5c4dd;
+      font-size: clamp(16px, 2vw, 20px);
+      line-height: 1.7;
+      max-width: 550px;
+      margin: 0 auto 34px
+    }
+
+    .actions {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px
+    }
+
+    .enter {
+      display: inline-flex;
+      align-items: center;
+      gap: 36px;
+      text-decoration: none;
+      background: #245cff;
+      border: 1px solid #5984ff;
+      border-radius: 100px;
+      padding: 19px 30px;
+      font-size: 15px;
+      font-weight: 700;
+      box-shadow: 0 12px 60px #245cff55;
+      transition: transform .2s, background .2s
+    }
+
+    .enter:hover {
+      transform: translateY(-3px);
+      background: #3970ff
+    }
+
+    .quiet {
+      border: 1px solid #ffffff25;
+      color: #bbcbe2;
+      border-radius: 100px;
+      padding: 12px 19px;
+      background: #ffffff05;
+      font-size: 12px
+    }
+
+    .quiet:hover {
+      background: #ffffff10
+    }
+
+    .reveal {
+      animation: arrive 1.3s cubic-bezier(.16, 1, .3, 1) both
+    }
+
+    .reveal .eyebrow {
+      display: inline-block;
+      border: 1px solid #61ddff40;
+      padding: 10px 18px;
+      border-radius: 100px;
+      background: #59cbff09
+    }
+
+    .flash {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background: radial-gradient(ellipse, #a7eaff, transparent 70%);
+      opacity: 0;
+      z-index: 3
+    }
+
+    .launched .flash {
+      animation: flash 1.3s ease-out both
+    }
+
+    .launched .halo {
+      border-color: #62dfff70;
+      box-shadow: 0 0 140px #145cfd50
+    }
+
+    .confetti {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      overflow: hidden
+    }
+
+    .confetti i {
+      position: absolute;
+      left: var(--x);
+      top: -20px;
+      width: 6px;
+      height: 16px;
+      background: var(--c);
+      animation: fall var(--t) var(--delay) ease-in forwards
+    }
+
+    footer {
+      font-size: 11px;
+      color: #859bbb;
+      letter-spacing: .06em
+    }
+
+    .signature {
+      color: #b4c8e8
+    }
+
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0)
+    }
+
+    [hidden] {
+      display: none !important
+    }
+
+    @keyframes orbit {
+      to {
+        transform: rotate(360deg)
+      }
+    }
+
+    @keyframes drift {
+      to {
+        background-position: 146px 146px
+      }
+    }
+
+    @keyframes tick {
+      from {
+        opacity: 0;
+        transform: scale(1.25);
+        filter: blur(8px)
+      }
+
+      to {
+        opacity: 1;
+        transform: scale(1);
+        filter: blur(0)
+      }
+    }
+
+    @keyframes arrive {
+      from {
+        opacity: 0;
+        transform: translateY(45px);
+        filter: blur(12px)
+      }
+
+      to {
+        opacity: 1;
+        transform: none;
+        filter: blur(0)
+      }
+    }
+
+    @keyframes flash {
+      0% {
+        opacity: .65
+      }
+
+      100% {
+        opacity: 0
+      }
+    }
+
+    @keyframes fall {
+      to {
+        transform: translate3d(50px, 110vh, 0) rotate(560deg);
+        opacity: 0
+      }
+    }
+
+    @media(max-width:600px) {
+
+      header,
+      footer {
+        padding: 22px
+      }
+
+      header img {
+        width: 80px;
+        height: 52px
+      }
+
+      header .label {
+        font-size: 9px;
+        letter-spacing: .12em
+      }
+
+      main {
+        min-height: 480px;
+        padding: 40px 22px
+      }
+
+      .halo {
+        width: 110vw
+      }
+
+      footer {
+        align-items: flex-start;
+        font-size: 10px
+      }
+
+      .eyebrow {
+        font-size: 10px
+      }
+
+      .reveal h1 {
+        font-size: clamp(44px, 12vw, 70px)
+      }
+    }
+
+    @media(prefers-reduced-motion:reduce) {
+
+      *,
+      *:before,
+      *:after {
+        animation: none !important;
+        transition: none !important
+      }
+
+      .confetti,
+      .flash {
+        display: none
+      }
+    }
+
+    /* Launch choreography: decorative layers never capture input. */
+    .aurora {
+      position: absolute;
+      inset: -25%;
+      z-index: -1;
+      pointer-events: none;
+      background: conic-gradient(from 100deg at 50% 50%, transparent 20%, #245cff30, transparent 48%, #36cfff20, transparent 80%);
+      filter: blur(50px);
+      animation: aurora-drift 18s ease-in-out infinite alternate
+    }
+
+    .orbit-trail {
+      position: absolute;
+      width: min(85vw, 790px);
+      aspect-ratio: 1;
+      pointer-events: none;
+      border: 2px solid transparent;
+      border-top-color: #65dcff70;
+      border-bottom-color: #386aff40;
+      border-radius: 50%;
+      animation: orbit 9s linear infinite;
+      transform: rotate(-30deg)
+    }
+
+    .orbit-trail.second {
+      width: min(65vw, 570px);
+      border-top-color: #fff5;
+      border-bottom-color: transparent;
+      animation-direction: reverse;
+      animation-duration: 14s
+    }
+
+    .count-pulse {
+      position: absolute;
+      width: min(55vw, 440px);
+      aspect-ratio: 1;
+      border: 1px solid #70cfff55;
+      border-radius: 50%;
+      pointer-events: none;
+      animation: count-pulse 1s ease-out infinite
+    }
+
+    .launched .count-pulse {
+      animation: launch-wave 2s ease-out both
+    }
+
+    .launch.is-final .orbit-trail {
+      animation-duration: 3s
+    }
+
+    .launch.is-final .number {
+      color: #abedff
+    }
+
+    .launch.launched .orbit-trail {
+      animation-duration: 12s
+    }
+
+    .reveal>h1,
+    .reveal>.copy,
+    .reveal>.actions {
+      animation: arrive 1s cubic-bezier(.16, 1, .3, 1) both
+    }
+
+    .reveal>h1 {
+      animation-delay: .18s
+    }
+
+    .reveal>.copy {
+      animation-delay: .45s
+    }
+
+    .reveal>.actions {
+      animation-delay: .7s
+    }
+
+    .reveal h1 span {
+      background: linear-gradient(110deg, #72d5ff 25%, #fff 45%, #72d5ff 65%);
+      background-size: 220% 100%;
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      animation: title-shimmer 6s ease-in-out infinite
+    }
+
+    .enter {
+      position: relative;
+      overflow: hidden
+    }
+
+    .enter:before {
+      content: "";
+      position: absolute;
+      inset: -60% auto -60% -60%;
+      width: 40%;
+      background: linear-gradient(90deg, transparent, #ffffff40, transparent);
+      transform: skewX(-25deg);
+      animation: button-sheen 5s ease-in-out infinite
+    }
+
+    .enter span {
+      animation: arrow-nudge 2.5s ease-in-out infinite
+    }
+
+    header img {
+      animation: logo-arrive 1s ease-out both
+    }
+
+    .live:before {
+      animation: signal 2.5s ease-in-out infinite
+    }
+
+    .sparks {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      overflow: hidden
+    }
+
+    .sparks i {
+      position: absolute;
+      left: var(--x);
+      bottom: -12px;
+      width: 3px;
+      height: 3px;
+      border-radius: 50%;
+      background: #8be5ff;
+      box-shadow: 0 0 12px #54baff;
+      animation: spark-rise var(--t) var(--delay) linear infinite
+    }
+
+    @keyframes aurora-drift {
+      to {
+        transform: rotate(35deg) scale(1.15)
+      }
+    }
+
+    @keyframes count-pulse {
+      from {
+        transform: scale(.65);
+        opacity: .5
+      }
+
+      to {
+        transform: scale(1.15);
+        opacity: 0
+      }
+    }
+
+    @keyframes launch-wave {
+      from {
+        transform: scale(.6);
+        opacity: .7;
+        box-shadow: 0 0 50px #5bbfff
+      }
+
+      to {
+        transform: scale(4);
+        opacity: 0
+      }
+    }
+
+    @keyframes title-shimmer {
+
+      0%,
+      100% {
+        background-position: 100% 0
+      }
+
+      50% {
+        background-position: 0 0
+      }
+    }
+
+    @keyframes button-sheen {
+
+      0%,
+      60% {
+        left: -60%
+      }
+
+      100% {
+        left: 150%
+      }
+    }
+
+    @keyframes arrow-nudge {
+
+      0%,
+      100% {
+        transform: translate(0, 0)
+      }
+
+      50% {
+        transform: translate(3px, -3px)
+      }
+    }
+
+    @keyframes logo-arrive {
+      from {
+        opacity: 0;
+        transform: translateY(-20px)
+      }
+
+      to {
+        opacity: 1;
+        transform: none
+      }
+    }
+
+    @keyframes signal {
+      50% {
+        box-shadow: 0 0 22px #64e2ff;
+        opacity: .45
+      }
+    }
+
+    @keyframes spark-rise {
+      0% {
+        transform: translateY(0);
+        opacity: 0
+      }
+
+      15%,
+      70% {
+        opacity: .7
+      }
+
+      100% {
+        transform: translate(45px, -110vh);
+        opacity: 0
+      }
+    }
+
+    @media(max-width:600px) {
+      .orbit-trail {
+        width: 115vw
+      }
+
+      .orbit-trail.second {
+        width: 90vw
+      }
+
+      .count-pulse {
+        width: 70vw
+      }
+
+      .aurora {
+        filter: blur(28px)
+      }
+    }
+
+    @media(prefers-reduced-motion:reduce) {
+
+      .aurora,
+      .sparks,
+      .count-pulse,
+      .orbit-trail,
+      .enter:before {
+        display: none
+      }
+
+      .reveal h1 span {
+        background: none;
+        color: #78d5ff
+      }
+    }
+
+    /* Shared launch host and collaboration signature. */
+    .launch-host {
+      margin: 0 auto 24px;
+      display: grid;
+      justify-items: center;
+      gap: 8px
+    }
+
+    .launch-host img {
+      width: clamp(110px, 15vw, 170px);
+      height: auto;
+      object-fit: contain;
+      filter: drop-shadow(0 12px 28px #367dff55);
+      animation: gio-float 4s ease-in-out infinite
+    }
+
+    .launch-host figcaption {
+      font-size: 11px;
+      letter-spacing: .14em;
+      color: #9fc9f3;
+      text-transform: uppercase
+    }
+
+    .launched .launch-host img {
+      animation: gio-celebrate 1s ease-out, gio-float 4s 1s ease-in-out infinite
+    }
+
+    .launch-partner {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      flex-wrap: wrap;
+      justify-content: center
+    }
+
+    .launch-partner>span {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: .13em;
+      color: #9db4d5
+    }
+
+    .launch-partner a {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      font-size: 13px;
+      color: #e2edff;
+      font-weight: 700;
+      transition: transform .2s
+    }
+
+    .launch-partner a:hover {
+      transform: translateY(-2px)
+    }
+
+    .launch-partner img {
+      width: 38px;
+      height: 38px;
+      object-fit: contain;
+      background: #fff;
+      border-radius: 9px;
+      padding: 5px
+    }
+
+    @keyframes gio-float {
+
+      0%,
+      100% {
+        transform: translateY(0) rotate(-2deg)
+      }
+
+      50% {
+        transform: translateY(-12px) rotate(2deg)
+      }
+    }
+
+    @keyframes gio-celebrate {
+      0% {
+        transform: scale(.9) rotate(-8deg)
+      }
+
+      50% {
+        transform: translateY(-20px) scale(1.08) rotate(6deg)
+      }
+
+      100% {
+        transform: none
+      }
+    }
+
+    @media(max-width:600px) {
+      .launch-host {
+        margin-bottom: 20px
+      }
+
+      .launch-host img {
+        width: 110px
+      }
+
+      footer {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 18px
+      }
+
+      .launch-partner {
+        gap: 8px 12px
+      }
+    }
+
+    @media(prefers-reduced-motion:reduce) {
+      .launch-host img {
+        animation: none
+      }
+    }
+
+    /* Fit the complete launch sequence into typical laptop viewports. */
+    @media (min-width:768px) and (min-height:500px) {
+      .launch {
+        height: 100svh;
+        min-height: 0
+      }
+
+      header,
+      footer {
+        flex-shrink: 0;
+        padding: clamp(12px, 2vh, 22px) clamp(22px, 5vw, 80px)
+      }
+
+      header img {
+        width: 80px;
+        height: 50px
+      }
+
+      main {
+        min-height: 0;
+        padding: 8px 22px
+      }
+
+      .stage {
+        width: min(100%, 1000px)
+      }
+
+      .launch-host {
+        margin: 0 auto clamp(8px, 1.5vh, 16px);
+        gap: 5px
+      }
+
+      .launch-host img {
+        width: auto;
+        height: clamp(65px, 15vh, 140px)
+      }
+
+      .launch-host figcaption {
+        font-size: 10px
+      }
+
+      .eyebrow {
+        margin: 0 0 clamp(8px, 1.5vh, 16px);
+        font-size: 11px
+      }
+
+      .intro {
+        font-size: clamp(22px, 4vh, 36px)
+      }
+
+      .number {
+        font-size: clamp(90px, 21vh, 180px);
+        margin: 6px 0
+      }
+
+      .count-note {
+        margin: 8px 0;
+        font-size: 14px
+      }
+
+      .progress {
+        margin: clamp(10px, 2vh, 20px) auto
+      }
+
+      .reveal h1 {
+        font-size: clamp(42px, 8.5vh, 82px);
+        margin: 8px 0 16px
+      }
+
+      .reveal p.copy {
+        font-size: clamp(14px, 2.2vh, 18px);
+        line-height: 1.5;
+        margin-bottom: 18px
+      }
+
+      .reveal .eyebrow {
+        padding: 7px 14px
+      }
+
+      .enter {
+        padding: 14px 25px
+      }
+
+      .halo {
+        width: min(70vw, 85vh)
+      }
+
+      .orbit-trail {
+        width: min(80vw, 95vh)
+      }
+
+      .orbit-trail.second {
+        width: min(65vw, 75vh)
+      }
+    }
+  </style>
 </head>
+
 <body>
-<div class="launch" id="launch">
-<div class="ambient" aria-hidden="true"></div><div class="aurora" aria-hidden="true"></div><div class="sparks" id="sparks" aria-hidden="true"></div>
-<header><img src="/images/gTecLogo.png" alt="G-TEC Mahe"><span class="label live">A new chapter begins</span></header>
-<main>
-<div class="halo" aria-hidden="true"><i></i></div><div class="orbit-trail" aria-hidden="true"></div><div class="orbit-trail second" aria-hidden="true"></div><div class="count-pulse" aria-hidden="true"></div>
-<div class="stage">
-<figure class="launch-host"><img src="/mascot/gio-welcome.png" alt="Gio, the G-TEC Mahe mascot, welcomes you" width="170" height="170" fetchpriority="high"><figcaption>Your next chapter, with Gio</figcaption></figure>
-<section id="countdown" aria-label="Website launch countdown">
-<p class="eyebrow">G-TEC Mahe · Launch day</p>
-<h1 class="intro">Your future is about to open.</h1>
-<div class="number" id="number" aria-hidden="true">10</div>
-<p class="count-note">New possibilities. One unforgettable beginning.</p>
-<div class="progress" aria-hidden="true"><span id="progress"></span></div>
-<button class="quiet" id="skip" type="button">Skip countdown ↗</button>
-</section>
-<section class="reveal" id="reveal" hidden>
-<p class="eyebrow">We are officially live</p>
-<h1>A new chapter.<span>A world of possibilities.</span></h1>
-<p class="copy">Welcome to the new G-TEC Mahe website.<br>Discover your passion. Build your skills. Create your future.</p>
-<div class="actions"><a class="enter" href="/">Enter our website <span aria-hidden="true">↗</span></a><button class="quiet" id="replay" type="button">Replay launch</button></div>
-</section>
-<p class="sr-only" role="status" id="status">The website reveal begins in 10 seconds.</p>
-</div>
-</main>
-<div class="flash" aria-hidden="true"></div><div class="confetti" id="confetti" aria-hidden="true"></div>
-<footer><span class="signature">G-TEC MAHE &middot; Learn today. Lead tomorrow.</span><div class="launch-partner"><span>In collaboration with</span><a href="https://www.bytrixhub.com/" target="_blank" rel="noopener noreferrer"><img src="/images/bytrixlogo.png" alt="" width="38" height="38"><span>Bytrix Hub</span></a></div></footer>
-</div>
-<script>
-const COUNTDOWN_SECONDS = 10;
-const launch = document.getElementById('launch');
-const countdown = document.getElementById('countdown');
-const reveal = document.getElementById('reveal');
-const number = document.getElementById('number');
-const progress = document.getElementById('progress');
-const status = document.getElementById('status');
-const confetti = document.getElementById('confetti');
-let timer;
-function showLaunch() {
-  clearInterval(timer);
-  countdown.hidden = true;
-  reveal.hidden = false;
-  launch.classList.add('launched');
-  status.textContent = 'G-TEC Mahe is live. Enter our website to explore.';
-  confetti.replaceChildren();
-  if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
-    for (let i=0;i<48;i++) {
-      const piece=document.createElement('i');
-      piece.style.setProperty('--x', `${Math.random()*100}%`);
-      piece.style.setProperty('--c', ['#4b82ff','#75eaff','#ffffff','#c7d9ff'][i%4]);
-      piece.style.setProperty('--t', `${3+Math.random()*3}s`);
-      piece.style.setProperty('--delay', `${Math.random()*1.4}s`);
-      confetti.append(piece);
+  <div class="launch" id="launch">
+    <div class="ambient" aria-hidden="true"></div>
+    <div class="aurora" aria-hidden="true"></div>
+    <div class="sparks" id="sparks" aria-hidden="true"></div>
+    <header><img src="/images/gTecLogo.png" alt="G-TEC Mahe"><span class="label live">A new chapter begins</span>
+    </header>
+    <main>
+      <div class="halo" aria-hidden="true"><i></i></div>
+      <div class="orbit-trail" aria-hidden="true"></div>
+      <div class="orbit-trail second" aria-hidden="true"></div>
+      <div class="count-pulse" aria-hidden="true"></div>
+      <div class="stage">
+        <figure class="launch-host"><img src="/mascot/gio-welcome.png" alt="Gio, the G-TEC Mahe mascot, welcomes you"
+            width="170" height="170" fetchpriority="high">
+          <figcaption>Your next chapter, with Gio</figcaption>
+        </figure>
+        <section id="countdown" aria-label="Website launch countdown">
+          <p class="eyebrow">G-TEC Mahe · Launch day</p>
+          <h1 class="intro">Your future is about to open.</h1>
+          <div class="number" id="number" aria-hidden="true">10</div>
+          <p class="count-note">New possibilities. One unforgettable beginning.</p>
+          <div class="progress" aria-hidden="true"><span id="progress"></span></div>
+          <button class="quiet" id="skip" type="button">Skip countdown ↗</button>
+        </section>
+        <section class="reveal" id="reveal" hidden>
+          <p class="eyebrow">We are officially live</p>
+          <h1>A new chapter.<span>A world of possibilities.</span></h1>
+          <p class="copy">Welcome to the new G-TEC Mahe website.<br>Discover your passion. Build your skills. Create
+            your future.</p>
+          <div class="actions"><a class="enter" href="/">Enter our website <span aria-hidden="true">↗</span></a><button
+              class="quiet" id="replay" type="button">Replay launch</button></div>
+        </section>
+        <p class="sr-only" role="status" id="status">The website reveal begins in 10 seconds.</p>
+      </div>
+    </main>
+    <div class="flash" aria-hidden="true"></div>
+    <div class="confetti" id="confetti" aria-hidden="true"></div>
+    <footer><span class="signature">G-TEC MAHE &middot; Learn today. Lead tomorrow.</span>
+      <div class="launch-partner"><span>In collaboration with</span><a href="https://www.bytrixhub.com/" target="_blank"
+          rel="noopener noreferrer"><img src="/images/bytrixlogo.png" alt="" width="38" height="38"><span>Bytrix
+            Hub</span></a></div>
+    </footer>
+  </div>
+  <script>
+    const COUNTDOWN_SECONDS = 10;
+    const launch = document.getElementById('launch');
+    const countdown = document.getElementById('countdown');
+    const reveal = document.getElementById('reveal');
+    const number = document.getElementById('number');
+    const progress = document.getElementById('progress');
+    const status = document.getElementById('status');
+    const confetti = document.getElementById('confetti');
+    let timer;
+    function showLaunch() {
+      clearInterval(timer);
+      countdown.hidden = true;
+      reveal.hidden = false;
+      launch.classList.add('launched');
+      status.textContent = 'G-TEC Mahe is live. Enter our website to explore.';
+      confetti.replaceChildren();
+      if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        for (let i = 0; i < 48; i++) {
+          const piece = document.createElement('i');
+          piece.style.setProperty('--x', `${Math.random() * 100}%`);
+          piece.style.setProperty('--c', ['#4b82ff', '#75eaff', '#ffffff', '#c7d9ff'][i % 4]);
+          piece.style.setProperty('--t', `${3 + Math.random() * 3}s`);
+          piece.style.setProperty('--delay', `${Math.random() * 1.4}s`);
+          confetti.append(piece);
+        }
+      }
+      reveal.querySelector('a').focus({ preventScroll: true });
     }
-  }
-  reveal.querySelector('a').focus({preventScroll:true});
-}
-function start() {
-  clearInterval(timer);
-  launch.classList.remove('launched', 'is-final');
-  reveal.hidden=true;
-  countdown.hidden=false;
-  confetti.replaceChildren();
-  const deadline=Date.now()+COUNTDOWN_SECONDS*1000;
-  let previous;
-  function update() {
-    const remaining=Math.max(0,Math.ceil((deadline-Date.now())/1000));
-    if (remaining===0) { showLaunch(); return; }
-    if (remaining!==previous) {
-      number.textContent=String(remaining).padStart(2,'0');
-      number.classList.remove('tick');
-      void number.offsetWidth;
-      number.classList.add('tick');
-      progress.style.width=`${(COUNTDOWN_SECONDS-remaining)/COUNTDOWN_SECONDS*100}%`;
-      launch.classList.toggle('is-final', remaining <= 3);
-      previous=remaining;
+    function start() {
+      clearInterval(timer);
+      launch.classList.remove('launched', 'is-final');
+      reveal.hidden = true;
+      countdown.hidden = false;
+      confetti.replaceChildren();
+      const deadline = Date.now() + COUNTDOWN_SECONDS * 1000;
+      let previous;
+      function update() {
+        const remaining = Math.max(0, Math.ceil((deadline - Date.now()) / 1000));
+        if (remaining === 0) { showLaunch(); return; }
+        if (remaining !== previous) {
+          number.textContent = String(remaining).padStart(2, '0');
+          number.classList.remove('tick');
+          void number.offsetWidth;
+          number.classList.add('tick');
+          progress.style.width = `${(COUNTDOWN_SECONDS - remaining) / COUNTDOWN_SECONDS * 100}%`;
+          launch.classList.toggle('is-final', remaining <= 3);
+          previous = remaining;
+        }
+      }
+      status.textContent = `The website reveal begins in ${COUNTDOWN_SECONDS} seconds.`;
+      update();
+      timer = setInterval(update, 150);
     }
-  }
-  status.textContent=`The website reveal begins in ${COUNTDOWN_SECONDS} seconds.`;
-  update();
-  timer=setInterval(update,150);
-}
-document.getElementById('skip').addEventListener('click',showLaunch);
-document.getElementById('replay').addEventListener('click',()=>{start();document.getElementById('skip').focus({preventScroll:true});});
-const sparks = document.getElementById('sparks');
-if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
-  for (let i = 0; i < 24; i++) {
-    const spark = document.createElement('i');
-    spark.style.setProperty('--x', `${(i * 43) % 100}%`);
-    spark.style.setProperty('--t', `${8 + i % 7}s`);
-    spark.style.setProperty('--delay', `${-i * .6}s`);
-    sparks.append(spark);
-  }
-}
-start();
-</script>
+    document.getElementById('skip').addEventListener('click', showLaunch);
+    document.getElementById('replay').addEventListener('click', () => { start(); document.getElementById('skip').focus({ preventScroll: true }); });
+    const sparks = document.getElementById('sparks');
+    if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      for (let i = 0; i < 24; i++) {
+        const spark = document.createElement('i');
+        spark.style.setProperty('--x', `${(i * 43) % 100}%`);
+        spark.style.setProperty('--t', `${8 + i % 7}s`);
+        spark.style.setProperty('--delay', `${-i * .6}s`);
+        sparks.append(spark);
+      }
+    }
+    start();
+  </script>
 </body>
+
 </html>

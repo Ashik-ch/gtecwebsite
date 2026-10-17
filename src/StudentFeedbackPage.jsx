@@ -1,25 +1,20 @@
-﻿import { useState } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import {
   ArrowUpRight,
   CheckCircle2,
   HeartHandshake,
   Lightbulb,
-  MessageCircle,
+
   Sparkles,
   Star,
 } from "lucide-react";
 import { Mascot } from "./Mascot";
-import { courses, site } from "./data";
+import { courses } from "./data";
 import "./student-feedback.css";
 
 const ratingLabels = ["Poor", "Fair", "Good", "Very good", "Excellent"];
 const MAX_FEEDBACK = 600;
-
-const whatsappLink = (text) =>
-  site.whatsappNumber
-    ? `https://wa.me/${site.whatsappNumber}?text=${encodeURIComponent(text)}`
-    : site.whatsapp;
 
 const reasons = [
   {
@@ -55,47 +50,59 @@ function FeedbackCollector() {
   const [message, setMessage] = useState("");
   const [error, setError] = useState("");
   const [sent, setSent] = useState(null);
+  const [busy, setBusy] = useState(false);
 
-  function submit(e) {
+  async function submit(e) {
     e.preventDefault();
+    if (busy) return;
     const form = new FormData(e.currentTarget);
     if (form.get("website")) return;
+    const name = String(form.get("name") || "").trim();
+    if (!name) return setError("Please enter your name.");
     if (!rating) return setError("Please choose a star rating.");
     if (!form.get("course")) return setError("Please choose your course.");
-    setError("");
-    const text = [
-      "Hello G-TEC Mahe, here is my student feedback.",
-      `Name: ${form.get("name")}`,
+    if (!message.trim()) return setError("Please enter your feedback.");
+    const payload = new FormData();
+    payload.set("access_key", "79a77bb9-4b59-4960-b5dd-56ffa438828a");
+    payload.set("subject", "New G-TEC Mahe student feedback");
+    payload.set("from_name", "G-TEC Mahe Website");
+    payload.set("message", [
+      `Name: ${name}`,
       `Course: ${form.get("course")}`,
-      `Rating: ${"â˜…".repeat(rating)}${"â˜†".repeat(5 - rating)} (${ratingLabels[rating - 1]})`,
+      `Rating: ${rating}/5 (${ratingLabels[rating - 1]})`,
       `Feedback: ${message.trim()}`,
       `OK to feature on website: ${form.get("feature") ? "Yes" : "No"}`,
-    ].join("\n");
-    const url = whatsappLink(text);
-    window.open(url, "_blank", "noopener");
-    setSent({ url, name: String(form.get("name")).split(" ")[0] });
+      `Source: ${window.location.pathname}`,
+    ].join("\n"));
+    setError("");
+    setBusy(true);
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: payload,
+        signal: AbortSignal.timeout(20000),
+      });
+      const result = await response.json();
+      if (!response.ok || !result.success) throw new Error("Submission failed");
+      setSent({ name: name.split(/\s+/)[0] });
+    } catch {
+      setError("We couldn't send your feedback. Please try again. Your details have been kept.");
+    } finally {
+      setBusy(false);
+    }
   }
 
   if (sent)
     return (
-      <div className="feedback-collector feedback-thanks">
+      <div className="feedback-collector feedback-thanks" role="status">
         <span className="feedback-thanks-icon">
           <CheckCircle2 size={34} />
         </span>
         <h2>Thank you, {sent.name}!</h2>
         <p>
-          Your feedback is ready in WhatsApp. Press send there so it reaches the
-          G-TEC Mahe team.
+          Your feedback has been sent to the G-TEC Mahe team.
         </p>
         <div className="feedback-thanks-actions">
-          <a
-            className="button primary"
-            href={sent.url}
-            target="_blank"
-            rel="noreferrer"
-          >
-            Open WhatsApp again <MessageCircle size={17} />
-          </a>
           <Link className="button outline" to="/courses">
             Explore courses
           </Link>
@@ -199,13 +206,13 @@ function FeedbackCollector() {
         <span>You can feature my feedback on the G-TEC Mahe website.</span>
       </label>
 
-      {error ? <p className="form-error">{error}</p> : null}
+      {error ? <p className="form-error" role="alert">{error}</p> : null}
 
-      <button className="button primary feedback-submit" type="submit">
-        Send feedback <ArrowUpRight size={18} aria-hidden="true" />
+      <button className="button primary feedback-submit" type="submit" disabled={busy}>
+        {busy ? "Sending..." : "Send feedback"} <ArrowUpRight size={18} aria-hidden="true" />
       </button>
       <p className="feedback-note">
-        Your feedback opens in WhatsApp, ready to send to the G-TEC Mahe team.
+        Your feedback is sent directly to the G-TEC Mahe team by email.
       </p>
     </form>
   );
