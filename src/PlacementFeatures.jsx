@@ -39,7 +39,7 @@ export const placementCompanies = [
       "Ayizx is an internship partner offering learners practical exposure to professional workflows, real-world projects and industry-oriented work environments.",
     about:
       "Ayizx is an internship partner offering learners practical exposure to professional workflows, real-world projects and industry-oriented work environments.",
-    location: "USA · China · Saudi Arabia · UAE · Qatar · India · Kuwait",
+    location: "Remote friendly",
     contact: "Through the G-TEC Mahe placement cell",
     logo: "/images/ayizx-favicon.ico",
     opportunities: [

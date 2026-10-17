@@ -1,4 +1,4 @@
-﻿import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import {
   Award,
@@ -529,15 +529,7 @@ export default function Placements({
         },
         {
           duration: "3 Months",
-          presence: [
-            "US USA",
-            "CN China",
-            "SA Saudi Arabia",
-            "AE UAE",
-            "QA Qatar",
-            "IN India",
-            "KW Kuwait",
-          ],
+          presence: ["AE UAE"],
           markets: [
             "IN India",
             "US USA",
