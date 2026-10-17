@@ -1300,30 +1300,48 @@ function Modal({
 function EnquiryForm({ initialCourse = "", showEyebrow = true }) {
   const [status, setStatus] = useState("");
   const [busy, setBusy] = useState(false);
-  const [draft, setDraft] = useState("");
+
   async function submit(e) {
     e.preventDefault();
-    const data = Object.fromEntries(new FormData(e.currentTarget));
-    if (data.website) return;
-    const message = `Hello G-TEC Mahe, I would like to enquire.\nName: ${data.name}\nPhone: ${data.phone}\nEmail: ${data.email || "Not provided"}\nCourse: ${data.course}\nMessage: ${data.message || "Please share course details."}`;
-    setDraft(message);
-    if (site.enquiryEndpoint) {
-      setBusy(true);
-      try {
-        const response = await fetch(site.enquiryEndpoint, {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ ...data, consent: true }),
-        });
-        if (!response.ok) throw new Error();
-        setStatus("sent");
-        e.target.reset();
-      } catch {
-        setStatus("error");
-      } finally {
-        setBusy(false);
-      }
-    } else setStatus("draft");
+    if (busy) return;
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+    if (formData.get("website")) return;
+    const value = (key) => String(formData.get(key) || "").trim();
+    const email = value("email");
+    const summary = [
+      `Name: ${value("name")}`,
+      `Phone: ${value("phone")}`,
+      `Email: ${email || "Not provided"}`,
+      `Course: ${value("course")}`,
+      `Message: ${value("message") || "Not provided"}`,
+      "Consent: Yes",
+      `Source: ${window.location.pathname}`,
+    ].join("\n");
+    // One message avoids the provider's separate label/value blocks.
+    for (const key of [...formData.keys()]) formData.delete(key);
+    formData.set("message", summary);
+    if (email) formData.set("replyto", email);
+    formData.set("access_key", "92bad338-ac09-487c-8032-125e9b66ca5b");
+    formData.set("subject", "New G-TEC Mahe course enquiry");
+    formData.set("from_name", "G-TEC Mahe Website");
+    setStatus("");
+    setBusy(true);
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formData,
+        signal: AbortSignal.timeout(20000),
+      });
+      const result = await response.json();
+      if (!response.ok || !result.success) throw new Error("Submission failed");
+      setStatus("sent");
+      form.reset();
+    } catch {
+      setStatus("error");
+    } finally {
+      setBusy(false);
+    }
   }
   return (
     <form className="enquiry-form" onSubmit={submit}>
@@ -1396,17 +1414,11 @@ function EnquiryForm({ initialCourse = "", showEyebrow = true }) {
         </span>
       </label>
       <button type="submit" className="button primary" disabled={busy}>
-        {busy
-          ? "Sending…"
-          : site.enquiryEndpoint
-            ? "Send enquiry"
-            : "Prepare enquiry"}
+        {busy ? "Sending..." : "Send enquiry"}
         <Arrow />
       </button>
       <p className="form-note">
-        {site.enquiryEndpoint
-          ? "Your details are used to respond to your enquiry."
-          : "Prepare your message, then share it with the admissions team."}
+        Your details are used to respond to your enquiry.
       </p>
       <div aria-live="polite">
         {status === "sent" && (
@@ -1419,69 +1431,6 @@ function EnquiryForm({ initialCourse = "", showEyebrow = true }) {
           <p className="form-error">
             We couldn’t send your enquiry. Please try again, or use the contact
             links.
-          </p>
-        )}
-        {status === "draft" && (
-          <div className="enquiry-draft">
-            <strong>Your enquiry is ready — it hasn’t been sent.</strong>
-            <p>
-              {site.whatsapp
-                ? "Open WhatsApp to send your message."
-                : "Copy your message and contact the team through their official LinkedIn page or visit the centre."}
-            </p>
-            <textarea
-              aria-label="Prepared enquiry message"
-              readOnly
-              value={draft}
-              rows={5}
-            />
-            {site.whatsapp ? (
-              <a
-                className="button primary"
-                target="_blank"
-                rel="noreferrer"
-                href={site.whatsapp}
-              >
-                Send via WhatsApp <MessageCircle size={17} />
-              </a>
-            ) : (
-              <div className="draft-actions">
-                <button
-                  type="button"
-                  className="button outline"
-                  onClick={async () => {
-                    try {
-                      await navigator.clipboard.writeText(draft);
-                      setStatus("copied");
-                    } catch {
-                      setStatus("copy-error");
-                    }
-                  }}
-                >
-                  Copy message
-                </button>
-                <a
-                  href={site.linkedin}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="inline-link"
-                >
-                  Contact team <Arrow />
-                </a>
-              </div>
-            )}
-          </div>
-        )}
-        {status === "copied" && (
-          <p className="form-status">
-            Copied. Share your message with the admissions team to complete your
-            enquiry.
-          </p>
-        )}
-        {status === "copy-error" && (
-          <p className="form-error">
-            Copy isn’t available in this browser. Submit the form again to
-            select and copy the prepared message.
           </p>
         )}
       </div>
