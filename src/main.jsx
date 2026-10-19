@@ -119,7 +119,17 @@ function Header() {
     return () => document.removeEventListener("click", close);
   }, [coursesOpen]);
   return (
-    <header className="site-header">
+    <header className="site-header" onClickCapture={(event) => {
+      // Reset before React Router navigates, including clicks on the active page.
+      if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+      const link = event.target.closest("a[href]");
+      if (!link || link.target === "_blank" || link.hasAttribute("download")) return;
+      const destination = new URL(link.href, window.location.href);
+      if (destination.origin !== window.location.origin || destination.hash) return;
+      window.scrollTo({ top: 0, left: 0, behavior: "instant" });
+      setMenu(false);
+      setCoursesOpen(false);
+    }}>
       <div className="container nav-wrap">
         <Logo />
         <nav
@@ -1833,7 +1843,28 @@ function NotFound() {
 function RouteEffects() {
   const { pathname: rawPathname, hash, key: navigationKey } = useLocation();
   useLayoutEffect(() => {
-    if (!hash) window.scrollTo({ top: 0, left: 0, behavior: "instant" });
+    const previous = window.history.scrollRestoration;
+    window.history.scrollRestoration = "manual";
+    return () => { window.history.scrollRestoration = previous; };
+  }, []);
+  useLayoutEffect(() => {
+    if (hash) return;
+    const root = document.documentElement;
+    const previousAnchor = root.style.overflowAnchor;
+    root.style.overflowAnchor = "none";
+    const reset = () => window.scrollTo({ top: 0, left: 0, behavior: "instant" });
+    reset();
+    let frame = requestAnimationFrame(() => {
+      reset();
+      frame = requestAnimationFrame(() => {
+        reset();
+        root.style.overflowAnchor = previousAnchor;
+      });
+    });
+    return () => {
+      cancelAnimationFrame(frame);
+      root.style.overflowAnchor = previousAnchor;
+    };
   }, [rawPathname, hash, navigationKey]);
   const pathname =
     rawPathname.length > 1 && rawPathname.endsWith("/")
