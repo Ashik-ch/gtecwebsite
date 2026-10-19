@@ -931,6 +931,7 @@
       }
     }
   </style>
+<link rel="preload" as="image" href="/mascot/gio-launch-countdown.png">
 </head>
 
 <body>
@@ -950,23 +951,21 @@
             width="170" height="170" fetchpriority="high">
           <figcaption>Your next chapter, with Gio</figcaption>
         </figure>
-        <section id="countdown" aria-label="Website launch countdown">
+        <section id="countdown" aria-label="Website launch countdown" tabindex="-1" hidden>
           <p class="eyebrow">G-TEC Mahe · Launch day</p>
-          <h1 class="intro">Your future is about to open.</h1>
+          <h1 class="intro"><strong>Your future is about to open.</strong></h1>
           <div class="number" id="number" aria-hidden="true">10</div>
           <p class="count-note">New possibilities. One unforgettable beginning.</p>
           <div class="progress" aria-hidden="true"><span id="progress"></span></div>
-          <button class="quiet" id="skip" type="button">Skip countdown ↗</button>
         </section>
-        <section class="reveal" id="reveal" hidden>
-          <p class="eyebrow">We are officially live</p>
+        <section class="reveal" id="reveal">
+          <p class="eyebrow">Ready for a new beginning</p>
           <h1>A new chapter.<span>A world of possibilities.</span></h1>
           <p class="copy">Welcome to the new G-TEC Mahe website.<br>Discover your passion. Build your skills. Create
             your future.</p>
-          <div class="actions"><a class="enter" href="/">Enter our website <span aria-hidden="true">↗</span></a><button
-              class="quiet" id="replay" type="button">Replay launch</button></div>
+          <div class="actions"><button class="enter" id="start-launch" type="button">Launch website <span aria-hidden="true">&nearr;</span></button></div>
         </section>
-        <p class="sr-only" role="status" id="status">The website reveal begins in 10 seconds.</p>
+        <p class="sr-only" role="status" id="status">Select Launch website to begin the countdown.</p>
       </div>
     </main>
     <div class="flash" aria-hidden="true"></div>
@@ -987,52 +986,54 @@
     const status = document.getElementById('status');
     const confetti = document.getElementById('confetti');
     let timer;
-    function showLaunch() {
-      clearInterval(timer);
-      countdown.hidden = true;
-      reveal.hidden = false;
-      launch.classList.add('launched');
-      status.textContent = 'G-TEC Mahe is live. Enter our website to explore.';
-      confetti.replaceChildren();
-      if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
-        for (let i = 0; i < 48; i++) {
-          const piece = document.createElement('i');
-          piece.style.setProperty('--x', `${Math.random() * 100}%`);
-          piece.style.setProperty('--c', ['#4b82ff', '#75eaff', '#ffffff', '#c7d9ff'][i % 4]);
-          piece.style.setProperty('--t', `${3 + Math.random() * 3}s`);
-          piece.style.setProperty('--delay', `${Math.random() * 1.4}s`);
-          confetti.append(piece);
-        }
+    let started = false;
+    function celebrate() {
+      if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      for (let i = 0; i < 72; i++) {
+        const piece = document.createElement('i');
+        piece.style.setProperty('--x', `${Math.random() * 100}%`);
+        piece.style.setProperty('--c', ['#4b82ff', '#75eaff', '#f5c76a', '#ffffff'][i % 4]);
+        piece.style.setProperty('--t', `${4 + Math.random() * 3}s`);
+        piece.style.setProperty('--delay', `${Math.random() * 1.5}s`);
+        piece.addEventListener('animationend', () => piece.remove(), {once: true});
+        confetti.append(piece);
       }
-      reveal.querySelector('a').focus({ preventScroll: true });
     }
     function start() {
-      clearInterval(timer);
-      launch.classList.remove('launched', 'is-final');
+      if (started) return;
+      started = true;
+      document.getElementById('start-launch').disabled = true;
       reveal.hidden = true;
       countdown.hidden = false;
+      const mascot = document.querySelector('.launch-host img');
+      mascot.src = '/mascot/gio-launch-countdown.png';
+      mascot.alt = 'Gio celebrating the G-TEC Mahe website launch';
+      document.querySelector('.launch-host figcaption').textContent = 'Gio is counting down with you';
+      countdown.focus({preventScroll: true});
       confetti.replaceChildren();
       const deadline = Date.now() + COUNTDOWN_SECONDS * 1000;
       let previous;
       function update() {
         const remaining = Math.max(0, Math.ceil((deadline - Date.now()) / 1000));
-        if (remaining === 0) { showLaunch(); return; }
-        if (remaining !== previous) {
-          number.textContent = String(remaining).padStart(2, '0');
-          number.classList.remove('tick');
-          void number.offsetWidth;
-          number.classList.add('tick');
-          progress.style.width = `${(COUNTDOWN_SECONDS - remaining) / COUNTDOWN_SECONDS * 100}%`;
-          launch.classList.toggle('is-final', remaining <= 3);
-          previous = remaining;
+        if (remaining === previous) return;
+        previous = remaining;
+        number.textContent = String(remaining).padStart(2, '0');
+        number.classList.remove('tick');
+        void number.offsetWidth;
+        number.classList.add('tick');
+        progress.style.width = `${(COUNTDOWN_SECONDS - remaining) / COUNTDOWN_SECONDS * 100}%`;
+        launch.classList.toggle('is-final', remaining <= 3);
+        status.textContent = remaining ? `Opening the website in ${remaining} seconds.` : 'Launching the website now.';
+        if (remaining === 0) {
+          clearInterval(timer);
+          // Briefly show zero before opening the homepage.
+          setTimeout(() => window.location.assign('/'), 400);
         }
       }
-      status.textContent = `The website reveal begins in ${COUNTDOWN_SECONDS} seconds.`;
       update();
-      timer = setInterval(update, 150);
+      timer = setInterval(update, 100);
     }
-    document.getElementById('skip').addEventListener('click', showLaunch);
-    document.getElementById('replay').addEventListener('click', () => { start(); document.getElementById('skip').focus({ preventScroll: true }); });
+    document.getElementById('start-launch').addEventListener('click', start);
     const sparks = document.getElementById('sparks');
     if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
       for (let i = 0; i < 24; i++) {
@@ -1043,7 +1044,7 @@
         sparks.append(spark);
       }
     }
-    start();
+    celebrate();
   </script>
 </body>
 
