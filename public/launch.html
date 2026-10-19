@@ -930,8 +930,123 @@
         width: min(65vw, 75vh)
       }
     }
+
+    /* Countdown mascot gently zooms without changing layout dimensions. */
+    .launch-host img.is-counting {
+      animation: gio-countdown-zoom 3 ease-in-out infinite;
+      transform-origin: center;
+    }
+
+    @keyframes gio-countdown-zoom {
+
+      0%,
+      100% {
+        transform: scale(.92);
+      }
+
+      50% {
+        transform: scale(1.08);
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .launch-host img.is-counting {
+        animation: none;
+      }
+    }
+
+    #launch-pulse-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 100;
+      background: #000;
+      opacity: 0;
+      pointer-events: none;
+      transition: none;
+    }
+
+    #launch-pulse-overlay.is-active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      #launch-pulse-overlay {
+        transition: none;
+      }
+    }
+
+    /* A theme-blue pulse crosses the full-width black transition screen. */
+    .launch-lightning {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      width: 100%;
+      height: clamp(100px, 24vh, 240px);
+      transform: translateY(-50%);
+      opacity: 0;
+      overflow: visible;
+    }
+
+    .launch-lightning path {
+      fill: none;
+      stroke-linejoin: round;
+      stroke-linecap: round;
+      stroke-dasharray: 100;
+      stroke-dashoffset: 100;
+      vector-effect: non-scaling-stroke;
+    }
+
+    .lightning-glow {
+      stroke: #245cff;
+      stroke-width: 12;
+      opacity: .85;
+      filter: blur(6px);
+    }
+
+    .lightning-core {
+      stroke: #4b82ff;
+      stroke-width: 5;
+    }
+
+    #launch-pulse-overlay.is-active .launch-lightning {
+      animation: lightning-splash 1s ease-out both;
+    }
+
+    #launch-pulse-overlay.is-active .launch-lightning path {
+      animation: lightning-travel 1s ease-out both;
+    }
+
+    @keyframes lightning-travel {
+      0% {
+        stroke-dashoffset: 100;
+      }
+
+      90%,
+      100% {
+        stroke-dashoffset: 0;
+      }
+    }
+
+    @keyframes lightning-splash {
+      0% {
+        opacity: 0;
+      }
+
+      10%,
+      100% {
+        opacity: 1;
+      }
+
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .launch-lightning {
+        display: none;
+      }
+    }
   </style>
-<link rel="preload" as="image" href="/mascot/gio-launch-countdown.png">
+  <link rel="preload" as="image" href="/mascot/gio-launch-countdown.png">
 </head>
 
 <body>
@@ -963,7 +1078,8 @@
           <h1>A new chapter.<span>A world of possibilities.</span></h1>
           <p class="copy">Welcome to the new G-TEC Mahe website.<br>Discover your passion. Build your skills. Create
             your future.</p>
-          <div class="actions"><button class="enter" id="start-launch" type="button">Launch website <span aria-hidden="true">&nearr;</span></button></div>
+          <div class="actions"><button class="enter" id="start-launch" type="button">Launch website <span
+                aria-hidden="true">&nearr;</span></button></div>
         </section>
         <p class="sr-only" role="status" id="status">Select Launch website to begin the countdown.</p>
       </div>
@@ -995,7 +1111,7 @@
         piece.style.setProperty('--c', ['#4b82ff', '#75eaff', '#f5c76a', '#ffffff'][i % 4]);
         piece.style.setProperty('--t', `${4 + Math.random() * 3}s`);
         piece.style.setProperty('--delay', `${Math.random() * 1.5}s`);
-        piece.addEventListener('animationend', () => piece.remove(), {once: true});
+        piece.addEventListener('animationend', () => piece.remove(), { once: true });
         confetti.append(piece);
       }
     }
@@ -1007,9 +1123,10 @@
       countdown.hidden = false;
       const mascot = document.querySelector('.launch-host img');
       mascot.src = '/mascot/gio-launch-countdown.png';
+      mascot.classList.add('is-counting');
       mascot.alt = 'Gio celebrating the G-TEC Mahe website launch';
       document.querySelector('.launch-host figcaption').textContent = 'Gio is counting down with you';
-      countdown.focus({preventScroll: true});
+      countdown.focus({ preventScroll: true });
       confetti.replaceChildren();
       const deadline = Date.now() + COUNTDOWN_SECONDS * 1000;
       let previous;
@@ -1026,8 +1143,9 @@
         status.textContent = remaining ? `Opening the website in ${remaining} seconds.` : 'Launching the website now.';
         if (remaining === 0) {
           clearInterval(timer);
-          // Briefly show zero before opening the homepage.
-          setTimeout(() => window.location.assign('/'), 400);
+          // Show the full-width blue pulse on black before opening the homepage.
+          document.getElementById('launch-pulse-overlay').classList.add('is-active');
+          setTimeout(() => window.location.assign('/'), 1000);
         }
       }
       update();
@@ -1046,6 +1164,14 @@
     }
     celebrate();
   </script>
+  <div id="launch-pulse-overlay" aria-hidden="true">
+    <svg class="launch-lightning" viewBox="0 0 1200 240" preserveAspectRatio="none">
+      <path class="lightning-glow" pathLength="100"
+        d="M0 120 H330 L365 110 L390 133 L425 120 H475 L500 90 L525 175 L560 25 L600 215 L635 85 L665 120 H760 L790 106 L825 130 L850 120 H1200" />
+      <path class="lightning-core" pathLength="100"
+        d="M0 120 H330 L365 110 L390 133 L425 120 H475 L500 90 L525 175 L560 25 L600 215 L635 85 L665 120 H760 L790 106 L825 130 L850 120 H1200" />
+    </svg>
+  </div>
 </body>
 
 </html>
