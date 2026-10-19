@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef, useContext } from "react";
+import React, { useState, useEffect, useLayoutEffect, useRef, useContext } from "react";
 import { createRoot } from "react-dom/client";
 import { version as appVersion } from "../package.json";
 import { seoPath, courseHref } from "./seo-paths";
@@ -105,11 +105,11 @@ function Logo() {
 function Header() {
   const [menu, setMenu] = useState(false);
   const [coursesOpen, setCoursesOpen] = useState(false);
-  const { pathname } = useLocation();
+  const { pathname, key: navigationKey } = useLocation();
   useEffect(() => {
     setMenu(false);
     setCoursesOpen(false);
-  }, [pathname]);
+  }, [pathname, navigationKey]);
   useEffect(() => {
     if (!coursesOpen) return;
     const close = (e) => {
@@ -1831,7 +1831,10 @@ function NotFound() {
   );
 }
 function RouteEffects() {
-  const { pathname: rawPathname, hash } = useLocation();
+  const { pathname: rawPathname, hash, key: navigationKey } = useLocation();
+  useLayoutEffect(() => {
+    if (!hash) window.scrollTo({ top: 0, left: 0, behavior: "instant" });
+  }, [rawPathname, hash, navigationKey]);
   const pathname =
     rawPathname.length > 1 && rawPathname.endsWith("/")
       ? rawPathname.slice(0, -1)
@@ -1922,7 +1925,7 @@ function RouteEffects() {
           }),
         100,
       );
-    } else window.scrollTo(0, 0);
+    }
   }, [pathname, hash]);
   return null;
 }
