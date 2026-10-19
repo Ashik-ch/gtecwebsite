@@ -1,0 +1,8 @@
+[build]
+  command = "npx playwright install --with-deps chromium && npm run build"
+  publish = "dist"
+
+[build.environment]
+  NODE_VERSION = "22"
+
+# Routing rules are maintained in public/_redirects and copied by Vite.
